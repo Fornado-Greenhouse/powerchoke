@@ -10,9 +10,10 @@ interface MatrixViewProps {
   components: ComponentRow[];
   companies: ScoredCompany[];
   onSelectComponent: (component: ComponentRow) => void;
+  onSelectCompany?: (company: ScoredCompany) => void;
 }
 
-export function MatrixView({ components, companies, onSelectComponent }: MatrixViewProps) {
+export function MatrixView({ components, companies, onSelectComponent, onSelectCompany }: MatrixViewProps) {
   // Group components by category for row grouping
   const groupedComponents = useMemo(() => {
     const groups: Record<string, ComponentRow[]> = {};
@@ -38,19 +39,19 @@ export function MatrixView({ components, companies, onSelectComponent }: MatrixV
               {components.map((comp) => (
                 <th
                   key={comp.id}
-                  className="p-2 w-20 text-center border-r border-slate-800/50 bg-slate-950/50"
+                  className="p-2 w-14 text-center border-r border-slate-800/50 bg-slate-950/50"
                 >
                   <button
                     onClick={() => onSelectComponent(comp)}
                     className="flex flex-col items-center gap-1 group w-full"
                   >
                     <span className="text-[9px] font-mono text-slate-500">#{comp.row_number}</span>
-                    <div className="w-full h-16 flex items-center justify-center">
+                    <div className="w-full h-12 flex items-center justify-center">
                       <span
                         className="text-[10px] text-slate-400 group-hover:text-blue-400 transition-colors transform -rotate-45 origin-center whitespace-nowrap"
                         title={comp.name}
                       >
-                        {comp.name}
+                        {comp.name.length > 16 ? comp.name.slice(0, 16) + '…' : comp.name}
                       </span>
                     </div>
                     <SeverityBadge severity={comp.bottleneck_severity} />
@@ -67,14 +68,17 @@ export function MatrixView({ components, companies, onSelectComponent }: MatrixV
               >
                 {/* Company Name */}
                 <td className="p-0 sticky left-0 z-10 border-r border-slate-800 bg-slate-900 group-hover:bg-slate-800">
-                  <div className="p-3 flex items-center gap-3">
+                  <button
+                    onClick={() => onSelectCompany?.(company)}
+                    className="w-full p-3 flex items-center gap-3 text-left hover:bg-slate-700/50 transition-colors cursor-pointer"
+                  >
                     <div className="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-xs font-bold text-slate-500">
                       {idx + 1}
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2">
                         <TypeIcon type={company.type} size="sm" />
-                        <span className="font-medium text-slate-200 text-sm truncate">
+                        <span className="font-medium text-slate-200 text-sm truncate group-hover:text-blue-400 transition-colors">
                           {company.name}
                         </span>
                       </div>
@@ -82,7 +86,7 @@ export function MatrixView({ components, companies, onSelectComponent }: MatrixV
                         {company.ticker} • {company.region}
                       </div>
                     </div>
-                  </div>
+                  </button>
                 </td>
 
                 {/* TBI Score */}
@@ -109,8 +113,8 @@ export function MatrixView({ components, companies, onSelectComponent }: MatrixV
       <div className="bg-slate-950 p-4 border-t border-slate-800 flex justify-center text-xs text-slate-500 gap-2">
         <Info className="w-4 h-4" />
         <p>
-          Click any column header to view <strong className="text-slate-300">Bottleneck Anatomy</strong> and sub-components.
-          Exposure scale: 1 (low) to 5 (core business).
+          Click company names for details. Click column headers for <strong className="text-slate-300">Bottleneck Anatomy</strong>.
+          Exposure: 1 (low) to 5 (core business).
         </p>
       </div>
     </div>

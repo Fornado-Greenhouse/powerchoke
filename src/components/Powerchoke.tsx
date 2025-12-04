@@ -8,6 +8,10 @@ import {
   Microscope,
   Globe,
   Filter,
+  MapPin,
+  TrendingUp,
+  Package,
+  BarChart3,
 } from 'lucide-react';
 
 import {
@@ -16,7 +20,9 @@ import {
   DEFAULT_SCENARIO,
   type ComponentRow,
   type UniverseType,
+  type ScoredCompany,
 } from '@/data';
+import { TypeBadge } from './ui/TypeBadge';
 import { scoreAndRankCompanies } from '@/lib/scoring';
 
 import { StatsWidgets } from './StatsWidgets';
@@ -186,6 +192,217 @@ function ComponentModal({
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
+// COMPANY DETAIL MODAL
+// ─────────────────────────────────────────────────────────────────────────────
+
+function ScoreBar({ value, max = 5, label }: { value: number; max?: number; label: string }) {
+  return (
+    <div className="bg-slate-800 p-4 rounded-xl border border-slate-700">
+      <div className="text-slate-400 text-xs mb-2">{label}</div>
+      <div className="flex items-center gap-2">
+        <div className="flex gap-1">
+          {Array.from({ length: max }).map((_, i) => (
+            <div
+              key={i}
+              className={`w-2 h-4 rounded-sm ${
+                i < value ? 'bg-blue-500' : 'bg-slate-700'
+              }`}
+            />
+          ))}
+        </div>
+        <span className="text-white font-bold">{value}/{max}</span>
+      </div>
+    </div>
+  );
+}
+
+function CompanyModal({
+  company,
+  components,
+  onClose,
+  onSelectComponent,
+}: {
+  company: ScoredCompany;
+  components: ComponentRow[];
+  onClose: () => void;
+  onSelectComponent: (component: ComponentRow) => void;
+}) {
+  // Get components this company has exposure to, sorted by exposure level
+  const exposedComponents = useMemo(() => {
+    return components
+      .filter(c => (company.exposure[c.id] || 0) > 0)
+      .sort((a, b) => (company.exposure[b.id] || 0) - (company.exposure[a.id] || 0));
+  }, [company, components]);
+
+  // Group exposed components by category
+  const groupedExposures = useMemo(() => {
+    const groups: Record<string, { component: ComponentRow; exposure: number }[]> = {};
+    exposedComponents.forEach(comp => {
+      if (!groups[comp.category]) groups[comp.category] = [];
+      groups[comp.category].push({
+        component: comp,
+        exposure: company.exposure[comp.id] || 0,
+      });
+    });
+    return groups;
+  }, [exposedComponents, company]);
+
+  return (
+    <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+      <div className="bg-slate-900 w-full max-w-4xl rounded-2xl border border-slate-700 shadow-2xl flex flex-col max-h-[90vh] animate-in fade-in zoom-in-95 duration-200">
+        {/* HEADER */}
+        <div className="p-6 border-b border-slate-700 flex justify-between items-start bg-slate-800/50 rounded-t-2xl">
+          <div>
+            <div className="flex items-center gap-3 mb-2">
+              <span className="font-mono text-lg font-bold text-blue-400">{company.ticker}</span>
+              <TypeBadge type={company.type} />
+              <div className="flex items-center gap-1 text-xs text-slate-400">
+                {company.region === 'Global' ? (
+                  <Globe className="w-3 h-3" />
+                ) : (
+                  <MapPin className="w-3 h-3" />
+                )}
+                {company.region}
+              </div>
+              <span className={`text-xs px-2 py-0.5 rounded border ${
+                company.universe === 'INVESTABLE'
+                  ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30'
+                  : 'bg-slate-700 text-slate-300 border-slate-600'
+              }`}>
+                {company.universe === 'INVESTABLE' ? 'Investable' : 'Global Only'}
+              </span>
+            </div>
+            <h2 className="text-2xl font-bold text-white">{company.name}</h2>
+          </div>
+          <button
+            onClick={onClose}
+            className="p-2 hover:bg-slate-700 rounded-full transition-colors"
+          >
+            <X className="w-6 h-6 text-slate-400" />
+          </button>
+        </div>
+
+        {/* BODY */}
+        <div className="p-8 overflow-y-auto">
+          {/* SCORES SECTION */}
+          <div className="mb-8">
+            <h3 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-4 flex items-center gap-2">
+              <BarChart3 className="w-4 h-4" /> Scores
+            </h3>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              {/* TBI - Main Score */}
+              <div className="bg-gradient-to-br from-blue-600/20 to-blue-800/20 p-5 rounded-xl border border-blue-500/30 col-span-2 md:col-span-1">
+                <div className="text-blue-300 text-xs mb-1 flex items-center gap-1">
+                  <TrendingUp className="w-3 h-3" /> Total Bottleneck Index
+                </div>
+                <div className="text-4xl font-bold text-white">{company.scores.TBI.toFixed(2)}</div>
+              </div>
+
+              {/* BES */}
+              <div className="bg-slate-800 p-4 rounded-xl border border-slate-700">
+                <div className="text-slate-400 text-xs mb-1">BES Score</div>
+                <div className="text-2xl font-bold text-white">{company.scores.BES.toFixed(2)}</div>
+              </div>
+
+              {/* Weighted TBI */}
+              <div className="bg-slate-800 p-4 rounded-xl border border-slate-700">
+                <div className="text-slate-400 text-xs mb-1">Weighted TBI</div>
+                <div className="text-2xl font-bold text-white">{company.scores.WeightedTBI.toFixed(2)}</div>
+              </div>
+
+              {/* Purity Score */}
+              <div className="bg-slate-800 p-4 rounded-xl border border-slate-700">
+                <div className="text-slate-400 text-xs mb-2">Purity Score</div>
+                <div className="flex items-center gap-3">
+                  <div className="flex-1 h-2 bg-slate-700 rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-gradient-to-r from-blue-600 to-blue-400 rounded-full"
+                      style={{ width: `${company.purity_score * 100}%` }}
+                    />
+                  </div>
+                  <span className="text-white font-bold">{(company.purity_score * 100).toFixed(0)}%</span>
+                </div>
+              </div>
+
+              {/* Pricing Power */}
+              <ScoreBar value={company.pricing_power} label="Pricing Power" />
+
+              {/* Backlog Strength */}
+              <ScoreBar value={company.backlog_strength} label="Backlog Strength" />
+            </div>
+          </div>
+
+          {/* EXPOSURE BREAKDOWN */}
+          <div>
+            <h3 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-4 flex items-center gap-2">
+              <Package className="w-4 h-4" /> Component Exposure ({exposedComponents.length} components)
+            </h3>
+
+            {Object.keys(groupedExposures).length > 0 ? (
+              <div className="space-y-6">
+                {Object.entries(groupedExposures).map(([category, items]) => (
+                  <div key={category}>
+                    <div className="text-xs font-medium text-slate-500 mb-2 uppercase tracking-wide">
+                      {category}
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                      {items.map(({ component, exposure }) => (
+                        <button
+                          key={component.id}
+                          onClick={() => {
+                            onClose();
+                            onSelectComponent(component);
+                          }}
+                          className="bg-slate-800 p-3 rounded-lg border border-slate-700 hover:border-blue-500/50 transition-colors text-left group flex items-center justify-between"
+                        >
+                          <div className="flex items-center gap-3">
+                            <span className="text-[10px] font-mono text-slate-500">#{component.row_number}</span>
+                            <span className="text-sm text-slate-200 group-hover:text-blue-400 transition-colors">
+                              {component.name}
+                            </span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <div className="flex gap-0.5">
+                              {Array.from({ length: 5 }).map((_, i) => (
+                                <div
+                                  key={i}
+                                  className={`w-1.5 h-3 rounded-sm ${
+                                    i < exposure ? 'bg-blue-500' : 'bg-slate-700'
+                                  }`}
+                                />
+                              ))}
+                            </div>
+                            <span className={`text-xs px-1.5 py-0.5 rounded ${
+                              exposure >= 5
+                                ? 'bg-blue-500/30 text-blue-300'
+                                : exposure >= 4
+                                ? 'bg-blue-500/20 text-blue-400'
+                                : exposure >= 3
+                                ? 'bg-slate-700 text-slate-300'
+                                : 'bg-slate-800 text-slate-500'
+                            }`}>
+                              {exposure}/5
+                            </span>
+                          </div>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="p-6 text-center border border-slate-800 border-dashed rounded-xl text-slate-500 text-sm">
+                No component exposures defined for this company.
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
 // MAIN DASHBOARD
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -193,6 +410,7 @@ export default function Powerchoke() {
   const [activeTab, setActiveTab] = useState<TabType>('matrix');
   const [universe, setUniverse] = useState<UniverseType>('INVESTABLE');
   const [selectedComponent, setSelectedComponent] = useState<ComponentRow | null>(null);
+  const [selectedCompany, setSelectedCompany] = useState<ScoredCompany | null>(null);
 
   // Data
   const components = seedComponents;
@@ -220,6 +438,16 @@ export default function Powerchoke() {
           component={selectedComponent}
           companies={filteredCompanies}
           onClose={() => setSelectedComponent(null)}
+        />
+      )}
+
+      {/* COMPANY MODAL */}
+      {selectedCompany && (
+        <CompanyModal
+          company={selectedCompany}
+          components={components}
+          onClose={() => setSelectedCompany(null)}
+          onSelectComponent={setSelectedComponent}
         />
       )}
 
@@ -292,12 +520,14 @@ export default function Powerchoke() {
             components={components}
             companies={filteredCompanies}
             onSelectComponent={setSelectedComponent}
+            onSelectCompany={setSelectedCompany}
           />
         )}
         {activeTab === 'companies' && (
           <CompaniesView
             companies={filteredCompanies}
             components={components}
+            onSelectCompany={setSelectedCompany}
           />
         )}
         {activeTab === 'components' && (
@@ -310,6 +540,7 @@ export default function Powerchoke() {
         {activeTab === 'scoring' && (
           <ScoringView
             companies={filteredCompanies}
+            onSelectCompany={setSelectedCompany}
           />
         )}
       </main>
