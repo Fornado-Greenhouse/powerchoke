@@ -9,6 +9,13 @@ import { ExposureDots } from '@/components/ui/ExposureCell';
 type SortField = 'name' | 'ticker' | 'tbi' | 'purity' | 'region' | 'type';
 type SortDir = 'asc' | 'desc';
 
+function SortIcon({ field, sortField, sortDir }: { field: SortField; sortField: SortField; sortDir: SortDir }) {
+  if (sortField !== field) return <ArrowUpDown className="w-3 h-3 text-slate-600" />;
+  return sortDir === 'desc'
+    ? <ArrowDown className="w-3 h-3 text-blue-400" />
+    : <ArrowUp className="w-3 h-3 text-blue-400" />;
+}
+
 interface CompaniesViewProps {
   companies: ScoredCompany[];
   components: ComponentRow[];
@@ -52,13 +59,6 @@ export function CompaniesView({ companies, components, onSelectCompany }: Compan
       setSortField(field);
       setSortDir('desc');
     }
-  };
-
-  const SortIcon = ({ field }: { field: SortField }) => {
-    if (sortField !== field) return <ArrowUpDown className="w-3 h-3 text-slate-600" />;
-    return sortDir === 'desc'
-      ? <ArrowDown className="w-3 h-3 text-blue-400" />
-      : <ArrowUp className="w-3 h-3 text-blue-400" />;
   };
 
   const regions = Array.from(new Set(companies.map(c => c.region)));
@@ -111,32 +111,32 @@ export function CompaniesView({ companies, components, onSelectCompany }: Compan
             <tr className="bg-slate-950 text-left text-xs text-slate-400 uppercase tracking-wider">
               <th className="p-4">
                 <button onClick={() => handleSort('name')} className="flex items-center gap-1 hover:text-white">
-                  Company <SortIcon field="name" />
+                  Company <SortIcon field="name" sortField={sortField} sortDir={sortDir} />
                 </button>
               </th>
               <th className="p-4">
                 <button onClick={() => handleSort('ticker')} className="flex items-center gap-1 hover:text-white">
-                  Ticker <SortIcon field="ticker" />
+                  Ticker <SortIcon field="ticker" sortField={sortField} sortDir={sortDir} />
                 </button>
               </th>
               <th className="p-4">
                 <button onClick={() => handleSort('type')} className="flex items-center gap-1 hover:text-white">
-                  Type <SortIcon field="type" />
+                  Type <SortIcon field="type" sortField={sortField} sortDir={sortDir} />
                 </button>
               </th>
               <th className="p-4">
                 <button onClick={() => handleSort('region')} className="flex items-center gap-1 hover:text-white">
-                  Region <SortIcon field="region" />
+                  Region <SortIcon field="region" sortField={sortField} sortDir={sortDir} />
                 </button>
               </th>
               <th className="p-4">
                 <button onClick={() => handleSort('tbi')} className="flex items-center gap-1 hover:text-white">
-                  TBI Score <SortIcon field="tbi" />
+                  TBI Score <SortIcon field="tbi" sortField={sortField} sortDir={sortDir} />
                 </button>
               </th>
               <th className="p-4">
                 <button onClick={() => handleSort('purity')} className="flex items-center gap-1 hover:text-white">
-                  Purity <SortIcon field="purity" />
+                  Purity <SortIcon field="purity" sortField={sortField} sortDir={sortDir} />
                 </button>
               </th>
               <th className="p-4">Exposure</th>
