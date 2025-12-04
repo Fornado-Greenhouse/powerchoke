@@ -38,19 +38,19 @@ export function MatrixView({ components, companies, onSelectComponent }: MatrixV
               {components.map((comp) => (
                 <th
                   key={comp.id}
-                  className="p-2 w-14 text-center border-r border-slate-800/50 bg-slate-950/50"
+                  className="p-2 w-20 text-center border-r border-slate-800/50 bg-slate-950/50"
                 >
                   <button
                     onClick={() => onSelectComponent(comp)}
                     className="flex flex-col items-center gap-1 group w-full"
                   >
                     <span className="text-[9px] font-mono text-slate-500">#{comp.row_number}</span>
-                    <div className="w-full h-8 flex items-center justify-center">
+                    <div className="w-full h-16 flex items-center justify-center">
                       <span
-                        className="text-[10px] text-slate-400 group-hover:text-blue-400 transition-colors writing-mode-vertical transform -rotate-45 origin-center whitespace-nowrap max-w-[60px] truncate"
+                        className="text-[10px] text-slate-400 group-hover:text-blue-400 transition-colors transform -rotate-45 origin-center whitespace-nowrap"
                         title={comp.name}
                       >
-                        {comp.name.length > 12 ? comp.name.slice(0, 12) + '…' : comp.name}
+                        {comp.name}
                       </span>
                     </div>
                     <SeverityBadge severity={comp.bottleneck_severity} />

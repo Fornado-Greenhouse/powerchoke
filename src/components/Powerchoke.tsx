@@ -226,11 +226,14 @@ export default function Powerchoke() {
       {/* HEADER */}
       <header className="bg-slate-900 border-b border-slate-800 sticky top-0 z-30">
         <div className="max-w-[1600px] mx-auto px-4 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-3">
+          <button
+            onClick={() => setActiveTab('matrix')}
+            className="flex items-center gap-3 hover:opacity-80 transition-opacity cursor-pointer"
+          >
             <div className="bg-blue-600 p-2 rounded-lg shadow-lg shadow-blue-900/50">
               <Zap className="w-5 h-5 text-white" />
             </div>
-            <div>
+            <div className="text-left">
               <h1 className="text-xl font-bold tracking-tight text-white flex items-center gap-2">
                 powerchoke
                 <span className="text-xs bg-amber-500/20 text-amber-300 px-1.5 py-0.5 rounded border border-amber-500/30">
@@ -239,7 +242,7 @@ export default function Powerchoke() {
               </h1>
               <p className="text-xs text-slate-400">Grid Infrastructure Bottleneck Analysis</p>
             </div>
-          </div>
+          </button>
 
           {/* Universe Filter */}
           <div className="flex items-center gap-3">
