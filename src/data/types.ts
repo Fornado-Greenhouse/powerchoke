@@ -45,7 +45,21 @@ export interface ComponentRow {
   risks: string;
   tier_type: TierType;
   sub_components?: SubComponent[];
+
+  // Market dynamics
+  lead_time_months?: number;      // Typical manufacturing lead time
+  capacity_utilization?: number;  // Industry capacity utilization % (0-100)
+  yoy_demand_growth?: number;     // Year-over-year demand growth %
+
+  // Data provenance
+  data_updated?: string;          // ISO date of last update
+  data_sources?: string[];        // List of sources used
 }
+
+/**
+ * Data confidence level for provenance tracking.
+ */
+export type DataConfidence = 'high' | 'medium' | 'low';
 
 /**
  * A company that participates in the grid infrastructure supply chain.
@@ -61,6 +75,24 @@ export interface Company {
   exposure: Record<string, number>; // componentId -> exposure strength (1-5)
   backlog_strength: number;       // 1-5
   pricing_power: number;          // 1-5
+
+  // Market data
+  market_cap_usd?: number;        // Latest market cap in USD (billions)
+  revenue_ttm_usd?: number;       // Trailing 12-month revenue in USD (billions)
+  grid_revenue_pct?: number;      // % of revenue from grid infrastructure (0-100)
+
+  // Company info
+  description?: string;           // 1-2 sentence company description
+  headquarters?: string;          // City, Country
+
+  // Investment characteristics
+  is_public: boolean;             // Publicly traded?
+  primary_exchange?: string;      // NYSE, TSE, XETRA, etc.
+
+  // Data provenance
+  data_updated?: string;          // ISO date of last update (YYYY-MM-DD)
+  data_sources?: string[];        // List of sources used
+  data_confidence?: DataConfidence;
 }
 
 /**

@@ -12,6 +12,12 @@ import {
   TrendingUp,
   Package,
   BarChart3,
+  Building2,
+  DollarSign,
+  Calendar,
+  CheckCircle,
+  AlertCircle,
+  HelpCircle,
 } from 'lucide-react';
 
 import {
@@ -252,8 +258,8 @@ function CompanyModal({
       <div className="bg-slate-900 w-full max-w-4xl rounded-2xl border border-slate-700 shadow-2xl flex flex-col max-h-[90vh] animate-in fade-in zoom-in-95 duration-200">
         {/* HEADER */}
         <div className="p-6 border-b border-slate-700 flex justify-between items-start bg-slate-800/50 rounded-t-2xl">
-          <div>
-            <div className="flex items-center gap-3 mb-2">
+          <div className="flex-1 pr-4">
+            <div className="flex items-center gap-3 mb-2 flex-wrap">
               <span className="font-mono text-lg font-bold text-blue-400">{company.ticker}</span>
               <TypeBadge type={company.type} />
               <div className="flex items-center gap-1 text-xs text-slate-400">
@@ -271,8 +277,16 @@ function CompanyModal({
               }`}>
                 {company.universe === 'INVESTABLE' ? 'Investable' : 'Global Only'}
               </span>
+              {!company.is_public && (
+                <span className="text-xs px-2 py-0.5 rounded border bg-amber-500/20 text-amber-300 border-amber-500/30">
+                  Private
+                </span>
+              )}
             </div>
             <h2 className="text-2xl font-bold text-white">{company.name}</h2>
+            {company.description && (
+              <p className="text-slate-400 text-sm mt-2 max-w-2xl">{company.description}</p>
+            )}
           </div>
           <button
             onClick={onClose}
@@ -331,6 +345,85 @@ function CompanyModal({
               <ScoreBar value={company.backlog_strength} label="Backlog Strength" />
             </div>
           </div>
+
+          {/* COMPANY INFO SECTION */}
+          {(company.market_cap_usd || company.headquarters || company.primary_exchange) && (
+            <div className="mb-8">
+              <h3 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-4 flex items-center gap-2">
+                <Building2 className="w-4 h-4" /> Company Info
+              </h3>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {company.market_cap_usd !== undefined && (
+                  <div className="bg-slate-800 p-4 rounded-xl border border-slate-700">
+                    <div className="text-slate-400 text-xs mb-1 flex items-center gap-1">
+                      <DollarSign className="w-3 h-3" /> Market Cap
+                    </div>
+                    <div className="text-white font-bold">${company.market_cap_usd.toFixed(1)}B</div>
+                  </div>
+                )}
+                {company.revenue_ttm_usd !== undefined && (
+                  <div className="bg-slate-800 p-4 rounded-xl border border-slate-700">
+                    <div className="text-slate-400 text-xs mb-1">Revenue (TTM)</div>
+                    <div className="text-white font-bold">${company.revenue_ttm_usd.toFixed(1)}B</div>
+                  </div>
+                )}
+                {company.grid_revenue_pct !== undefined && (
+                  <div className="bg-slate-800 p-4 rounded-xl border border-slate-700">
+                    <div className="text-slate-400 text-xs mb-1">Grid Revenue %</div>
+                    <div className="text-white font-bold">{company.grid_revenue_pct}%</div>
+                  </div>
+                )}
+                {company.headquarters && (
+                  <div className="bg-slate-800 p-4 rounded-xl border border-slate-700">
+                    <div className="text-slate-400 text-xs mb-1 flex items-center gap-1">
+                      <MapPin className="w-3 h-3" /> HQ
+                    </div>
+                    <div className="text-white font-bold text-sm">{company.headquarters}</div>
+                  </div>
+                )}
+                {company.primary_exchange && (
+                  <div className="bg-slate-800 p-4 rounded-xl border border-slate-700">
+                    <div className="text-slate-400 text-xs mb-1">Exchange</div>
+                    <div className="text-white font-bold">{company.primary_exchange}</div>
+                  </div>
+                )}
+              </div>
+
+              {/* Data Provenance */}
+              {(company.data_updated || company.data_confidence) && (
+                <div className="mt-4 flex items-center gap-4 text-xs text-slate-500">
+                  {company.data_updated && (
+                    <div className="flex items-center gap-1">
+                      <Calendar className="w-3 h-3" />
+                      Updated: {company.data_updated}
+                    </div>
+                  )}
+                  {company.data_confidence && (
+                    <div className="flex items-center gap-1">
+                      {company.data_confidence === 'high' ? (
+                        <CheckCircle className="w-3 h-3 text-emerald-500" />
+                      ) : company.data_confidence === 'medium' ? (
+                        <AlertCircle className="w-3 h-3 text-amber-500" />
+                      ) : (
+                        <HelpCircle className="w-3 h-3 text-slate-500" />
+                      )}
+                      <span className={
+                        company.data_confidence === 'high' ? 'text-emerald-400' :
+                        company.data_confidence === 'medium' ? 'text-amber-400' : 'text-slate-400'
+                      }>
+                        {company.data_confidence.charAt(0).toUpperCase() + company.data_confidence.slice(1)} confidence
+                      </span>
+                    </div>
+                  )}
+                  {company.data_sources && company.data_sources.length > 0 && (
+                    <div className="flex items-center gap-1 text-slate-600">
+                      Sources: {company.data_sources.join(', ')}
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+          )}
 
           {/* EXPOSURE BREAKDOWN */}
           <div>
