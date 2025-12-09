@@ -433,4 +433,511 @@ export const tier3Materials: Company[] = [
     data_sources: ['Toray Annual Report FY2024', 'Industry estimates', 'FMP API'],
     data_confidence: 'low'
   },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // Insulation & Transformer Fluids
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: 'co_huntsman',
+    name: 'Huntsman Corporation',
+    ticker: 'HUN',
+    region: 'NA',
+    type: 'TIER_3_MATERIAL',
+    universe: 'INVESTABLE',
+    purity_score: 0.25,
+    backlog_strength: 3,
+    pricing_power: 4,
+    exposure: { 'c13': 5, 'c1': 4, 'c2': 4, 'c19': 3 },
+    exposure_rationale: {
+      'c13': {
+        rationale: 'Dominant position in bushing epoxy resins via Araldite brand. ~25-30% market share in HV bushing epoxy systems used by Trench, ABB, Siemens for RIP (Resin Impregnated Paper) bushings.',
+        metric: '~25-30% global market share in bushing epoxy',
+        source: 'Industry reports, company materials'
+      },
+      'c1': {
+        rationale: 'Epoxy resins for transformer winding insulation and casting compounds. Araldite systems used in dry-type transformers and HV equipment potting.',
+        metric: '~20% market share in transformer insulation epoxy',
+        source: 'Industry analysis'
+      },
+      'c2': {
+        rationale: 'Strong position in MV transformer casting resins for dry-type distribution transformers. Growing demand due to fire safety requirements.',
+        metric: '~20-25% market share in MV casting resins',
+        source: 'Company materials'
+      },
+      'c19': {
+        rationale: 'Epoxy resins for cable joint and termination insulation. Moderate position in accessory materials.',
+        metric: '~15% market share in cable joint compounds',
+        source: 'Industry reports'
+      }
+    },
+    is_public: true,
+    market_cap_usd: 3.2,
+    revenue_ttm_usd: 6.1,
+    grid_revenue_pct: 25,
+    description: 'Specialty chemicals company with dominant position in bushing epoxy resins via Araldite brand. Critical supplier for transformer and bushing insulation systems.',
+    headquarters: 'The Woodlands, TX, USA',
+    primary_exchange: 'NYSE',
+    data_updated: '2025-12-09',
+    data_sources: ['Industry reports', 'Company materials'],
+    data_confidence: 'medium'
+  },
+  {
+    id: 'co_elantas',
+    name: 'Elantas (ALTANA AG)',
+    ticker: 'Private',
+    region: 'EU',
+    type: 'TIER_3_MATERIAL',
+    universe: 'GLOBAL',
+    purity_score: 0.95,
+    backlog_strength: 4,
+    pricing_power: 5,
+    exposure: { 'c1': 5, 'c2': 5, 'c11': 4 },
+    exposure_rationale: {
+      'c1': {
+        rationale: 'Global leader in transformer insulation resins with ~40% market share. Beckers Elantas brand is industry standard for varnishes, enamels, and impregnating resins used by all major LPT manufacturers.',
+        metric: '~40% global market share in transformer insulation resins',
+        source: 'Industry reports, ALTANA annual report'
+      },
+      'c2': {
+        rationale: 'Market leader in wire enamels and varnishes for MV transformers with ~35% market share. Essential coating materials for transformer windings.',
+        metric: '~35% global market share in wire enamels',
+        source: 'Industry analysis'
+      },
+      'c11': {
+        rationale: 'Supplies core plate insulation coatings for GOES steel used in transformer cores. Specialized coating formulations for low-loss performance.',
+        metric: '~25% market share in GOES coatings',
+        source: 'Industry reports'
+      }
+    },
+    is_public: false,
+    grid_revenue_pct: 95,
+    description: 'Division of ALTANA AG with near-monopoly (~40% global) in transformer insulation resins and varnishes. Beckers Elantas brand is industry standard for LPT insulation.',
+    headquarters: 'Wesel, Germany',
+    data_updated: '2025-12-09',
+    data_sources: ['ALTANA Annual Report', 'Industry reports'],
+    data_confidence: 'medium'
+  },
+  {
+    id: 'co_vonroll',
+    name: 'Von Roll',
+    ticker: 'Private',
+    region: 'EU',
+    type: 'TIER_3_MATERIAL',
+    universe: 'GLOBAL',
+    purity_score: 0.85,
+    backlog_strength: 3,
+    pricing_power: 4,
+    exposure: { 'c1': 4, 'c2': 4, 'c13': 3 },
+    exposure_rationale: {
+      'c1': {
+        rationale: 'Swiss specialist in composite insulation systems with 10-15% European market share. VPI (vacuum pressure impregnation) systems and laminated insulation materials for HV transformers.',
+        metric: '~10-15% European market share in transformer insulation',
+        source: 'Industry reports'
+      },
+      'c2': {
+        rationale: 'Strong position in laminated insulation materials for MV transformers and rotating machines. Competes with Elantas in European market.',
+        metric: '~12% European market share in MV insulation',
+        source: 'Industry analysis'
+      },
+      'c13': {
+        rationale: 'HV insulation components for bushings. Niche position in specialized bushing insulation materials.',
+        metric: '~8% market share in bushing insulation components',
+        source: 'Industry reports'
+      }
+    },
+    is_public: false,
+    grid_revenue_pct: 85,
+    description: 'Swiss specialist in VPI (vacuum pressure impregnation) systems and composite insulation materials for transformers and rotating machines.',
+    headquarters: 'Breitenbach, Switzerland',
+    data_updated: '2025-12-09',
+    data_sources: ['Industry reports', 'Company website'],
+    data_confidence: 'low'
+  },
+  {
+    id: 'co_borealis',
+    name: 'Borealis AG',
+    ticker: 'Private',
+    region: 'EU',
+    type: 'TIER_3_MATERIAL',
+    universe: 'GLOBAL',
+    purity_score: 0.3,
+    backlog_strength: 5,
+    pricing_power: 5,
+    exposure: { 'c19': 5 },
+    exposure_rationale: {
+      'c19': {
+        rationale: 'Leading XLPE compound producer with 30-35% market share (duopoly with Dow). Borlink brand XLPE compounds are critical bottleneck material for HVDC subsea cables used by Prysmian, Nexans, NKT. No substitutes for HV cable insulation.',
+        metric: '~30-35% global market share in XLPE compounds',
+        source: 'Industry reports, cable manufacturer data'
+      }
+    },
+    is_public: false,
+    grid_revenue_pct: 30,
+    description: 'Austrian polyolefin producer with duopoly position in XLPE compounds for HVDC cable insulation. Borlink brand is critical bottleneck for subsea cable manufacturing.',
+    headquarters: 'Vienna, Austria',
+    data_updated: '2025-12-09',
+    data_sources: ['Industry reports', 'Company materials'],
+    data_confidence: 'medium'
+  },
+  {
+    id: 'co_dow',
+    name: 'Dow Inc.',
+    ticker: 'DOW',
+    region: 'NA',
+    type: 'TIER_3_MATERIAL',
+    universe: 'INVESTABLE',
+    purity_score: 0.15,
+    backlog_strength: 4,
+    pricing_power: 5,
+    exposure: { 'c19': 5, 'c13': 3, 'c1': 2 },
+    exposure_rationale: {
+      'c19': {
+        rationale: 'Major XLPE producer with 25-30% market share (duopoly with Borealis). HFDB and DFDA-5370 XLPE grades widely used in subsea HVDC cables. Critical supplier to Prysmian, Nexans, NKT.',
+        metric: '~25-30% global market share in XLPE compounds',
+        source: 'Industry reports, cable manufacturer data'
+      },
+      'c13': {
+        rationale: 'Silicone elastomers for outdoor insulators and bushing weather sheds. Moderate position in high-voltage insulation polymers.',
+        metric: '~15% market share in silicone insulators',
+        source: 'Industry analysis'
+      },
+      'c1': {
+        rationale: 'Silicone-based insulation fluids and gels for transformer applications. Minor position vs traditional mineral oil.',
+        metric: '~5% market share in transformer insulation fluids',
+        source: 'Industry reports'
+      }
+    },
+    is_public: true,
+    market_cap_usd: 34.8,
+    revenue_ttm_usd: 44.6,
+    grid_revenue_pct: 15,
+    description: 'Diversified chemical giant with duopoly position (with Borealis) in XLPE compounds for HVDC cable insulation. Critical supplier to subsea cable manufacturers.',
+    headquarters: 'Midland, MI, USA',
+    primary_exchange: 'NYSE',
+    data_updated: '2025-12-09',
+    data_sources: ['Dow Annual Report', 'Industry reports'],
+    data_confidence: 'high'
+  },
+  {
+    id: 'co_cargill_fluids',
+    name: 'Cargill (Envirotemp FR3)',
+    ticker: 'Private',
+    region: 'NA',
+    type: 'TIER_3_MATERIAL',
+    universe: 'GLOBAL',
+    purity_score: 0.02,
+    backlog_strength: 4,
+    pricing_power: 5,
+    exposure: { 'c1': 4, 'c2': 3 },
+    exposure_rationale: {
+      'c1': {
+        rationale: 'Monopoly position (~60% market share) in natural ester transformer fluids via Envirotemp FR3 brand. Bio-based alternative to mineral oil adopted by major utilities (ConEd, National Grid) for fire safety and environmental benefits.',
+        metric: '~60% global market share in natural ester transformer fluids',
+        source: 'Industry reports, utility procurement data'
+      },
+      'c2': {
+        rationale: 'Growing penetration in distribution transformers as utilities shift to ester-based fluids for fire safety in urban installations.',
+        metric: '~50% natural ester market in MV transformers',
+        source: 'Industry analysis'
+      }
+    },
+    is_public: false,
+    grid_revenue_pct: 2,
+    description: 'Agribusiness giant with monopoly position in natural ester transformer fluids via Envirotemp FR3 brand. Leading bio-based alternative to mineral oil for fire-safe transformers.',
+    headquarters: 'Minneapolis, MN, USA',
+    data_updated: '2025-12-09',
+    data_sources: ['Industry reports', 'Utility procurement data'],
+    data_confidence: 'medium'
+  },
+  {
+    id: 'co_mi_materials',
+    name: 'M&I Materials (MIDEL)',
+    ticker: 'Private',
+    region: 'EU',
+    type: 'TIER_3_MATERIAL',
+    universe: 'GLOBAL',
+    purity_score: 0.95,
+    backlog_strength: 4,
+    pricing_power: 4,
+    exposure: { 'c1': 4, 'c2': 4 },
+    exposure_rationale: {
+      'c1': {
+        rationale: 'MIDEL synthetic ester fluids hold 35-40% of synthetic ester market. Competes with Cargill FR3 in transformer fluid alternatives. Strong position in European market and transformer retrofit applications.',
+        metric: '~35-40% synthetic ester market share',
+        source: 'Industry reports, company materials'
+      },
+      'c2': {
+        rationale: 'Leading European supplier for ester-filled distribution transformers. MIDEL 7131 widely specified for MV applications requiring fire safety.',
+        metric: '~40% European ester transformer fluid market',
+        source: 'Industry analysis'
+      }
+    },
+    is_public: false,
+    grid_revenue_pct: 95,
+    description: 'UK specialist in synthetic ester transformer fluids via MIDEL brand. Competes with Cargill FR3 in alternative transformer fluid market.',
+    headquarters: 'Manchester, UK',
+    data_updated: '2025-12-09',
+    data_sources: ['Industry reports', 'Company materials'],
+    data_confidence: 'medium'
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // Steel & Structural Materials
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: 'co_ssab',
+    name: 'SSAB AB',
+    ticker: 'SSAB-A.ST',
+    region: 'EU',
+    type: 'TIER_3_MATERIAL',
+    universe: 'INVESTABLE',
+    purity_score: 0.4,
+    backlog_strength: 3,
+    pricing_power: 4,
+    exposure: { 'c9': 5, 'c11': 3 },
+    exposure_rationale: {
+      'c9': {
+        rationale: 'Leading supplier of high-strength steel for transmission towers and structures via Strenx and Hardox brands. High-strength steel enables lighter tower designs with reduced material costs.',
+        metric: '~20% European market share in transmission structure steel',
+        source: 'SSAB Annual Report, industry analysis'
+      },
+      'c11': {
+        rationale: 'Minor position in electrical steel via specialty grades. Secondary to core structural steel business.',
+        metric: '~5% electrical steel market share',
+        source: 'Industry reports'
+      }
+    },
+    is_public: true,
+    market_cap_usd: 4.2,
+    revenue_ttm_usd: 8.5,
+    grid_revenue_pct: 40,
+    description: 'Swedish high-strength steel producer with leading position in transmission tower steel via Strenx/Hardox brands. Enables lighter, lower-cost transmission structures.',
+    headquarters: 'Stockholm, Sweden',
+    primary_exchange: 'Nasdaq Stockholm',
+    data_updated: '2025-12-09',
+    data_sources: ['SSAB Annual Report', 'Industry analysis'],
+    data_confidence: 'medium'
+  },
+  {
+    id: 'co_nucor',
+    name: 'Nucor Corporation',
+    ticker: 'NUE',
+    region: 'NA',
+    type: 'TIER_3_MATERIAL',
+    universe: 'INVESTABLE',
+    purity_score: 0.3,
+    backlog_strength: 4,
+    pricing_power: 4,
+    exposure: { 'c9': 5, 'c11': 2 },
+    exposure_rationale: {
+      'c9': {
+        rationale: 'Largest US steel producer with dominant position in structural steel for transmission towers and substation structures. Buy-America requirements drive utility procurement to domestic suppliers.',
+        metric: '~35% US market share in transmission structure steel',
+        source: 'Nucor 10-K, industry analysis'
+      },
+      'c11': {
+        rationale: 'Minor electrical steel production. Primary focus on structural and plate steel for energy infrastructure.',
+        metric: '~3% US electrical steel market',
+        source: 'Industry reports'
+      }
+    },
+    is_public: true,
+    market_cap_usd: 38.5,
+    revenue_ttm_usd: 35.2,
+    grid_revenue_pct: 30,
+    description: 'Largest US steel producer with dominant position in structural steel for transmission infrastructure. Buy-America compliant supplier for utility projects.',
+    headquarters: 'Charlotte, NC, USA',
+    primary_exchange: 'NYSE',
+    data_updated: '2025-12-09',
+    data_sources: ['Nucor 10-K', 'Industry analysis'],
+    data_confidence: 'high'
+  },
+  {
+    id: 'co_hexcel',
+    name: 'Hexcel Corporation',
+    ticker: 'HXL',
+    region: 'NA',
+    type: 'TIER_3_MATERIAL',
+    universe: 'INVESTABLE',
+    purity_score: 0.2,
+    backlog_strength: 3,
+    pricing_power: 4,
+    exposure: { 'c8': 4 },
+    exposure_rationale: {
+      'c8': {
+        rationale: 'Major carbon fiber manufacturer supplying composite cores for ACCC (Aluminum Conductor Composite Core) high-temperature conductors. Alternative supplier to Toray for transmission conductor carbon fiber.',
+        metric: '~15% market share in ACCC carbon fiber (vs Toray ~30%)',
+        source: 'Hexcel 10-K, industry analysis'
+      }
+    },
+    is_public: true,
+    market_cap_usd: 5.8,
+    revenue_ttm_usd: 1.8,
+    grid_revenue_pct: 20,
+    description: 'Carbon fiber composites manufacturer supplying carbon fiber cores for ACCC high-temperature transmission conductors. Alternative supplier to Toray.',
+    headquarters: 'Stamford, CT, USA',
+    primary_exchange: 'NYSE',
+    data_updated: '2025-12-09',
+    data_sources: ['Hexcel 10-K', 'Industry analysis'],
+    data_confidence: 'medium'
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // Specialty Wire & Conductor Materials
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: 'co_ctc_global',
+    name: 'CTC Global',
+    ticker: 'Private',
+    region: 'NA',
+    type: 'TIER_3_MATERIAL',
+    universe: 'GLOBAL',
+    purity_score: 1.0,
+    backlog_strength: 5,
+    pricing_power: 5,
+    exposure: { 'c8': 5 },
+    exposure_rationale: {
+      'c8': {
+        rationale: 'Patent holder and licensor of ACCC (Aluminum Conductor Composite Core) technology - the leading high-temperature low-sag conductor. Near-monopoly in advanced conductor technology through patent licensing. ACCC enables 2x capacity on existing transmission corridors.',
+        metric: '100% patent ownership of ACCC technology',
+        source: 'CTC Global materials, patent filings'
+      }
+    },
+    is_public: false,
+    grid_revenue_pct: 100,
+    description: 'Pure-play patent holder and licensor of ACCC technology. Near-monopoly in advanced high-temperature conductor technology enabling grid capacity expansion.',
+    headquarters: 'Irvine, CA, USA',
+    data_updated: '2025-12-09',
+    data_sources: ['CTC Global materials', 'Patent filings'],
+    data_confidence: 'medium'
+  },
+  {
+    id: 'co_afl',
+    name: 'AFL (Fujikura)',
+    ticker: 'Private',
+    region: 'NA',
+    type: 'TIER_3_MATERIAL',
+    universe: 'GLOBAL',
+    purity_score: 0.85,
+    backlog_strength: 4,
+    pricing_power: 4,
+    exposure: { 'c8': 5, 'c19': 3 },
+    exposure_rationale: {
+      'c8': {
+        rationale: 'Market leader in OPGW (Optical Ground Wire) for transmission lines with ~30-35% global market share. OPGW combines ground wire protection with fiber optic communications, critical for smart grid infrastructure.',
+        metric: '~30-35% global market share in OPGW',
+        source: 'Industry reports, company materials'
+      },
+      'c19': {
+        rationale: 'Fiber optic cables for utility communications networks. Secondary position to OPGW business but growing with grid digitalization.',
+        metric: '~15% utility fiber optic market',
+        source: 'Industry analysis'
+      }
+    },
+    is_public: false,
+    grid_revenue_pct: 85,
+    description: 'Fujikura subsidiary and market leader in OPGW (Optical Ground Wire) for transmission lines. Critical supplier for smart grid communications infrastructure.',
+    headquarters: 'Duncan, SC, USA',
+    data_updated: '2025-12-09',
+    data_sources: ['Industry reports', 'Company materials'],
+    data_confidence: 'medium'
+  },
+  {
+    id: 'co_essex_furukawa',
+    name: 'Essex Furukawa Magnet Wire',
+    ticker: 'Private',
+    region: 'NA',
+    type: 'TIER_3_MATERIAL',
+    universe: 'GLOBAL',
+    purity_score: 1.0,
+    backlog_strength: 5,
+    pricing_power: 5,
+    exposure: { 'c1': 5, 'c12': 3 },
+    exposure_rationale: {
+      'c1': {
+        rationale: 'Joint venture between Superior Essex and Furukawa Electric dominating CTC (Continuously Transposed Conductor) for transformer windings. ~40% North American market share. Key supplier to ABB, Siemens, Hitachi Energy for LPT windings.',
+        metric: '~40% North American CTC market share',
+        source: 'Industry reports, transformer manufacturer data'
+      },
+      'c12': {
+        rationale: 'Major copper consumer for magnet wire production. Specialty copper processing for electrical applications.',
+        metric: 'Significant copper procurement volumes',
+        source: 'Industry analysis'
+      }
+    },
+    is_public: false,
+    grid_revenue_pct: 100,
+    description: 'Joint venture dominating CTC (Continuously Transposed Conductor) for transformer windings in North America. Critical bottleneck for LPT manufacturing.',
+    headquarters: 'Fort Wayne, IN, USA',
+    data_updated: '2025-12-09',
+    data_sources: ['Industry reports', 'Transformer manufacturer data'],
+    data_confidence: 'medium'
+  },
+  {
+    id: 'co_rea_magnet',
+    name: 'Rea Magnet Wire',
+    ticker: 'Private',
+    region: 'NA',
+    type: 'TIER_3_MATERIAL',
+    universe: 'GLOBAL',
+    purity_score: 1.0,
+    backlog_strength: 4,
+    pricing_power: 4,
+    exposure: { 'c1': 4, 'c12': 3 },
+    exposure_rationale: {
+      'c1': {
+        rationale: 'Major US magnet wire producer with ~20-25% market share. Specializes in rectangular wire for large power transformer windings. Competes with Essex Furukawa in North American market.',
+        metric: '~20-25% US magnet wire market share',
+        source: 'Industry reports'
+      },
+      'c12': {
+        rationale: 'Copper feedstock for magnet wire production. Specialty copper processing and coating operations.',
+        metric: 'Significant copper procurement',
+        source: 'Industry analysis'
+      }
+    },
+    is_public: false,
+    grid_revenue_pct: 100,
+    description: 'US magnet wire producer with ~20-25% market share. Specializes in rectangular wire for large power transformer windings.',
+    headquarters: 'Fort Wayne, IN, USA',
+    data_updated: '2025-12-09',
+    data_sources: ['Industry reports'],
+    data_confidence: 'low'
+  },
+  {
+    id: 'co_luvata',
+    name: 'Luvata',
+    ticker: 'Private',
+    region: 'EU',
+    type: 'TIER_3_MATERIAL',
+    universe: 'GLOBAL',
+    purity_score: 0.7,
+    backlog_strength: 3,
+    pricing_power: 4,
+    exposure: { 'c12': 5, 'c1': 4, 'c8': 3 },
+    exposure_rationale: {
+      'c12': {
+        rationale: 'Finnish specialty copper producer with ~15% European market share in oxygen-free copper (OFC) rod for electrical applications. Premium copper grades for high-conductivity applications.',
+        metric: '~15% European electrical copper market',
+        source: 'Industry reports'
+      },
+      'c1': {
+        rationale: 'OFC copper rod for transformer winding wire. Supplies magnet wire manufacturers with premium copper feedstock.',
+        metric: '~12% European transformer copper market',
+        source: 'Industry analysis'
+      },
+      'c8': {
+        rationale: 'Specialty copper rod for conductor manufacturing. Premium grades for ACCC and specialty conductors.',
+        metric: '~10% European conductor copper market',
+        source: 'Industry reports'
+      }
+    },
+    is_public: false,
+    grid_revenue_pct: 70,
+    description: 'Finnish specialty copper producer with strong position in oxygen-free copper (OFC) rod for transformer and conductor applications.',
+    headquarters: 'Espoo, Finland',
+    data_updated: '2025-12-09',
+    data_sources: ['Industry reports'],
+    data_confidence: 'low'
+  },
 ];

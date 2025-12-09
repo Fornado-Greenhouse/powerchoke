@@ -83,6 +83,51 @@ export const software: Company[] = [
     data_sources: ['Industry reports', 'Utility surveys'],
     data_confidence: 'medium'
   },
+  {
+    id: 'co_skm',
+    name: 'SKM Systems Analysis',
+    ticker: 'Private',
+    region: 'NA',
+    type: 'SOFTWARE',
+    universe: 'GLOBAL',
+    purity_score: 1.0,
+    backlog_strength: 3,
+    pricing_power: 4,
+    exposure: { 'c5': 5, 'c16': 3 },
+    exposure_rationale: {
+      'c5': { rationale: '~30% market share in protection coordination software. PTW (Power*Tools for Windows) platform is the primary competitor to ETAP for relay coordination studies, arc flash analysis, and short-circuit calculations. Essential for protection engineering workflows.', source: 'Industry reports, utility surveys' },
+      'c16': { rationale: 'Power system analysis capabilities feed into SCADA integration for protection settings management and coordination verification.', source: 'SKM product documentation' }
+    },
+    is_public: false,
+    grid_revenue_pct: 100,
+    description: 'Pure-play power systems analysis software with ~30% market share in protection coordination. PTW platform competes with ETAP for relay coordination and arc flash studies.',
+    headquarters: 'Manhattan Beach, CA, USA',
+    data_updated: '2025-12-09',
+    data_sources: ['Industry reports', 'Utility surveys'],
+    data_confidence: 'medium'
+  },
+  {
+    id: 'co_osi',
+    name: 'OSI (Open Systems International)',
+    ticker: 'Private',
+    region: 'NA',
+    type: 'SOFTWARE',
+    universe: 'GLOBAL',
+    purity_score: 1.0,
+    backlog_strength: 5,
+    pricing_power: 5,
+    exposure: { 'c16': 5 },
+    exposure_rationale: {
+      'c16': { rationale: '~25% global market share in EMS/SCADA systems. Monarch platform is critical infrastructure software for grid operations with 15-20 year replacement cycles. Market leader in North America alongside GE Vernova. Part of Emerson Electric since 2011.', source: 'Industry reports, Emerson investor materials' }
+    },
+    is_public: false,
+    grid_revenue_pct: 100,
+    description: 'Pure-play EMS/SCADA software vendor with ~25% global market share. Monarch platform serves transmission operators with mission-critical grid management software. Owned by Emerson Electric.',
+    headquarters: 'Medina, MN, USA',
+    data_updated: '2025-12-09',
+    data_sources: ['Industry reports', 'Emerson investor materials'],
+    data_confidence: 'medium'
+  },
 
   // ═══════════════════════════════════════════════════════════════════════════
   // Smart Grid & Metering
@@ -143,6 +188,72 @@ export const software: Company[] = [
   // ═══════════════════════════════════════════════════════════════════════════
   // OT Cybersecurity
   // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: 'co_claroty',
+    name: 'Claroty',
+    ticker: 'Private',
+    region: 'NA',
+    type: 'SOFTWARE',
+    universe: 'GLOBAL',
+    purity_score: 1.0,
+    backlog_strength: 5,
+    pricing_power: 5,
+    exposure: { 'c16': 5 },
+    exposure_rationale: {
+      'c16': { rationale: 'Market leader in utility OT/ICS cybersecurity with ~40% penetration at North American utilities. Purpose-built platform for NERC CIP compliance with deep integration to major SCADA vendors (OSI, GE, Siemens). Leading solution for asset discovery, vulnerability management, and threat detection in grid OT environments.', source: 'Industry analysis, utility surveys 2024' }
+    },
+    is_public: false,
+    grid_revenue_pct: 100,
+    description: 'Pure-play OT/ICS cybersecurity platform for utilities with ~40% North American utility penetration. Leading NERC CIP compliance solution with deep SCADA integration.',
+    headquarters: 'New York, NY, USA',
+    data_updated: '2025-12-09',
+    data_sources: ['Industry analysis', 'Utility surveys'],
+    data_confidence: 'medium'
+  },
+  {
+    id: 'co_nozomi',
+    name: 'Nozomi Networks',
+    ticker: 'Private',
+    region: 'NA',
+    type: 'SOFTWARE',
+    universe: 'GLOBAL',
+    purity_score: 1.0,
+    backlog_strength: 4,
+    pricing_power: 4,
+    exposure: { 'c16': 5 },
+    exposure_rationale: {
+      'c16': { rationale: 'Leading OT/IoT security vendor with 1000+ energy/utility sites globally. Passive network monitoring and asset discovery for SCADA/ICS environments. Strong presence in European utilities, expanding in North America. Competes with Claroty and Dragos for utility OT security.', source: 'Company materials, industry reports 2024' }
+    },
+    is_public: false,
+    grid_revenue_pct: 95,
+    description: 'Pure-play OT/IoT security platform with 1000+ energy/utility installations. Leading passive network monitoring for SCADA environments.',
+    headquarters: 'San Francisco, CA, USA',
+    data_updated: '2025-12-09',
+    data_sources: ['Company materials', 'Industry reports'],
+    data_confidence: 'medium'
+  },
+  {
+    id: 'co_dragos',
+    name: 'Dragos',
+    ticker: 'Private',
+    region: 'NA',
+    type: 'SOFTWARE',
+    universe: 'GLOBAL',
+    purity_score: 1.0,
+    backlog_strength: 5,
+    pricing_power: 5,
+    exposure: { 'c16': 5 },
+    exposure_rationale: {
+      'c16': { rationale: 'Market leader in industrial cybersecurity with proprietary ICS/OT threat intelligence. ~35% penetration at US investor-owned utilities. Preferred vendor for high-security utility environments and government critical infrastructure. Founded by former NSA/US-CERT analysts.', source: 'Industry analysis, utility surveys 2024' }
+    },
+    is_public: false,
+    grid_revenue_pct: 100,
+    description: 'Pure-play industrial cybersecurity platform with ~35% US IOU penetration. Leading threat intelligence and hunting capabilities for grid OT environments.',
+    headquarters: 'Hanover, MD, USA',
+    data_updated: '2025-12-09',
+    data_sources: ['Industry analysis', 'Utility surveys'],
+    data_confidence: 'medium'
+  },
   {
     id: 'co_fortinet',
     name: 'Fortinet',
