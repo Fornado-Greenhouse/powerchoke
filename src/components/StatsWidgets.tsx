@@ -1,9 +1,11 @@
 'use client';
 
+import { useMemo } from 'react';
 import { Layers, Building2, AlertTriangle, Trophy, ChevronRight } from 'lucide-react';
 import { ComponentRow, ScoredCompany } from '@/data';
+import { getAllBottlenecks } from '@/lib/bottlenecks';
 
-type TabType = 'matrix' | 'companies' | 'components' | 'scoring';
+type TabType = 'matrix' | 'companies' | 'components' | 'scoring' | 'bottlenecks';
 
 interface StatsWidgetsProps {
   components: ComponentRow[];
@@ -12,7 +14,10 @@ interface StatsWidgetsProps {
 }
 
 export function StatsWidgets({ components, companies, onNavigate }: StatsWidgetsProps) {
-  const criticalBottlenecks = components.filter(c => c.bottleneck_severity >= 5).length;
+  // Count true bottleneck positions (company × component pairs meeting all criteria)
+  const trueBottlenecks = useMemo(() => {
+    return getAllBottlenecks(companies, components);
+  }, [companies, components]);
   const topScorer = companies[0];
 
   return (
@@ -51,7 +56,7 @@ export function StatsWidgets({ components, companies, onNavigate }: StatsWidgets
 
       {/* Critical Bottlenecks */}
       <button
-        onClick={() => onNavigate('components')}
+        onClick={() => onNavigate('bottlenecks')}
         className="bg-slate-900 border border-slate-800 rounded-xl p-4 hover:border-slate-700 hover:bg-slate-800/50 transition-all group text-left"
       >
         <div className="flex items-start justify-between mb-3">
@@ -60,9 +65,9 @@ export function StatsWidgets({ components, companies, onNavigate }: StatsWidgets
           </div>
           <ChevronRight className="w-4 h-4 text-slate-600 group-hover:text-slate-400 transition-colors" />
         </div>
-        <div className="text-3xl font-bold text-white mb-1">{criticalBottlenecks}</div>
-        <div className="text-sm text-slate-400">Critical Bottlenecks</div>
-        <div className="text-xs text-slate-500 mt-1">Severity 5/5 constraints</div>
+        <div className="text-3xl font-bold text-white mb-1">{trueBottlenecks.length}</div>
+        <div className="text-sm text-slate-400">True Bottlenecks</div>
+        <div className="text-xs text-slate-500 mt-1">Monopoly/duopoly positions</div>
       </button>
 
       {/* Top Scorer */}

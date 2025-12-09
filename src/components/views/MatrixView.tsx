@@ -5,6 +5,7 @@ import { Info } from 'lucide-react';
 import { ComponentRow, ScoredCompany } from '@/data';
 import { ExposureCell } from '@/components/ui/ExposureCell';
 import { SeverityBadge, TypeIcon } from '@/components/ui/TypeBadge';
+import { buildBottleneckMap, getBottleneckForCell } from '@/lib/bottlenecks';
 
 interface MatrixViewProps {
   components: ComponentRow[];
@@ -23,6 +24,11 @@ export function MatrixView({ components, companies, onSelectComponent, onSelectC
       return a.row_number - b.row_number;
     });
   }, [components]);
+
+  // Pre-compute bottleneck map for O(1) cell lookups
+  const bottleneckMap = useMemo(() => {
+    return buildBottleneckMap(companies, components);
+  }, [companies, components]);
 
   return (
     <div className="bg-slate-900 rounded-xl border border-slate-800 overflow-hidden shadow-xl">
@@ -119,7 +125,10 @@ export function MatrixView({ components, companies, onSelectComponent, onSelectC
                     key={`${company.id}-${comp.id}`}
                     className="p-0.5 h-12 border-r border-slate-800/30 relative"
                   >
-                    <ExposureCell value={company.exposure[comp.id] || 0} />
+                    <ExposureCell
+                      value={company.exposure[comp.id] || 0}
+                      bottleneck={getBottleneckForCell(bottleneckMap, company.id, comp.id)}
+                    />
                   </td>
                 ))}
               </tr>
@@ -129,7 +138,7 @@ export function MatrixView({ components, companies, onSelectComponent, onSelectC
       </div>
 
       <div className="bg-slate-950 p-4 border-t border-slate-800 flex flex-col gap-3 items-center">
-        <div className="flex items-center gap-4 text-xs">
+        <div className="flex items-center gap-4 text-xs flex-wrap justify-center">
           <span className="text-slate-500">Exposure:</span>
           <div className="flex items-center gap-1">
             <span className="w-6 h-6 bg-yellow-600/70 rounded-sm flex items-center justify-center text-yellow-100 text-[10px] font-bold">2</span>
@@ -147,10 +156,16 @@ export function MatrixView({ components, companies, onSelectComponent, onSelectC
             <span className="w-6 h-6 bg-red-600 rounded-sm flex items-center justify-center text-white text-[10px] font-bold">5</span>
             <span className="text-slate-500">Dominant</span>
           </div>
+          <span className="text-slate-700 mx-2">|</span>
+          <div className="flex items-center gap-1">
+            <span className="w-6 h-6 bg-red-600 rounded-sm flex items-center justify-center text-white text-[10px] font-bold ring-2 ring-white ring-offset-1 ring-offset-slate-950 shadow-[0_0_8px_rgba(255,255,255,0.5)]">5</span>
+            <span className="text-slate-400 font-medium">True Bottleneck</span>
+          </div>
         </div>
         <div className="flex items-center gap-2 text-xs text-slate-500">
           <Info className="w-4 h-4" />
           <p>
+            <strong className="text-white">White ring</strong> = Key player in monopoly/duopoly sub-component.
             Click company names for details. Click column headers for <strong className="text-slate-300">Bottleneck Anatomy</strong>.
           </p>
         </div>

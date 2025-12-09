@@ -37,6 +37,7 @@ import { MatrixView } from './views/MatrixView';
 import { CompaniesView } from './views/CompaniesView';
 import { ComponentsView } from './views/ComponentsView';
 import { ScoringView } from './views/ScoringView';
+import { CriticalBottlenecksView } from './views/CriticalBottlenecksView';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // COMPONENT DETAIL MODAL
@@ -500,7 +501,7 @@ function CompanyModal({
 // ─────────────────────────────────────────────────────────────────────────────
 
 // Valid tab types for URL hash
-const VALID_TABS: TabType[] = ['matrix', 'companies', 'components', 'scoring'];
+const VALID_TABS: TabType[] = ['matrix', 'bottlenecks', 'companies', 'components', 'scoring'];
 
 function getTabFromHash(): TabType {
   if (typeof window === 'undefined') return 'matrix';
@@ -627,7 +628,7 @@ export default function Powerchoke() {
         <StatsWidgets
           components={components}
           companies={filteredCompanies}
-          onNavigate={setActiveTab}
+          onNavigate={handleTabChange}
         />
 
         {/* TAB NAVIGATION */}
@@ -640,6 +641,14 @@ export default function Powerchoke() {
             companies={filteredCompanies}
             onSelectComponent={setSelectedComponent}
             onSelectCompany={setSelectedCompany}
+          />
+        )}
+        {activeTab === 'bottlenecks' && (
+          <CriticalBottlenecksView
+            companies={filteredCompanies}
+            components={components}
+            onSelectCompany={setSelectedCompany}
+            onSelectComponent={setSelectedComponent}
           />
         )}
         {activeTab === 'companies' && (
