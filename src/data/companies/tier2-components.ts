@@ -17,11 +17,16 @@ export const tier2Components: Company[] = [
     purity_score: 1.0,
     backlog_strength: 5,
     pricing_power: 5,
-    exposure: { 'c1': 5 },
+    exposure: { 'c1': 5, 'c2': 5 },
     exposure_rationale: {
       'c1': {
         rationale: 'Global monopoly in on-load tap changers (OLTCs) - critical voltage regulation component for all large power transformers. No LPT can be commissioned without an OLTC, giving MR extreme pricing power.',
         metric: '~70% global market share in OLTCs',
+        source: 'T&D World industry reports 2024'
+      },
+      'c2': {
+        rationale: 'Dominant position in medium-voltage on-load tap changers (MV OLTCs) for distribution and industrial transformers. Same monopoly dynamics as HV OLTCs - MR controls critical voltage regulation component for MV transformers.',
+        metric: '~50% global market share in MV OLTCs',
         source: 'T&D World industry reports 2024'
       }
     },
@@ -43,7 +48,7 @@ export const tier2Components: Company[] = [
     purity_score: 0.95,
     backlog_strength: 4,
     pricing_power: 5,
-    exposure: { 'c1': 5, 'c13': 5, 'c2': 3 },
+    exposure: { 'c1': 5, 'c13': 5, 'c2': 3, 'c17': 3 },
     exposure_rationale: {
       'c1': {
         rationale: 'Duopoly position in cellulose pressboard for transformer internal insulation. Every LPT requires Weidmann pressboard - no viable substitutes at HV levels. Supply bottleneck for entire LPT industry.',
@@ -59,6 +64,11 @@ export const tier2Components: Company[] = [
         rationale: 'Moderate exposure through medium-voltage transformer insulation materials. Less dominant at MV levels due to more substitutes and regional competitors.',
         metric: '~30-40% market share in MV insulation',
         source: 'Industry reports'
+      },
+      'c17': {
+        rationale: 'Meaningful position in bushing condition monitoring systems. Weidmann provides capacitance taps and monitoring accessories for transformer bushings, enabling condition-based maintenance. Leverages bushing manufacturing expertise for monitoring solutions.',
+        metric: '~15-20% market share in bushing monitoring accessories',
+        source: 'Weidmann product portfolio'
       }
     },
     is_public: false,
@@ -355,11 +365,11 @@ export const tier2Components: Company[] = [
     purity_score: 0.95,
     backlog_strength: 3,
     pricing_power: 4,
-    exposure: { 'c9': 4, 'c14': 3 },
+    exposure: { 'c9': 5, 'c14': 3 },
     exposure_rationale: {
       'c9': {
-        rationale: 'Market leader in composite (fiberglass) transmission structures and distribution poles. RS composite poles offer corrosion resistance, lighter weight, and faster installation vs steel/wood. Growing adoption for coastal/corrosive environments and undergrounding conversions. Niche but high-growth segment with limited competition.',
-        metric: '~50-60% North American market share in composite utility poles',
+        rationale: 'DUOPOLY leader in composite (fiberglass) crossarms and utility structures. RS Technologies controls ~50-60% of North American composite crossarm market alongside Trident Industries. Critical for wildfire mitigation and corrosion-resistant infrastructure.',
+        metric: '~50-60% North American market share in composite crossarms/poles',
         source: 'Industry reports, company website 2024'
       },
       'c14': {
@@ -534,7 +544,7 @@ export const tier2Components: Company[] = [
     purity_score: 0.70,
     backlog_strength: 4,
     pricing_power: 5,
-    exposure: { 'c10': 5, 'c11': 4 },
+    exposure: { 'c10': 5, 'c11': 4, 'c18': 4 },
     exposure_rationale: {
       'c10': {
         rationale: 'Global market leader in modular cable and pipe sealing systems for substations and control buildings. Roxtec seals provide fire protection, water ingress protection, and EMC shielding where cables penetrate substation walls/floors. Specified in IEC/IEEE substation standards for safety-critical applications. Near-monopoly in high-voltage substations due to stringent fire/environmental certification requirements. Adaptable seal design accommodates cable additions without re-engineering.',
@@ -545,6 +555,11 @@ export const tier2Components: Company[] = [
         rationale: 'Strong position in cable sealing for GIS (Gas-Insulated Switchgear) installations. Roxtec transit systems specified for maintaining SF6 gas integrity and fire compartmentation in GIS buildings. Critical safety component for indoor/underground substations. Multi-year qualification per GIS OEM design.',
         metric: '~50% market share in GIS cable transit systems',
         source: 'GIS manufacturer specifications, industry data'
+      },
+      'c18': {
+        rationale: 'Dominant position in cable sealing systems for E-Houses and modular substations. Roxtec modular seals are industry standard for prefabricated electrical rooms where fire rating and environmental sealing are critical. Every E-House requires cable transits for power/control cables.',
+        metric: '~50-60% market share in E-House cable transit systems',
+        source: 'E-House manufacturer specifications, industry data'
       }
     },
     is_public: false,
@@ -566,7 +581,7 @@ export const tier2Components: Company[] = [
     purity_score: 0.85,
     backlog_strength: 3,
     pricing_power: 4,
-    exposure: { 'c10': 4, 'c11': 4 },
+    exposure: { 'c10': 4, 'c11': 4, 'c18': 3 },
     exposure_rationale: {
       'c10': {
         rationale: 'Duopoly position with Roxtec in cable transit systems for substations. MCT Brattberg specializes in heavy-duty penetrations for large cable bundles and pipes in control buildings. Strong position in offshore substations and harsh environment applications where robust sealing is critical. Multi-cable transits allow future expansion without wall modification.',
@@ -577,6 +592,11 @@ export const tier2Components: Company[] = [
         rationale: 'Strategic position in cable sealing for GIS and compact substations. MCT Brattberg transit modules specified for SF6 containment and fire barrier applications. Particularly strong in Asian GIS projects and European offshore installations. Custom designs per GIS manufacturer requirements.',
         metric: '~25-30% market share in GIS cable transit systems',
         source: 'GIS project specifications, industry analysis'
+      },
+      'c18': {
+        rationale: 'Meaningful position in cable sealing for E-Houses and modular substations, particularly for offshore and heavy industrial applications. MCT specializes in heavy-duty transits for larger cable bundles in prefabricated electrical rooms.',
+        metric: '~20-25% market share in E-House cable transit systems',
+        source: 'E-House manufacturer specifications'
       }
     },
     is_public: false,
@@ -598,7 +618,7 @@ export const tier2Components: Company[] = [
     purity_score: 0.15,
     backlog_strength: 4,
     pricing_power: 4,
-    exposure: { 'c10': 3, 'c11': 3, 'c14': 2 },
+    exposure: { 'c10': 3, 'c11': 3, 'c14': 2, 'c18': 3 },
     exposure_rationale: {
       'c10': {
         rationale: 'Market leader in firestop and cable management systems for substation buildings and control rooms. Hilti firestop solutions maintain fire compartmentation where cables/pipes penetrate walls/floors - critical life-safety requirement per NFPA 70/IEC standards. Dominant position in North American/European substations due to comprehensive testing/certifications and contractor familiarity. Bundled with mechanical anchoring and fastening systems.',
@@ -614,6 +634,11 @@ export const tier2Components: Company[] = [
         rationale: 'Low direct exposure as supplier of construction tools and fastening systems to EPC contractors. Hilti products used in transmission/substation construction but company is tooling/consumables supplier rather than critical component. Volume exposure to all T&D construction activity.',
         metric: 'Products used in ~50%+ of substation construction projects',
         source: 'Contractor surveys, company data'
+      },
+      'c18': {
+        rationale: 'Meaningful position in firestop systems for E-Houses and modular substations. Hilti firestop sealants and cable transits maintain fire ratings in prefabricated electrical rooms. Broad product range but less specialized than Roxtec/MCT for modular substation applications.',
+        metric: '~15-20% market share in E-House firestop systems',
+        source: 'E-House manufacturer specifications'
       }
     },
     is_public: false,
@@ -824,11 +849,11 @@ export const tier2Components: Company[] = [
     purity_score: 0.15,
     backlog_strength: 4,
     pricing_power: 5,
-    exposure: { 'c5': 4, 'c17': 5, 'c6': 3 },
+    exposure: { 'c5': 5, 'c17': 5, 'c6': 3 },
     exposure_rationale: {
       'c5': {
-        rationale: 'Leading supplier of precision analog ICs for protection relays. ADI ADALM and ADE energy measurement ICs widely used for current/voltage sensing and power quality measurement in modern protection relays.',
-        metric: '~25% market share in protection relay precision analog',
+        rationale: 'DUOPOLY position in 24-bit Isolated ADCs with Texas Instruments - critical component for precision current/voltage measurement in modern protection relays. ADI AD7190/AD7124 series are industry standard for relay analog front-ends. ~40-50% market share in isolated ADCs for protection applications.',
+        metric: '~40-50% market share in 24-bit isolated ADCs for protection relays',
         source: 'ADI Annual Report, industry analysis'
       },
       'c17': {
@@ -936,7 +961,7 @@ export const tier2Components: Company[] = [
     purity_score: 0.08,
     backlog_strength: 4,
     pricing_power: 4,
-    exposure: { 'c16': 4, 'c5': 3 },
+    exposure: { 'c16': 4, 'c5': 4 },
     exposure_rationale: {
       'c16': {
         rationale: 'Growing position in networking ICs and FPGAs for smart grid communications and SCADA systems via Xilinx competition. Marvell Ethernet switches and processors used in substation networking equipment. Expanding presence in IEC 61850 digital substation applications.',
@@ -944,9 +969,9 @@ export const tier2Components: Company[] = [
         source: 'Industry analysis, Marvell product portfolio'
       },
       'c5': {
-        rationale: 'Moderate exposure through FPGAs and processors for advanced protection relay applications. Competes with Microchip/Xilinx in programmable logic for digital protection. Less dominant than specialty relay IC suppliers.',
-        metric: '~10% market share in protection relay programmable logic',
-        source: 'Industry analysis'
+        rationale: 'Major position in IEC 61850 Protocol ASICs and networking processors for digital protection relays. Marvell PHYs and switches widely used in modern protection relay communications. Oligopoly participant in relay networking silicon.',
+        metric: '~20-25% market share in IEC 61850 relay networking ICs',
+        source: 'Industry analysis, relay OEM sourcing data'
       }
     },
     is_public: true,
@@ -1034,6 +1059,168 @@ export const tier2Components: Company[] = [
     headquarters: 'Hanau, Germany',
     data_updated: '2025-12-09',
     data_sources: ['Industry analysis', 'Transformer OEM sourcing data'],
+    data_confidence: 'medium'
+  },
+  // NOTE: Trench Group exposure is on parent company Siemens Energy (co_siemens) in tier1-oems.ts
+  {
+    id: 'co_cd_tech',
+    name: 'C&D Technologies',
+    ticker: 'Private',
+    region: 'NA',
+    type: 'TIER_2_COMPONENT',
+    universe: 'GLOBAL',
+    purity_score: 0.85,
+    backlog_strength: 4,
+    pricing_power: 4,
+    exposure: { 'c20': 4, 'c10': 3 },
+    exposure_rationale: {
+      'c20': {
+        rationale: 'Major supplier of VRLA (valve-regulated lead-acid) battery systems for utility UPS and substation backup power. Oligopoly participant alongside EnerSys and Vertiv in mission-critical battery systems.',
+        metric: '~20-25% North American market share in utility UPS batteries',
+        source: 'Industry reports, utility procurement data'
+      },
+      'c10': {
+        rationale: 'Supplier of substation DC power and battery backup systems. C&D batteries specified in many utility substation designs for protection system backup.',
+        metric: '~15% market share in substation battery systems',
+        source: 'Industry analysis'
+      }
+    },
+    is_public: false,
+    revenue_ttm_usd: 0.5,
+    grid_revenue_pct: 85,
+    description: 'Leading supplier of industrial batteries and chargers for utility UPS and substation backup power applications.',
+    headquarters: 'Blue Bell, PA, USA',
+    data_updated: '2025-12-09',
+    data_sources: ['Industry reports', 'Utility procurement data'],
+    data_confidence: 'medium'
+  },
+  {
+    id: 'co_vicor',
+    name: 'Vicor Corporation',
+    ticker: 'VICR',
+    region: 'NA',
+    type: 'TIER_2_COMPONENT',
+    universe: 'INVESTABLE',
+    purity_score: 0.3,
+    backlog_strength: 4,
+    pricing_power: 5,
+    exposure: { 'c20': 4, 'c7': 3 },
+    exposure_rationale: {
+      'c20': {
+        rationale: 'Oligopoly position in high-power DC-DC converters (>100kW) for data center and utility power distribution. Vicor power modules enable efficient power conversion in critical infrastructure.',
+        metric: '~20-25% market share in high-power DC-DC converters',
+        source: 'Vicor 10-K, industry analysis'
+      },
+      'c7': {
+        rationale: 'Growing position in high-efficiency power conversion for HVDC auxiliary systems. Vicor modules used in converter station control power.',
+        metric: '~10% market share in HVDC auxiliary power systems',
+        source: 'Industry analysis'
+      }
+    },
+    is_public: true,
+    market_cap_usd: 2.8,
+    revenue_ttm_usd: 0.35,
+    grid_revenue_pct: 30,
+    description: 'High-efficiency power conversion specialist with strong position in high-power DC-DC converters for data centers and utility applications.',
+    headquarters: 'Andover, MA, USA',
+    primary_exchange: 'NASDAQ',
+    data_updated: '2025-12-09',
+    data_sources: ['Vicor 10-K', 'Industry analysis'],
+    data_confidence: 'medium'
+  },
+  {
+    id: 'co_amd_xilinx',
+    name: 'AMD (Xilinx)',
+    ticker: 'AMD',
+    region: 'NA',
+    type: 'TIER_2_COMPONENT',
+    universe: 'INVESTABLE',
+    purity_score: 0.05,
+    backlog_strength: 4,
+    pricing_power: 5,
+    exposure: { 'c5': 4, 'c16': 3 },
+    exposure_rationale: {
+      'c5': {
+        rationale: 'Oligopoly position in FPGAs and ASICs for IEC 61850 digital protection relays via Xilinx acquisition (2022). Xilinx FPGAs widely used in advanced protection relay platforms for programmable logic and high-speed communications.',
+        metric: '~25-30% market share in protection relay FPGAs',
+        source: 'Industry analysis, relay OEM sourcing'
+      },
+      'c16': {
+        rationale: 'Growing position in FPGAs for SCADA/RTU applications. Xilinx Zynq platform increasingly used for embedded grid automation systems.',
+        metric: '~15% market share in SCADA FPGAs',
+        source: 'Industry analysis'
+      }
+    },
+    is_public: true,
+    market_cap_usd: 215.0,
+    revenue_ttm_usd: 22.7,
+    grid_revenue_pct: 5,
+    description: 'Semiconductor giant with leading position in FPGAs (via Xilinx) for protection relays and grid automation. ~5% estimated grid infrastructure exposure.',
+    headquarters: 'Santa Clara, CA, USA',
+    primary_exchange: 'NASDAQ',
+    data_updated: '2025-12-09',
+    data_sources: ['AMD 10-K', 'Industry analysis'],
+    data_confidence: 'medium'
+  },
+  {
+    id: 'co_3m',
+    name: '3M Company',
+    ticker: 'MMM',
+    region: 'NA',
+    type: 'TIER_2_COMPONENT',
+    universe: 'INVESTABLE',
+    purity_score: 0.08,
+    backlog_strength: 3,
+    pricing_power: 4,
+    exposure: { 'c4': 3, 'c13': 3 },
+    exposure_rationale: {
+      'c4': {
+        rationale: 'Emerging position in SF6-free switchgear via 3M Novec dielectric fluids. Growing adoption as utilities and OEMs seek alternatives to SF6 greenhouse gas. GE and Schneider using Novec in next-gen GIS.',
+        metric: '~30-40% market share in SF6-alternative dielectric fluids',
+        source: 'Industry reports, GIS OEM announcements'
+      },
+      'c13': {
+        rationale: 'Supplier of specialty tapes and insulation materials for transformer and bushing applications. Scotch electrical tapes used in transformer manufacturing.',
+        metric: '~15% market share in transformer insulation tapes',
+        source: 'Industry analysis'
+      }
+    },
+    is_public: true,
+    market_cap_usd: 72.0,
+    revenue_ttm_usd: 33.8,
+    grid_revenue_pct: 8,
+    description: 'Diversified conglomerate with emerging position in SF6-free switchgear dielectric fluids (Novec) and electrical insulation materials.',
+    headquarters: 'Saint Paul, MN, USA',
+    primary_exchange: 'NYSE',
+    data_updated: '2025-12-09',
+    data_sources: ['3M 10-K', 'Industry reports', 'GIS OEM data'],
+    data_confidence: 'medium'
+  },
+  {
+    id: 'co_ea_technology',
+    name: 'EA Technology (LDIC)',
+    ticker: 'Private',
+    region: 'EU',
+    type: 'TIER_2_COMPONENT',
+    universe: 'GLOBAL',
+    purity_score: 0.9,
+    backlog_strength: 3,
+    pricing_power: 4,
+    exposure: { 'c17': 4 },
+    exposure_rationale: {
+      'c17': {
+        rationale: 'Oligopoly position in partial discharge (PD) monitoring systems for transformers and cables. LDIC (Low-Frequency Injection Coupler) technology enables online PD detection for condition-based maintenance.',
+        metric: '~20-25% market share in utility PD monitoring systems',
+        source: 'Industry reports, utility surveys'
+      }
+    },
+    is_public: false,
+    revenue_ttm_usd: 0.05,
+    grid_revenue_pct: 90,
+    description: 'UK specialist in partial discharge monitoring systems for transformers and cables. LDIC technology leader for online condition monitoring.',
+    headquarters: 'Chester, UK',
+    data_updated: '2025-12-09',
+    data_sources: ['Industry reports', 'Utility surveys'],
     data_confidence: 'medium'
   },
 ];

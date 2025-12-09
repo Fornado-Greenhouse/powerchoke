@@ -20,13 +20,16 @@ export const tier1Oems: Company[] = [
     purity_score: 0.3,
     backlog_strength: 5,
     pricing_power: 5,
-    exposure: { 'c1': 5, 'c7': 5, 'c4': 5, 'c10': 4, 'c2': 4 },
+    exposure: { 'c1': 5, 'c7': 5, 'c4': 5, 'c10': 4, 'c2': 4, 'c3': 5, 'c6': 5, 'c12': 4 },
     exposure_rationale: {
       'c1': { rationale: 'Global #2 in LPT via Hitachi Energy', metric: 'Est. 20% global market share', source: 'T&D World 2024 Rankings' },
       'c7': { rationale: 'HVDC market leader with VSC technology', metric: 'Largest installed HVDC capacity globally', source: 'Hitachi Energy investor materials' },
       'c4': { rationale: 'Top-3 HV switchgear via Hitachi Energy acquisition of ABB Power Grids', source: 'Hitachi Energy Annual Review 2024' },
       'c10': { rationale: 'Major substation integrator but behind Siemens/GE in turnkey projects', source: 'Industry analysis' },
-      'c2': { rationale: 'Strong in medium transformers but not market leader', source: 'Industry analysis' }
+      'c2': { rationale: 'Strong in medium transformers but not market leader', source: 'Industry analysis' },
+      'c3': { rationale: 'MONOPOLY in amorphous metal cores via Hitachi Metglas subsidiary (70-80% global market share). Amorphous cores enable ultra-low-loss transformers meeting DOE 2024 efficiency standards. Only volume producer at scale.', metric: '~70-80% global market share in amorphous metal cores', source: 'Industry reports, DOE transformer efficiency studies' },
+      'c6': { rationale: 'DUOPOLY in nanocrystalline magnetic cores via Hitachi Metals Finemet brand. Competes with Vacuumschmelze for high-frequency magnetic cores used in STATCOM and power electronics inductors.', metric: '~50% market share in nanocrystalline cores (Finemet)', source: 'Hitachi Metals product portfolio' },
+      'c12': { rationale: 'DUOPOLY in CTC (Continuously Transposed Conductor) via Hitachi Metals. Key supplier to transformer OEMs for LPT windings alongside Essex Furukawa.', metric: '~40-50% global CTC market share via Hitachi Metals', source: 'Industry reports, transformer OEM sourcing' }
     },
     is_public: true,
     market_cap_usd: 143.1,
@@ -49,12 +52,14 @@ export const tier1Oems: Company[] = [
     purity_score: 0.95,
     backlog_strength: 5,
     pricing_power: 4,
-    exposure: { 'c1': 5, 'c4': 5, 'c7': 4, 'c10': 4 },
+    exposure: { 'c1': 5, 'c4': 5, 'c7': 4, 'c10': 4, 'c16': 4, 'c18': 3 },
     exposure_rationale: {
       'c1': { rationale: 'Top-3 global LPT manufacturer via Grid Solutions segment', metric: 'Grid segment ~$6B revenue', source: 'GE Vernova 10-K 2024' },
       'c4': { rationale: 'Major HV switchgear business, strong North American presence', source: 'GE Vernova investor presentation 2024' },
       'c7': { rationale: 'Growing HVDC business but behind Hitachi/Siemens in installed base', source: 'Industry analysis' },
-      'c10': { rationale: 'Strong substation integration, $44B+ backlog includes major grid projects', source: 'Q3 2024 earnings call' }
+      'c10': { rationale: 'Strong substation integration, $44B+ backlog includes major grid projects', source: 'Q3 2024 earnings call' },
+      'c16': { rationale: '~35% market share in EMS/SCADA software for grid operations. GE Vernova Grid Solutions (formerly Alstom Grid) EMS platform deployed at major transmission operators globally.', metric: '~35% global EMS market share', source: 'Industry analysis, utility surveys' },
+      'c18': { rationale: 'E-House integrated protection systems via GE Grid Solutions. Oligopoly participant in modular substations with integrated protection and control.', metric: '~15-20% market share in E-House protection systems', source: 'GE Vernova Grid Solutions portfolio' }
     },
     is_public: true,
     market_cap_usd: 172,
@@ -77,13 +82,17 @@ export const tier1Oems: Company[] = [
     purity_score: 0.8,
     backlog_strength: 5,
     pricing_power: 5,
-    exposure: { 'c1': 5, 'c7': 5, 'c4': 5, 'c6': 4, 'c13': 5 },
+    exposure: { 'c1': 5, 'c2': 4, 'c7': 5, 'c4': 5, 'c6': 4, 'c13': 5, 'c16': 3, 'c18': 3, 'c20': 3 },
     exposure_rationale: {
       'c1': { rationale: 'Top-3 global LPT manufacturer via Grid Technologies segment', metric: 'Grid Technologies ~€6B revenue', source: 'Siemens Energy Annual Report 2024' },
+      'c2': { rationale: 'Major position in medium-voltage bushings via Trench Group subsidiary. Trench supplies MV bushings to distribution and industrial transformer OEMs globally.', metric: '~30% global market share in MV bushings via Trench', source: 'Trench Group materials' },
       'c7': { rationale: 'HVDC pioneer, #2 globally behind Hitachi', metric: 'Multiple offshore wind HVDC links in Europe', source: 'Siemens Energy Grid Technologies factsheet' },
       'c4': { rationale: 'Global leader in GIS (gas-insulated switchgear) with blue-chip utility customer base', source: 'Industry analysis' },
       'c6': { rationale: 'Strong FACTS/SVC business but smaller than HVDC focus', source: 'Siemens Energy product portfolio' },
-      'c13': { rationale: 'Owns Trench Group - global #2 in HV bushings after Hitachi', metric: 'Trench ~30% global market share', source: 'Trench Group investor materials' }
+      'c13': { rationale: 'Owns Trench Group - global #2 in HV bushings after Hitachi', metric: 'Trench ~30% global market share', source: 'Trench Group investor materials' },
+      'c16': { rationale: 'EMS/SCADA software offerings but smaller market share than GE Vernova/OSI. Siemens Spectrum Power platform.', metric: '~15-20% EMS market share', source: 'Industry analysis' },
+      'c18': { rationale: 'E-House and modular substation offerings as part of Grid Technologies, oligopoly participant', metric: 'Top-5 globally in modular substations', source: 'Siemens Energy product portfolio' },
+      'c20': { rationale: 'Busway systems via Siemens Smart Infrastructure (note: split from Siemens Energy but still associated), oligopoly participant', metric: 'Major busway supplier globally', source: 'Industry analysis' }
     },
     is_public: true,
     market_cap_usd: 109.6,
@@ -106,12 +115,16 @@ export const tier1Oems: Company[] = [
     purity_score: 0.6,
     backlog_strength: 4,
     pricing_power: 4,
-    exposure: { 'c2': 5, 'c3': 4, 'c4': 4, 'c5': 5 },
+    exposure: { 'c2': 5, 'c3': 4, 'c4': 4, 'c5': 5, 'c6': 5, 'c16': 3, 'c18': 4, 'c20': 3 },
     exposure_rationale: {
       'c2': { rationale: 'Global leader in medium-voltage transformers via Electrification segment', metric: 'Electrification ~$15B revenue', source: 'ABB Annual Report 2024' },
       'c3': { rationale: 'Strong distribution transformer presence, especially in North America', source: 'ABB Electrification factsheet' },
       'c4': { rationale: 'Major MV/HV switchgear but divested HV grid business to Hitachi in 2020', source: 'ABB investor presentation' },
-      'c5': { rationale: 'Market leader in protection relays via legacy ABB Relion portfolio', metric: '#1-2 globally in protection relays', source: 'Industry analysis' }
+      'c5': { rationale: 'Market leader in protection relays via legacy ABB Relion portfolio', metric: '#1-2 globally in protection relays', source: 'Industry analysis' },
+      'c6': { rationale: 'MONOPOLY in kV-class DC circuit breakers via HybridDCCB technology - only commercially proven fast DC breaker for STATCOM and HVDC applications', metric: '~100% market share in proven fast DC breakers', source: 'ABB product portfolio, HVDC project references' },
+      'c16': { rationale: 'RTU (Remote Terminal Unit) market participant via ABB Ability portfolio. Meaningful but behind Schneider and others in pure SCADA/RTU.', metric: '~10-15% RTU market share', source: 'Industry analysis grid automation' },
+      'c18': { rationale: 'Major E-House and modular substation supplier globally, Type-Tested Switchgear (Form 4) leader', metric: 'Top-3 in E-House/modular substations globally', source: 'ABB product portfolio' },
+      'c20': { rationale: 'Busway systems via ABB Starline brand - major player in data center and industrial busway', metric: '~15-20% busway market share', source: 'ABB Electrification product catalog' }
     },
     is_public: true,
     market_cap_usd: 132.6,
@@ -456,14 +469,16 @@ export const tier1Oems: Company[] = [
     purity_score: 0.65,
     backlog_strength: 4,
     pricing_power: 4,
-    exposure: { 'c2': 4, 'c3': 4, 'c4': 4, 'c5': 5, 'c18': 5, 'c16': 3 },
+    exposure: { 'c2': 4, 'c3': 4, 'c4': 4, 'c5': 5, 'c18': 5, 'c16': 5, 'c17': 4, 'c20': 4 },
     exposure_rationale: {
       'c2': { rationale: 'Major MV transformer supplier globally, Energy Management segment', metric: 'Energy Management ~€30B revenue', source: 'Schneider Electric Universal Registration Document 2024' },
       'c3': { rationale: 'Strong distribution transformer business, particularly in emerging markets', source: 'Schneider product portfolio' },
       'c4': { rationale: 'Leading MV switchgear manufacturer, strong in data centers and industrial', source: 'Industry analysis MV equipment' },
       'c5': { rationale: 'Top-3 globally in protection relays and grid automation software', metric: 'Major competitor to ABB, GE, Siemens in protection', source: 'Schneider Electric investor presentation' },
       'c18': { rationale: 'Global leader in modular substations (e-houses/prefab substations)', metric: 'Dominant in data center and renewable modular substations', source: 'Industry analysis modular substations' },
-      'c16': { rationale: 'SCADA and grid management software via EcoStruxure platform', source: 'Schneider Electric Grid segment' }
+      'c16': { rationale: 'DOMINANT via AVEVA PI System (acquired 2023) - ~95% of global utilities use PI System historian for operational data management. De facto standard for SCADA/EMS data aggregation. Also EcoStruxure grid management platform.', metric: '~95% utility market share via PI System', source: 'AVEVA/Schneider materials, industry reports' },
+      'c17': { rationale: 'AVEVA PI System integrates with condition monitoring sensors (DGA, partial discharge, bushing monitors) for centralized analytics and trending. Strong position in asset performance management.', metric: 'Leading APM platform for grid assets', source: 'AVEVA product documentation' },
+      'c20': { rationale: 'Major busway (bus duct) supplier globally via Canalis brand - oligopoly position alongside Siemens, Eaton, ABB', metric: '~25-30% global busway market share', source: 'Schneider Electric Electrical Distribution products' }
     },
     is_public: true,
     market_cap_usd: 153.2,

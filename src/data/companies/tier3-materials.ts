@@ -20,12 +20,17 @@ export const tier3Materials: Company[] = [
     purity_score: 0.2,
     backlog_strength: 4,
     pricing_power: 4,
-    exposure: { 'c11': 5 },
+    exposure: { 'c11': 5, 'c9': 3 },
     exposure_rationale: {
       'c11': {
         rationale: 'World\'s largest steel producer with major GOES production facilities across Europe and Americas, supplying transformer manufacturers globally',
         metric: '~25% global GOES market share',
         source: 'Company Annual Report 2024, steel industry analysis'
+      },
+      'c9': {
+        rationale: 'Major supplier of structural steel for transmission towers and lattice structures. Serves tower fabricators globally with hot-rolled sections and plate steel.',
+        metric: '~15-20% global market share in transmission tower steel',
+        source: 'Industry reports, steel market analysis'
       }
     },
     is_public: true,
@@ -414,11 +419,11 @@ export const tier3Materials: Company[] = [
     purity_score: 0.15,
     backlog_strength: 3,
     pricing_power: 4,
-    exposure: { 'c8': 4 },
+    exposure: { 'c8': 5 },
     exposure_rationale: {
       'c8': {
-        rationale: 'World\'s leading carbon fiber manufacturer, critical supplier of carbon fiber composite cores for ACCC (Aluminum Conductor Composite Core) high-temperature low-sag transmission conductors. ACCC enables higher capacity on existing towers',
-        metric: '~30% global carbon fiber market, monopoly in ACCC core material',
+        rationale: 'DUOPOLY leader in carbon fiber composite cores for ACCC high-temperature transmission conductors. World\'s #1 carbon fiber manufacturer supplying ~50-60% of carbon fiber for ACCC cores (vs Hexcel ~15%). No ACCC conductor can be made without Toray or Hexcel carbon fiber - critical bottleneck for grid capacity expansion.',
+        metric: '~50-60% market share in ACCC carbon fiber core material',
         source: 'Toray Annual Report FY2024, CTC Global (ACCC licensee)'
       }
     },
@@ -447,7 +452,7 @@ export const tier3Materials: Company[] = [
     purity_score: 0.25,
     backlog_strength: 3,
     pricing_power: 4,
-    exposure: { 'c13': 5, 'c1': 4, 'c2': 4, 'c19': 3 },
+    exposure: { 'c13': 5, 'c1': 4, 'c2': 4, 'c3': 4, 'c19': 3 },
     exposure_rationale: {
       'c13': {
         rationale: 'Dominant position in bushing epoxy resins via Araldite brand. ~25-30% market share in HV bushing epoxy systems used by Trench, ABB, Siemens for RIP (Resin Impregnated Paper) bushings.',
@@ -463,6 +468,11 @@ export const tier3Materials: Company[] = [
         rationale: 'Strong position in MV transformer casting resins for dry-type distribution transformers. Growing demand due to fire safety requirements.',
         metric: '~20-25% market share in MV casting resins',
         source: 'Company materials'
+      },
+      'c3': {
+        rationale: 'Major supplier of casting resins and insulation compounds for distribution transformer manufacturing. Araldite epoxy systems used in dry-type distribution transformers.',
+        metric: '~20-25% market share in distribution transformer insulation compounds',
+        source: 'Industry reports'
       },
       'c19': {
         rationale: 'Epoxy resins for cable joint and termination insulation. Moderate position in accessory materials.',
@@ -491,7 +501,7 @@ export const tier3Materials: Company[] = [
     purity_score: 0.95,
     backlog_strength: 4,
     pricing_power: 5,
-    exposure: { 'c1': 5, 'c2': 5, 'c11': 4 },
+    exposure: { 'c1': 5, 'c2': 5, 'c3': 3, 'c11': 4 },
     exposure_rationale: {
       'c1': {
         rationale: 'Global leader in transformer insulation resins with ~40% market share. Beckers Elantas brand is industry standard for varnishes, enamels, and impregnating resins used by all major LPT manufacturers.',
@@ -502,6 +512,11 @@ export const tier3Materials: Company[] = [
         rationale: 'Market leader in wire enamels and varnishes for MV transformers with ~35% market share. Essential coating materials for transformer windings.',
         metric: '~35% global market share in wire enamels',
         source: 'Industry analysis'
+      },
+      'c3': {
+        rationale: 'Strong position in insulation varnishes and enamels for distribution transformers. Elantas products used by major distribution transformer manufacturers globally.',
+        metric: '~30% global market share in distribution transformer varnishes',
+        source: 'Industry reports'
       },
       'c11': {
         rationale: 'Supplies core plate insulation coatings for GOES steel used in transformer cores. Specialized coating formulations for low-loss performance.',
@@ -527,7 +542,7 @@ export const tier3Materials: Company[] = [
     purity_score: 0.85,
     backlog_strength: 3,
     pricing_power: 4,
-    exposure: { 'c1': 4, 'c2': 4, 'c13': 3 },
+    exposure: { 'c1': 4, 'c2': 4, 'c3': 3, 'c13': 3 },
     exposure_rationale: {
       'c1': {
         rationale: 'Swiss specialist in composite insulation systems with 10-15% European market share. VPI (vacuum pressure impregnation) systems and laminated insulation materials for HV transformers.',
@@ -538,6 +553,11 @@ export const tier3Materials: Company[] = [
         rationale: 'Strong position in laminated insulation materials for MV transformers and rotating machines. Competes with Elantas in European market.',
         metric: '~12% European market share in MV insulation',
         source: 'Industry analysis'
+      },
+      'c3': {
+        rationale: 'Meaningful position in epoxy resin casting systems for distribution transformers. Von Roll VPI systems used in dry-type distribution transformer manufacturing.',
+        metric: '~10-15% market share in distribution transformer casting resins',
+        source: 'Industry reports'
       },
       'c13': {
         rationale: 'HV insulation components for bushings. Niche position in specialized bushing insulation materials.',
@@ -628,7 +648,7 @@ export const tier3Materials: Company[] = [
     purity_score: 0.02,
     backlog_strength: 4,
     pricing_power: 5,
-    exposure: { 'c1': 4, 'c2': 3 },
+    exposure: { 'c1': 4, 'c2': 3, 'c3': 4 },
     exposure_rationale: {
       'c1': {
         rationale: 'Monopoly position (~60% market share) in natural ester transformer fluids via Envirotemp FR3 brand. Bio-based alternative to mineral oil adopted by major utilities (ConEd, National Grid) for fire safety and environmental benefits.',
@@ -639,6 +659,11 @@ export const tier3Materials: Company[] = [
         rationale: 'Growing penetration in distribution transformers as utilities shift to ester-based fluids for fire safety in urban installations.',
         metric: '~50% natural ester market in MV transformers',
         source: 'Industry analysis'
+      },
+      'c3': {
+        rationale: 'Dominant position in bio-based insulating fluids for distribution transformers. FR3 natural ester increasingly specified for pad-mounted and pole-mounted distribution transformers in fire-sensitive locations.',
+        metric: '~55% market share in natural ester distribution transformer fluids',
+        source: 'Industry reports, utility procurement data'
       }
     },
     is_public: false,
@@ -659,7 +684,7 @@ export const tier3Materials: Company[] = [
     purity_score: 0.95,
     backlog_strength: 4,
     pricing_power: 4,
-    exposure: { 'c1': 4, 'c2': 4 },
+    exposure: { 'c1': 4, 'c2': 4, 'c3': 3 },
     exposure_rationale: {
       'c1': {
         rationale: 'MIDEL synthetic ester fluids hold 35-40% of synthetic ester market. Competes with Cargill FR3 in transformer fluid alternatives. Strong position in European market and transformer retrofit applications.',
@@ -669,6 +694,11 @@ export const tier3Materials: Company[] = [
       'c2': {
         rationale: 'Leading European supplier for ester-filled distribution transformers. MIDEL 7131 widely specified for MV applications requiring fire safety.',
         metric: '~40% European ester transformer fluid market',
+        source: 'Industry analysis'
+      },
+      'c3': {
+        rationale: 'Meaningful position in synthetic ester fluids for distribution transformers. MIDEL fluids used in fire-safe distribution transformer applications, particularly in European markets.',
+        metric: '~25% synthetic ester market in distribution transformers',
         source: 'Industry analysis'
       }
     },
@@ -940,4 +970,5 @@ export const tier3Materials: Company[] = [
     data_sources: ['Industry reports'],
     data_confidence: 'low'
   },
+  // NOTE: Hitachi Metglas exposure is on parent company Hitachi Ltd (co_hitachi) in tier1-oems.ts
 ];
