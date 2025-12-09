@@ -7,18 +7,20 @@
  *   npx tsx scripts/fmp-lookup.ts validate          # Validate all companies
  *   npx tsx scripts/fmp-lookup.ts update HTHIY      # Update single company data
  *
- * Requires FMP_API_KEY environment variable
+ * Requires FMP_API_KEY environment variable (loaded from .env file)
  */
+
+import 'dotenv/config';
 
 const FMP_BASE_URL = 'https://financialmodelingprep.com/stable';
 
 interface FMPProfile {
   symbol: string;
   companyName: string;
-  exchange: string;
-  exchangeShortName: string;
+  exchange: string;           // Short name like "NYSE", "NASDAQ"
+  exchangeFullName: string;   // Full name like "New York Stock Exchange"
   currency: string;
-  mktCap: number;
+  marketCap: number;          // Market cap in USD
   city: string;
   state: string;
   country: string;
@@ -39,7 +41,7 @@ interface FMPIncomeStatement {
 interface FMPSearchResult {
   symbol: string;
   name: string;
-  exchangeShortName: string;
+  exchange: string;
   stockExchange: string;
 }
 
@@ -115,7 +117,7 @@ async function runSearch(query: string): Promise<void> {
   console.log('─'.repeat(80));
 
   for (const result of results.slice(0, 15)) {
-    console.log(`  ${result.symbol.padEnd(12)} ${result.name.slice(0, 40).padEnd(42)} ${result.exchangeShortName}`);
+    console.log(`  ${result.symbol.padEnd(12)} ${result.name.slice(0, 40).padEnd(42)} ${result.exchange || ''}`);
   }
 
   if (results.length > 15) {
@@ -161,8 +163,8 @@ async function runProfile(symbol: string): Promise<void> {
   console.log('─'.repeat(60));
   console.log(`  Name:         ${profile.companyName}`);
   console.log(`  Symbol:       ${profile.symbol}`);
-  console.log(`  Exchange:     ${profile.exchangeShortName} (${profile.exchange})`);
-  console.log(`  Market Cap:   ${formatMarketCap(profile.mktCap)}`);
+  console.log(`  Exchange:     ${profile.exchange} (${profile.exchangeFullName})`);
+  console.log(`  Market Cap:   ${formatMarketCap(profile.marketCap)}`);
   if (ttmRevenue > 0) {
     console.log(`  Revenue TTM:  ${formatRevenue(ttmRevenue)}`);
   }
@@ -174,12 +176,12 @@ async function runProfile(symbol: string): Promise<void> {
   // Output in format suitable for Company type
   console.log('\nFor companies.ts:');
   console.log('─'.repeat(60));
-  console.log(`  market_cap_usd: ${(profile.mktCap / 1_000_000_000).toFixed(1)},`);
+  console.log(`  market_cap_usd: ${(profile.marketCap / 1_000_000_000).toFixed(1)},`);
   if (ttmRevenue > 0) {
     console.log(`  revenue_ttm_usd: ${(ttmRevenue / 1_000_000_000).toFixed(1)},`);
   }
   console.log(`  headquarters: '${headquarters}',`);
-  console.log(`  primary_exchange: '${profile.exchangeShortName}',`);
+  console.log(`  primary_exchange: '${profile.exchange}',`);
   console.log(`  data_updated: '${new Date().toISOString().split('T')[0]}',`);
   console.log(`  data_sources: ['FMP API'],`);
 }
@@ -226,7 +228,7 @@ async function runValidate(): Promise<void> {
         continue;
       }
 
-      const fmpMktCap = profile.mktCap / 1_000_000_000;
+      const fmpMktCap = profile.marketCap / 1_000_000_000;
       const ourMktCap = company.market_cap_usd || 0;
       const diff = Math.abs(fmpMktCap - ourMktCap) / ourMktCap;
 
