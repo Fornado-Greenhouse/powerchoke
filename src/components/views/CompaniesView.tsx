@@ -129,7 +129,7 @@ export function CompaniesView({ companies, components, onSelectCompany }: Compan
                   Region <SortIcon field="region" sortField={sortField} sortDir={sortDir} />
                 </button>
               </th>
-              <th className="p-4">
+              <th className="p-4" title="Total Bottleneck Index - Composite score measuring supply chain leverage">
                 <button onClick={() => handleSort('tbi')} className="flex items-center gap-1 hover:text-white">
                   TBI Score <SortIcon field="tbi" sortField={sortField} sortDir={sortDir} />
                 </button>

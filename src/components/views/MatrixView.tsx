@@ -33,7 +33,10 @@ export function MatrixView({ components, companies, onSelectComponent, onSelectC
               <th className="p-4 text-left w-80 text-slate-400 font-medium sticky left-0 bg-slate-950 z-20 border-r border-slate-800">
                 Company
               </th>
-              <th className="p-3 w-20 text-center text-slate-400 font-medium border-r border-slate-800">
+              <th
+                className="p-3 w-20 text-center text-slate-400 font-medium border-r border-slate-800 cursor-help"
+                title="Total Bottleneck Index - Composite score measuring supply chain leverage"
+              >
                 TBI
               </th>
               {components.map((comp) => (
