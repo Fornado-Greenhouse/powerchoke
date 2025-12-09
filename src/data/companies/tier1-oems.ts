@@ -167,6 +167,11 @@ export const tier1Oems: Company[] = [
     backlog_strength: 3,
     pricing_power: 3,
     exposure: { 'c1': 4, 'c7': 3, 'c2': 3 },
+    exposure_rationale: {
+      'c1': { rationale: 'Historic top-5 global LPT manufacturer, strong in Japan/Asia but below Big 5', source: 'Toshiba Energy Systems reports' },
+      'c7': { rationale: 'HVDC capability but limited recent projects, behind Hitachi/Siemens/GE', source: 'Industry analysis' },
+      'c2': { rationale: 'Medium transformer presence in domestic Japanese market', source: 'Company product portfolio' }
+    },
     is_public: false,
     revenue_ttm_usd: 28.5,
     grid_revenue_pct: 40,
@@ -187,6 +192,11 @@ export const tier1Oems: Company[] = [
     backlog_strength: 5,
     pricing_power: 4,
     exposure: { 'c1': 5, 'c2': 5, 'c4': 3 },
+    exposure_rationale: {
+      'c1': { rationale: 'Dominant Korean LPT manufacturer with growing global exports', metric: '~60-70% Korea domestic LPT market share', source: 'Company Annual Report 2024' },
+      'c2': { rationale: 'Leading Korean medium transformer supplier, strong KEPCO relationship', metric: 'Primary supplier to Korea Electric Power', source: 'Industry analysis Korea' },
+      'c4': { rationale: 'HV switchgear capability but regional focus, behind global leaders', source: 'Company product portfolio' }
+    },
     is_public: true,
     market_cap_usd: 20.8,
     revenue_ttm_usd: 3.1,
@@ -209,6 +219,11 @@ export const tier1Oems: Company[] = [
     backlog_strength: 3,
     pricing_power: 2,
     exposure: { 'c2': 4, 'c3': 4, 'c1': 2 },
+    exposure_rationale: {
+      'c2': { rationale: 'Top-3 medium transformer manufacturer in India, strong domestic utility presence', metric: '~15-20% India MV transformer market share', source: 'Company Annual Report FY2024' },
+      'c3': { rationale: 'Major distribution transformer supplier in Indian market, T&D segment core business', source: 'CG Power investor presentation' },
+      'c1': { rationale: 'Limited large transformer capability, primarily domestic market focus', source: 'Industry analysis India T&D sector' }
+    },
     is_public: true,
     market_cap_usd: 12.5,
     revenue_ttm_usd: 1.8,
@@ -231,6 +246,10 @@ export const tier1Oems: Company[] = [
     backlog_strength: 3,
     pricing_power: 2,
     exposure: { 'c2': 4, 'c3': 4 },
+    exposure_rationale: {
+      'c2': { rationale: 'Leading Latin America medium transformer supplier, dominant in Brazil', metric: '#1 in Brazil MV transformers, ~30% domestic market share', source: 'Company Annual Report 2024' },
+      'c3': { rationale: 'Top distribution transformer manufacturer in Brazil and LATAM region', metric: 'Largest transformer producer in South America', source: 'WEG investor presentation' }
+    },
     is_public: true,
     market_cap_usd: 35.2,
     revenue_ttm_usd: 8.5,
@@ -253,6 +272,13 @@ export const tier1Oems: Company[] = [
     backlog_strength: 4,
     pricing_power: 4,
     exposure: { 'c7': 4, 'c6': 3, 'c2': 4, 'c3': 3, 'c4': 3 },
+    exposure_rationale: {
+      'c7': { rationale: 'Strong power electronics for HVDC converters, specialist in semiconductor-based power systems', source: 'Fuji Electric Power & New Energy segment report' },
+      'c6': { rationale: 'FACTS/STATCOM capability leveraging power semiconductor expertise', source: 'Company product portfolio' },
+      'c2': { rationale: 'Solid medium transformer business in Japan and Asia', metric: 'Power & Energy Systems ~¥350B revenue', source: 'Fuji Electric FY2024 Report' },
+      'c3': { rationale: 'Distribution transformer presence primarily in domestic market', source: 'Industry analysis' },
+      'c4': { rationale: 'MV/HV switchgear but regional player behind major OEMs', source: 'Company product portfolio' }
+    },
     is_public: true,
     market_cap_usd: 10.8,
     revenue_ttm_usd: 9.2,
@@ -275,6 +301,12 @@ export const tier1Oems: Company[] = [
     backlog_strength: 3,
     pricing_power: 4,
     exposure: { 'c4': 5, 'c2': 3, 'c3': 3, 'c5': 3 },
+    exposure_rationale: {
+      'c4': { rationale: 'Global leader in vacuum interrupter technology for MV/HV circuit breakers', metric: 'Top-3 globally in vacuum interrupters, critical component monopoly', source: 'Meidensha Annual Report FY2024' },
+      'c2': { rationale: 'Medium transformer business primarily domestic Japan market', source: 'Company product portfolio' },
+      'c3': { rationale: 'Distribution transformer presence in Japanese utilities', source: 'Industry analysis' },
+      'c5': { rationale: 'Protection relay business but smaller than ABB/Schneider/GE', source: 'Meidensha power systems segment' }
+    },
     is_public: true,
     market_cap_usd: 1.7,
     revenue_ttm_usd: 1.8,
@@ -301,6 +333,16 @@ export const tier1Oems: Company[] = [
     backlog_strength: 5,
     pricing_power: 4,
     exposure: { 'c1': 5, 'c2': 5, 'c3': 4, 'c7': 5, 'c4': 4, 'c6': 4, 'c8': 3, 'c19': 3 },
+    exposure_rationale: {
+      'c1': { rationale: 'China\'s #1 transformer manufacturer by capacity, major State Grid supplier', metric: 'Largest transformer producer in China', source: 'TBEA Annual Report 2024' },
+      'c2': { rationale: 'Dominant medium transformer position in China, extensive production capacity', source: 'State Grid procurement data' },
+      'c3': { rationale: 'Major distribution transformer supplier for rural electrification and grid expansion', source: 'Company product portfolio' },
+      'c7': { rationale: 'Leading UHVDC systems integrator, multiple ±800kV and ±1100kV projects', metric: 'Key supplier for China UHVDC backbone', source: 'Industry analysis UHVDC' },
+      'c4': { rationale: 'Strong UHV switchgear business supporting UHVDC projects', source: 'TBEA transmission segment' },
+      'c6': { rationale: 'FACTS/SVC capability for renewable integration projects', source: 'Company reports' },
+      'c8': { rationale: 'Substation automation systems, integrated with transformer business', source: 'Product portfolio' },
+      'c19': { rationale: 'Power quality systems for industrial and grid applications', source: 'TBEA energy solutions segment' }
+    },
     is_public: true,
     market_cap_usd: 15.9,
     revenue_ttm_usd: 18.5,
@@ -323,6 +365,15 @@ export const tier1Oems: Company[] = [
     backlog_strength: 5,
     pricing_power: 4,
     exposure: { 'c1': 5, 'c4': 5, 'c6': 4, 'c7': 4, 'c2': 4, 'c5': 4, 'c8': 3 },
+    exposure_rationale: {
+      'c1': { rationale: 'Top-3 transformer manufacturer in China, State Grid\'s primary UHV supplier', metric: 'Major supplier for ±1100kV UHV transformers', source: 'China XD Annual Report 2024' },
+      'c4': { rationale: 'Leading UHV switchgear manufacturer, dominant in GIS for State Grid', metric: 'China\'s largest HV switchgear producer', source: 'Industry analysis China UHV' },
+      'c6': { rationale: 'FACTS/SVC business for grid stability and renewable integration', source: 'Company product portfolio' },
+      'c7': { rationale: 'UHVDC converter equipment and components supplier', source: 'State Grid procurement data' },
+      'c2': { rationale: 'Strong medium voltage transformer business domestically', source: 'China XD transmission segment' },
+      'c5': { rationale: 'Protection relay and control systems for substations', source: 'Product portfolio' },
+      'c8': { rationale: 'Substation automation integrated with switchgear business', source: 'Company reports' }
+    },
     is_public: true,
     market_cap_usd: 6.1,
     revenue_ttm_usd: 11.5,
@@ -345,6 +396,13 @@ export const tier1Oems: Company[] = [
     backlog_strength: 4,
     pricing_power: 3,
     exposure: { 'c1': 4, 'c2': 4, 'c4': 4, 'c7': 3, 'c6': 3 },
+    exposure_rationale: {
+      'c1': { rationale: 'Major transformer manufacturer but diversified across power equipment', source: 'Shanghai Electric Power Equipment segment' },
+      'c2': { rationale: 'Solid medium transformer business, strong in eastern China region', source: 'Company reports' },
+      'c4': { rationale: 'HV switchgear business integrated with substation projects', source: 'Industry analysis' },
+      'c7': { rationale: 'HVDC capability but focus on gas turbines and renewables limits grid focus', source: 'Shanghai Electric Annual Report 2024' },
+      'c6': { rationale: 'FACTS business for renewable integration projects', source: 'Product portfolio' }
+    },
     is_public: true,
     market_cap_usd: 18.7,
     revenue_ttm_usd: 16.8,
@@ -367,6 +425,12 @@ export const tier1Oems: Company[] = [
     backlog_strength: 4,
     pricing_power: 3,
     exposure: { 'c5': 5, 'c16': 5, 'c4': 3, 'c2': 3 },
+    exposure_rationale: {
+      'c5': { rationale: 'China\'s dominant protection relay supplier, State Grid captive position', metric: '~60-70% China protection relay market share', source: 'NARI Annual Report 2024' },
+      'c16': { rationale: 'Leading SCADA and EMS provider for State Grid, monopoly position in grid automation', metric: 'Primary SCADA supplier for State Grid substations', source: 'State Grid procurement data' },
+      'c4': { rationale: 'Some switchgear business but primarily control systems focus', source: 'Company product portfolio' },
+      'c2': { rationale: 'Limited transformer business, primarily automation and protection systems', source: 'Industry analysis' }
+    },
     is_public: true,
     market_cap_usd: 25.6,
     revenue_ttm_usd: 5.2,
@@ -393,6 +457,14 @@ export const tier1Oems: Company[] = [
     backlog_strength: 4,
     pricing_power: 4,
     exposure: { 'c2': 4, 'c3': 4, 'c4': 4, 'c5': 5, 'c18': 5, 'c16': 3 },
+    exposure_rationale: {
+      'c2': { rationale: 'Major MV transformer supplier globally, Energy Management segment', metric: 'Energy Management ~€30B revenue', source: 'Schneider Electric Universal Registration Document 2024' },
+      'c3': { rationale: 'Strong distribution transformer business, particularly in emerging markets', source: 'Schneider product portfolio' },
+      'c4': { rationale: 'Leading MV switchgear manufacturer, strong in data centers and industrial', source: 'Industry analysis MV equipment' },
+      'c5': { rationale: 'Top-3 globally in protection relays and grid automation software', metric: 'Major competitor to ABB, GE, Siemens in protection', source: 'Schneider Electric investor presentation' },
+      'c18': { rationale: 'Global leader in modular substations (e-houses/prefab substations)', metric: 'Dominant in data center and renewable modular substations', source: 'Industry analysis modular substations' },
+      'c16': { rationale: 'SCADA and grid management software via EcoStruxure platform', source: 'Schneider Electric Grid segment' }
+    },
     is_public: true,
     market_cap_usd: 153.2,
     revenue_ttm_usd: 38.9,
@@ -415,6 +487,13 @@ export const tier1Oems: Company[] = [
     backlog_strength: 4,
     pricing_power: 4,
     exposure: { 'c4': 4, 'c3': 4, 'c2': 3, 'c18': 4, 'c5': 3 },
+    exposure_rationale: {
+      'c4': { rationale: 'Major MV/HV circuit breaker manufacturer, strong vacuum interrupter technology', metric: 'Electrical Americas ~$8B revenue', source: 'Eaton 10-K FY2024' },
+      'c3': { rationale: 'Leading distribution transformer supplier in North America post-Cooper acquisition', metric: 'Top-3 in North America distribution transformers', source: 'Power Systems segment disclosure' },
+      'c2': { rationale: 'Medium transformer business, stronger in industrial than utility markets', source: 'Eaton product portfolio' },
+      'c18': { rationale: 'Modular power systems and prefab substations for data centers and renewable projects', source: 'Eaton investor presentation' },
+      'c5': { rationale: 'Protection relay business but smaller than ABB/Schneider/GE, focus on MV applications', source: 'Industry analysis protection systems' }
+    },
     is_public: true,
     market_cap_usd: 142.5,
     revenue_ttm_usd: 23.2,
