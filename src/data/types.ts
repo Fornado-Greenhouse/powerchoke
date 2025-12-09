@@ -129,3 +129,21 @@ export interface Scenario {
     tier2_premium: number;
   };
 }
+
+/**
+ * A "true bottleneck" position where a company holds a key player role
+ * in a severe monopoly/duopoly sub-component with high market share exposure.
+ *
+ * Criteria: severity >= 4, market_structure = Monopoly|Duopoly, exposure >= 4
+ */
+export interface BottleneckMatch {
+  companyId: string;
+  companyName: string;
+  componentId: string;
+  componentName: string;
+  subComponentName: string;
+  subComponentSeverity: number;
+  marketStructure: string;
+  keyPlayer: string;
+  exposure: number;
+}

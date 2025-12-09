@@ -1,8 +1,8 @@
 'use client';
 
-import { LayoutGrid, Building2, Layers, Trophy } from 'lucide-react';
+import { LayoutGrid, Building2, Layers, Trophy, AlertTriangle } from 'lucide-react';
 
-export type TabType = 'matrix' | 'companies' | 'components' | 'scoring';
+export type TabType = 'matrix' | 'companies' | 'components' | 'scoring' | 'bottlenecks';
 
 interface TabNavProps {
   activeTab: TabType;
@@ -11,6 +11,7 @@ interface TabNavProps {
 
 const TABS: { id: TabType; label: string; Icon: typeof LayoutGrid }[] = [
   { id: 'matrix', label: 'Matrix', Icon: LayoutGrid },
+  { id: 'bottlenecks', label: 'Critical Bottlenecks', Icon: AlertTriangle },
   { id: 'companies', label: 'Companies', Icon: Building2 },
   { id: 'components', label: 'Components', Icon: Layers },
   { id: 'scoring', label: 'Scoring', Icon: Trophy },
