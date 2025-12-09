@@ -20,10 +20,13 @@ export function ScoringView({ companies, onSelectCompany }: ScoringViewProps) {
       {/* Scoring Explanation */}
       <div className="bg-slate-900 border border-slate-800 rounded-xl p-6">
         <div className="flex items-center justify-between mb-4">
-          <h3 className="text-lg font-bold text-white flex items-center gap-2">
-            <Sparkles className="w-5 h-5 text-amber-400" />
-            TBI Scoring Methodology
-          </h3>
+          <div>
+            <h3 className="text-lg font-bold text-white flex items-center gap-2">
+              <Sparkles className="w-5 h-5 text-amber-400" />
+              Total Bottleneck Index (TBI)
+            </h3>
+            <p className="text-xs text-slate-500 mt-1 ml-7">Composite score ranking companies by grid infrastructure supply chain leverage</p>
+          </div>
           <a
             href="https://github.com/Fornado-Greenhouse/powerchoke/blob/main/docs/SCORING_METHODOLOGY.md"
             target="_blank"

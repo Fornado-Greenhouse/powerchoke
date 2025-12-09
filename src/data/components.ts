@@ -400,7 +400,7 @@ export const components: ComponentRow[] = [
     risks: 'Delays hardware replacement',
     tier_type: 'SOFTWARE',
     sub_components: [
-      { name: 'Dissolved Gas Analysis (DGA) Sensors', role: 'Online transformer health monitoring via oil gas detection', severity: 4, market_structure: 'Oligopoly', key_player: 'Qualitrol (Danaher) ~35% / Vaisala ~25%' },
+      { name: 'Dissolved Gas Analysis (DGA) Sensors', role: 'Online transformer health monitoring via oil gas detection', severity: 4, market_structure: 'Oligopoly', key_player: 'Qualitrol (Fortive) ~35% / Vaisala ~25%' },
       { name: 'Partial Discharge Monitoring Systems', role: 'Early insulation failure detection in transformers/cables/switchgear', severity: 4, market_structure: 'Oligopoly', key_player: 'Omicron / LDIC (EA Technology) / Doble' },
       { name: 'Bushing Monitoring Systems', role: 'Capacitance, power factor, DGA monitoring for transformer bushings', severity: 4, market_structure: 'Oligopoly', key_player: 'Qualitrol / Doble / Weidmann' }
     ]

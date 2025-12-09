@@ -62,6 +62,16 @@ export interface ComponentRow {
 export type DataConfidence = 'high' | 'medium' | 'low';
 
 /**
+ * Rationale for a single exposure score assignment.
+ * Provides audit trail for why a company received a particular exposure score.
+ */
+export interface ExposureRationale {
+  rationale: string;          // Why this score was assigned (e.g., "Top-3 LPT globally via Hitachi Energy")
+  metric?: string;            // Quantitative basis if available (e.g., "~$8B LPT revenue, 45% of grid segment")
+  source?: string;            // Source document (e.g., "10-K FY2024 p.45")
+}
+
+/**
  * A company that participates in the grid infrastructure supply chain.
  */
 export interface Company {
@@ -73,6 +83,7 @@ export interface Company {
   universe: UniverseType;
   purity_score: number;           // 0-1, how "pure play" on grid infra
   exposure: Record<string, number>; // componentId -> exposure strength (1-5)
+  exposure_rationale?: Record<string, ExposureRationale>; // Audit trail for exposure scores
   backlog_strength: number;       // 1-5
   pricing_power: number;          // 1-5
 
