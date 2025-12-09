@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Info } from 'lucide-react';
 import { ComponentRow, ScoredCompany } from '@/data';
 import { ExposureCell } from '@/components/ui/ExposureCell';
@@ -14,6 +14,16 @@ interface MatrixViewProps {
 }
 
 export function MatrixView({ components, companies, onSelectComponent, onSelectCompany }: MatrixViewProps) {
+  // Sort components by bottleneck severity (highest first), then by row_number for stability
+  const sortedComponents = useMemo(() => {
+    return [...components].sort((a, b) => {
+      if (b.bottleneck_severity !== a.bottleneck_severity) {
+        return b.bottleneck_severity - a.bottleneck_severity;
+      }
+      return a.row_number - b.row_number;
+    });
+  }, [components]);
+
   return (
     <div className="bg-slate-900 rounded-xl border border-slate-800 overflow-hidden shadow-xl">
       <div className="overflow-x-auto">
@@ -29,7 +39,7 @@ export function MatrixView({ components, companies, onSelectComponent, onSelectC
               >
                 TBI
               </th>
-              {components.map((comp) => (
+              {sortedComponents.map((comp) => (
                 <th
                   key={comp.id}
                   className="p-1 w-10 text-center border-r border-slate-800/50 bg-slate-950/50"
@@ -92,7 +102,7 @@ export function MatrixView({ components, companies, onSelectComponent, onSelectC
                 </td>
 
                 {/* Exposure Cells */}
-                {components.map((comp) => (
+                {sortedComponents.map((comp) => (
                   <td
                     key={`${company.id}-${comp.id}`}
                     className="p-0.5 h-12 border-r border-slate-800/30 relative"
