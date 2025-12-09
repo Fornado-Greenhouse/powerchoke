@@ -132,19 +132,19 @@ export function MatrixView({ components, companies, onSelectComponent, onSelectC
         <div className="flex items-center gap-4 text-xs">
           <span className="text-slate-500">Exposure:</span>
           <div className="flex items-center gap-1">
-            <span className="w-6 h-6 bg-slate-600/40 rounded-sm flex items-center justify-center text-slate-400 text-[10px] font-bold">2</span>
-            <span className="text-slate-600">Minor</span>
+            <span className="w-6 h-6 bg-yellow-600/70 rounded-sm flex items-center justify-center text-yellow-100 text-[10px] font-bold">2</span>
+            <span className="text-slate-500">Minor</span>
           </div>
           <div className="flex items-center gap-1">
-            <span className="w-6 h-6 bg-amber-600/70 rounded-sm flex items-center justify-center text-amber-100 text-[10px] font-bold">3</span>
+            <span className="w-6 h-6 bg-amber-500/80 rounded-sm flex items-center justify-center text-amber-100 text-[10px] font-bold">3</span>
             <span className="text-slate-500">Meaningful</span>
           </div>
           <div className="flex items-center gap-1">
-            <span className="w-6 h-6 bg-orange-500/80 rounded-sm flex items-center justify-center text-orange-100 text-[10px] font-bold">4</span>
+            <span className="w-6 h-6 bg-orange-500/90 rounded-sm flex items-center justify-center text-orange-100 text-[10px] font-bold">4</span>
             <span className="text-slate-500">Major</span>
           </div>
           <div className="flex items-center gap-1">
-            <span className="w-6 h-6 bg-rose-500 rounded-sm flex items-center justify-center text-white text-[10px] font-bold">5</span>
+            <span className="w-6 h-6 bg-red-600 rounded-sm flex items-center justify-center text-white text-[10px] font-bold">5</span>
             <span className="text-slate-500">Dominant</span>
           </div>
         </div>
