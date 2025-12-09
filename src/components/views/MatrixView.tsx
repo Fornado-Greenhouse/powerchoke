@@ -29,6 +29,17 @@ export function MatrixView({ components, companies, onSelectComponent, onSelectC
       <div className="overflow-x-auto">
         <table className="w-full text-sm border-collapse">
           <thead>
+            {/* Column group label row */}
+            <tr className="bg-slate-950 border-b border-slate-800/50">
+              <th className="sticky left-0 bg-slate-950 z-20 border-r border-slate-800" />
+              <th className="border-r border-slate-800" />
+              <th
+                colSpan={sortedComponents.length}
+                className="py-2 text-center text-xs font-medium text-slate-400 uppercase tracking-wider"
+              >
+                Components <span className="text-slate-600 font-normal normal-case">(sorted by bottleneck severity)</span>
+              </th>
+            </tr>
             <tr className="bg-slate-950 border-b border-slate-700">
               <th className="p-4 text-left w-80 text-slate-400 font-medium sticky left-0 bg-slate-950 z-20 border-r border-slate-800">
                 Company
@@ -42,7 +53,7 @@ export function MatrixView({ components, companies, onSelectComponent, onSelectC
               {sortedComponents.map((comp) => (
                 <th
                   key={comp.id}
-                  className="p-1 w-10 text-center border-r border-slate-800/50 bg-slate-950/50"
+                  className="p-1 w-12 text-center border-r border-slate-800/50 bg-slate-950/50"
                 >
                   <button
                     onClick={() => onSelectComponent(comp)}
@@ -50,11 +61,12 @@ export function MatrixView({ components, companies, onSelectComponent, onSelectC
                   >
                     <span className="text-[8px] font-mono text-slate-600">#{comp.row_number}</span>
                     <div
-                      className="h-24 flex items-end justify-center pb-1"
+                      className="h-36 flex items-end justify-center pb-1"
                       style={{ writingMode: 'vertical-rl' }}
                     >
                       <span
-                        className="text-[10px] text-slate-400 group-hover:text-blue-400 transition-colors transform rotate-180 whitespace-nowrap max-w-[90px] overflow-hidden text-ellipsis"
+                        className="text-[10px] text-slate-400 group-hover:text-blue-400 transition-colors transform rotate-180 leading-tight text-center"
+                        style={{ maxHeight: '140px', wordBreak: 'break-word', whiteSpace: 'normal' }}
                         title={comp.name}
                       >
                         {comp.name}
