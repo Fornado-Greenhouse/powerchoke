@@ -20,9 +20,10 @@ export const software: Company[] = [
     purity_score: 0.7,
     backlog_strength: 4,
     pricing_power: 5,
-    exposure: { 'c16': 5, 'c17': 3 },
+    exposure: { 'c14': 5, 'c16': 3, 'c17': 3 },
     exposure_rationale: {
-      'c16': { rationale: '~90% market share in transmission line design via PLS-CADD (sag-tension analysis, 3D modeling). Industry standard for transmission planning. Also provides AssetWise asset management for grid infrastructure lifecycle.', source: 'Bentley investor materials, component c14 sub-components' },
+      'c14': { rationale: 'MONOPOLY in transmission line design software via PLS-CADD with ~90% global market share. Industry standard for sag-tension analysis, 3D line modeling, and structural analysis. Every major transmission EPC project uses PLS-CADD for engineering. Power Line Systems (now Bentley) controls critical software bottleneck.', metric: '~90% market share in transmission line design software', source: 'Bentley investor materials, industry analysis' },
+      'c16': { rationale: 'AssetWise provides grid asset management and lifecycle tracking. Secondary offering for SCADA/operations compared to dedicated EMS vendors.', source: 'Bentley product portfolio' },
       'c17': { rationale: 'AssetWise APM provides condition monitoring and predictive analytics for grid assets. Secondary offering compared to specialized sensor companies.', source: 'Bentley product portfolio' }
     },
     is_public: true,
@@ -36,30 +37,7 @@ export const software: Company[] = [
     data_sources: ['Bentley Systems 10-K 2024', 'Industry analysis', 'FMP API'],
     data_confidence: 'high'
   },
-  {
-    id: 'co_aveva',
-    name: 'AVEVA Group',
-    ticker: 'Private',
-    region: 'EU',
-    type: 'SOFTWARE',
-    universe: 'GLOBAL',
-    purity_score: 0.4,
-    backlog_strength: 4,
-    pricing_power: 5,
-    exposure: { 'c16': 5, 'c17': 4 },
-    exposure_rationale: {
-      'c16': { rationale: '~95% of global utilities use PI System historian for operational data management. De facto standard for SCADA/EMS data aggregation, real-time monitoring, and historical trending. Part of Schneider Electric since 2023.', source: 'Industry reports, Schneider Electric materials' },
-      'c17': { rationale: 'PI System integrates with condition monitoring sensors (DGA, partial discharge, bushing monitors) to provide centralized analytics and trending for asset health.', source: 'AVEVA product documentation' }
-    },
-    is_public: false,
-    revenue_ttm_usd: 3.8,
-    grid_revenue_pct: 40,
-    description: 'Industrial software company fully acquired by Schneider Electric in 2023. PI System historian platform serves ~95% of global utilities for operational data management.',
-    headquarters: 'Cambridge, UK',
-    data_updated: '2025-12-09',
-    data_sources: ['FMP API', 'Schneider Electric acquisition announcement'],
-    data_confidence: 'high'
-  },
+  // NOTE: AVEVA Group (PI System) exposure is on parent company Schneider Electric (co_schneider) in tier1-oems.ts - acquired 2023
   {
     id: 'co_etap',
     name: 'ETAP',
