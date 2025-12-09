@@ -628,7 +628,7 @@ export default function Powerchoke() {
         <StatsWidgets
           components={components}
           companies={filteredCompanies}
-          onNavigate={setActiveTab}
+          onNavigate={handleTabChange}
         />
 
         {/* TAB NAVIGATION */}
