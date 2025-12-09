@@ -26,33 +26,61 @@ Where `monopoly_bonus = 1.3` for monopoly market structures, `1.0` otherwise.
 
 ## Exposure Score (1-5)
 
-The exposure score measures a company's revenue dependency on a specific grid infrastructure component.
+The exposure score measures a company's **market position** in a specific grid infrastructure component. Higher scores indicate stronger competitive positions and greater benefit from bottleneck dynamics.
 
-| Score | Level | Definition | Revenue Dependency | Example |
-|-------|-------|------------|-------------------|---------|
-| **5** | Core | Core business, dominant market position | >40% of segment revenue | Hitachi in LPT, Reinhausen in tap changers |
-| **4** | Major | Major revenue contributor | 20-40% of segment revenue | GE Vernova in HVDC converters |
-| **3** | Meaningful | Meaningful exposure | 10-20% of segment revenue | ABB in distribution transformers |
-| **2** | Minor | Minor exposure | 5-10% of segment revenue | Diversified conglomerate with small grid unit |
-| **1** | Tangential | Tangential or emerging | <5% of segment revenue | Company entering the space |
+| Score | Level | Market Position | Criteria | Example |
+|-------|-------|-----------------|----------|---------|
+| **5** | Dominant | Global Top 3 | Market leader with dominant share, pricing power | Hitachi in HVDC, Reinhausen in tap changers |
+| **4** | Major | Global Top 10 | Major player with significant market presence | GE Vernova in HVDC converters |
+| **3** | Meaningful | Regional leader | Strong regional presence or meaningful global share | ABB in distribution transformers |
+| **2** | Minor | Minor player | Participates but not a leader | Diversified conglomerate with small grid unit |
+| **1** | Tangential | Emerging/niche | New entrant or tangential exposure | Company entering the space |
 
 ### How Exposure is Determined
 
-1. **Primary source**: Company 10-K/Annual Report segment disclosures
-2. **Secondary sources**: Earnings call commentary, investor presentations
-3. **Triangulation**: Industry reports (T&D World, Power Engineering), analyst estimates
+1. **Market share data**: Industry reports (T&D World rankings, Power Engineering)
+2. **Revenue analysis**: Company 10-K/Annual Report segment disclosures
+3. **Competitive positioning**: Earnings call commentary, investor presentations
+4. **Expert triangulation**: Analyst estimates, trade publication coverage
 
-### Example: Hitachi Ltd
+### Exposure Rationale (Audit Trail)
+
+Each exposure score **should** have documented rationale in the `exposure_rationale` field:
 
 ```typescript
-exposure: { 'c1': 5, 'c7': 5, 'c4': 5, 'c10': 4, 'c2': 4 }
+exposure: { 'c1': 5, 'c7': 5 },
+exposure_rationale: {
+  'c1': {
+    rationale: 'Global #2 in LPT via Hitachi Energy',
+    metric: 'Est. 20% global market share',
+    source: 'T&D World 2024 Rankings'
+  },
+  'c7': {
+    rationale: 'HVDC market leader with VSC technology',
+    metric: 'Largest installed HVDC capacity globally',
+    source: 'Hitachi Energy investor materials'
+  }
+}
 ```
 
-- **c1 (LPT): 5** - Hitachi Energy is #2 globally in large power transformers
-- **c7 (HVDC): 5** - Top-3 global position in HVDC systems
-- **c4 (HV Breakers): 5** - Major switchgear business via Hitachi Energy
-- **c10 (Substation Integration): 4** - Strong but not dominant
-- **c2 (Medium Transformers): 4** - Meaningful but smaller than LPT
+| Field | Required | Description |
+|-------|----------|-------------|
+| `rationale` | Yes | Why this score was assigned (market position, competitive context) |
+| `metric` | No | Quantitative basis if available (market share %, revenue) |
+| `source` | No | Source document or analysis |
+
+### Example: Hitachi Ltd (with rationale)
+
+```typescript
+exposure: { 'c1': 5, 'c7': 5, 'c4': 5, 'c10': 4, 'c2': 4 },
+exposure_rationale: {
+  'c1': { rationale: 'Global #2 in LPT via Hitachi Energy', metric: 'Est. 20% global market share', source: 'T&D World 2024 Rankings' },
+  'c7': { rationale: 'HVDC market leader with VSC technology', metric: 'Largest installed HVDC capacity globally', source: 'Hitachi Energy investor materials' },
+  'c4': { rationale: 'Top-3 HV switchgear via Hitachi Energy acquisition of ABB Power Grids', source: 'Hitachi Energy Annual Review 2024' },
+  'c10': { rationale: 'Major substation integrator but behind Siemens/GE in turnkey projects', source: 'Industry analysis' },
+  'c2': { rationale: 'Strong in medium transformers but not market leader', source: 'Industry analysis' }
+}
+```
 
 ---
 

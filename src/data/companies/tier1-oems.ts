@@ -21,6 +21,13 @@ export const tier1Oems: Company[] = [
     backlog_strength: 5,
     pricing_power: 5,
     exposure: { 'c1': 5, 'c7': 5, 'c4': 5, 'c10': 4, 'c2': 4 },
+    exposure_rationale: {
+      'c1': { rationale: 'Global #2 in LPT via Hitachi Energy', metric: 'Est. 20% global market share', source: 'T&D World 2024 Rankings' },
+      'c7': { rationale: 'HVDC market leader with VSC technology', metric: 'Largest installed HVDC capacity globally', source: 'Hitachi Energy investor materials' },
+      'c4': { rationale: 'Top-3 HV switchgear via Hitachi Energy acquisition of ABB Power Grids', source: 'Hitachi Energy Annual Review 2024' },
+      'c10': { rationale: 'Major substation integrator but behind Siemens/GE in turnkey projects', source: 'Industry analysis' },
+      'c2': { rationale: 'Strong in medium transformers but not market leader', source: 'Industry analysis' }
+    },
     is_public: true,
     market_cap_usd: 143.1,
     revenue_ttm_usd: 80.2,
@@ -43,6 +50,12 @@ export const tier1Oems: Company[] = [
     backlog_strength: 5,
     pricing_power: 4,
     exposure: { 'c1': 5, 'c4': 5, 'c7': 4, 'c10': 4 },
+    exposure_rationale: {
+      'c1': { rationale: 'Top-3 global LPT manufacturer via Grid Solutions segment', metric: 'Grid segment ~$6B revenue', source: 'GE Vernova 10-K 2024' },
+      'c4': { rationale: 'Major HV switchgear business, strong North American presence', source: 'GE Vernova investor presentation 2024' },
+      'c7': { rationale: 'Growing HVDC business but behind Hitachi/Siemens in installed base', source: 'Industry analysis' },
+      'c10': { rationale: 'Strong substation integration, $44B+ backlog includes major grid projects', source: 'Q3 2024 earnings call' }
+    },
     is_public: true,
     market_cap_usd: 172,
     revenue_ttm_usd: 37.7,
@@ -65,6 +78,13 @@ export const tier1Oems: Company[] = [
     backlog_strength: 5,
     pricing_power: 5,
     exposure: { 'c1': 5, 'c7': 5, 'c4': 5, 'c6': 4, 'c13': 5 },
+    exposure_rationale: {
+      'c1': { rationale: 'Top-3 global LPT manufacturer via Grid Technologies segment', metric: 'Grid Technologies ~€6B revenue', source: 'Siemens Energy Annual Report 2024' },
+      'c7': { rationale: 'HVDC pioneer, #2 globally behind Hitachi', metric: 'Multiple offshore wind HVDC links in Europe', source: 'Siemens Energy Grid Technologies factsheet' },
+      'c4': { rationale: 'Global leader in GIS (gas-insulated switchgear) with blue-chip utility customer base', source: 'Industry analysis' },
+      'c6': { rationale: 'Strong FACTS/SVC business but smaller than HVDC focus', source: 'Siemens Energy product portfolio' },
+      'c13': { rationale: 'Owns Trench Group - global #2 in HV bushings after Hitachi', metric: 'Trench ~30% global market share', source: 'Trench Group investor materials' }
+    },
     is_public: true,
     market_cap_usd: 109.6,
     revenue_ttm_usd: 37.5,
@@ -87,6 +107,12 @@ export const tier1Oems: Company[] = [
     backlog_strength: 4,
     pricing_power: 4,
     exposure: { 'c2': 5, 'c3': 4, 'c4': 4, 'c5': 5 },
+    exposure_rationale: {
+      'c2': { rationale: 'Global leader in medium-voltage transformers via Electrification segment', metric: 'Electrification ~$15B revenue', source: 'ABB Annual Report 2024' },
+      'c3': { rationale: 'Strong distribution transformer presence, especially in North America', source: 'ABB Electrification factsheet' },
+      'c4': { rationale: 'Major MV/HV switchgear but divested HV grid business to Hitachi in 2020', source: 'ABB investor presentation' },
+      'c5': { rationale: 'Market leader in protection relays via legacy ABB Relion portfolio', metric: '#1-2 globally in protection relays', source: 'Industry analysis' }
+    },
     is_public: true,
     market_cap_usd: 132.6,
     revenue_ttm_usd: 32.2,
@@ -109,6 +135,12 @@ export const tier1Oems: Company[] = [
     backlog_strength: 4,
     pricing_power: 3,
     exposure: { 'c4': 5, 'c6': 4, 'c7': 4, 'c1': 3 },
+    exposure_rationale: {
+      'c4': { rationale: 'Global leader in GIS switchgear, strong domestic and export position', metric: 'Top-3 globally in HV switchgear', source: 'Industry analysis' },
+      'c6': { rationale: 'Pioneer in FACTS/SVC, major supplier to Japanese utilities', source: 'Mitsubishi Electric investor materials' },
+      'c7': { rationale: 'HVDC business but smaller than Hitachi/Siemens', source: 'Industry analysis' },
+      'c1': { rationale: 'LPT capability but not a global leader, focused on domestic market', source: 'Company FY2024 Report' }
+    },
     is_public: true,
     market_cap_usd: 60.6,
     revenue_ttm_usd: 41.8,
