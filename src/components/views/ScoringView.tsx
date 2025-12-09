@@ -1,6 +1,6 @@
 'use client';
 
-import { Trophy, TrendingUp, Target, Sparkles } from 'lucide-react';
+import { Trophy, TrendingUp, Sparkles, BookOpen, ExternalLink } from 'lucide-react';
 import { ScoredCompany } from '@/data';
 import { TypeBadge } from '@/components/ui/TypeBadge';
 
@@ -19,32 +19,55 @@ export function ScoringView({ companies, onSelectCompany }: ScoringViewProps) {
     <div className="space-y-6">
       {/* Scoring Explanation */}
       <div className="bg-slate-900 border border-slate-800 rounded-xl p-6">
-        <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-          <Sparkles className="w-5 h-5 text-amber-400" />
-          TBI Scoring Methodology
-        </h3>
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="text-lg font-bold text-white flex items-center gap-2">
+            <Sparkles className="w-5 h-5 text-amber-400" />
+            TBI Scoring Methodology
+          </h3>
+          <a
+            href="https://github.com/Fornado-Greenhouse/powerchoke/blob/main/docs/SCORING_METHODOLOGY.md"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 text-xs text-blue-400 hover:text-blue-300 transition-colors bg-blue-500/10 px-3 py-1.5 rounded-lg border border-blue-500/20 hover:border-blue-500/40"
+          >
+            <BookOpen className="w-3.5 h-3.5" />
+            Full Methodology
+            <ExternalLink className="w-3 h-3" />
+          </a>
+        </div>
+
+        {/* Formula Display */}
+        <div className="bg-slate-950 rounded-lg p-4 mb-4 font-mono text-sm border border-slate-800">
+          <div className="text-slate-500 text-xs mb-2 font-sans">Formulas:</div>
+          <div className="space-y-1">
+            <div><span className="text-blue-400">BES</span> <span className="text-slate-600">=</span> <span className="text-slate-300">Σ(exposure × severity × monopoly_bonus) / count / 4</span></div>
+            <div><span className="text-amber-400">TBI</span> <span className="text-slate-600">=</span> <span className="text-blue-400">0.5</span><span className="text-slate-500">×BES</span> <span className="text-slate-600">+</span> <span className="text-purple-400">0.3</span><span className="text-slate-500">×pricing_power</span> <span className="text-slate-600">+</span> <span className="text-emerald-400">0.2</span><span className="text-slate-500">×backlog</span></div>
+            <div><span className="text-cyan-400">WeightedTBI</span> <span className="text-slate-600">=</span> <span className="text-slate-300">TBI × purity_score</span></div>
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
           <div className="bg-slate-800/50 rounded-lg p-4">
             <div className="text-blue-400 font-medium mb-1">BES (50%)</div>
             <div className="text-slate-400 text-xs">
-              Bottleneck Exposure Score — measures exposure to high-severity supply chain constraints
+              Bottleneck Exposure Score — weighted exposure to high-severity supply chain constraints. Monopoly positions get 1.3× bonus.
             </div>
           </div>
           <div className="bg-slate-800/50 rounded-lg p-4">
             <div className="text-purple-400 font-medium mb-1">Pricing Power (30%)</div>
             <div className="text-slate-400 text-xs">
-              Ability to pass through costs and maintain margins in constrained markets
+              Ability to pass through costs and maintain margins. Based on market structure, backlog commentary, and margin trends.
             </div>
           </div>
           <div className="bg-slate-800/50 rounded-lg p-4">
             <div className="text-emerald-400 font-medium mb-1">Backlog (20%)</div>
             <div className="text-slate-400 text-xs">
-              Order book strength providing revenue visibility and demand validation
+              Order book strength providing revenue visibility. Measured by book-to-bill ratio and coverage months.
             </div>
           </div>
         </div>
         <div className="mt-4 text-xs text-slate-500 bg-slate-800/30 rounded-lg p-3">
-          <strong className="text-slate-400">Weighted TBI</strong> = TBI × Purity Score. Higher purity means more focused grid infrastructure exposure.
+          <strong className="text-cyan-400">Weighted TBI</strong> = TBI × Purity Score. Higher purity (grid revenue / total revenue) means more focused grid infrastructure exposure, rewarding pure-play companies.
         </div>
       </div>
 

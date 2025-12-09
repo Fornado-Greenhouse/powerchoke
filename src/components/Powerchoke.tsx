@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import {
   Zap,
   X,
@@ -499,11 +499,37 @@ function CompanyModal({
 // MAIN DASHBOARD
 // ─────────────────────────────────────────────────────────────────────────────
 
+// Valid tab types for URL hash
+const VALID_TABS: TabType[] = ['matrix', 'companies', 'components', 'scoring'];
+
+function getTabFromHash(): TabType {
+  if (typeof window === 'undefined') return 'matrix';
+  const hash = window.location.hash.slice(1); // Remove '#'
+  return VALID_TABS.includes(hash as TabType) ? (hash as TabType) : 'matrix';
+}
+
 export default function Powerchoke() {
-  const [activeTab, setActiveTab] = useState<TabType>('matrix');
+  // Initialize tab from URL hash (lazy initialization avoids useEffect setState)
+  const [activeTab, setActiveTab] = useState<TabType>(() => getTabFromHash());
   const [universe, setUniverse] = useState<UniverseType>('INVESTABLE');
   const [selectedComponent, setSelectedComponent] = useState<ComponentRow | null>(null);
   const [selectedCompany, setSelectedCompany] = useState<ScoredCompany | null>(null);
+
+  // Listen for hash changes (back/forward navigation)
+  useEffect(() => {
+    const handleHashChange = () => {
+      setActiveTab(getTabFromHash());
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  // Update URL hash when tab changes
+  const handleTabChange = (tab: TabType) => {
+    setActiveTab(tab);
+    window.history.pushState(null, '', `#${tab}`);
+  };
 
   // Data
   const components = seedComponents;
@@ -548,7 +574,7 @@ export default function Powerchoke() {
       <header className="bg-slate-900 border-b border-slate-800 sticky top-0 z-30">
         <div className="max-w-[1600px] mx-auto px-4 h-16 flex items-center justify-between">
           <button
-            onClick={() => setActiveTab('matrix')}
+            onClick={() => handleTabChange('matrix')}
             className="flex items-center gap-3 hover:opacity-80 transition-opacity cursor-pointer"
           >
             <div className="bg-blue-600 p-2 rounded-lg shadow-lg shadow-blue-900/50">
@@ -605,7 +631,7 @@ export default function Powerchoke() {
         />
 
         {/* TAB NAVIGATION */}
-        <TabNav activeTab={activeTab} onTabChange={setActiveTab} />
+        <TabNav activeTab={activeTab} onTabChange={handleTabChange} />
 
         {/* TAB CONTENT */}
         {activeTab === 'matrix' && (
