@@ -33,10 +33,10 @@ export function MatrixView({ components, companies, onSelectComponent, onSelectC
   return (
     <div className="bg-slate-900 rounded-xl border border-slate-800 overflow-hidden shadow-xl">
       <div className="overflow-x-auto">
-        <table className="w-full text-sm border-collapse">
+        <table className="w-full text-xs md:text-sm border-collapse">
           <thead>
-            {/* Column group label row */}
-            <tr className="bg-slate-950 border-b border-slate-800/50">
+            {/* Column group label row - hidden on mobile for space */}
+            <tr className="bg-slate-950 border-b border-slate-800/50 hidden md:table-row">
               <th className="sticky left-0 bg-slate-950 z-20 border-r border-slate-800" />
               <th className="border-r border-slate-800" />
               <th
@@ -47,11 +47,12 @@ export function MatrixView({ components, companies, onSelectComponent, onSelectC
               </th>
             </tr>
             <tr className="bg-slate-950 border-b border-slate-700">
-              <th className="p-4 text-left w-80 text-slate-400 font-medium sticky left-0 bg-slate-950 z-20 border-r border-slate-800">
-                Company
+              <th className="p-2 md:p-4 text-left w-32 md:w-80 text-slate-400 font-medium sticky left-0 bg-slate-950 z-20 border-r border-slate-800">
+                <span className="hidden md:inline">Company</span>
+                <span className="md:hidden">Co.</span>
               </th>
               <th
-                className="p-3 w-20 text-center text-slate-400 font-medium border-r border-slate-800 cursor-help"
+                className="p-2 md:p-3 w-14 md:w-20 text-center text-slate-400 font-medium border-r border-slate-800 cursor-help"
                 title="Total Bottleneck Index - Composite score measuring supply chain leverage"
               >
                 TBI
@@ -59,19 +60,19 @@ export function MatrixView({ components, companies, onSelectComponent, onSelectC
               {sortedComponents.map((comp) => (
                 <th
                   key={comp.id}
-                  className="p-1 w-12 text-center border-r border-slate-800/50 bg-slate-950/50"
+                  className="p-0.5 md:p-1 w-10 md:w-12 text-center border-r border-slate-800/50 bg-slate-950/50"
                 >
                   <button
                     onClick={() => onSelectComponent(comp)}
                     className="flex flex-col items-center gap-0.5 group w-full"
                   >
-                    <span className="text-[8px] font-mono text-slate-600">#{comp.row_number}</span>
+                    <span className="text-[6px] md:text-[8px] font-mono text-slate-600">#{comp.row_number}</span>
                     <div
-                      className="h-36 flex items-end justify-center pb-1"
+                      className="h-24 md:h-36 flex items-end justify-center pb-1"
                       style={{ writingMode: 'vertical-rl' }}
                     >
                       <span
-                        className="text-[10px] text-slate-400 group-hover:text-blue-400 transition-colors transform rotate-180 leading-tight text-center"
+                        className="text-[8px] md:text-[10px] text-slate-400 group-hover:text-blue-400 transition-colors transform rotate-180 leading-tight text-center"
                         style={{ maxHeight: '140px', wordBreak: 'break-word', whiteSpace: 'normal' }}
                         title={comp.name}
                       >
@@ -94,19 +95,22 @@ export function MatrixView({ components, companies, onSelectComponent, onSelectC
                 <td className="p-0 sticky left-0 z-10 border-r border-slate-800 bg-slate-900 group-hover:bg-slate-800">
                   <button
                     onClick={() => onSelectCompany?.(company)}
-                    className="w-full p-3 flex items-center gap-3 text-left hover:bg-slate-700/50 transition-colors cursor-pointer"
+                    className="w-full p-2 md:p-3 flex items-center gap-2 md:gap-3 text-left hover:bg-slate-700/50 transition-colors cursor-pointer"
                   >
-                    <div className="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-xs font-bold text-slate-500">
+                    <div className="w-6 h-6 md:w-8 md:h-8 rounded-lg bg-slate-800 flex items-center justify-center text-[10px] md:text-xs font-bold text-slate-500 flex-shrink-0">
                       {idx + 1}
                     </div>
                     <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-1 md:gap-2">
                         <TypeIcon type={company.type} size="sm" />
-                        <span className="font-medium text-slate-200 text-sm truncate group-hover:text-blue-400 transition-colors">
+                        <span className="font-medium text-slate-200 text-[10px] md:text-sm truncate group-hover:text-blue-400 transition-colors max-w-[60px] md:max-w-none">
+                          {company.ticker}
+                        </span>
+                        <span className="font-medium text-slate-200 text-sm truncate group-hover:text-blue-400 transition-colors hidden md:inline">
                           {company.name}
                         </span>
                       </div>
-                      <div className="text-[10px] text-slate-500 font-mono">
+                      <div className="text-[8px] md:text-[10px] text-slate-500 font-mono hidden md:block">
                         {company.ticker} • {company.region}
                       </div>
                     </div>
@@ -114,16 +118,16 @@ export function MatrixView({ components, companies, onSelectComponent, onSelectC
                 </td>
 
                 {/* TBI Score */}
-                <td className="p-3 text-center border-r border-slate-800/50">
-                  <div className="font-mono font-bold text-white">{company.scores.TBI.toFixed(2)}</div>
-                  <div className="text-[10px] text-slate-500">{(company.purity_score * 100).toFixed(0)}%</div>
+                <td className="p-2 md:p-3 text-center border-r border-slate-800/50">
+                  <div className="font-mono font-bold text-white text-[10px] md:text-sm">{company.scores.TBI.toFixed(2)}</div>
+                  <div className="text-[8px] md:text-[10px] text-slate-500">{(company.purity_score * 100).toFixed(0)}%</div>
                 </td>
 
                 {/* Exposure Cells */}
                 {sortedComponents.map((comp) => (
                   <td
                     key={`${company.id}-${comp.id}`}
-                    className="p-0.5 h-12 border-r border-slate-800/30 relative"
+                    className="p-0.5 h-10 md:h-12 border-r border-slate-800/30 relative"
                   >
                     <ExposureCell
                       value={company.exposure[comp.id] || 0}
@@ -139,32 +143,32 @@ export function MatrixView({ components, companies, onSelectComponent, onSelectC
         </table>
       </div>
 
-      <div className="bg-slate-950 p-4 border-t border-slate-800 flex flex-col gap-3 items-center">
-        <div className="flex items-center gap-4 text-xs flex-wrap justify-center">
-          <span className="text-slate-500">Exposure:</span>
+      <div className="bg-slate-950 p-2 md:p-4 border-t border-slate-800 flex flex-col gap-2 md:gap-3 items-center">
+        <div className="flex items-center gap-2 md:gap-4 text-[10px] md:text-xs flex-wrap justify-center">
+          <span className="text-slate-500 hidden md:inline">Exposure:</span>
           <div className="flex items-center gap-1">
-            <span className="w-6 h-6 bg-yellow-600/70 rounded-sm flex items-center justify-center text-yellow-100 text-[10px] font-bold">2</span>
-            <span className="text-slate-500">Minor</span>
+            <span className="w-5 h-5 md:w-6 md:h-6 bg-yellow-600/70 rounded-sm flex items-center justify-center text-yellow-100 text-[8px] md:text-[10px] font-bold">2</span>
+            <span className="text-slate-500 hidden sm:inline">Minor</span>
           </div>
           <div className="flex items-center gap-1">
-            <span className="w-6 h-6 bg-amber-500/80 rounded-sm flex items-center justify-center text-amber-100 text-[10px] font-bold">3</span>
-            <span className="text-slate-500">Meaningful</span>
+            <span className="w-5 h-5 md:w-6 md:h-6 bg-amber-500/80 rounded-sm flex items-center justify-center text-amber-100 text-[8px] md:text-[10px] font-bold">3</span>
+            <span className="text-slate-500 hidden sm:inline">Meaningful</span>
           </div>
           <div className="flex items-center gap-1">
-            <span className="w-6 h-6 bg-orange-500/90 rounded-sm flex items-center justify-center text-orange-100 text-[10px] font-bold">4</span>
-            <span className="text-slate-500">Major</span>
+            <span className="w-5 h-5 md:w-6 md:h-6 bg-orange-500/90 rounded-sm flex items-center justify-center text-orange-100 text-[8px] md:text-[10px] font-bold">4</span>
+            <span className="text-slate-500 hidden sm:inline">Major</span>
           </div>
           <div className="flex items-center gap-1">
-            <span className="w-6 h-6 bg-red-600 rounded-sm flex items-center justify-center text-white text-[10px] font-bold">5</span>
-            <span className="text-slate-500">Dominant</span>
+            <span className="w-5 h-5 md:w-6 md:h-6 bg-red-600 rounded-sm flex items-center justify-center text-white text-[8px] md:text-[10px] font-bold">5</span>
+            <span className="text-slate-500 hidden sm:inline">Dominant</span>
           </div>
-          <span className="text-slate-700 mx-2">|</span>
+          <span className="text-slate-700 mx-1 md:mx-2">|</span>
           <div className="flex items-center gap-1">
-            <span className="w-6 h-6 bg-red-600 rounded-sm flex items-center justify-center text-white text-[10px] font-bold ring-2 ring-white ring-offset-1 ring-offset-slate-950 shadow-[0_0_8px_rgba(255,255,255,0.5)]">5</span>
-            <span className="text-slate-400 font-medium">True Bottleneck</span>
+            <span className="w-5 h-5 md:w-6 md:h-6 bg-red-600 rounded-sm flex items-center justify-center text-white text-[8px] md:text-[10px] font-bold ring-2 ring-white ring-offset-1 ring-offset-slate-950 shadow-[0_0_8px_rgba(255,255,255,0.5)]">5</span>
+            <span className="text-slate-400 font-medium text-[10px] md:text-xs">Bottleneck</span>
           </div>
         </div>
-        <div className="flex items-center gap-2 text-xs text-slate-500">
+        <div className="hidden md:flex items-center gap-2 text-xs text-slate-500">
           <Info className="w-4 h-4" />
           <p>
             <strong className="text-white">White ring</strong> = Key player in monopoly/duopoly sub-component.

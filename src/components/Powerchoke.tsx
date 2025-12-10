@@ -55,130 +55,130 @@ function ComponentModal({
   const exposedCompanies = companies.filter(c => (c.exposure[component.id] || 0) >= 3);
 
   return (
-    <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
-      <div className="bg-slate-900 w-full max-w-4xl rounded-2xl border border-slate-700 shadow-2xl flex flex-col max-h-[90vh] animate-in fade-in zoom-in-95 duration-200">
+    <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-0 md:p-4">
+      <div className="bg-slate-900 w-full h-full md:h-auto md:max-w-4xl md:rounded-2xl border-0 md:border border-slate-700 shadow-2xl flex flex-col md:max-h-[90vh] animate-in fade-in zoom-in-95 duration-200">
         {/* HEADER */}
-        <div className="p-6 border-b border-slate-700 flex justify-between items-start bg-slate-800/50 rounded-t-2xl">
-          <div>
-            <div className="flex items-center gap-3 mb-2">
-              <div className="bg-blue-500/20 text-blue-300 px-2 py-1 rounded text-xs font-bold border border-blue-500/30 font-mono">
+        <div className="p-4 md:p-6 border-b border-slate-700 flex justify-between items-start bg-slate-800/50 md:rounded-t-2xl">
+          <div className="flex-1 pr-4">
+            <div className="flex items-center gap-2 md:gap-3 mb-2 flex-wrap">
+              <div className="bg-blue-500/20 text-blue-300 px-1.5 md:px-2 py-0.5 md:py-1 rounded text-[10px] md:text-xs font-bold border border-blue-500/30 font-mono">
                 #{component.row_number}
               </div>
-              <div className={`px-2 py-1 rounded text-xs font-bold border ${
+              <div className={`px-1.5 md:px-2 py-0.5 md:py-1 rounded text-[10px] md:text-xs font-bold border ${
                 component.bottleneck_severity >= 5
                   ? 'bg-red-500/20 text-red-300 border-red-500/30'
                   : component.bottleneck_severity >= 4
                   ? 'bg-orange-500/20 text-orange-300 border-orange-500/30'
                   : 'bg-slate-700 text-slate-300 border-slate-600'
               }`}>
-                Severity {component.bottleneck_severity}/5
+                Sev {component.bottleneck_severity}/5
               </div>
-              <h2 className="text-2xl font-bold text-white">{component.name}</h2>
             </div>
-            <p className="text-slate-400 text-sm max-w-xl">
+            <h2 className="text-lg md:text-2xl font-bold text-white">{component.name}</h2>
+            <p className="text-slate-400 text-xs md:text-sm mt-1 md:mt-2 max-w-xl line-clamp-2 md:line-clamp-none">
               {component.role}. {component.demand_drivers}.
             </p>
           </div>
           <button
             onClick={onClose}
-            className="p-2 hover:bg-slate-700 rounded-full transition-colors"
+            className="p-2 hover:bg-slate-700 rounded-full transition-colors flex-shrink-0"
           >
-            <X className="w-6 h-6 text-slate-400" />
+            <X className="w-5 h-5 md:w-6 md:h-6 text-slate-400" />
           </button>
         </div>
 
         {/* BODY */}
-        <div className="p-8 overflow-y-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="p-4 md:p-8 overflow-y-auto flex-1">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
             {/* LEFT: THESIS RISKS & INFO */}
-            <div className="space-y-6">
+            <div className="space-y-4 md:space-y-6">
               <div>
-                <h3 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">
+                <h3 className="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 md:mb-3">
                   Investment Risks
                 </h3>
-                <div className="bg-red-900/10 border border-red-900/30 p-4 rounded-xl flex gap-3">
-                  <AlertTriangle className="w-5 h-5 text-red-400 shrink-0" />
-                  <p className="text-sm text-red-200">{component.risks}</p>
+                <div className="bg-red-900/10 border border-red-900/30 p-3 md:p-4 rounded-xl flex gap-2 md:gap-3">
+                  <AlertTriangle className="w-4 h-4 md:w-5 md:h-5 text-red-400 shrink-0" />
+                  <p className="text-xs md:text-sm text-red-200">{component.risks}</p>
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-slate-800 p-4 rounded-xl border border-slate-700">
-                  <div className="text-slate-400 text-xs mb-1">Voltage Level</div>
-                  <div className="text-white font-mono font-bold">{component.voltage_level}</div>
+              <div className="grid grid-cols-2 gap-2 md:gap-4">
+                <div className="bg-slate-800 p-3 md:p-4 rounded-xl border border-slate-700">
+                  <div className="text-slate-400 text-[10px] md:text-xs mb-1">Voltage Level</div>
+                  <div className="text-white font-mono font-bold text-xs md:text-base">{component.voltage_level}</div>
                 </div>
-                <div className="bg-slate-800 p-4 rounded-xl border border-slate-700">
-                  <div className="text-slate-400 text-xs mb-1">Market Structure</div>
-                  <div className="text-white font-bold">{component.market_structure}</div>
+                <div className="bg-slate-800 p-3 md:p-4 rounded-xl border border-slate-700">
+                  <div className="text-slate-400 text-[10px] md:text-xs mb-1">Market Structure</div>
+                  <div className="text-white font-bold text-xs md:text-base">{component.market_structure}</div>
                 </div>
-                <div className="bg-slate-800 p-4 rounded-xl border border-slate-700">
-                  <div className="text-slate-400 text-xs mb-1">Pricing Power</div>
-                  <div className="text-white font-bold">{component.pricing_power}/5</div>
+                <div className="bg-slate-800 p-3 md:p-4 rounded-xl border border-slate-700">
+                  <div className="text-slate-400 text-[10px] md:text-xs mb-1">Pricing Power</div>
+                  <div className="text-white font-bold text-xs md:text-base">{component.pricing_power}/5</div>
                 </div>
-                <div className="bg-slate-800 p-4 rounded-xl border border-slate-700">
-                  <div className="text-slate-400 text-xs mb-1">Tier Type</div>
-                  <div className="text-white font-bold text-sm">{component.tier_type.replace('TIER_', 'T').replace('_', ' ')}</div>
+                <div className="bg-slate-800 p-3 md:p-4 rounded-xl border border-slate-700">
+                  <div className="text-slate-400 text-[10px] md:text-xs mb-1">Tier Type</div>
+                  <div className="text-white font-bold text-xs md:text-sm">{component.tier_type.replace('TIER_', 'T').replace('_', ' ')}</div>
                 </div>
               </div>
             </div>
 
             {/* RIGHT: SUB-COMPONENTS */}
             <div>
-              <h3 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3 flex items-center gap-2">
-                <Microscope className="w-4 h-4" /> Bottleneck Anatomy
+              <h3 className="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 md:mb-3 flex items-center gap-2">
+                <Microscope className="w-3 h-3 md:w-4 md:h-4" /> Bottleneck Anatomy
               </h3>
 
               {component.sub_components && component.sub_components.length > 0 ? (
-                <div className="space-y-3">
+                <div className="space-y-2 md:space-y-3">
                   {component.sub_components.map((sub, idx) => (
                     <div
                       key={idx}
-                      className="bg-slate-800 p-4 rounded-xl border border-slate-700 hover:border-amber-500/50 transition-colors group"
+                      className="bg-slate-800 p-3 md:p-4 rounded-xl border border-slate-700 hover:border-amber-500/50 transition-colors group"
                     >
-                      <div className="flex justify-between items-start mb-2">
-                        <div className="font-bold text-amber-100 group-hover:text-amber-400 transition-colors">
+                      <div className="flex justify-between items-start mb-1 md:mb-2 gap-2">
+                        <div className="font-bold text-amber-100 group-hover:text-amber-400 transition-colors text-sm md:text-base">
                           {sub.name}
                         </div>
-                        <span className="text-[10px] bg-slate-900 px-2 py-0.5 rounded text-slate-400 border border-slate-700">
+                        <span className="text-[8px] md:text-[10px] bg-slate-900 px-1.5 md:px-2 py-0.5 rounded text-slate-400 border border-slate-700 flex-shrink-0">
                           {sub.market_structure}
                         </span>
                       </div>
-                      <div className="text-xs text-slate-400 mb-3">{sub.role}</div>
-                      <div className="flex items-center gap-2 text-xs bg-slate-900/50 p-2 rounded">
-                        <span className="text-slate-500">Key Player:</span>
-                        <span className="text-amber-300 font-mono">{sub.key_player}</span>
+                      <div className="text-[10px] md:text-xs text-slate-400 mb-2 md:mb-3">{sub.role}</div>
+                      <div className="flex items-center gap-1 md:gap-2 text-[10px] md:text-xs bg-slate-900/50 p-1.5 md:p-2 rounded">
+                        <span className="text-slate-500">Key:</span>
+                        <span className="text-amber-300 font-mono truncate">{sub.key_player}</span>
                       </div>
                     </div>
                   ))}
                 </div>
               ) : (
-                <div className="p-6 text-center border border-slate-800 border-dashed rounded-xl text-slate-500 text-sm">
-                  No critical sub-component bottlenecks identified for this category.
+                <div className="p-4 md:p-6 text-center border border-slate-800 border-dashed rounded-xl text-slate-500 text-xs md:text-sm">
+                  No critical sub-component bottlenecks identified.
                 </div>
               )}
             </div>
           </div>
 
           {/* BOTTOM: EXPOSED COMPANIES */}
-          <div className="mt-8 pt-8 border-t border-slate-800">
-            <h3 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-4">
+          <div className="mt-6 md:mt-8 pt-4 md:pt-8 border-t border-slate-800">
+            <h3 className="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-wider mb-3 md:mb-4">
               Exposed Companies ({exposedCompanies.length})
             </h3>
             {exposedCompanies.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3">
                 {exposedCompanies.map((c) => {
                   const rationale = c.exposure_rationale?.[component.id];
                   return (
                     <div
                       key={c.id}
-                      className="bg-slate-800 p-4 rounded-lg border border-slate-700 hover:border-slate-600 transition-colors"
+                      className="bg-slate-800 p-3 md:p-4 rounded-lg border border-slate-700 hover:border-slate-600 transition-colors"
                     >
                       <div className="flex items-center justify-between mb-2">
                         <div className="flex items-center gap-2">
-                          <span className="font-bold text-white">{c.ticker}</span>
-                          <span className="text-xs text-slate-500 truncate max-w-[150px]">{c.name}</span>
+                          <span className="font-bold text-white text-sm md:text-base">{c.ticker}</span>
+                          <span className="text-[10px] md:text-xs text-slate-500 truncate max-w-[100px] md:max-w-[150px]">{c.name}</span>
                         </div>
-                        <span className={`text-xs px-1.5 py-0.5 rounded ${
+                        <span className={`text-[10px] md:text-xs px-1.5 py-0.5 rounded ${
                           c.exposure[component.id] >= 5
                             ? 'bg-blue-500/30 text-blue-300'
                             : c.exposure[component.id] >= 4
@@ -190,22 +190,22 @@ function ComponentModal({
                       </div>
                       {rationale ? (
                         <div className="space-y-1">
-                          <p className="text-xs text-slate-400 leading-relaxed">
+                          <p className="text-[10px] md:text-xs text-slate-400 leading-relaxed">
                             {rationale.rationale}
                           </p>
                           {rationale.metric && (
-                            <p className="text-[10px] text-slate-500 font-mono">
+                            <p className="text-[8px] md:text-[10px] text-slate-500 font-mono">
                               📊 {rationale.metric}
                             </p>
                           )}
                           {rationale.source && (
-                            <p className="text-[10px] text-slate-600">
+                            <p className="text-[8px] md:text-[10px] text-slate-600">
                               📖 {rationale.source}
                             </p>
                           )}
                         </div>
                       ) : (
-                        <p className="text-[10px] text-slate-600 italic">
+                        <p className="text-[8px] md:text-[10px] text-slate-600 italic">
                           TBI: {c.scores.TBI.toFixed(2)}
                         </p>
                       )}
@@ -214,7 +214,7 @@ function ComponentModal({
                 })}
               </div>
             ) : (
-              <div className="text-slate-500 text-sm">No companies with significant exposure (3+)</div>
+              <div className="text-slate-500 text-xs md:text-sm">No companies with significant exposure (3+)</div>
             )}
           </div>
         </div>
@@ -229,20 +229,20 @@ function ComponentModal({
 
 function ScoreBar({ value, max = 5, label }: { value: number; max?: number; label: string }) {
   return (
-    <div className="bg-slate-800 p-4 rounded-xl border border-slate-700">
-      <div className="text-slate-400 text-xs mb-2">{label}</div>
-      <div className="flex items-center gap-2">
-        <div className="flex gap-1">
+    <div className="bg-slate-800 p-3 md:p-4 rounded-xl border border-slate-700">
+      <div className="text-slate-400 text-[10px] md:text-xs mb-1 md:mb-2">{label}</div>
+      <div className="flex items-center gap-1.5 md:gap-2">
+        <div className="flex gap-0.5 md:gap-1">
           {Array.from({ length: max }).map((_, i) => (
             <div
               key={i}
-              className={`w-2 h-4 rounded-sm ${
+              className={`w-1.5 md:w-2 h-3 md:h-4 rounded-sm ${
                 i < value ? 'bg-blue-500' : 'bg-slate-700'
               }`}
             />
           ))}
         </div>
-        <span className="text-white font-bold">{value}/{max}</span>
+        <span className="text-white font-bold text-sm md:text-base">{value}/{max}</span>
       </div>
     </div>
   );
@@ -280,15 +280,15 @@ function CompanyModal({
   }, [exposedComponents, company]);
 
   return (
-    <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
-      <div className="bg-slate-900 w-full max-w-4xl rounded-2xl border border-slate-700 shadow-2xl flex flex-col max-h-[90vh] animate-in fade-in zoom-in-95 duration-200">
+    <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-0 md:p-4">
+      <div className="bg-slate-900 w-full h-full md:h-auto md:max-w-4xl md:rounded-2xl border-0 md:border border-slate-700 shadow-2xl flex flex-col md:max-h-[90vh] animate-in fade-in zoom-in-95 duration-200">
         {/* HEADER */}
-        <div className="p-6 border-b border-slate-700 flex justify-between items-start bg-slate-800/50 rounded-t-2xl">
+        <div className="p-4 md:p-6 border-b border-slate-700 flex justify-between items-start bg-slate-800/50 md:rounded-t-2xl">
           <div className="flex-1 pr-4">
-            <div className="flex items-center gap-3 mb-2 flex-wrap">
-              <span className="font-mono text-lg font-bold text-blue-400">{company.ticker}</span>
+            <div className="flex items-center gap-2 md:gap-3 mb-2 flex-wrap">
+              <span className="font-mono text-base md:text-lg font-bold text-blue-400">{company.ticker}</span>
               <TypeBadge type={company.type} />
-              <div className="flex items-center gap-1 text-xs text-slate-400">
+              <div className="flex items-center gap-1 text-[10px] md:text-xs text-slate-400">
                 {company.region === 'Global' ? (
                   <Globe className="w-3 h-3" />
                 ) : (
@@ -296,71 +296,71 @@ function CompanyModal({
                 )}
                 {company.region}
               </div>
-              <span className={`text-xs px-2 py-0.5 rounded border ${
+              <span className={`text-[10px] md:text-xs px-1.5 md:px-2 py-0.5 rounded border ${
                 company.universe === 'INVESTABLE'
                   ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30'
                   : 'bg-slate-700 text-slate-300 border-slate-600'
               }`}>
-                {company.universe === 'INVESTABLE' ? 'Investable' : 'Global Only'}
+                {company.universe === 'INVESTABLE' ? 'Investable' : 'Global'}
               </span>
               {!company.is_public && (
-                <span className="text-xs px-2 py-0.5 rounded border bg-amber-500/20 text-amber-300 border-amber-500/30">
+                <span className="text-[10px] md:text-xs px-1.5 md:px-2 py-0.5 rounded border bg-amber-500/20 text-amber-300 border-amber-500/30">
                   Private
                 </span>
               )}
             </div>
-            <h2 className="text-2xl font-bold text-white">{company.name}</h2>
+            <h2 className="text-lg md:text-2xl font-bold text-white">{company.name}</h2>
             {company.description && (
-              <p className="text-slate-400 text-sm mt-2 max-w-2xl">{company.description}</p>
+              <p className="text-slate-400 text-xs md:text-sm mt-1 md:mt-2 max-w-2xl line-clamp-2 md:line-clamp-none">{company.description}</p>
             )}
           </div>
           <button
             onClick={onClose}
-            className="p-2 hover:bg-slate-700 rounded-full transition-colors"
+            className="p-2 hover:bg-slate-700 rounded-full transition-colors flex-shrink-0"
           >
-            <X className="w-6 h-6 text-slate-400" />
+            <X className="w-5 h-5 md:w-6 md:h-6 text-slate-400" />
           </button>
         </div>
 
         {/* BODY */}
-        <div className="p-8 overflow-y-auto">
+        <div className="p-4 md:p-8 overflow-y-auto flex-1">
           {/* SCORES SECTION */}
-          <div className="mb-8">
-            <h3 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-4 flex items-center gap-2">
-              <BarChart3 className="w-4 h-4" /> Scores
+          <div className="mb-6 md:mb-8">
+            <h3 className="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-wider mb-3 md:mb-4 flex items-center gap-2">
+              <BarChart3 className="w-3 h-3 md:w-4 md:h-4" /> Scores
             </h3>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-4">
               {/* TBI - Main Score */}
-              <div className="bg-gradient-to-br from-blue-600/20 to-blue-800/20 p-5 rounded-xl border border-blue-500/30 col-span-2 md:col-span-1">
-                <div className="text-blue-300 text-xs mb-1 flex items-center gap-1">
+              <div className="bg-gradient-to-br from-blue-600/20 to-blue-800/20 p-3 md:p-5 rounded-xl border border-blue-500/30 col-span-2 md:col-span-1">
+                <div className="text-blue-300 text-[10px] md:text-xs mb-1 flex items-center gap-1">
                   <TrendingUp className="w-3 h-3" /> Total Bottleneck Index
                 </div>
-                <div className="text-4xl font-bold text-white">{company.scores.TBI.toFixed(2)}</div>
+                <div className="text-2xl md:text-4xl font-bold text-white">{company.scores.TBI.toFixed(2)}</div>
               </div>
 
               {/* BES */}
-              <div className="bg-slate-800 p-4 rounded-xl border border-slate-700">
-                <div className="text-slate-400 text-xs mb-1">BES Score</div>
-                <div className="text-2xl font-bold text-white">{company.scores.BES.toFixed(2)}</div>
+              <div className="bg-slate-800 p-3 md:p-4 rounded-xl border border-slate-700">
+                <div className="text-slate-400 text-[10px] md:text-xs mb-1">BES Score</div>
+                <div className="text-lg md:text-2xl font-bold text-white">{company.scores.BES.toFixed(2)}</div>
               </div>
 
               {/* Weighted TBI */}
-              <div className="bg-slate-800 p-4 rounded-xl border border-slate-700">
-                <div className="text-slate-400 text-xs mb-1">Weighted TBI</div>
-                <div className="text-2xl font-bold text-white">{company.scores.WeightedTBI.toFixed(2)}</div>
+              <div className="bg-slate-800 p-3 md:p-4 rounded-xl border border-slate-700">
+                <div className="text-slate-400 text-[10px] md:text-xs mb-1">Weighted TBI</div>
+                <div className="text-lg md:text-2xl font-bold text-white">{company.scores.WeightedTBI.toFixed(2)}</div>
               </div>
 
               {/* Purity Score */}
-              <div className="bg-slate-800 p-4 rounded-xl border border-slate-700">
-                <div className="text-slate-400 text-xs mb-2">Purity Score</div>
-                <div className="flex items-center gap-3">
-                  <div className="flex-1 h-2 bg-slate-700 rounded-full overflow-hidden">
+              <div className="bg-slate-800 p-3 md:p-4 rounded-xl border border-slate-700">
+                <div className="text-slate-400 text-[10px] md:text-xs mb-1 md:mb-2">Purity Score</div>
+                <div className="flex items-center gap-2 md:gap-3">
+                  <div className="flex-1 h-1.5 md:h-2 bg-slate-700 rounded-full overflow-hidden">
                     <div
                       className="h-full bg-gradient-to-r from-blue-600 to-blue-400 rounded-full"
                       style={{ width: `${company.purity_score * 100}%` }}
                     />
                   </div>
-                  <span className="text-white font-bold">{(company.purity_score * 100).toFixed(0)}%</span>
+                  <span className="text-white font-bold text-sm md:text-base">{(company.purity_score * 100).toFixed(0)}%</span>
                 </div>
               </div>
 
@@ -374,54 +374,54 @@ function CompanyModal({
 
           {/* COMPANY INFO SECTION */}
           {(company.market_cap_usd || company.headquarters || company.primary_exchange) && (
-            <div className="mb-8">
-              <h3 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-4 flex items-center gap-2">
-                <Building2 className="w-4 h-4" /> Company Info
+            <div className="mb-6 md:mb-8">
+              <h3 className="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-wider mb-3 md:mb-4 flex items-center gap-2">
+                <Building2 className="w-3 h-3 md:w-4 md:h-4" /> Company Info
               </h3>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4">
                 {company.market_cap_usd !== undefined && (
-                  <div className="bg-slate-800 p-4 rounded-xl border border-slate-700">
-                    <div className="text-slate-400 text-xs mb-1 flex items-center gap-1">
+                  <div className="bg-slate-800 p-3 md:p-4 rounded-xl border border-slate-700">
+                    <div className="text-slate-400 text-[10px] md:text-xs mb-1 flex items-center gap-1">
                       <DollarSign className="w-3 h-3" /> Market Cap
                     </div>
-                    <div className="text-white font-bold">${company.market_cap_usd.toFixed(1)}B</div>
+                    <div className="text-white font-bold text-sm md:text-base">${company.market_cap_usd.toFixed(1)}B</div>
                   </div>
                 )}
                 {company.revenue_ttm_usd !== undefined && (
-                  <div className="bg-slate-800 p-4 rounded-xl border border-slate-700">
-                    <div className="text-slate-400 text-xs mb-1">Revenue (TTM)</div>
-                    <div className="text-white font-bold">${company.revenue_ttm_usd.toFixed(1)}B</div>
+                  <div className="bg-slate-800 p-3 md:p-4 rounded-xl border border-slate-700">
+                    <div className="text-slate-400 text-[10px] md:text-xs mb-1">Revenue (TTM)</div>
+                    <div className="text-white font-bold text-sm md:text-base">${company.revenue_ttm_usd.toFixed(1)}B</div>
                   </div>
                 )}
                 {company.grid_revenue_pct !== undefined && (
-                  <div className="bg-slate-800 p-4 rounded-xl border border-slate-700">
-                    <div className="text-slate-400 text-xs mb-1">Grid Revenue %</div>
-                    <div className="text-white font-bold">{company.grid_revenue_pct}%</div>
+                  <div className="bg-slate-800 p-3 md:p-4 rounded-xl border border-slate-700">
+                    <div className="text-slate-400 text-[10px] md:text-xs mb-1">Grid Rev %</div>
+                    <div className="text-white font-bold text-sm md:text-base">{company.grid_revenue_pct}%</div>
                   </div>
                 )}
                 {company.headquarters && (
-                  <div className="bg-slate-800 p-4 rounded-xl border border-slate-700">
-                    <div className="text-slate-400 text-xs mb-1 flex items-center gap-1">
+                  <div className="bg-slate-800 p-3 md:p-4 rounded-xl border border-slate-700">
+                    <div className="text-slate-400 text-[10px] md:text-xs mb-1 flex items-center gap-1">
                       <MapPin className="w-3 h-3" /> HQ
                     </div>
-                    <div className="text-white font-bold text-sm">{company.headquarters}</div>
+                    <div className="text-white font-bold text-xs md:text-sm truncate">{company.headquarters}</div>
                   </div>
                 )}
                 {company.primary_exchange && (
-                  <div className="bg-slate-800 p-4 rounded-xl border border-slate-700">
-                    <div className="text-slate-400 text-xs mb-1">Exchange</div>
-                    <div className="text-white font-bold">{company.primary_exchange}</div>
+                  <div className="bg-slate-800 p-3 md:p-4 rounded-xl border border-slate-700">
+                    <div className="text-slate-400 text-[10px] md:text-xs mb-1">Exchange</div>
+                    <div className="text-white font-bold text-sm md:text-base">{company.primary_exchange}</div>
                   </div>
                 )}
               </div>
 
               {/* Data Provenance */}
               {(company.data_updated || company.data_confidence) && (
-                <div className="mt-4 flex items-center gap-4 text-xs text-slate-500">
+                <div className="mt-3 md:mt-4 flex items-center gap-2 md:gap-4 text-[10px] md:text-xs text-slate-500 flex-wrap">
                   {company.data_updated && (
                     <div className="flex items-center gap-1">
                       <Calendar className="w-3 h-3" />
-                      Updated: {company.data_updated}
+                      {company.data_updated}
                     </div>
                   )}
                   {company.data_confidence && (
@@ -437,12 +437,12 @@ function CompanyModal({
                         company.data_confidence === 'high' ? 'text-emerald-400' :
                         company.data_confidence === 'medium' ? 'text-amber-400' : 'text-slate-400'
                       }>
-                        {company.data_confidence.charAt(0).toUpperCase() + company.data_confidence.slice(1)} confidence
+                        {company.data_confidence.charAt(0).toUpperCase() + company.data_confidence.slice(1)}
                       </span>
                     </div>
                   )}
                   {company.data_sources && company.data_sources.length > 0 && (
-                    <div className="flex items-center gap-1 text-slate-600">
+                    <div className="flex items-center gap-1 text-slate-600 hidden md:flex">
                       Sources: {company.data_sources.join(', ')}
                     </div>
                   )}
@@ -453,18 +453,18 @@ function CompanyModal({
 
           {/* EXPOSURE BREAKDOWN */}
           <div>
-            <h3 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-4 flex items-center gap-2">
-              <Package className="w-4 h-4" /> Component Exposure ({exposedComponents.length} components)
+            <h3 className="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-wider mb-3 md:mb-4 flex items-center gap-2">
+              <Package className="w-3 h-3 md:w-4 md:h-4" /> Component Exposure ({exposedComponents.length})
             </h3>
 
             {Object.keys(groupedExposures).length > 0 ? (
-              <div className="space-y-6">
+              <div className="space-y-4 md:space-y-6">
                 {Object.entries(groupedExposures).map(([category, items]) => (
                   <div key={category}>
-                    <div className="text-xs font-medium text-slate-500 mb-2 uppercase tracking-wide">
+                    <div className="text-[10px] md:text-xs font-medium text-slate-500 mb-2 uppercase tracking-wide">
                       {category}
                     </div>
-                    <div className="grid grid-cols-1 gap-3">
+                    <div className="grid grid-cols-1 gap-2 md:gap-3">
                       {items.map(({ component, exposure }) => {
                         const rationale = company.exposure_rationale?.[component.id];
                         return (
@@ -474,18 +474,18 @@ function CompanyModal({
                               onClose();
                               onSelectComponent(component);
                             }}
-                            className="bg-slate-800 p-4 rounded-lg border border-slate-700 hover:border-blue-500/50 transition-colors text-left group"
+                            className="bg-slate-800 p-3 md:p-4 rounded-lg border border-slate-700 hover:border-blue-500/50 transition-colors text-left group"
                           >
                             {/* Header row with component name and exposure */}
-                            <div className="flex items-center justify-between mb-2">
-                              <div className="flex items-center gap-3">
-                                <span className="text-[10px] font-mono text-slate-500">#{component.row_number}</span>
-                                <span className="text-sm font-medium text-slate-200 group-hover:text-blue-400 transition-colors">
+                            <div className="flex items-center justify-between mb-1.5 md:mb-2">
+                              <div className="flex items-center gap-2 md:gap-3 flex-1 min-w-0">
+                                <span className="text-[8px] md:text-[10px] font-mono text-slate-500 flex-shrink-0">#{component.row_number}</span>
+                                <span className="text-xs md:text-sm font-medium text-slate-200 group-hover:text-blue-400 transition-colors truncate">
                                   {component.name}
                                 </span>
                               </div>
-                              <div className="flex items-center gap-2">
-                                <div className="flex gap-0.5">
+                              <div className="flex items-center gap-1.5 md:gap-2 flex-shrink-0">
+                                <div className="flex gap-0.5 hidden md:flex">
                                   {Array.from({ length: 5 }).map((_, i) => (
                                     <div
                                       key={i}
@@ -495,7 +495,7 @@ function CompanyModal({
                                     />
                                   ))}
                                 </div>
-                                <span className={`text-xs px-1.5 py-0.5 rounded ${
+                                <span className={`text-[10px] md:text-xs px-1.5 py-0.5 rounded ${
                                   exposure >= 5
                                     ? 'bg-blue-500/30 text-blue-300'
                                     : exposure >= 4
@@ -512,22 +512,22 @@ function CompanyModal({
                             {/* Rationale content */}
                             {rationale ? (
                               <div className="text-left">
-                                <p className="text-xs text-slate-400 leading-relaxed">
+                                <p className="text-[10px] md:text-xs text-slate-400 leading-relaxed">
                                   {rationale.rationale}
                                 </p>
                                 {rationale.metric && (
-                                  <p className="text-xs text-slate-500 mt-1.5 font-mono">
+                                  <p className="text-[10px] md:text-xs text-slate-500 mt-1 md:mt-1.5 font-mono">
                                     📊 {rationale.metric}
                                   </p>
                                 )}
                                 {rationale.source && (
-                                  <p className="text-[10px] text-slate-600 mt-1">
+                                  <p className="text-[8px] md:text-[10px] text-slate-600 mt-1">
                                     📖 {rationale.source}
                                   </p>
                                 )}
                               </div>
                             ) : (
-                              <p className="text-[10px] text-slate-600 italic">
+                              <p className="text-[8px] md:text-[10px] text-slate-600 italic">
                                 No detailed rationale available
                               </p>
                             )}
@@ -539,7 +539,7 @@ function CompanyModal({
                 ))}
               </div>
             ) : (
-              <div className="p-6 text-center border border-slate-800 border-dashed rounded-xl text-slate-500 text-sm">
+              <div className="p-4 md:p-6 text-center border border-slate-800 border-dashed rounded-xl text-slate-500 text-xs md:text-sm">
                 No component exposures defined for this company.
               </div>
             )}
@@ -627,49 +627,51 @@ export default function Powerchoke() {
 
       {/* HEADER */}
       <header className="bg-slate-900 border-b border-slate-800 sticky top-0 z-30">
-        <div className="max-w-[1600px] mx-auto px-4 h-16 flex items-center justify-between">
+        <div className="max-w-[1600px] mx-auto px-3 md:px-4 h-14 md:h-16 flex items-center justify-between gap-2">
           <button
             onClick={() => handleTabChange('matrix')}
-            className="flex items-center gap-3 hover:opacity-80 transition-opacity cursor-pointer"
+            className="flex items-center gap-2 md:gap-3 hover:opacity-80 transition-opacity cursor-pointer min-w-0"
           >
-            <div className="bg-blue-600 p-2 rounded-lg shadow-lg shadow-blue-900/50">
-              <Zap className="w-5 h-5 text-white" />
+            <div className="bg-blue-600 p-1.5 md:p-2 rounded-lg shadow-lg shadow-blue-900/50 flex-shrink-0">
+              <Zap className="w-4 h-4 md:w-5 md:h-5 text-white" />
             </div>
-            <div className="text-left">
-              <h1 className="text-xl font-bold tracking-tight text-white flex items-center gap-2">
-                powerchoke
-                <span className="text-xs bg-amber-500/20 text-amber-300 px-1.5 py-0.5 rounded border border-amber-500/30">
+            <div className="text-left min-w-0">
+              <h1 className="text-base md:text-xl font-bold tracking-tight text-white flex items-center gap-1 md:gap-2">
+                <span className="truncate">powerchoke</span>
+                <span className="text-[10px] md:text-xs bg-amber-500/20 text-amber-300 px-1 md:px-1.5 py-0.5 rounded border border-amber-500/30 flex-shrink-0">
                   beta
                 </span>
               </h1>
-              <p className="text-xs text-slate-400">Grid Infrastructure Bottleneck Analysis</p>
+              <p className="text-[10px] md:text-xs text-slate-400 hidden sm:block">Grid Infrastructure Bottleneck Analysis</p>
             </div>
           </button>
 
           {/* Universe Filter */}
-          <div className="flex items-center gap-3">
-            <Filter className="w-4 h-4 text-slate-500" />
-            <div className="flex items-center gap-1 bg-slate-800 p-1 rounded-lg">
+          <div className="flex items-center gap-1 md:gap-3 flex-shrink-0">
+            <Filter className="w-3 h-3 md:w-4 md:h-4 text-slate-500 hidden sm:block" />
+            <div className="flex items-center gap-0.5 md:gap-1 bg-slate-800 p-0.5 md:p-1 rounded-lg">
               <button
                 onClick={() => setUniverse('GLOBAL')}
-                className={`px-3 py-1.5 text-xs font-medium rounded transition-colors flex items-center gap-2 ${
+                className={`px-2 md:px-3 py-1 md:py-1.5 text-[10px] md:text-xs font-medium rounded transition-colors flex items-center gap-1 md:gap-2 ${
                   universe === 'GLOBAL'
                     ? 'bg-blue-600 text-white'
                     : 'text-slate-400 hover:text-white'
                 }`}
               >
-                <Globe className="w-3 h-3" />
-                All ({globalCount})
+                <Globe className="w-3 h-3 hidden md:block" />
+                <span className="md:hidden">All</span>
+                <span className="hidden md:inline">All ({globalCount})</span>
               </button>
               <button
                 onClick={() => setUniverse('INVESTABLE')}
-                className={`px-3 py-1.5 text-xs font-medium rounded transition-colors ${
+                className={`px-2 md:px-3 py-1 md:py-1.5 text-[10px] md:text-xs font-medium rounded transition-colors ${
                   universe === 'INVESTABLE'
                     ? 'bg-emerald-600 text-white'
                     : 'text-slate-400 hover:text-white'
                 }`}
               >
-                Investable ({investableCount})
+                <span className="md:hidden">Inv</span>
+                <span className="hidden md:inline">Investable ({investableCount})</span>
               </button>
             </div>
           </div>
@@ -677,7 +679,7 @@ export default function Powerchoke() {
       </header>
 
       {/* MAIN CONTENT */}
-      <main className="max-w-[1600px] mx-auto px-4 py-6">
+      <main className="max-w-[1600px] mx-auto px-3 md:px-4 py-4 md:py-6">
         {/* STATS WIDGETS */}
         <StatsWidgets
           components={components}
