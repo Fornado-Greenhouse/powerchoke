@@ -72,10 +72,10 @@ export function ExposureCell({ value, bottleneck, componentName, rationale }: Ex
       {/* Popover */}
       {isHovered && hasPopoverContent && (
         <div
-          className={`absolute z-50 w-72 bg-slate-900 border border-slate-700 rounded-lg shadow-xl p-3 text-left ${
+          className={`absolute w-72 bg-slate-900 border border-slate-700 rounded-lg shadow-xl p-3 text-left ${
             popoverPosition === 'top' ? 'bottom-full mb-2' : 'top-full mt-2'
           } left-1/2 -translate-x-1/2`}
-          style={{ pointerEvents: 'none' }}
+          style={{ pointerEvents: 'none', zIndex: 100 }}
         >
           {/* Header */}
           <div className="flex items-center justify-between mb-2">
