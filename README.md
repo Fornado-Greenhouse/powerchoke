@@ -18,6 +18,17 @@ npm run build    # Production build
 npm run lint     # Run ESLint
 ```
 
+### Linear issue lookup (no MCP required)
+
+If the MCP Linear tool isn't available, you can still fetch an issue's metadata (identifier, title, state, gitBranchName) directly from Linear's REST API:
+
+```bash
+export LINEAR_API_KEY="<your_linear_api_key>"
+npm run linear:issue FNF-260
+```
+
+The script uses `LINEAR_API_KEY` from your environment or `.env` file and prints the branch name to create for the issue.
+
 ## Architecture
 
 ### Core Domain Model
