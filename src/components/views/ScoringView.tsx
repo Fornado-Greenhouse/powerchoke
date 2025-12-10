@@ -67,64 +67,65 @@ export function ScoringView({ companies, onSelectCompany }: ScoringViewProps) {
   return (
     <div className="space-y-6">
       {/* Scoring Explanation */}
-      <div className="bg-slate-900 border border-slate-800 rounded-xl p-6">
-        <div className="flex items-center justify-between mb-4">
+      <div className="bg-slate-900 border border-slate-800 rounded-xl p-4 md:p-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
           <div>
-            <h3 className="text-lg font-bold text-white flex items-center gap-2">
-              <Sparkles className="w-5 h-5 text-amber-400" />
+            <h3 className="text-base md:text-lg font-bold text-white flex items-center gap-2">
+              <Sparkles className="w-4 h-4 md:w-5 md:h-5 text-amber-400" />
               Total Bottleneck Index (TBI)
             </h3>
-            <p className="text-xs text-slate-500 mt-1 ml-7">Composite score ranking companies by grid infrastructure supply chain leverage</p>
+            <p className="text-[10px] md:text-xs text-slate-500 mt-1 ml-6 md:ml-7">Composite score ranking companies by grid infrastructure supply chain leverage</p>
           </div>
           <a
             href="https://github.com/Fornado-Greenhouse/powerchoke/blob/main/docs/SCORING_METHODOLOGY.md"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 text-xs text-blue-400 hover:text-blue-300 transition-colors bg-blue-500/10 px-3 py-1.5 rounded-lg border border-blue-500/20 hover:border-blue-500/40"
+            className="flex items-center gap-1.5 text-xs text-blue-400 hover:text-blue-300 transition-colors bg-blue-500/10 px-3 py-1.5 rounded-lg border border-blue-500/20 hover:border-blue-500/40 self-start"
           >
             <BookOpen className="w-3.5 h-3.5" />
-            Full Methodology
+            <span className="hidden sm:inline">Full Methodology</span>
+            <span className="sm:hidden">Docs</span>
             <ExternalLink className="w-3 h-3" />
           </a>
         </div>
 
-        {/* Formula Display */}
-        <div className="bg-slate-950 rounded-lg p-4 mb-4 font-mono text-sm border border-slate-800">
+        {/* Formula Display - hidden on mobile, shown on tablet+ */}
+        <div className="hidden sm:block bg-slate-950 rounded-lg p-4 mb-4 font-mono text-sm border border-slate-800">
           <div className="text-slate-500 text-xs mb-2 font-sans">Formulas:</div>
-          <div className="space-y-1">
+          <div className="space-y-1 text-xs md:text-sm">
             <div><span className="text-blue-400">BES</span> <span className="text-slate-600">=</span> <span className="text-slate-300">Σ(exposure × severity × monopoly_bonus) / count / 4</span></div>
             <div><span className="text-amber-400">TBI</span> <span className="text-slate-600">=</span> <span className="text-blue-400">0.5</span><span className="text-slate-500">×BES</span> <span className="text-slate-600">+</span> <span className="text-purple-400">0.3</span><span className="text-slate-500">×pricing_power</span> <span className="text-slate-600">+</span> <span className="text-emerald-400">0.2</span><span className="text-slate-500">×backlog</span></div>
             <div><span className="text-cyan-400">WeightedTBI</span> <span className="text-slate-600">=</span> <span className="text-slate-300">TBI × purity_score</span></div>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
-          <div className="bg-slate-800/50 rounded-lg p-4">
-            <div className="text-blue-400 font-medium mb-1">BES (50%)</div>
-            <div className="text-slate-400 text-xs">
-              Bottleneck Exposure Score — weighted exposure to high-severity supply chain constraints. Monopoly positions get 1.3× bonus.
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4 text-sm">
+          <div className="bg-slate-800/50 rounded-lg p-3 md:p-4">
+            <div className="text-blue-400 font-medium mb-1 text-sm">BES (50%)</div>
+            <div className="text-slate-400 text-[10px] md:text-xs">
+              Bottleneck Exposure Score — weighted exposure to high-severity supply chain constraints.
             </div>
           </div>
-          <div className="bg-slate-800/50 rounded-lg p-4">
-            <div className="text-purple-400 font-medium mb-1">Pricing Power (30%)</div>
-            <div className="text-slate-400 text-xs">
-              Ability to pass through costs and maintain margins. Based on market structure, backlog commentary, and margin trends.
+          <div className="bg-slate-800/50 rounded-lg p-3 md:p-4">
+            <div className="text-purple-400 font-medium mb-1 text-sm">Pricing Power (30%)</div>
+            <div className="text-slate-400 text-[10px] md:text-xs">
+              Ability to pass through costs and maintain margins.
             </div>
           </div>
-          <div className="bg-slate-800/50 rounded-lg p-4">
-            <div className="text-emerald-400 font-medium mb-1">Backlog (20%)</div>
-            <div className="text-slate-400 text-xs">
-              Order book strength providing revenue visibility. Measured by book-to-bill ratio and coverage months.
+          <div className="bg-slate-800/50 rounded-lg p-3 md:p-4">
+            <div className="text-emerald-400 font-medium mb-1 text-sm">Backlog (20%)</div>
+            <div className="text-slate-400 text-[10px] md:text-xs">
+              Order book strength providing revenue visibility.
             </div>
           </div>
         </div>
-        <div className="mt-4 text-xs text-slate-500 bg-slate-800/30 rounded-lg p-3">
-          <strong className="text-cyan-400">Weighted TBI</strong> = TBI × Purity Score. Higher purity (grid revenue / total revenue) means more focused grid infrastructure exposure, rewarding pure-play companies.
+        <div className="mt-3 md:mt-4 text-[10px] md:text-xs text-slate-500 bg-slate-800/30 rounded-lg p-2 md:p-3">
+          <strong className="text-cyan-400">Weighted TBI</strong> = TBI × Purity Score. Rewards pure-play grid infrastructure companies.
         </div>
       </div>
 
       {/* Top 3 Podium */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
         {top3.map((company, idx) => {
           const colors = [
             { bg: 'bg-amber-500/10', border: 'border-amber-500/30', text: 'text-amber-400', icon: 'text-amber-500' },
@@ -136,23 +137,23 @@ export function ScoringView({ companies, onSelectCompany }: ScoringViewProps) {
             <button
               key={company.id}
               onClick={() => onSelectCompany?.(company)}
-              className={`${colors.bg} border ${colors.border} rounded-xl p-6 hover:scale-[1.02] transition-all text-left`}
+              className={`${colors.bg} border ${colors.border} rounded-xl p-4 md:p-6 hover:scale-[1.02] transition-all text-left`}
             >
-              <div className="flex items-center justify-between mb-4">
-                <div className={`text-4xl font-bold ${colors.text}`}>#{idx + 1}</div>
-                <Trophy className={`w-8 h-8 ${colors.icon}`} />
+              <div className="flex items-center justify-between mb-2 md:mb-4">
+                <div className={`text-2xl md:text-4xl font-bold ${colors.text}`}>#{idx + 1}</div>
+                <Trophy className={`w-6 h-6 md:w-8 md:h-8 ${colors.icon}`} />
               </div>
-              <div className="text-xl font-bold text-white mb-1">{company.name}</div>
-              <div className="font-mono text-sm text-slate-400 mb-3">{company.ticker}</div>
+              <div className="text-lg md:text-xl font-bold text-white mb-1 truncate">{company.name}</div>
+              <div className="font-mono text-xs md:text-sm text-slate-400 mb-2 md:mb-3">{company.ticker}</div>
               <TypeBadge type={company.type} />
-              <div className="mt-4 grid grid-cols-2 gap-4">
+              <div className="mt-3 md:mt-4 grid grid-cols-2 gap-2 md:gap-4">
                 <div>
-                  <div className="text-2xl font-bold text-white">{company.scores.TBI.toFixed(2)}</div>
-                  <div className="text-xs text-slate-500">TBI Score</div>
+                  <div className="text-xl md:text-2xl font-bold text-white">{company.scores.TBI.toFixed(2)}</div>
+                  <div className="text-[10px] md:text-xs text-slate-500">TBI Score</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-white">{(company.purity_score * 100).toFixed(0)}%</div>
-                  <div className="text-xs text-slate-500">Purity</div>
+                  <div className="text-xl md:text-2xl font-bold text-white">{(company.purity_score * 100).toFixed(0)}%</div>
+                  <div className="text-[10px] md:text-xs text-slate-500">Purity</div>
                 </div>
               </div>
             </button>
@@ -162,50 +163,50 @@ export function ScoringView({ companies, onSelectCompany }: ScoringViewProps) {
 
       {/* Full Leaderboard */}
       <div className="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
-        <div className="p-4 border-b border-slate-800 flex items-center justify-between">
-          <h3 className="font-bold text-white flex items-center gap-2">
+        <div className="p-3 md:p-4 border-b border-slate-800 flex items-center justify-between">
+          <h3 className="font-bold text-white flex items-center gap-2 text-sm md:text-base">
             <TrendingUp className="w-4 h-4 text-blue-400" />
             Full Rankings
           </h3>
-          <div className="text-xs text-slate-500">
+          <div className="text-[10px] md:text-xs text-slate-500 hidden sm:block">
             Click column headers to sort
           </div>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>
-              <tr className="bg-slate-950 text-xs text-slate-400 uppercase tracking-wider">
-                <th className="p-3 text-left">
+              <tr className="bg-slate-950 text-[10px] md:text-xs text-slate-400 uppercase tracking-wider">
+                <th className="p-2 md:p-3 text-left">
                   <button onClick={() => handleSort('rank')} className="flex items-center gap-1 hover:text-white">
-                    Rank <SortIcon field="rank" sortField={sortField} sortDir={sortDir} />
+                    # <SortIcon field="rank" sortField={sortField} sortDir={sortDir} />
                   </button>
                 </th>
-                <th className="p-3 text-left">
+                <th className="p-2 md:p-3 text-left">
                   <button onClick={() => handleSort('name')} className="flex items-center gap-1 hover:text-white">
                     Company <SortIcon field="name" sortField={sortField} sortDir={sortDir} />
                   </button>
                 </th>
-                <th className="p-3 text-left">
+                <th className="p-2 md:p-3 text-left hidden sm:table-cell">
                   <button onClick={() => handleSort('type')} className="flex items-center gap-1 hover:text-white">
                     Type <SortIcon field="type" sortField={sortField} sortDir={sortDir} />
                   </button>
                 </th>
-                <th className="p-3 text-right">
+                <th className="p-2 md:p-3 text-right hidden lg:table-cell">
                   <button onClick={() => handleSort('bes')} className="flex items-center gap-1 hover:text-white justify-end">
                     BES <SortIcon field="bes" sortField={sortField} sortDir={sortDir} />
                   </button>
                 </th>
-                <th className="p-3 text-right">
+                <th className="p-2 md:p-3 text-right">
                   <button onClick={() => handleSort('tbi')} className="flex items-center gap-1 hover:text-white justify-end">
                     TBI <SortIcon field="tbi" sortField={sortField} sortDir={sortDir} />
                   </button>
                 </th>
-                <th className="p-3 text-right">
+                <th className="p-2 md:p-3 text-right hidden md:table-cell">
                   <button onClick={() => handleSort('purity')} className="flex items-center gap-1 hover:text-white justify-end">
                     Purity <SortIcon field="purity" sortField={sortField} sortDir={sortDir} />
                   </button>
                 </th>
-                <th className="p-3 text-right">
+                <th className="p-2 md:p-3 text-right hidden lg:table-cell">
                   <button onClick={() => handleSort('weighted')} className="flex items-center gap-1 hover:text-white justify-end">
                     Weighted <SortIcon field="weighted" sortField={sortField} sortDir={sortDir} />
                   </button>
@@ -221,8 +222,8 @@ export function ScoringView({ companies, onSelectCompany }: ScoringViewProps) {
                     onClick={() => onSelectCompany?.(company)}
                     className="hover:bg-slate-800/50 cursor-pointer transition-colors"
                   >
-                    <td className="p-3">
-                      <div className={`w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold ${
+                    <td className="p-2 md:p-3">
+                      <div className={`w-6 h-6 md:w-8 md:h-8 rounded-lg flex items-center justify-center text-xs md:text-sm font-bold ${
                         rank <= 3
                           ? 'bg-amber-500/20 text-amber-400'
                           : 'bg-slate-800 text-slate-500'
@@ -230,24 +231,24 @@ export function ScoringView({ companies, onSelectCompany }: ScoringViewProps) {
                         {rank}
                       </div>
                     </td>
-                    <td className="p-3">
-                      <div className="font-medium text-white">{company.name}</div>
-                      <div className="text-xs text-slate-500 font-mono">{company.ticker}</div>
+                    <td className="p-2 md:p-3">
+                      <div className="font-medium text-white text-sm md:text-base truncate max-w-[120px] md:max-w-none">{company.name}</div>
+                      <div className="text-[10px] md:text-xs text-slate-500 font-mono">{company.ticker}</div>
                     </td>
-                    <td className="p-3">
+                    <td className="p-2 md:p-3 hidden sm:table-cell">
                       <TypeBadge type={company.type} showLabel={false} />
                     </td>
-                    <td className="p-3 text-right">
-                      <span className="font-mono text-slate-300">{company.scores.BES.toFixed(2)}</span>
+                    <td className="p-2 md:p-3 text-right hidden lg:table-cell">
+                      <span className="font-mono text-slate-300 text-sm">{company.scores.BES.toFixed(2)}</span>
                     </td>
-                    <td className="p-3 text-right">
-                      <span className="font-mono font-bold text-white">{company.scores.TBI.toFixed(2)}</span>
+                    <td className="p-2 md:p-3 text-right">
+                      <span className="font-mono font-bold text-white text-sm">{company.scores.TBI.toFixed(2)}</span>
                     </td>
-                    <td className="p-3 text-right">
-                      <span className="font-mono text-slate-400">{(company.purity_score * 100).toFixed(0)}%</span>
+                    <td className="p-2 md:p-3 text-right hidden md:table-cell">
+                      <span className="font-mono text-slate-400 text-sm">{(company.purity_score * 100).toFixed(0)}%</span>
                     </td>
-                    <td className="p-3 text-right">
-                      <span className="font-mono text-blue-400">{company.scores.WeightedTBI.toFixed(2)}</span>
+                    <td className="p-2 md:p-3 text-right hidden lg:table-cell">
+                      <span className="font-mono text-blue-400 text-sm">{company.scores.WeightedTBI.toFixed(2)}</span>
                     </td>
                   </tr>
                 );
