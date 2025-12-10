@@ -165,28 +165,53 @@ function ComponentModal({
               Exposed Companies ({exposedCompanies.length})
             </h3>
             {exposedCompanies.length > 0 ? (
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-                {exposedCompanies.map((c) => (
-                  <div
-                    key={c.id}
-                    className="bg-slate-800 p-3 rounded-lg border border-slate-700"
-                  >
-                    <div className="flex items-center justify-between mb-1">
-                      <span className="font-bold text-white">{c.ticker}</span>
-                      <span className={`text-xs px-1.5 py-0.5 rounded ${
-                        c.exposure[component.id] >= 5
-                          ? 'bg-blue-500/30 text-blue-300'
-                          : c.exposure[component.id] >= 4
-                          ? 'bg-blue-500/20 text-blue-400'
-                          : 'bg-slate-700 text-slate-400'
-                      }`}>
-                        {c.exposure[component.id]}/5
-                      </span>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                {exposedCompanies.map((c) => {
+                  const rationale = c.exposure_rationale?.[component.id];
+                  return (
+                    <div
+                      key={c.id}
+                      className="bg-slate-800 p-4 rounded-lg border border-slate-700 hover:border-slate-600 transition-colors"
+                    >
+                      <div className="flex items-center justify-between mb-2">
+                        <div className="flex items-center gap-2">
+                          <span className="font-bold text-white">{c.ticker}</span>
+                          <span className="text-xs text-slate-500 truncate max-w-[150px]">{c.name}</span>
+                        </div>
+                        <span className={`text-xs px-1.5 py-0.5 rounded ${
+                          c.exposure[component.id] >= 5
+                            ? 'bg-blue-500/30 text-blue-300'
+                            : c.exposure[component.id] >= 4
+                            ? 'bg-blue-500/20 text-blue-400'
+                            : 'bg-slate-700 text-slate-400'
+                        }`}>
+                          {c.exposure[component.id]}/5
+                        </span>
+                      </div>
+                      {rationale ? (
+                        <div className="space-y-1">
+                          <p className="text-xs text-slate-400 leading-relaxed">
+                            {rationale.rationale}
+                          </p>
+                          {rationale.metric && (
+                            <p className="text-[10px] text-slate-500 font-mono">
+                              📊 {rationale.metric}
+                            </p>
+                          )}
+                          {rationale.source && (
+                            <p className="text-[10px] text-slate-600">
+                              📖 {rationale.source}
+                            </p>
+                          )}
+                        </div>
+                      ) : (
+                        <p className="text-[10px] text-slate-600 italic">
+                          TBI: {c.scores.TBI.toFixed(2)}
+                        </p>
+                      )}
                     </div>
-                    <div className="text-xs text-slate-500 truncate">{c.name}</div>
-                    <div className="text-xs text-slate-600 mt-1">TBI: {c.scores.TBI.toFixed(2)}</div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             ) : (
               <div className="text-slate-500 text-sm">No companies with significant exposure (3+)</div>
@@ -439,47 +464,76 @@ function CompanyModal({
                     <div className="text-xs font-medium text-slate-500 mb-2 uppercase tracking-wide">
                       {category}
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                      {items.map(({ component, exposure }) => (
-                        <button
-                          key={component.id}
-                          onClick={() => {
-                            onClose();
-                            onSelectComponent(component);
-                          }}
-                          className="bg-slate-800 p-3 rounded-lg border border-slate-700 hover:border-blue-500/50 transition-colors text-left group flex items-center justify-between"
-                        >
-                          <div className="flex items-center gap-3">
-                            <span className="text-[10px] font-mono text-slate-500">#{component.row_number}</span>
-                            <span className="text-sm text-slate-200 group-hover:text-blue-400 transition-colors">
-                              {component.name}
-                            </span>
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <div className="flex gap-0.5">
-                              {Array.from({ length: 5 }).map((_, i) => (
-                                <div
-                                  key={i}
-                                  className={`w-1.5 h-3 rounded-sm ${
-                                    i < exposure ? 'bg-blue-500' : 'bg-slate-700'
-                                  }`}
-                                />
-                              ))}
+                    <div className="grid grid-cols-1 gap-3">
+                      {items.map(({ component, exposure }) => {
+                        const rationale = company.exposure_rationale?.[component.id];
+                        return (
+                          <button
+                            key={component.id}
+                            onClick={() => {
+                              onClose();
+                              onSelectComponent(component);
+                            }}
+                            className="bg-slate-800 p-4 rounded-lg border border-slate-700 hover:border-blue-500/50 transition-colors text-left group"
+                          >
+                            {/* Header row with component name and exposure */}
+                            <div className="flex items-center justify-between mb-2">
+                              <div className="flex items-center gap-3">
+                                <span className="text-[10px] font-mono text-slate-500">#{component.row_number}</span>
+                                <span className="text-sm font-medium text-slate-200 group-hover:text-blue-400 transition-colors">
+                                  {component.name}
+                                </span>
+                              </div>
+                              <div className="flex items-center gap-2">
+                                <div className="flex gap-0.5">
+                                  {Array.from({ length: 5 }).map((_, i) => (
+                                    <div
+                                      key={i}
+                                      className={`w-1.5 h-3 rounded-sm ${
+                                        i < exposure ? 'bg-blue-500' : 'bg-slate-700'
+                                      }`}
+                                    />
+                                  ))}
+                                </div>
+                                <span className={`text-xs px-1.5 py-0.5 rounded ${
+                                  exposure >= 5
+                                    ? 'bg-blue-500/30 text-blue-300'
+                                    : exposure >= 4
+                                    ? 'bg-blue-500/20 text-blue-400'
+                                    : exposure >= 3
+                                    ? 'bg-slate-700 text-slate-300'
+                                    : 'bg-slate-800 text-slate-500'
+                                }`}>
+                                  {exposure}/5
+                                </span>
+                              </div>
                             </div>
-                            <span className={`text-xs px-1.5 py-0.5 rounded ${
-                              exposure >= 5
-                                ? 'bg-blue-500/30 text-blue-300'
-                                : exposure >= 4
-                                ? 'bg-blue-500/20 text-blue-400'
-                                : exposure >= 3
-                                ? 'bg-slate-700 text-slate-300'
-                                : 'bg-slate-800 text-slate-500'
-                            }`}>
-                              {exposure}/5
-                            </span>
-                          </div>
-                        </button>
-                      ))}
+
+                            {/* Rationale content */}
+                            {rationale ? (
+                              <div className="text-left">
+                                <p className="text-xs text-slate-400 leading-relaxed">
+                                  {rationale.rationale}
+                                </p>
+                                {rationale.metric && (
+                                  <p className="text-xs text-slate-500 mt-1.5 font-mono">
+                                    📊 {rationale.metric}
+                                  </p>
+                                )}
+                                {rationale.source && (
+                                  <p className="text-[10px] text-slate-600 mt-1">
+                                    📖 {rationale.source}
+                                  </p>
+                                )}
+                              </div>
+                            ) : (
+                              <p className="text-[10px] text-slate-600 italic">
+                                No detailed rationale available
+                              </p>
+                            )}
+                          </button>
+                        );
+                      })}
                     </div>
                   </div>
                 ))}

@@ -128,6 +128,8 @@ export function MatrixView({ components, companies, onSelectComponent, onSelectC
                     <ExposureCell
                       value={company.exposure[comp.id] || 0}
                       bottleneck={getBottleneckForCell(bottleneckMap, company.id, comp.id)}
+                      componentName={comp.name}
+                      rationale={company.exposure_rationale?.[comp.id]}
                     />
                   </td>
                 ))}
@@ -166,7 +168,8 @@ export function MatrixView({ components, companies, onSelectComponent, onSelectC
           <Info className="w-4 h-4" />
           <p>
             <strong className="text-white">White ring</strong> = Key player in monopoly/duopoly sub-component.
-            Click company names for details. Click column headers for <strong className="text-slate-300">Bottleneck Anatomy</strong>.
+            <strong className="text-slate-300">Hover cells</strong> for rationale details.
+            Click column headers for <strong className="text-slate-300">Bottleneck Anatomy</strong>.
           </p>
         </div>
       </div>

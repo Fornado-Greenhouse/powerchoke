@@ -281,8 +281,13 @@ function BottleneckCard({
               {company.exposure_rationale[bottleneck.componentId].rationale}
             </p>
             {company.exposure_rationale[bottleneck.componentId].metric && (
-              <p className="text-xs text-slate-500 mt-1">
-                {company.exposure_rationale[bottleneck.componentId].metric}
+              <p className="text-xs text-slate-500 mt-1.5 font-mono">
+                📊 {company.exposure_rationale[bottleneck.componentId].metric}
+              </p>
+            )}
+            {company.exposure_rationale[bottleneck.componentId].source && (
+              <p className="text-xs text-slate-600 mt-1">
+                📖 {company.exposure_rationale[bottleneck.componentId].source}
               </p>
             )}
           </div>
