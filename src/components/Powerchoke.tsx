@@ -38,6 +38,7 @@ import { CompaniesView } from './views/CompaniesView';
 import { ComponentsView } from './views/ComponentsView';
 import { ScoringView } from './views/ScoringView';
 import { CriticalBottlenecksView } from './views/CriticalBottlenecksView';
+import { CommandPalette } from './CommandPalette';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // COMPONENT DETAIL MODAL
@@ -646,8 +647,16 @@ export default function Powerchoke() {
             </div>
           </button>
 
-          {/* Universe Filter */}
-          <div className="flex items-center gap-1 md:gap-3 flex-shrink-0">
+          {/* Search + Universe Filter */}
+          <div className="flex items-center gap-2 md:gap-3 flex-shrink-0">
+            {/* Command Palette Search */}
+            <CommandPalette
+              companies={filteredCompanies}
+              components={components}
+              onSelectCompany={setSelectedCompany}
+              onSelectComponent={setSelectedComponent}
+              onNavigateToCompanies={() => handleTabChange('companies')}
+            />
             <Filter className="w-3 h-3 md:w-4 md:h-4 text-slate-500 hidden sm:block" />
             <div className="flex items-center gap-0.5 md:gap-1 bg-slate-800 p-0.5 md:p-1 rounded-lg">
               <button
