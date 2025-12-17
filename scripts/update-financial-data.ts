@@ -75,7 +75,7 @@ interface CompanyUpdate {
   file: string;
   oldRatings: FinancialRatings | null;
   newRatings: FinancialRatings | null;
-  status: 'updated' | 'unchanged' | 'no_data' | 'error' | 'skipped';
+  status: 'updated' | 'added' | 'unchanged' | 'no_data' | 'error' | 'skipped';
   error?: string;
 }
 
@@ -215,6 +215,7 @@ interface CompanyInfo {
   name: string;
   isPublic: boolean;
   hasFinancialRatings: boolean;
+  universe: 'INVESTABLE' | 'GLOBAL';
   file: string;
 }
 
@@ -223,11 +224,11 @@ function extractCompaniesFromFile(filePath: string): CompanyInfo[] {
   const companies: CompanyInfo[] = [];
 
   // Regex to find company objects with their tickers
-  const companyRegex = /\{\s*id:\s*'([^']+)'[\s\S]*?name:\s*'([^']+)'[\s\S]*?ticker:\s*'([^']+)'[\s\S]*?(?:adr_tickers:\s*\[([^\]]*)\])?[\s\S]*?is_public:\s*(true|false)[\s\S]*?(?:financial_ratings:\s*\{[\s\S]*?\})?[\s\S]*?\}/g;
+  const companyRegex = /\{\s*id:\s*'([^']+)'[\s\S]*?name:\s*'([^']+)'[\s\S]*?ticker:\s*'([^']+)'[\s\S]*?(?:adr_tickers:\s*\[([^\]]*)\])?[\s\S]*?universe:\s*'(INVESTABLE|GLOBAL)'[\s\S]*?is_public:\s*(true|false)[\s\S]*?(?:financial_ratings:\s*\{[\s\S]*?\})?[\s\S]*?\}/g;
 
   let match;
   while ((match = companyRegex.exec(content)) !== null) {
-    const [fullMatch, , name, ticker, adrTickersStr, isPublicStr] = match;
+    const [fullMatch, , name, ticker, adrTickersStr, universe, isPublicStr] = match;
 
     // Parse ADR tickers if present
     let adrTickers: string[] | undefined;
@@ -244,6 +245,7 @@ function extractCompaniesFromFile(filePath: string): CompanyInfo[] {
       name,
       isPublic,
       hasFinancialRatings,
+      universe: universe as 'INVESTABLE' | 'GLOBAL',
       file: filePath,
     });
   }
@@ -251,17 +253,8 @@ function extractCompaniesFromFile(filePath: string): CompanyInfo[] {
   return companies;
 }
 
-function updateFileWithRatings(filePath: string, ticker: string, newRatings: FinancialRatings): boolean {
-  let content = fs.readFileSync(filePath, 'utf-8');
-
-  // Find the company block by ticker
-  // Look for ticker: 'TICKER' and find the financial_ratings block after it
-  const tickerPattern = new RegExp(
-    `(ticker:\\s*'${ticker.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}'[\\s\\S]*?)(financial_ratings:\\s*\\{[\\s\\S]*?\\n\\s*\\})`,
-    'g'
-  );
-
-  const ratingsBlock = `financial_ratings: {
+function buildRatingsBlock(newRatings: FinancialRatings): string {
+  return `financial_ratings: {
       rating: '${newRatings.rating}',
       ratingScore: ${newRatings.ratingScore},
       dcfScore: ${newRatings.dcfScore},
@@ -278,8 +271,44 @@ function updateFileWithRatings(filePath: string, ticker: string, newRatings: Fin
       source: 'FMP API',
       updated: '${newRatings.updated}'
     }`;
+}
 
+function updateFileWithRatings(filePath: string, ticker: string, newRatings: FinancialRatings): boolean {
+  let content = fs.readFileSync(filePath, 'utf-8');
+
+  // Find the company block by ticker
+  // Look for ticker: 'TICKER' and find the financial_ratings block after it
+  const tickerPattern = new RegExp(
+    `(ticker:\\s*'${ticker.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}'[\\s\\S]*?)(financial_ratings:\\s*\\{[\\s\\S]*?\\n\\s*\\})`,
+    'g'
+  );
+
+  const ratingsBlock = buildRatingsBlock(newRatings);
   const newContent = content.replace(tickerPattern, `$1${ratingsBlock}`);
+
+  if (newContent !== content) {
+    fs.writeFileSync(filePath, newContent, 'utf-8');
+    return true;
+  }
+
+  return false;
+}
+
+function addRatingsToFile(filePath: string, ticker: string, newRatings: FinancialRatings): boolean {
+  let content = fs.readFileSync(filePath, 'utf-8');
+
+  // Find the company block by ticker and insert financial_ratings before the closing }
+  // We need to find the company object and add financial_ratings before its closing brace
+  const tickerEscaped = ticker.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+  // Pattern to find the end of the company object (look for data_confidence or data_sources line, then closing brace)
+  const pattern = new RegExp(
+    `(ticker:\\s*'${tickerEscaped}'[\\s\\S]*?data_confidence:\\s*'[^']+')\\s*\\n(\\s*\\})`,
+    'g'
+  );
+
+  const ratingsBlock = buildRatingsBlock(newRatings);
+  const newContent = content.replace(pattern, `$1,\n    ${ratingsBlock}\n$2`);
 
   if (newContent !== content) {
     fs.writeFileSync(filePath, newContent, 'utf-8');
@@ -401,19 +430,16 @@ async function updateCompany(company: CompanyInfo, dryRun: boolean): Promise<Com
     status: 'skipped',
   };
 
-  // Skip private companies or those without financial_ratings
+  // Skip private companies
   if (!company.isPublic || company.ticker === 'Private') {
     result.status = 'skipped';
     return result;
   }
 
-  if (!company.hasFinancialRatings) {
-    result.status = 'skipped';
-    return result;
+  // Get existing ratings if present
+  if (company.hasFinancialRatings) {
+    result.oldRatings = extractExistingRatings(company.file, company.ticker);
   }
-
-  // Get existing ratings
-  result.oldRatings = extractExistingRatings(company.file, company.ticker);
 
   // Try primary ticker first, then ADRs
   const tickersToTry = [company.ticker, ...(company.adrTickers || [])];
@@ -425,17 +451,26 @@ async function updateCompany(company: CompanyInfo, dryRun: boolean): Promise<Com
       if (newRatings) {
         result.newRatings = newRatings;
 
-        // Check if there's a significant change
-        if (hasSignificantChange(result.oldRatings, newRatings)) {
-          if (!dryRun) {
-            // Use the original ticker for the file update (not the ADR)
-            const updated = updateFileWithRatings(company.file, company.ticker, newRatings);
-            result.status = updated ? 'updated' : 'error';
+        if (company.hasFinancialRatings) {
+          // UPDATE existing ratings
+          if (hasSignificantChange(result.oldRatings, newRatings)) {
+            if (!dryRun) {
+              const updated = updateFileWithRatings(company.file, company.ticker, newRatings);
+              result.status = updated ? 'updated' : 'error';
+            } else {
+              result.status = 'updated';
+            }
           } else {
-            result.status = 'updated';
+            result.status = 'unchanged';
           }
         } else {
-          result.status = 'unchanged';
+          // ADD new ratings to company that didn't have them
+          if (!dryRun) {
+            const added = addRatingsToFile(company.file, company.ticker, newRatings);
+            result.status = added ? 'added' : 'error';
+          } else {
+            result.status = 'added';
+          }
         }
 
         return result;
@@ -482,15 +517,17 @@ async function main(): Promise<void> {
     allCompanies.push(...companies);
   }
 
-  // Filter to just public companies with financial_ratings
+  // Filter to public INVESTABLE companies (with or without existing ratings)
   let targetCompanies = allCompanies.filter(c =>
-    c.isPublic && c.ticker !== 'Private' && c.hasFinancialRatings
+    c.isPublic && c.ticker !== 'Private' && c.universe === 'INVESTABLE'
   );
 
   // If single ticker specified, filter to just that
   if (singleTicker) {
-    targetCompanies = targetCompanies.filter(c =>
-      c.ticker === singleTicker || c.adrTickers?.includes(singleTicker)
+    // For single ticker, also check all public companies (not just investable)
+    targetCompanies = allCompanies.filter(c =>
+      c.isPublic && c.ticker !== 'Private' &&
+      (c.ticker === singleTicker || c.adrTickers?.includes(singleTicker))
     );
     if (targetCompanies.length === 0) {
       console.error(`Ticker ${singleTicker} not found`);
@@ -498,7 +535,12 @@ async function main(): Promise<void> {
     }
   }
 
-  console.log(`Processing ${targetCompanies.length} public companies with financial_ratings`);
+  const withRatings = targetCompanies.filter(c => c.hasFinancialRatings).length;
+  const withoutRatings = targetCompanies.filter(c => !c.hasFinancialRatings).length;
+  console.log(`Processing ${targetCompanies.length} public INVESTABLE companies`);
+  console.log(`  - ${withRatings} with existing ratings (will update)`);
+  console.log(`  - ${withoutRatings} without ratings (will add)`);
+  console.log('');
   console.log('');
 
   // Process each company
@@ -515,6 +557,7 @@ async function main(): Promise<void> {
       // Status indicator
       const statusIcon = {
         'updated': '✓ UPDATED',
+        'added': '+ ADDED',
         'unchanged': '- unchanged',
         'no_data': '! no data',
         'error': '✗ ERROR',
@@ -546,19 +589,31 @@ async function main(): Promise<void> {
   console.log('═'.repeat(70));
 
   const updated = results.filter(r => r.status === 'updated');
+  const added = results.filter(r => r.status === 'added');
   const unchanged = results.filter(r => r.status === 'unchanged');
   const noData = results.filter(r => r.status === 'no_data');
   const errors = results.filter(r => r.status === 'error');
 
   console.log(`Updated:   ${updated.length}`);
+  console.log(`Added:     ${added.length}`);
   console.log(`Unchanged: ${unchanged.length}`);
   console.log(`No data:   ${noData.length}`);
   console.log(`Errors:    ${errors.length}`);
 
   // Detailed changes for PR description
+  if (added.length > 0) {
+    console.log('');
+    console.log('New ratings added:');
+    console.log('─'.repeat(70));
+    for (const a of added) {
+      const rating = a.newRatings?.rating || 'N/A';
+      console.log(`  ${a.ticker.padEnd(10)} ${a.name.slice(0, 30).padEnd(32)} → ${rating}`);
+    }
+  }
+
   if (updated.length > 0) {
     console.log('');
-    console.log('Changes:');
+    console.log('Ratings updated:');
     console.log('─'.repeat(70));
     for (const u of updated) {
       const oldRating = u.oldRatings?.rating || 'N/A';
@@ -589,11 +644,20 @@ async function main(): Promise<void> {
   // Output for GitHub Actions
   if (process.env.GITHUB_OUTPUT) {
     const summaryLines = [
+      `- **Added:** ${added.length} companies`,
       `- **Updated:** ${updated.length} companies`,
       `- **Unchanged:** ${unchanged.length} companies`,
       `- **No data:** ${noData.length} companies`,
       `- **Errors:** ${errors.length} companies`,
     ];
+
+    if (added.length > 0) {
+      summaryLines.push('', '### New Ratings Added', '');
+      for (const a of added) {
+        const rating = a.newRatings?.rating || 'N/A';
+        summaryLines.push(`- **${a.ticker}** (${a.name}): ${rating}`);
+      }
+    }
 
     if (updated.length > 0) {
       summaryLines.push('', '### Updated Companies', '');
@@ -610,7 +674,7 @@ async function main(): Promise<void> {
 
     const summary = summaryLines.join('\n');
     fs.appendFileSync(process.env.GITHUB_OUTPUT, `summary<<EOF\n${summary}\nEOF\n`);
-    fs.appendFileSync(process.env.GITHUB_OUTPUT, `has_changes=${updated.length > 0}\n`);
+    fs.appendFileSync(process.env.GITHUB_OUTPUT, `has_changes=${added.length > 0 || updated.length > 0}\n`);
   }
 
   // Exit code
