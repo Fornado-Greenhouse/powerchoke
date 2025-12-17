@@ -402,114 +402,108 @@ function CompanyModal({
             </div>
           </div>
 
-          {/* FINANCIAL HEALTH SECTION - only show for public companies */}
-          {company.is_public && (
-            <div className="mb-6 md:mb-8">
-              <h3 className="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-wider mb-3 md:mb-4 flex items-center gap-2">
-                <TrendingUp className="w-3 h-3 md:w-4 md:h-4" /> Financial Ratings
-              </h3>
-              <div className="max-w-xs">
-                {company.financial_ratings ? (
-                  <RatingsRadarChart ratings={company.financial_ratings} size="md" />
-                ) : (
-                  <RatingsRadarPlaceholder />
-                )}
-              </div>
-            </div>
-          )}
-
-          {/* COMPANY INFO SECTION */}
-          {(company.market_cap_usd || company.revenue_ttm_usd || company.grid_revenue_pct || company.financial_ratings) && (
+          {/* FINANCIALS SECTION - combined radar chart + metrics */}
+          {(company.is_public || company.market_cap_usd || company.revenue_ttm_usd || company.grid_revenue_pct) && (
             <div className="mb-6 md:mb-8">
               <h3 className="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-wider mb-3 md:mb-4 flex items-center gap-2">
                 <DollarSign className="w-3 h-3 md:w-4 md:h-4" /> Financials
               </h3>
 
-              {/* Core metrics */}
-              {(company.market_cap_usd || company.revenue_ttm_usd || company.grid_revenue_pct) && (
-                <div className="grid grid-cols-3 gap-2 md:gap-4">
-                  {company.market_cap_usd !== undefined && (
-                    <div className="bg-slate-800 p-3 md:p-4 rounded-xl border border-slate-700">
-                      <div className="text-slate-400 text-[10px] md:text-xs mb-1">Market Cap</div>
-                      <div className="text-white font-bold text-sm md:text-base">${company.market_cap_usd.toFixed(1)}B</div>
-                    </div>
-                  )}
-                  {company.revenue_ttm_usd !== undefined && (
-                    <div className="bg-slate-800 p-3 md:p-4 rounded-xl border border-slate-700">
-                      <div className="text-slate-400 text-[10px] md:text-xs mb-1">Revenue (TTM)</div>
-                      <div className="text-white font-bold text-sm md:text-base">${company.revenue_ttm_usd.toFixed(1)}B</div>
-                    </div>
-                  )}
-                  {company.grid_revenue_pct !== undefined && (
-                    <div className="bg-slate-800 p-3 md:p-4 rounded-xl border border-slate-700">
-                      <div className="text-slate-400 text-[10px] md:text-xs mb-1">Grid Rev %</div>
-                      <div className="text-white font-bold text-sm md:text-base">{company.grid_revenue_pct}%</div>
-                    </div>
-                  )}
-                </div>
-              )}
+              {/* Flex container: radar chart left, metrics right (stacked on mobile) */}
+              <div className="flex flex-col md:flex-row gap-4">
+                {/* Radar Chart - only for public companies with ratings */}
+                {company.is_public && (
+                  <div className="flex-shrink-0 w-full md:w-64">
+                    {company.financial_ratings ? (
+                      <RatingsRadarChart ratings={company.financial_ratings} size="md" />
+                    ) : (
+                      <RatingsRadarPlaceholder />
+                    )}
+                  </div>
+                )}
 
-              {/* FMP Rating Scores - numerical breakdown */}
-              {company.financial_ratings && (
-                <div className={company.market_cap_usd || company.revenue_ttm_usd || company.grid_revenue_pct ? 'mt-4' : ''}>
-                  <div className="flex items-center justify-between mb-2">
-                    <div className="text-[10px] md:text-xs text-slate-500 font-medium">
-                      Rating Scores
-                    </div>
-                    <div className="text-[9px] md:text-[10px] text-slate-600 flex items-center gap-2">
-                      <span>{company.financial_ratings.source || 'FMP API'}</span>
-                      {company.financial_ratings.updated && (
-                        <>
-                          <span>•</span>
-                          <span>{company.financial_ratings.updated}</span>
-                        </>
+                {/* Core metrics + rating scores */}
+                <div className="flex-1 space-y-3">
+                  {/* Market data cards */}
+                  {(company.market_cap_usd || company.revenue_ttm_usd || company.grid_revenue_pct) && (
+                    <div className="grid grid-cols-3 gap-2">
+                      {company.market_cap_usd !== undefined && (
+                        <div className="bg-slate-800 p-2.5 md:p-3 rounded-lg border border-slate-700">
+                          <div className="text-slate-400 text-[9px] md:text-[10px] mb-0.5">Market Cap</div>
+                          <div className="text-white font-bold text-sm md:text-base">${company.market_cap_usd.toFixed(1)}B</div>
+                        </div>
+                      )}
+                      {company.revenue_ttm_usd !== undefined && (
+                        <div className="bg-slate-800 p-2.5 md:p-3 rounded-lg border border-slate-700">
+                          <div className="text-slate-400 text-[9px] md:text-[10px] mb-0.5">Revenue (TTM)</div>
+                          <div className="text-white font-bold text-sm md:text-base">${company.revenue_ttm_usd.toFixed(1)}B</div>
+                        </div>
+                      )}
+                      {company.grid_revenue_pct !== undefined && (
+                        <div className="bg-slate-800 p-2.5 md:p-3 rounded-lg border border-slate-700">
+                          <div className="text-slate-400 text-[9px] md:text-[10px] mb-0.5">Grid Rev %</div>
+                          <div className="text-white font-bold text-sm md:text-base">{company.grid_revenue_pct}%</div>
+                        </div>
                       )}
                     </div>
-                  </div>
-                  <div className="grid grid-cols-3 md:grid-cols-6 gap-1.5 md:gap-2">
-                    <RatingScoreCard label="DCF" value={company.financial_ratings.dcfScore} />
-                    <RatingScoreCard label="ROE" value={company.financial_ratings.roeScore} />
-                    <RatingScoreCard label="ROA" value={company.financial_ratings.roaScore} />
-                    <RatingScoreCard label="D/E" value={company.financial_ratings.deScore} />
-                    <RatingScoreCard label="P/E" value={company.financial_ratings.peScore} />
-                    <RatingScoreCard label="P/B" value={company.financial_ratings.pbScore} />
-                  </div>
-                </div>
-              )}
+                  )}
 
-              {/* Data Provenance */}
-              {(company.data_updated || company.data_confidence) && (
-                <div className="mt-3 md:mt-4 flex items-center gap-2 md:gap-4 text-[10px] md:text-xs text-slate-500 flex-wrap">
-                  {company.data_updated && (
-                    <div className="flex items-center gap-1">
-                      <Calendar className="w-3 h-3" />
-                      {company.data_updated}
+                  {/* FMP Rating Scores - numerical breakdown */}
+                  {company.financial_ratings && (
+                    <div>
+                      <div className="flex items-center justify-between mb-1.5">
+                        <div className="text-[9px] md:text-[10px] text-slate-500 font-medium">Rating Scores</div>
+                        <div className="text-[8px] md:text-[9px] text-slate-600">
+                          {company.financial_ratings.source || 'FMP API'}
+                          {company.financial_ratings.updated && ` • ${company.financial_ratings.updated}`}
+                        </div>
+                      </div>
+                      <div className="grid grid-cols-3 md:grid-cols-6 gap-1.5">
+                        <RatingScoreCard label="DCF" value={company.financial_ratings.dcfScore} />
+                        <RatingScoreCard label="ROE" value={company.financial_ratings.roeScore} />
+                        <RatingScoreCard label="ROA" value={company.financial_ratings.roaScore} />
+                        <RatingScoreCard label="D/E" value={company.financial_ratings.deScore} />
+                        <RatingScoreCard label="P/E" value={company.financial_ratings.peScore} />
+                        <RatingScoreCard label="P/B" value={company.financial_ratings.pbScore} />
+                      </div>
                     </div>
                   )}
-                  {company.data_confidence && (
-                    <div className="flex items-center gap-1">
-                      {company.data_confidence === 'high' ? (
-                        <CheckCircle className="w-3 h-3 text-emerald-500" />
-                      ) : company.data_confidence === 'medium' ? (
-                        <AlertCircle className="w-3 h-3 text-amber-500" />
-                      ) : (
-                        <HelpCircle className="w-3 h-3 text-slate-500" />
+
+                  {/* Data Provenance */}
+                  {(company.data_updated || company.data_confidence) && (
+                    <div className="flex items-center gap-2 md:gap-3 text-[9px] md:text-[10px] text-slate-500 flex-wrap">
+                      {company.data_updated && (
+                        <div className="flex items-center gap-1">
+                          <Calendar className="w-2.5 h-2.5" />
+                          {company.data_updated}
+                        </div>
                       )}
-                      <span className={
-                        company.data_confidence === 'high' ? 'text-emerald-400' :
-                        company.data_confidence === 'medium' ? 'text-amber-400' : 'text-slate-400'
-                      }>
-                        {company.data_confidence.charAt(0).toUpperCase() + company.data_confidence.slice(1)}
-                      </span>
-                    </div>
-                  )}
-                  {company.data_sources && company.data_sources.length > 0 && (
-                    <div className="flex items-center gap-1 text-slate-600 hidden md:flex">
-                      Sources: {company.data_sources.join(', ')}
+                      {company.data_confidence && (
+                        <div className="flex items-center gap-1">
+                          {company.data_confidence === 'high' ? (
+                            <CheckCircle className="w-2.5 h-2.5 text-emerald-500" />
+                          ) : company.data_confidence === 'medium' ? (
+                            <AlertCircle className="w-2.5 h-2.5 text-amber-500" />
+                          ) : (
+                            <HelpCircle className="w-2.5 h-2.5 text-slate-500" />
+                          )}
+                          <span className={
+                            company.data_confidence === 'high' ? 'text-emerald-400' :
+                            company.data_confidence === 'medium' ? 'text-amber-400' : 'text-slate-400'
+                          }>
+                            {company.data_confidence.charAt(0).toUpperCase() + company.data_confidence.slice(1)}
+                          </span>
+                        </div>
+                      )}
+                      {company.data_sources && company.data_sources.length > 0 && (
+                        <div className="hidden md:block text-slate-600">
+                          Sources: {company.data_sources.join(', ')}
+                        </div>
+                      )}
                     </div>
                   )}
                 </div>
-              )}
+              </div>
             </div>
           )}
 
