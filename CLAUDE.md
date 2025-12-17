@@ -123,3 +123,20 @@ feat: add data provenance fields to schema
 
 Fixes FNF-244
 ```
+
+## FMP API (Financial Modeling Prep)
+
+A **paid FMP API key** is stored in `.env` as `FMP_API_KEY`. Use the lookup script to fetch company data:
+
+```bash
+npx tsx scripts/fmp-lookup.ts search "Hitachi"     # Search for companies
+npx tsx scripts/fmp-lookup.ts profile HTHIY        # Get company profile
+npx tsx scripts/fmp-lookup.ts ratings AAPL         # Get financial ratings with raw values
+```
+
+The ratings command fetches:
+- Ratings snapshot (scores 1-5)
+- Key metrics (ROE, ROA, D/E, P/E, P/B ratios)
+- DCF intrinsic value
+
+Output is formatted for direct copy-paste into company data files.

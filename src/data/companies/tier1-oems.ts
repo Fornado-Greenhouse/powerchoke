@@ -43,14 +43,21 @@ export const tier1Oems: Company[] = [
     data_sources: ['Company 10-K FY2024', 'Bloomberg', 'FMP API'],
     data_confidence: 'high',
     financial_ratings: {
-      rating: 'B+',
-      ratingScore: 3,
-      dcfScore: 3,
-      roeScore: 4,
-      roaScore: 4,
+      rating: 'C+',
+      ratingScore: 2,
+      dcfScore: 5,
+      roeScore: 1,
+      roaScore: 1,
       deScore: 3,
-      peScore: 2,
-      pbScore: 2
+      peScore: 1,
+      pbScore: 1,
+      roeValue: 11.0,
+      roaValue: 4.7,
+      deValue: 0.24,
+      peValue: 35.9,
+      pbValue: 3.9,
+      source: 'FMP API',
+      updated: '2025-12-17'
     }
   },
   {
@@ -90,7 +97,14 @@ export const tier1Oems: Company[] = [
       roaScore: 4,
       deScore: 1,
       peScore: 1,
-      pbScore: 1
+      pbScore: 1,
+      roeValue: 19.1,
+      roaValue: 3.1,
+      deValue: 0.00,
+      peValue: 105.0,
+      pbValue: 20.7,
+      source: 'FMP API',
+      updated: '2025-12-17'
     }
   },
   {

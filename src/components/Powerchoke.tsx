@@ -250,8 +250,21 @@ function ScoreBar({ value, max = 5, label }: { value: number; max?: number; labe
   );
 }
 
-// Compact score card for financial rating metrics
-function RatingScoreCard({ label, value }: { label: string; value: number }) {
+// Format types for raw metric values
+type MetricFormat = 'percent' | 'ratio' | 'multiple' | 'dcf';
+
+// Compact score card for financial rating metrics with optional raw value
+function RatingScoreCard({
+  label,
+  value,
+  rawValue,
+  format,
+}: {
+  label: string;
+  value: number;
+  rawValue?: number;
+  format?: MetricFormat;
+}) {
   // Color based on score: 4-5 = good (green), 3 = neutral (blue), 1-2 = weak (amber)
   const colorClass = value >= 4
     ? 'text-emerald-400'
@@ -259,10 +272,35 @@ function RatingScoreCard({ label, value }: { label: string; value: number }) {
     ? 'text-blue-400'
     : 'text-amber-400';
 
+  // Format raw value based on metric type
+  const formatRawValue = (): string | null => {
+    if (rawValue === undefined || rawValue === null) return null;
+
+    switch (format) {
+      case 'percent':
+        return `${rawValue.toFixed(1)}%`;
+      case 'ratio':
+        return rawValue.toFixed(2);
+      case 'multiple':
+        return `${rawValue.toFixed(1)}x`;
+      case 'dcf':
+        // Positive = overvalued, negative = undervalued
+        const sign = rawValue >= 0 ? '+' : '';
+        return `${sign}${rawValue.toFixed(0)}%`;
+      default:
+        return rawValue.toFixed(1);
+    }
+  };
+
+  const formattedRaw = formatRawValue();
+
   return (
     <div className="bg-slate-800/60 px-2 py-1.5 md:px-3 md:py-2 rounded-lg border border-slate-700/50 text-center">
       <div className="text-[9px] md:text-[10px] text-slate-500 uppercase tracking-wide">{label}</div>
       <div className={`text-sm md:text-base font-bold font-mono ${colorClass}`}>{value}/5</div>
+      {formattedRaw && (
+        <div className="text-[8px] md:text-[9px] text-slate-400 font-mono mt-0.5">{formattedRaw}</div>
+      )}
     </div>
   );
 }
@@ -459,12 +497,12 @@ function CompanyModal({
                         </div>
                       </div>
                       <div className="grid grid-cols-3 md:grid-cols-6 gap-1.5">
-                        <RatingScoreCard label="DCF" value={company.financial_ratings.dcfScore} />
-                        <RatingScoreCard label="ROE" value={company.financial_ratings.roeScore} />
-                        <RatingScoreCard label="ROA" value={company.financial_ratings.roaScore} />
-                        <RatingScoreCard label="D/E" value={company.financial_ratings.deScore} />
-                        <RatingScoreCard label="P/E" value={company.financial_ratings.peScore} />
-                        <RatingScoreCard label="P/B" value={company.financial_ratings.pbScore} />
+                        <RatingScoreCard label="DCF" value={company.financial_ratings.dcfScore} rawValue={company.financial_ratings.dcfValue} format="dcf" />
+                        <RatingScoreCard label="ROE" value={company.financial_ratings.roeScore} rawValue={company.financial_ratings.roeValue} format="percent" />
+                        <RatingScoreCard label="ROA" value={company.financial_ratings.roaScore} rawValue={company.financial_ratings.roaValue} format="percent" />
+                        <RatingScoreCard label="D/E" value={company.financial_ratings.deScore} rawValue={company.financial_ratings.deValue} format="ratio" />
+                        <RatingScoreCard label="P/E" value={company.financial_ratings.peScore} rawValue={company.financial_ratings.peValue} format="multiple" />
+                        <RatingScoreCard label="P/B" value={company.financial_ratings.pbScore} rawValue={company.financial_ratings.pbValue} format="multiple" />
                       </div>
                     </div>
                   )}

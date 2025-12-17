@@ -554,7 +554,14 @@ export const tier2Components: Company[] = [
       roaScore: 5,
       deScore: 3,
       peScore: 2,
-      pbScore: 2
+      pbScore: 2,
+      roeValue: 13.7,
+      roaValue: 6.5,
+      deValue: 0.23,
+      peValue: 46.6,
+      pbValue: 4.8,
+      source: 'FMP API',
+      updated: '2025-12-17'
     }
   },
   {

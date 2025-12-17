@@ -64,16 +64,29 @@ export type DataConfidence = 'high' | 'medium' | 'low';
 /**
  * Financial health ratings from FMP Ratings Snapshot API.
  * All scores are normalized 1-5 where higher is better.
+ *
+ * Raw values show the actual financial metrics behind the scores,
+ * allowing investors to make informed decisions beyond opaque ratings.
  */
 export interface FinancialRatings {
   rating: string;              // Overall letter grade (A, B, C, D, F)
   ratingScore: number;         // Overall numeric score (1-5)
+
+  // Scores (1-5 normalized)
   dcfScore: number;            // Discounted Cash Flow score
   roeScore: number;            // Return on Equity score
   roaScore: number;            // Return on Assets score
   deScore: number;             // Debt to Equity score
   peScore: number;             // Price to Earnings score
   pbScore: number;             // Price to Book score
+
+  // Raw values (the actual metrics behind the scores)
+  dcfValue?: number;           // % diff from intrinsic value (negative = undervalued)
+  roeValue?: number;           // Return on Equity % (e.g., 18.5)
+  roaValue?: number;           // Return on Assets % (e.g., 12.3)
+  deValue?: number;            // Debt to Equity ratio (e.g., 0.45)
+  peValue?: number;            // Price to Earnings ratio (e.g., 22.5)
+  pbValue?: number;            // Price to Book ratio (e.g., 3.2)
 
   // Provenance
   source?: string;             // Data source (e.g., "FMP API")
