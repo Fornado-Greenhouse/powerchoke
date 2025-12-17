@@ -74,6 +74,10 @@ export interface FinancialRatings {
   deScore: number;             // Debt to Equity score
   peScore: number;             // Price to Earnings score
   pbScore: number;             // Price to Book score
+
+  // Provenance
+  source?: string;             // Data source (e.g., "FMP API")
+  updated?: string;            // ISO date when ratings were fetched
 }
 
 /**
