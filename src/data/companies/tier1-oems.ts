@@ -101,8 +101,8 @@ export const tier1Oems: Company[] = [
       roeValue: 19.1,
       roaValue: 3.1,
       deValue: 0.00,
-      peValue: 105.0,
-      pbValue: 20.7,
+      peValue: 101.1,
+      pbValue: 19.9,
       source: 'FMP API',
       updated: '2025-12-17'
     }
@@ -141,14 +141,21 @@ export const tier1Oems: Company[] = [
     data_sources: ['Siemens Energy Annual Report 2024', 'Bloomberg', 'FMP API'],
     data_confidence: 'high',
     financial_ratings: {
-      rating: 'B-',
+      rating: 'C+',
       ratingScore: 2,
       dcfScore: 3,
-      roeScore: 4,
+      roeScore: 3,
       roaScore: 3,
       deScore: 2,
       peScore: 1,
-      pbScore: 1
+      pbScore: 1,
+      roeValue: 14.1,
+      roaValue: 2.5,
+      deValue: 0.39,
+      peValue: 71.3,
+      pbValue: 9.8,
+      source: 'FMP API',
+      updated: '2025-12-17'
     }
   },
   {
@@ -191,7 +198,14 @@ export const tier1Oems: Company[] = [
       roaScore: 5,
       deScore: 2,
       peScore: 2,
-      pbScore: 1
+      pbScore: 1,
+      roeValue: 31.2,
+      roaValue: 10.2,
+      deValue: 0.63,
+      peValue: 29.6,
+      pbValue: 8.8,
+      source: 'FMP API',
+      updated: '2025-12-17'
     }
   },
   {
@@ -698,7 +712,14 @@ export const tier1Oems: Company[] = [
       roaScore: 5,
       deScore: 2,
       peScore: 2,
-      pbScore: 1
+      pbScore: 1,
+      roeValue: 21.1,
+      roaValue: 9.7,
+      deValue: 0.59,
+      peValue: 31.1,
+      pbValue: 6.5,
+      source: 'FMP API',
+      updated: '2025-12-17'
     }
   },
 ];

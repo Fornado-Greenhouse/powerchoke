@@ -46,7 +46,14 @@ export const utilities: Company[] = [
       roaScore: 4,
       deScore: 2,
       peScore: 2,
-      pbScore: 1
+      pbScore: 1,
+      roeValue: 12.7,
+      roaValue: 3.2,
+      deValue: 1.78,
+      peValue: 25.3,
+      pbValue: 3.0,
+      source: 'FMP API',
+      updated: '2025-12-17'
     }
   },
   {
@@ -85,7 +92,14 @@ export const utilities: Company[] = [
       roaScore: 4,
       deScore: 4,
       peScore: 2,
-      pbScore: 2
+      pbScore: 2,
+      roeValue: 9.8,
+      roaValue: 2.6,
+      deValue: 0.20,
+      peValue: 18.3,
+      pbValue: 1.8,
+      source: 'FMP API',
+      updated: '2025-12-17'
     }
   },
   {
@@ -124,7 +138,14 @@ export const utilities: Company[] = [
       roaScore: 4,
       deScore: 1,
       peScore: 2,
-      pbScore: 1
+      pbScore: 1,
+      roeValue: 13.1,
+      roaValue: 2.9,
+      deValue: 1.89,
+      peValue: 21.5,
+      pbValue: 2.7,
+      source: 'FMP API',
+      updated: '2025-12-17'
     }
   },
   {
@@ -163,7 +184,14 @@ export const utilities: Company[] = [
       roaScore: 1,
       deScore: 3,
       peScore: 1,
-      pbScore: 1
+      pbScore: 1,
+      roeValue: 8.3,
+      roaValue: 0.0,
+      deValue: 0.67,
+      peValue: 21.8,
+      pbValue: 1.6,
+      source: 'FMP API',
+      updated: '2025-12-17'
     }
   },
   {
@@ -202,7 +230,14 @@ export const utilities: Company[] = [
       roaScore: 4,
       deScore: 2,
       peScore: 2,
-      pbScore: 2
+      pbScore: 2,
+      roeValue: 12.8,
+      roaValue: 3.3,
+      deValue: 1.58,
+      peValue: 16.8,
+      pbValue: 2.0,
+      source: 'FMP API',
+      updated: '2025-12-17'
     }
   },
 
@@ -245,7 +280,14 @@ export const utilities: Company[] = [
       roaScore: 4,
       deScore: 2,
       peScore: 2,
-      pbScore: 3
+      pbScore: 3,
+      roeValue: 7.7,
+      roaValue: 2.8,
+      deValue: 1.23,
+      peValue: 19.6,
+      pbValue: 1.5,
+      source: 'FMP API',
+      updated: '2025-12-17'
     }
   },
   {
@@ -320,12 +362,19 @@ export const utilities: Company[] = [
     financial_ratings: {
       rating: 'B+',
       ratingScore: 3,
-      dcfScore: 4,
+      dcfScore: 3,
       roeScore: 4,
       roaScore: 4,
-      deScore: 2,
+      deScore: 3,
       peScore: 2,
-      pbScore: 2
+      pbScore: 2,
+      roeValue: 11.0,
+      roaValue: 3.4,
+      deValue: 1.17,
+      peValue: 21.4,
+      pbValue: 2.3,
+      source: 'FMP API',
+      updated: '2025-12-17'
     }
   },
   {
@@ -358,14 +407,21 @@ export const utilities: Company[] = [
     data_sources: ['E.ON Annual Report 2023', 'Investor materials', 'FMP API'],
     data_confidence: 'high',
     financial_ratings: {
-      rating: 'B',
+      rating: 'B+',
       ratingScore: 3,
-      dcfScore: 1,
+      dcfScore: 4,
       roeScore: 5,
       roaScore: 4,
       deScore: 1,
       peScore: 3,
-      pbScore: 2
+      pbScore: 2,
+      roeValue: 16.7,
+      roaValue: 2.8,
+      deValue: 2.18,
+      peValue: 13.7,
+      pbValue: 2.3,
+      source: 'FMP API',
+      updated: '2025-12-17'
     }
   },
 

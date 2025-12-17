@@ -44,7 +44,14 @@ export const software: Company[] = [
       roaScore: 4,
       deScore: 1,
       peScore: 1,
-      pbScore: 1
+      pbScore: 1,
+      roeValue: 24.0,
+      roaValue: 7.8,
+      deValue: 1.07,
+      peValue: 47.1,
+      pbValue: 10.6,
+      source: 'FMP API',
+      updated: '2025-12-17'
     }
   },
   // NOTE: AVEVA Group (PI System) exposure is on parent company Schneider Electric (co_schneider) in tier1-oems.ts - acquired 2023
@@ -153,7 +160,14 @@ export const software: Company[] = [
       roaScore: 4,
       deScore: 2,
       peScore: 3,
-      pbScore: 3
+      pbScore: 3,
+      roeValue: 16.7,
+      roaValue: 6.9,
+      deValue: 0.36,
+      peValue: 17.0,
+      pbValue: 2.6,
+      source: 'FMP API',
+      updated: '2025-12-17'
     }
   },
   {
@@ -295,7 +309,14 @@ export const software: Company[] = [
       roaScore: 5,
       deScore: 1,
       peScore: 2,
-      pbScore: 1
+      pbScore: 1,
+      roeValue: 119.9,
+      roaValue: 20.0,
+      deValue: 1.35,
+      peValue: 32.6,
+      pbValue: 83.1,
+      source: 'FMP API',
+      updated: '2025-12-17'
     }
   },
   {
@@ -330,7 +351,14 @@ export const software: Company[] = [
       roaScore: 1,
       deScore: 3,
       peScore: 1,
-      pbScore: 1
+      pbScore: 1,
+      roeValue: -9.1,
+      roaValue: -2.0,
+      deValue: 0.18,
+      peValue: -89.3,
+      pbValue: 8.7,
+      source: 'FMP API',
+      updated: '2025-12-17'
     }
   },
 
@@ -369,7 +397,14 @@ export const software: Company[] = [
       roaScore: 4,
       deScore: 2,
       peScore: 2,
-      pbScore: 3
+      pbScore: 3,
+      roeValue: 6.5,
+      roaValue: 5.1,
+      deValue: 0.51,
+      peValue: 30.4,
+      pbValue: 2.8,
+      source: 'FMP API',
+      updated: '2025-12-17'
     }
   },
 ];

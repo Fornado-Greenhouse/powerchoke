@@ -258,7 +258,14 @@ export const tier2Components: Company[] = [
       roaScore: 5,
       deScore: 2,
       peScore: 2,
-      pbScore: 1
+      pbScore: 1,
+      roeValue: 25.3,
+      roaValue: 11.5,
+      deValue: 0.58,
+      peValue: 26.2,
+      pbValue: 6.2,
+      source: 'FMP API',
+      updated: '2025-12-17'
     }
   },
   {
@@ -302,7 +309,14 @@ export const tier2Components: Company[] = [
       roaScore: 4,
       deScore: 4,
       peScore: 2,
-      pbScore: 3
+      pbScore: 3,
+      roeValue: 8.4,
+      roaValue: 5.8,
+      deValue: 0.01,
+      peValue: 28.0,
+      pbValue: 2.2,
+      source: 'FMP API',
+      updated: '2025-12-17'
     }
   },
 
@@ -355,7 +369,14 @@ export const tier2Components: Company[] = [
       roaScore: 5,
       deScore: 2,
       peScore: 2,
-      pbScore: 2
+      pbScore: 2,
+      roeValue: 14.8,
+      roaValue: 6.9,
+      deValue: 0.54,
+      peValue: 34.3,
+      pbValue: 5.0,
+      source: 'FMP API',
+      updated: '2025-12-17'
     }
   },
   {
@@ -404,7 +425,14 @@ export const tier2Components: Company[] = [
       roaScore: 5,
       deScore: 2,
       peScore: 4,
-      pbScore: 3
+      pbScore: 3,
+      roeValue: 27.4,
+      roaValue: 14.1,
+      deValue: 0.46,
+      peValue: 10.4,
+      pbValue: 2.5,
+      source: 'FMP API',
+      updated: '2025-12-17'
     }
   },
   {
@@ -849,7 +877,14 @@ export const tier2Components: Company[] = [
       roaScore: 5,
       deScore: 3,
       peScore: 3,
-      pbScore: 3
+      pbScore: 3,
+      roeValue: 22.1,
+      roaValue: 12.5,
+      deValue: 0.13,
+      peValue: 17.5,
+      pbValue: 3.3,
+      source: 'FMP API',
+      updated: '2025-12-17'
     }
   },
   {
@@ -936,7 +971,14 @@ export const tier2Components: Company[] = [
       roaScore: 5,
       deScore: 1,
       peScore: 2,
-      pbScore: 1
+      pbScore: 1,
+      roeValue: 30.4,
+      roaValue: 14.4,
+      deValue: 0.84,
+      peValue: 31.6,
+      pbValue: 9.6,
+      source: 'FMP API',
+      updated: '2025-12-17'
     }
   },
   {
@@ -985,7 +1027,14 @@ export const tier2Components: Company[] = [
       roaScore: 4,
       deScore: 2,
       peScore: 1,
-      pbScore: 3
+      pbScore: 3,
+      roeValue: 6.6,
+      roaValue: 4.7,
+      deValue: 0.25,
+      peValue: 59.0,
+      pbValue: 4.0,
+      source: 'FMP API',
+      updated: '2025-12-17'
     }
   },
   {
@@ -1034,7 +1083,14 @@ export const tier2Components: Company[] = [
       roaScore: 1,
       deScore: 2,
       peScore: 1,
-      pbScore: 5
+      pbScore: 5,
+      roeValue: -3.7,
+      roaValue: -1.8,
+      deValue: 0.50,
+      peValue: -26.1,
+      pbValue: 1.0,
+      source: 'FMP API',
+      updated: '2025-12-17'
     }
   },
   {
@@ -1078,7 +1134,14 @@ export const tier2Components: Company[] = [
       roaScore: 1,
       deScore: 1,
       peScore: 1,
-      pbScore: 1
+      pbScore: 1,
+      roeValue: -2.8,
+      roaValue: -1.3,
+      deValue: 0.80,
+      peValue: -186.1,
+      pbValue: 5.1,
+      source: 'FMP API',
+      updated: '2025-12-17'
     }
   },
   {
@@ -1122,7 +1185,14 @@ export const tier2Components: Company[] = [
       roaScore: 5,
       deScore: 2,
       peScore: 2,
-      pbScore: 2
+      pbScore: 2,
+      roeValue: 18.3,
+      roaValue: 11.5,
+      deValue: 0.32,
+      peValue: 29.0,
+      pbValue: 5.1,
+      source: 'FMP API',
+      updated: '2025-12-17'
     }
   },
   {
@@ -1171,7 +1241,14 @@ export const tier2Components: Company[] = [
       roaScore: 4,
       deScore: 1,
       peScore: 1,
-      pbScore: 2
+      pbScore: 2,
+      roeValue: 4.6,
+      roaValue: 4.2,
+      deValue: 0.00,
+      peValue: 60.2,
+      pbValue: 2.9,
+      source: 'FMP API',
+      updated: '2025-12-17'
     }
   },
   {
@@ -1285,7 +1362,14 @@ export const tier2Components: Company[] = [
       roaScore: 5,
       deScore: 4,
       peScore: 2,
-      pbScore: 3
+      pbScore: 3,
+      roeValue: 13.8,
+      roaValue: 11.6,
+      deValue: 0.01,
+      peValue: 53.4,
+      pbValue: 7.0,
+      source: 'FMP API',
+      updated: '2025-12-17'
     }
   },
   {
@@ -1329,7 +1413,14 @@ export const tier2Components: Company[] = [
       roaScore: 4,
       deScore: 4,
       peScore: 1,
-      pbScore: 2
+      pbScore: 2,
+      roeValue: 5.6,
+      roaValue: 4.3,
+      deValue: 0.06,
+      peValue: 98.6,
+      pbValue: 5.4,
+      source: 'FMP API',
+      updated: '2025-12-17'
     }
   },
   {
@@ -1373,7 +1464,14 @@ export const tier2Components: Company[] = [
       roaScore: 5,
       deScore: 1,
       peScore: 2,
-      pbScore: 1
+      pbScore: 1,
+      roeValue: 79.0,
+      roaValue: 9.0,
+      deValue: 2.92,
+      peValue: 25.6,
+      pbValue: 18.8,
+      source: 'FMP API',
+      updated: '2025-12-17'
     }
   },
   {

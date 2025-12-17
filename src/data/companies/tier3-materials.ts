@@ -51,7 +51,14 @@ export const tier3Materials: Company[] = [
       roaScore: 4,
       deScore: 2,
       peScore: 3,
-      pbScore: 4
+      pbScore: 4,
+      roeValue: 4.8,
+      roaValue: 2.5,
+      deValue: 0.25,
+      peValue: 13.9,
+      pbValue: 0.6,
+      source: 'FMP API',
+      updated: '2025-12-17'
     }
   },
   {
@@ -90,7 +97,14 @@ export const tier3Materials: Company[] = [
       roaScore: 4,
       deScore: 2,
       peScore: 1,
-      pbScore: 5
+      pbScore: 5,
+      roeValue: 0.9,
+      roaValue: 0.5,
+      deValue: 0.53,
+      peValue: 49.1,
+      pbValue: 0.5,
+      source: 'FMP API',
+      updated: '2025-12-17'
     }
   },
   {
@@ -223,7 +237,14 @@ export const tier3Materials: Company[] = [
       roaScore: 5,
       deScore: 2,
       peScore: 2,
-      pbScore: 2
+      pbScore: 2,
+      roeValue: 11.5,
+      roaValue: 3.6,
+      deValue: 0.50,
+      peValue: 33.5,
+      pbValue: 3.7,
+      source: 'FMP API',
+      updated: '2025-12-17'
     }
   },
   {
@@ -272,7 +293,14 @@ export const tier3Materials: Company[] = [
       roaScore: 5,
       deScore: 1,
       peScore: 2,
-      pbScore: 1
+      pbScore: 1,
+      roeValue: 39.0,
+      roaValue: 18.8,
+      deValue: 0.71,
+      peValue: 30.5,
+      pbValue: 11.2,
+      source: 'FMP API',
+      updated: '2025-12-17'
     }
   },
   {
@@ -901,12 +929,19 @@ export const tier3Materials: Company[] = [
     financial_ratings: {
       rating: 'A-',
       ratingScore: 4,
-      dcfScore: 4,
+      dcfScore: 5,
       roeScore: 4,
       roaScore: 5,
       deScore: 2,
       peScore: 2,
-      pbScore: 3
+      pbScore: 3,
+      roeValue: 8.1,
+      roaValue: 4.8,
+      deValue: 0.33,
+      peValue: 22.4,
+      pbValue: 1.8,
+      source: 'FMP API',
+      updated: '2025-12-17'
     }
   },
   {
@@ -945,7 +980,14 @@ export const tier3Materials: Company[] = [
       roaScore: 3,
       deScore: 2,
       peScore: 1,
-      pbScore: 2
+      pbScore: 2,
+      roeValue: 4.5,
+      roaValue: 2.5,
+      deValue: 0.48,
+      peValue: 85.1,
+      pbValue: 3.7,
+      source: 'FMP API',
+      updated: '2025-12-17'
     }
   },
 
