@@ -14,6 +14,7 @@ export const tier1Oems: Company[] = [
     id: 'co_hitachi',
     name: 'Hitachi Ltd',
     ticker: '6501.T',
+    adr_tickers: ['HTHIY'],
     region: 'JP',
     type: 'TIER_1_OEM',
     universe: 'INVESTABLE',
@@ -40,7 +41,17 @@ export const tier1Oems: Company[] = [
     primary_exchange: 'TSE',
     data_updated: '2025-12-09',
     data_sources: ['Company 10-K FY2024', 'Bloomberg', 'FMP API'],
-    data_confidence: 'high'
+    data_confidence: 'high',
+    financial_ratings: {
+      rating: 'B+',
+      ratingScore: 3,
+      dcfScore: 3,
+      roeScore: 4,
+      roaScore: 4,
+      deScore: 3,
+      peScore: 2,
+      pbScore: 2
+    }
   },
   {
     id: 'co_ge',
@@ -70,12 +81,23 @@ export const tier1Oems: Company[] = [
     primary_exchange: 'NYSE',
     data_updated: '2025-12-09',
     data_sources: ['GE Vernova 10-K 2024', 'Earnings Q3 2024', 'FMP API'],
-    data_confidence: 'high'
+    data_confidence: 'high',
+    financial_ratings: {
+      rating: 'B-',
+      ratingScore: 3,
+      dcfScore: 3,
+      roeScore: 5,
+      roaScore: 4,
+      deScore: 1,
+      peScore: 1,
+      pbScore: 1
+    }
   },
   {
     id: 'co_siemens',
     name: 'Siemens Energy',
     ticker: 'ENR.DE',
+    adr_tickers: ['SMNEY'],
     region: 'EU',
     type: 'TIER_1_OEM',
     universe: 'INVESTABLE',
@@ -103,12 +125,23 @@ export const tier1Oems: Company[] = [
     primary_exchange: 'XETRA',
     data_updated: '2025-12-09',
     data_sources: ['Siemens Energy Annual Report 2024', 'Bloomberg', 'FMP API'],
-    data_confidence: 'high'
+    data_confidence: 'high',
+    financial_ratings: {
+      rating: 'B-',
+      ratingScore: 2,
+      dcfScore: 3,
+      roeScore: 4,
+      roaScore: 3,
+      deScore: 2,
+      peScore: 1,
+      pbScore: 1
+    }
   },
   {
     id: 'co_abb',
     name: 'ABB Ltd',
     ticker: 'ABBN.SW',
+    adr_tickers: ['ABBNY'],
     region: 'EU',
     type: 'TIER_1_OEM',
     universe: 'INVESTABLE',
@@ -135,12 +168,23 @@ export const tier1Oems: Company[] = [
     primary_exchange: 'SIX',
     data_updated: '2025-12-09',
     data_sources: ['ABB Annual Report 2024', 'Bloomberg', 'FMP API'],
-    data_confidence: 'high'
+    data_confidence: 'high',
+    financial_ratings: {
+      rating: 'B+',
+      ratingScore: 3,
+      dcfScore: 3,
+      roeScore: 5,
+      roaScore: 5,
+      deScore: 2,
+      peScore: 2,
+      pbScore: 1
+    }
   },
   {
     id: 'co_mitsubishi',
     name: 'Mitsubishi Elec',
     ticker: '6503.T',
+    adr_tickers: ['MIELY'],
     region: 'JP',
     type: 'TIER_1_OEM',
     universe: 'INVESTABLE',
@@ -163,7 +207,17 @@ export const tier1Oems: Company[] = [
     primary_exchange: 'TSE',
     data_updated: '2025-12-09',
     data_sources: ['Company FY2024 Report', 'Bloomberg', 'FMP API'],
-    data_confidence: 'high'
+    data_confidence: 'high',
+    financial_ratings: {
+      rating: 'A-',
+      ratingScore: 4,
+      dcfScore: 4,
+      roeScore: 3,
+      roaScore: 4,
+      deScore: 3,
+      peScore: 3,
+      pbScore: 3
+    }
   },
 
   // ═══════════════════════════════════════════════════════════════════════════
@@ -219,7 +273,17 @@ export const tier1Oems: Company[] = [
     primary_exchange: 'KRX',
     data_updated: '2025-12-09',
     data_sources: ['Company Annual Report 2024', 'Bloomberg', 'FMP API'],
-    data_confidence: 'high'
+    data_confidence: 'high',
+    financial_ratings: {
+      rating: 'B+',
+      ratingScore: 3,
+      dcfScore: 3,
+      roeScore: 5,
+      roaScore: 5,
+      deScore: 3,
+      peScore: 2,
+      pbScore: 1
+    }
   },
   {
     id: 'co_cg',
@@ -246,12 +310,23 @@ export const tier1Oems: Company[] = [
     primary_exchange: 'NSE',
     data_updated: '2024-12-01',
     data_sources: ['Company Annual Report FY2024'],
-    data_confidence: 'medium'
+    data_confidence: 'medium',
+    financial_ratings: {
+      rating: 'A-',
+      ratingScore: 4,
+      dcfScore: 5,
+      roeScore: 4,
+      roaScore: 5,
+      deScore: 4,
+      peScore: 1,
+      pbScore: 1
+    }
   },
   {
     id: 'co_weg',
     name: 'WEG',
     ticker: 'WEGE3.SA',
+    adr_tickers: ['WEGZY'],
     region: 'ROW',
     type: 'TIER_1_OEM',
     universe: 'INVESTABLE',
@@ -272,12 +347,23 @@ export const tier1Oems: Company[] = [
     primary_exchange: 'B3',
     data_updated: '2024-12-01',
     data_sources: ['Company Annual Report 2024'],
-    data_confidence: 'medium'
+    data_confidence: 'medium',
+    financial_ratings: {
+      rating: 'A-',
+      ratingScore: 4,
+      dcfScore: 5,
+      roeScore: 5,
+      roaScore: 5,
+      deScore: 3,
+      peScore: 2,
+      pbScore: 1
+    }
   },
   {
     id: 'co_fuji',
     name: 'Fuji Electric',
     ticker: '6504.T',
+    adr_tickers: ['FELTY'],
     region: 'JP',
     type: 'TIER_1_OEM',
     universe: 'INVESTABLE',
@@ -301,7 +387,17 @@ export const tier1Oems: Company[] = [
     primary_exchange: 'TSE',
     data_updated: '2025-12-09',
     data_sources: ['Fuji Electric FY2024 Report', 'Power & New Energy segment', 'FMP API'],
-    data_confidence: 'medium'
+    data_confidence: 'medium',
+    financial_ratings: {
+      rating: 'A-',
+      ratingScore: 4,
+      dcfScore: 3,
+      roeScore: 4,
+      roaScore: 5,
+      deScore: 3,
+      peScore: 3,
+      pbScore: 3
+    }
   },
   {
     id: 'co_meidensha',
@@ -329,7 +425,17 @@ export const tier1Oems: Company[] = [
     primary_exchange: 'TSE',
     data_updated: '2025-12-09',
     data_sources: ['Meidensha Annual Report FY2024', 'Industry reports', 'FMP API'],
-    data_confidence: 'medium'
+    data_confidence: 'medium',
+    financial_ratings: {
+      rating: 'A-',
+      ratingScore: 4,
+      dcfScore: 4,
+      roeScore: 4,
+      roaScore: 4,
+      deScore: 3,
+      peScore: 3,
+      pbScore: 3
+    }
   },
 
   // ═══════════════════════════════════════════════════════════════════════════
@@ -365,7 +471,17 @@ export const tier1Oems: Company[] = [
     primary_exchange: 'SSE',
     data_updated: '2025-12-09',
     data_sources: ['Company reports', 'Industry analysis', 'FMP API'],
-    data_confidence: 'medium'
+    data_confidence: 'medium',
+    financial_ratings: {
+      rating: 'B',
+      ratingScore: 3,
+      dcfScore: 3,
+      roeScore: 3,
+      roaScore: 3,
+      deScore: 1,
+      peScore: 3,
+      pbScore: 4
+    }
   },
   {
     id: 'co_xd',
@@ -396,7 +512,17 @@ export const tier1Oems: Company[] = [
     primary_exchange: 'SSE',
     data_updated: '2025-12-09',
     data_sources: ['Company reports', 'Industry analysis', 'FMP API'],
-    data_confidence: 'medium'
+    data_confidence: 'medium',
+    financial_ratings: {
+      rating: 'B+',
+      ratingScore: 3,
+      dcfScore: 4,
+      roeScore: 3,
+      roaScore: 3,
+      deScore: 3,
+      peScore: 2,
+      pbScore: 4
+    }
   },
   {
     id: 'co_shanghai',
@@ -425,7 +551,17 @@ export const tier1Oems: Company[] = [
     primary_exchange: 'SSE',
     data_updated: '2025-12-09',
     data_sources: ['Company reports', 'Industry analysis', 'FMP API'],
-    data_confidence: 'medium'
+    data_confidence: 'medium',
+    financial_ratings: {
+      rating: 'C+',
+      ratingScore: 2,
+      dcfScore: 4,
+      roeScore: 2,
+      roaScore: 3,
+      deScore: 1,
+      peScore: 1,
+      pbScore: 2
+    }
   },
   {
     id: 'co_nari',
@@ -453,7 +589,17 @@ export const tier1Oems: Company[] = [
     primary_exchange: 'SSE',
     data_updated: '2025-12-09',
     data_sources: ['Company Annual Report 2024', 'State Grid procurement data', 'FMP API'],
-    data_confidence: 'medium'
+    data_confidence: 'medium',
+    financial_ratings: {
+      rating: 'A-',
+      ratingScore: 4,
+      dcfScore: 4,
+      roeScore: 4,
+      roaScore: 5,
+      deScore: 4,
+      peScore: 2,
+      pbScore: 2
+    }
   },
 
   // ═══════════════════════════════════════════════════════════════════════════
@@ -463,6 +609,7 @@ export const tier1Oems: Company[] = [
     id: 'co_schneider',
     name: 'Schneider Electric',
     ticker: 'SU.PA',
+    adr_tickers: ['SBGSY'],
     region: 'EU',
     type: 'TIER_1_OEM',
     universe: 'INVESTABLE',
@@ -489,7 +636,17 @@ export const tier1Oems: Company[] = [
     primary_exchange: 'EPA',
     data_updated: '2025-12-09',
     data_sources: ['Schneider Electric Universal Registration Document 2024', 'Industry analysis', 'FMP API'],
-    data_confidence: 'high'
+    data_confidence: 'high',
+    financial_ratings: {
+      rating: 'B+',
+      ratingScore: 3,
+      dcfScore: 3,
+      roeScore: 4,
+      roaScore: 5,
+      deScore: 2,
+      peScore: 2,
+      pbScore: 2
+    }
   },
   {
     id: 'co_eaton',
@@ -518,6 +675,16 @@ export const tier1Oems: Company[] = [
     primary_exchange: 'NYSE',
     data_updated: '2024-12-01',
     data_sources: ['Eaton 10-K FY2024', 'Power Systems segment disclosure'],
-    data_confidence: 'high'
+    data_confidence: 'high',
+    financial_ratings: {
+      rating: 'B+',
+      ratingScore: 3,
+      dcfScore: 3,
+      roeScore: 5,
+      roaScore: 5,
+      deScore: 2,
+      peScore: 2,
+      pbScore: 1
+    }
   },
 ];

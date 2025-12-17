@@ -35,7 +35,17 @@ export const software: Company[] = [
     primary_exchange: 'NASDAQ',
     data_updated: '2025-12-09',
     data_sources: ['Bentley Systems 10-K 2024', 'Industry analysis', 'FMP API'],
-    data_confidence: 'high'
+    data_confidence: 'high',
+    financial_ratings: {
+      rating: 'B',
+      ratingScore: 3,
+      dcfScore: 4,
+      roeScore: 5,
+      roaScore: 4,
+      deScore: 1,
+      peScore: 1,
+      pbScore: 1
+    }
   },
   // NOTE: AVEVA Group (PI System) exposure is on parent company Schneider Electric (co_schneider) in tier1-oems.ts - acquired 2023
   {
@@ -134,12 +144,23 @@ export const software: Company[] = [
     primary_exchange: 'NASDAQ',
     data_updated: '2024-12-01',
     data_sources: ['Itron 10-K 2024', 'Q3 2024 Earnings'],
-    data_confidence: 'high'
+    data_confidence: 'high',
+    financial_ratings: {
+      rating: 'B+',
+      ratingScore: 3,
+      dcfScore: 3,
+      roeScore: 4,
+      roaScore: 4,
+      deScore: 2,
+      peScore: 3,
+      pbScore: 3
+    }
   },
   {
     id: 'co_landis',
     name: 'Landis+Gyr',
     ticker: 'LAND.SW',
+    adr_tickers: ['LGYRF'],
     region: 'EU',
     type: 'SOFTWARE',
     universe: 'INVESTABLE',
@@ -160,7 +181,17 @@ export const software: Company[] = [
     primary_exchange: 'SIX',
     data_updated: '2025-12-09',
     data_sources: ['Landis+Gyr Annual Report 2024', 'Industry reports', 'FMP API'],
-    data_confidence: 'high'
+    data_confidence: 'high',
+    financial_ratings: {
+      rating: 'C+',
+      ratingScore: 2,
+      dcfScore: 3,
+      roeScore: 1,
+      roaScore: 1,
+      deScore: 3,
+      peScore: 1,
+      pbScore: 3
+    }
   },
 
   // ═══════════════════════════════════════════════════════════════════════════
@@ -255,7 +286,17 @@ export const software: Company[] = [
     primary_exchange: 'NASDAQ',
     data_updated: '2025-12-09',
     data_sources: ['Fortinet 10-K 2024', 'Q3 2024 Earnings', 'FMP API'],
-    data_confidence: 'high'
+    data_confidence: 'high',
+    financial_ratings: {
+      rating: 'B+',
+      ratingScore: 3,
+      dcfScore: 4,
+      roeScore: 5,
+      roaScore: 5,
+      deScore: 1,
+      peScore: 2,
+      pbScore: 1
+    }
   },
   {
     id: 'co_tenable',
@@ -280,7 +321,17 @@ export const software: Company[] = [
     primary_exchange: 'NASDAQ',
     data_updated: '2025-12-09',
     data_sources: ['Tenable 10-K 2024', 'Industry analysis', 'FMP API'],
-    data_confidence: 'medium'
+    data_confidence: 'medium',
+    financial_ratings: {
+      rating: 'C+',
+      ratingScore: 2,
+      dcfScore: 5,
+      roeScore: 1,
+      roaScore: 1,
+      deScore: 3,
+      peScore: 1,
+      pbScore: 1
+    }
   },
 
   // ═══════════════════════════════════════════════════════════════════════════
@@ -309,6 +360,16 @@ export const software: Company[] = [
     primary_exchange: 'NYSE',
     data_updated: '2025-12-09',
     data_sources: ['Fortive 10-K 2024', 'Q3 2024 Earnings', 'FMP API'],
-    data_confidence: 'medium'
+    data_confidence: 'medium',
+    financial_ratings: {
+      rating: 'A-',
+      ratingScore: 4,
+      dcfScore: 5,
+      roeScore: 4,
+      roaScore: 4,
+      deScore: 2,
+      peScore: 2,
+      pbScore: 3
+    }
   },
 ];

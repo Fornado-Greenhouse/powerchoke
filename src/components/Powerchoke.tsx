@@ -29,6 +29,7 @@ import {
   type ScoredCompany,
 } from '@/data';
 import { TypeBadge } from './ui/TypeBadge';
+import { RatingsRadarChart, RatingsRadarPlaceholder } from './ui/RatingsRadarChart';
 import { scoreAndRankCompanies } from '@/lib/scoring';
 
 import { StatsWidgets } from './StatsWidgets';
@@ -372,6 +373,22 @@ function CompanyModal({
               <ScoreBar value={company.backlog_strength} label="Backlog Strength" />
             </div>
           </div>
+
+          {/* FINANCIAL HEALTH SECTION - only show for public companies */}
+          {company.is_public && (
+            <div className="mb-6 md:mb-8">
+              <h3 className="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-wider mb-3 md:mb-4 flex items-center gap-2">
+                <TrendingUp className="w-3 h-3 md:w-4 md:h-4" /> Financial Ratings
+              </h3>
+              <div className="max-w-xs">
+                {company.financial_ratings ? (
+                  <RatingsRadarChart ratings={company.financial_ratings} size="md" />
+                ) : (
+                  <RatingsRadarPlaceholder />
+                )}
+              </div>
+            </div>
+          )}
 
           {/* COMPANY INFO SECTION */}
           {(company.market_cap_usd || company.headquarters || company.primary_exchange) && (

@@ -121,6 +121,7 @@ export const tier2Components: Company[] = [
     id: 'co_infineon',
     name: 'Infineon Technologies',
     ticker: 'IFX.DE',
+    adr_tickers: ['IFNNY'],
     region: 'EU',
     type: 'TIER_2_COMPONENT',
     universe: 'INVESTABLE',
@@ -154,12 +155,23 @@ export const tier2Components: Company[] = [
     primary_exchange: 'XETRA',
     data_updated: '2025-12-09',
     data_sources: ['Infineon Annual Report 2024', 'IHS Markit Power Semiconductor Report', 'FMP API'],
-    data_confidence: 'high'
+    data_confidence: 'high',
+    financial_ratings: {
+      rating: 'B',
+      ratingScore: 3,
+      dcfScore: 3,
+      roeScore: 3,
+      roaScore: 3,
+      deScore: 2,
+      peScore: 2,
+      pbScore: 3
+    }
   },
   {
     id: 'co_tdk',
     name: 'TDK Corporation',
     ticker: '6762.T',
+    adr_tickers: ['TTDKY'],
     region: 'JP',
     type: 'TIER_2_COMPONENT',
     universe: 'INVESTABLE',
@@ -237,7 +249,17 @@ export const tier2Components: Company[] = [
     primary_exchange: 'NYSE',
     data_updated: '2025-12-09',
     data_sources: ['Hubbell 10-K 2024', 'Q3 2024 Earnings', 'FMP API'],
-    data_confidence: 'high'
+    data_confidence: 'high',
+    financial_ratings: {
+      rating: 'B+',
+      ratingScore: 3,
+      dcfScore: 4,
+      roeScore: 5,
+      roaScore: 5,
+      deScore: 2,
+      peScore: 2,
+      pbScore: 1
+    }
   },
   {
     id: 'co_plpc',
@@ -271,7 +293,17 @@ export const tier2Components: Company[] = [
     primary_exchange: 'NASDAQ',
     data_updated: '2025-12-09',
     data_sources: ['PLPC 10-K 2024', 'Company investor presentation', 'FMP API'],
-    data_confidence: 'high'
+    data_confidence: 'high',
+    financial_ratings: {
+      rating: 'B+',
+      ratingScore: 3,
+      dcfScore: 3,
+      roeScore: 3,
+      roaScore: 4,
+      deScore: 4,
+      peScore: 2,
+      pbScore: 3
+    }
   },
 
   // ═══════════════════════════════════════════════════════════════════════════
@@ -314,7 +346,17 @@ export const tier2Components: Company[] = [
     primary_exchange: 'NYSE',
     data_updated: '2025-12-09',
     data_sources: ['Valmont 10-K 2024', 'Industry reports', 'Company website'],
-    data_confidence: 'high'
+    data_confidence: 'high',
+    financial_ratings: {
+      rating: 'B+',
+      ratingScore: 3,
+      dcfScore: 3,
+      roeScore: 4,
+      roaScore: 5,
+      deScore: 2,
+      peScore: 2,
+      pbScore: 2
+    }
   },
   {
     id: 'co_azz',
@@ -353,7 +395,17 @@ export const tier2Components: Company[] = [
     primary_exchange: 'NYSE',
     data_updated: '2025-12-09',
     data_sources: ['AZZ 10-K 2024', 'Industry reports', 'Company website'],
-    data_confidence: 'high'
+    data_confidence: 'high',
+    financial_ratings: {
+      rating: 'A+',
+      ratingScore: 4,
+      dcfScore: 5,
+      roeScore: 5,
+      roaScore: 5,
+      deScore: 2,
+      peScore: 4,
+      pbScore: 3
+    }
   },
   {
     id: 'co_rstech',
@@ -493,12 +545,23 @@ export const tier2Components: Company[] = [
     primary_exchange: 'NYSE',
     data_updated: '2025-12-09',
     data_sources: ['SPXC 10-K 2024', 'Industry reports', 'Company website'],
-    data_confidence: 'high'
+    data_confidence: 'high',
+    financial_ratings: {
+      rating: 'B+',
+      ratingScore: 3,
+      dcfScore: 3,
+      roeScore: 4,
+      roaScore: 5,
+      deScore: 3,
+      peScore: 2,
+      pbScore: 2
+    }
   },
   {
     id: 'co_alfalaval',
     name: 'Alfa Laval',
     ticker: 'ALFA.ST',
+    adr_tickers: ['ALFVY'],
     region: 'EU',
     type: 'TIER_2_COMPONENT',
     universe: 'INVESTABLE',
@@ -532,7 +595,17 @@ export const tier2Components: Company[] = [
     primary_exchange: 'Nasdaq Stockholm',
     data_updated: '2025-12-09',
     data_sources: ['Alfa Laval Annual Report 2024', 'Industry reports', 'Company website'],
-    data_confidence: 'high'
+    data_confidence: 'high',
+    financial_ratings: {
+      rating: 'A-',
+      ratingScore: 4,
+      dcfScore: 4,
+      roeScore: 5,
+      roaScore: 5,
+      deScore: 2,
+      peScore: 3,
+      pbScore: 2
+    }
   },
   {
     id: 'co_roxtec',
@@ -760,7 +833,17 @@ export const tier2Components: Company[] = [
     primary_exchange: 'NYSE',
     data_updated: '2025-12-09',
     data_sources: ['ESCO Technologies 10-K 2024', 'Investor presentation', 'T&D World'],
-    data_confidence: 'high'
+    data_confidence: 'high',
+    financial_ratings: {
+      rating: 'A',
+      ratingScore: 4,
+      dcfScore: 3,
+      roeScore: 5,
+      roaScore: 5,
+      deScore: 3,
+      peScore: 3,
+      pbScore: 3
+    }
   },
   {
     id: 'co_vaisala',
@@ -837,7 +920,17 @@ export const tier2Components: Company[] = [
     primary_exchange: 'NASDAQ',
     data_updated: '2025-12-09',
     data_sources: ['TI Annual Report', 'Industry analysis'],
-    data_confidence: 'high'
+    data_confidence: 'high',
+    financial_ratings: {
+      rating: 'B',
+      ratingScore: 3,
+      dcfScore: 3,
+      roeScore: 5,
+      roaScore: 5,
+      deScore: 1,
+      peScore: 2,
+      pbScore: 1
+    }
   },
   {
     id: 'co_adi',
@@ -876,7 +969,17 @@ export const tier2Components: Company[] = [
     primary_exchange: 'NASDAQ',
     data_updated: '2025-12-09',
     data_sources: ['ADI Annual Report', 'Industry analysis'],
-    data_confidence: 'high'
+    data_confidence: 'high',
+    financial_ratings: {
+      rating: 'B',
+      ratingScore: 3,
+      dcfScore: 4,
+      roeScore: 3,
+      roaScore: 4,
+      deScore: 2,
+      peScore: 1,
+      pbScore: 3
+    }
   },
   {
     id: 'co_vishay',
@@ -915,7 +1018,17 @@ export const tier2Components: Company[] = [
     primary_exchange: 'NYSE',
     data_updated: '2025-12-09',
     data_sources: ['Vishay Annual Report', 'Industry analysis'],
-    data_confidence: 'medium'
+    data_confidence: 'medium',
+    financial_ratings: {
+      rating: 'C+',
+      ratingScore: 2,
+      dcfScore: 3,
+      roeScore: 1,
+      roaScore: 1,
+      deScore: 2,
+      peScore: 1,
+      pbScore: 5
+    }
   },
   {
     id: 'co_microchip',
@@ -949,7 +1062,17 @@ export const tier2Components: Company[] = [
     primary_exchange: 'NASDAQ',
     data_updated: '2025-12-09',
     data_sources: ['Microchip 10-K', 'Industry analysis'],
-    data_confidence: 'high'
+    data_confidence: 'high',
+    financial_ratings: {
+      rating: 'C-',
+      ratingScore: 1,
+      dcfScore: 3,
+      roeScore: 1,
+      roaScore: 1,
+      deScore: 1,
+      peScore: 1,
+      pbScore: 1
+    }
   },
   {
     id: 'co_marvell',
@@ -983,7 +1106,17 @@ export const tier2Components: Company[] = [
     primary_exchange: 'NASDAQ',
     data_updated: '2025-12-09',
     data_sources: ['Marvell Annual Report', 'Industry analysis'],
-    data_confidence: 'medium'
+    data_confidence: 'medium',
+    financial_ratings: {
+      rating: 'B+',
+      ratingScore: 3,
+      dcfScore: 3,
+      roeScore: 4,
+      roaScore: 5,
+      deScore: 2,
+      peScore: 2,
+      pbScore: 2
+    }
   },
   {
     id: 'co_power_integrations',
@@ -1022,7 +1155,17 @@ export const tier2Components: Company[] = [
     primary_exchange: 'NASDAQ',
     data_updated: '2025-12-09',
     data_sources: ['Power Integrations 10-K', 'Industry analysis'],
-    data_confidence: 'medium'
+    data_confidence: 'medium',
+    financial_ratings: {
+      rating: 'B-',
+      ratingScore: 2,
+      dcfScore: 3,
+      roeScore: 3,
+      roaScore: 4,
+      deScore: 1,
+      peScore: 1,
+      pbScore: 2
+    }
   },
   {
     id: 'co_vacuumschmelze',
@@ -1126,7 +1269,17 @@ export const tier2Components: Company[] = [
     primary_exchange: 'NASDAQ',
     data_updated: '2025-12-09',
     data_sources: ['Vicor 10-K', 'Industry analysis'],
-    data_confidence: 'medium'
+    data_confidence: 'medium',
+    financial_ratings: {
+      rating: 'A-',
+      ratingScore: 4,
+      dcfScore: 3,
+      roeScore: 4,
+      roaScore: 5,
+      deScore: 4,
+      peScore: 2,
+      pbScore: 3
+    }
   },
   {
     id: 'co_amd_xilinx',
@@ -1160,7 +1313,17 @@ export const tier2Components: Company[] = [
     primary_exchange: 'NASDAQ',
     data_updated: '2025-12-09',
     data_sources: ['AMD 10-K', 'Industry analysis'],
-    data_confidence: 'medium'
+    data_confidence: 'medium',
+    financial_ratings: {
+      rating: 'B',
+      ratingScore: 3,
+      dcfScore: 3,
+      roeScore: 3,
+      roaScore: 4,
+      deScore: 4,
+      peScore: 1,
+      pbScore: 2
+    }
   },
   {
     id: 'co_3m',
@@ -1194,7 +1357,17 @@ export const tier2Components: Company[] = [
     primary_exchange: 'NYSE',
     data_updated: '2025-12-09',
     data_sources: ['3M 10-K', 'Industry reports', 'GIS OEM data'],
-    data_confidence: 'medium'
+    data_confidence: 'medium',
+    financial_ratings: {
+      rating: 'B',
+      ratingScore: 3,
+      dcfScore: 3,
+      roeScore: 5,
+      roaScore: 5,
+      deScore: 1,
+      peScore: 2,
+      pbScore: 1
+    }
   },
   {
     id: 'co_ea_technology',

@@ -62,6 +62,21 @@ export interface ComponentRow {
 export type DataConfidence = 'high' | 'medium' | 'low';
 
 /**
+ * Financial health ratings from FMP Ratings Snapshot API.
+ * All scores are normalized 1-5 where higher is better.
+ */
+export interface FinancialRatings {
+  rating: string;              // Overall letter grade (A, B, C, D, F)
+  ratingScore: number;         // Overall numeric score (1-5)
+  dcfScore: number;            // Discounted Cash Flow score
+  roeScore: number;            // Return on Equity score
+  roaScore: number;            // Return on Assets score
+  deScore: number;             // Debt to Equity score
+  peScore: number;             // Price to Earnings score
+  pbScore: number;             // Price to Book score
+}
+
+/**
  * Rationale for a single exposure score assignment.
  * Provides audit trail for why a company received a particular exposure score.
  */
@@ -77,7 +92,8 @@ export interface ExposureRationale {
 export interface Company {
   id: string;
   name: string;
-  ticker: string;
+  ticker: string;                 // Primary listing ticker (e.g., "6501.T" for Hitachi on TSE)
+  adr_tickers?: string[];         // US ADR/OTC tickers if available (e.g., ["HTHIY"])
   region: RegionType;
   type: TierType;
   universe: UniverseType;
@@ -98,12 +114,15 @@ export interface Company {
 
   // Investment characteristics
   is_public: boolean;             // Publicly traded?
-  primary_exchange?: string;      // NYSE, TSE, XETRA, etc.
+  primary_exchange?: string;      // Primary exchange (e.g., "TSE", "XETRA", "NYSE")
 
   // Data provenance
   data_updated?: string;          // ISO date of last update (YYYY-MM-DD)
   data_sources?: string[];        // List of sources used
   data_confidence?: DataConfidence;
+
+  // Financial health ratings (from FMP Ratings Snapshot API)
+  financial_ratings?: FinancialRatings;
 }
 
 /**

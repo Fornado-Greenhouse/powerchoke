@@ -37,7 +37,17 @@ export const utilities: Company[] = [
     primary_exchange: 'NYSE',
     data_updated: '2024-12-01',
     data_sources: ['NextEra Energy 10-K 2023', 'Q3 2024 Earnings Call', 'Industry analysis'],
-    data_confidence: 'high'
+    data_confidence: 'high',
+    financial_ratings: {
+      rating: 'B-',
+      ratingScore: 2,
+      dcfScore: 1,
+      roeScore: 4,
+      roaScore: 4,
+      deScore: 2,
+      peScore: 2,
+      pbScore: 1
+    }
   },
   {
     id: 'co_duke',
@@ -66,7 +76,17 @@ export const utilities: Company[] = [
     primary_exchange: 'NYSE',
     data_updated: '2024-12-01',
     data_sources: ['Duke Energy 10-K 2023', 'Investor presentation 2024'],
-    data_confidence: 'high'
+    data_confidence: 'high',
+    financial_ratings: {
+      rating: 'B',
+      ratingScore: 3,
+      dcfScore: 1,
+      roeScore: 3,
+      roaScore: 4,
+      deScore: 4,
+      peScore: 2,
+      pbScore: 2
+    }
   },
   {
     id: 'co_southern',
@@ -95,7 +115,17 @@ export const utilities: Company[] = [
     primary_exchange: 'NYSE',
     data_updated: '2024-12-01',
     data_sources: ['Southern Company 10-K 2023', 'Q3 2024 results'],
-    data_confidence: 'high'
+    data_confidence: 'high',
+    financial_ratings: {
+      rating: 'B-',
+      ratingScore: 3,
+      dcfScore: 3,
+      roeScore: 4,
+      roaScore: 4,
+      deScore: 1,
+      peScore: 2,
+      pbScore: 1
+    }
   },
   {
     id: 'co_dominion',
@@ -124,7 +154,17 @@ export const utilities: Company[] = [
     primary_exchange: 'NYSE',
     data_updated: '2024-12-01',
     data_sources: ['Dominion Energy 10-K 2023', 'Investor materials'],
-    data_confidence: 'high'
+    data_confidence: 'high',
+    financial_ratings: {
+      rating: 'C+',
+      ratingScore: 2,
+      dcfScore: 4,
+      roeScore: 3,
+      roaScore: 1,
+      deScore: 3,
+      peScore: 1,
+      pbScore: 1
+    }
   },
   {
     id: 'co_aep',
@@ -153,7 +193,17 @@ export const utilities: Company[] = [
     primary_exchange: 'NASDAQ',
     data_updated: '2025-12-09',
     data_sources: ['AEP 10-K 2023', 'Q3 2024 earnings', 'FMP API'],
-    data_confidence: 'high'
+    data_confidence: 'high',
+    financial_ratings: {
+      rating: 'B+',
+      ratingScore: 3,
+      dcfScore: 4,
+      roeScore: 4,
+      roaScore: 4,
+      deScore: 2,
+      peScore: 2,
+      pbScore: 2
+    }
   },
 
   // ═══════════════════════════════════════════════════════════════════════════
@@ -186,12 +236,23 @@ export const utilities: Company[] = [
     primary_exchange: 'LSE',
     data_updated: '2025-12-09',
     data_sources: ['National Grid Annual Report 2024', 'Bloomberg', 'FMP API'],
-    data_confidence: 'high'
+    data_confidence: 'high',
+    financial_ratings: {
+      rating: 'B-',
+      ratingScore: 3,
+      dcfScore: 1,
+      roeScore: 3,
+      roaScore: 4,
+      deScore: 2,
+      peScore: 2,
+      pbScore: 3
+    }
   },
   {
     id: 'co_enel',
     name: 'Enel',
     ticker: 'ENEL.MI',
+    adr_tickers: ['ENLAY'],
     region: 'EU',
     type: 'UTILITY',
     universe: 'INVESTABLE',
@@ -215,12 +276,23 @@ export const utilities: Company[] = [
     primary_exchange: 'Borsa Italiana',
     data_updated: '2025-12-09',
     data_sources: ['Enel Annual Report 2023', 'Strategic Plan 2024-2026', 'FMP API'],
-    data_confidence: 'high'
+    data_confidence: 'high',
+    financial_ratings: {
+      rating: 'B',
+      ratingScore: 3,
+      dcfScore: 1,
+      roeScore: 5,
+      roaScore: 4,
+      deScore: 1,
+      peScore: 3,
+      pbScore: 2
+    }
   },
   {
     id: 'co_iberdrola',
     name: 'Iberdrola',
     ticker: 'IBE.MC',
+    adr_tickers: ['IBDRY'],
     region: 'EU',
     type: 'UTILITY',
     universe: 'INVESTABLE',
@@ -244,12 +316,23 @@ export const utilities: Company[] = [
     primary_exchange: 'Madrid Stock Exchange',
     data_updated: '2025-12-09',
     data_sources: ['Iberdrola Integrated Report 2023', 'FY2024 results', 'FMP API'],
-    data_confidence: 'high'
+    data_confidence: 'high',
+    financial_ratings: {
+      rating: 'B+',
+      ratingScore: 3,
+      dcfScore: 4,
+      roeScore: 4,
+      roaScore: 4,
+      deScore: 2,
+      peScore: 2,
+      pbScore: 2
+    }
   },
   {
     id: 'co_eon',
     name: 'E.ON',
     ticker: 'EOAN.DE',
+    adr_tickers: ['EONGY'],
     region: 'EU',
     type: 'UTILITY',
     universe: 'INVESTABLE',
@@ -273,7 +356,17 @@ export const utilities: Company[] = [
     primary_exchange: 'XETRA',
     data_updated: '2025-12-09',
     data_sources: ['E.ON Annual Report 2023', 'Investor materials', 'FMP API'],
-    data_confidence: 'high'
+    data_confidence: 'high',
+    financial_ratings: {
+      rating: 'B',
+      ratingScore: 3,
+      dcfScore: 1,
+      roeScore: 5,
+      roaScore: 4,
+      deScore: 1,
+      peScore: 3,
+      pbScore: 2
+    }
   },
 
   // ═══════════════════════════════════════════════════════════════════════════
@@ -306,7 +399,17 @@ export const utilities: Company[] = [
     primary_exchange: 'KRX',
     data_updated: '2025-12-09',
     data_sources: ['KEPCO Annual Report 2023', 'Industry sources', 'FMP API'],
-    data_confidence: 'medium'
+    data_confidence: 'medium',
+    financial_ratings: {
+      rating: 'B',
+      ratingScore: 3,
+      dcfScore: 1,
+      roeScore: 4,
+      roaScore: 3,
+      deScore: 1,
+      peScore: 4,
+      pbScore: 4
+    }
   },
   {
     id: 'co_tepco',
@@ -335,6 +438,16 @@ export const utilities: Company[] = [
     primary_exchange: 'TSE',
     data_updated: '2025-12-09',
     data_sources: ['TEPCO Annual Report 2023', 'Financial statements', 'FMP API'],
-    data_confidence: 'medium'
+    data_confidence: 'medium',
+    financial_ratings: {
+      rating: 'C',
+      ratingScore: 2,
+      dcfScore: 1,
+      roeScore: 1,
+      roaScore: 1,
+      deScore: 1,
+      peScore: 1,
+      pbScore: 5
+    }
   },
 ];

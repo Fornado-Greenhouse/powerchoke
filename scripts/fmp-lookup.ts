@@ -45,6 +45,18 @@ interface FMPSearchResult {
   stockExchange: string;
 }
 
+interface FMPRatingsSnapshot {
+  symbol: string;
+  rating: string;
+  overallScore: number;
+  discountedCashFlowScore: number;
+  returnOnEquityScore: number;
+  returnOnAssetsScore: number;
+  debtToEquityScore: number;
+  priceToEarningsScore: number;
+  priceToBookScore: number;
+}
+
 function getApiKey(): string {
   const apiKey = process.env.FMP_API_KEY;
   if (!apiKey) {
@@ -91,6 +103,19 @@ async function getIncomeStatement(symbol: string, period: 'annual' | 'quarter' =
   }
 
   return response.json();
+}
+
+async function getRatingsSnapshot(symbol: string): Promise<FMPRatingsSnapshot | null> {
+  const apiKey = getApiKey();
+  const url = `${FMP_BASE_URL}/ratings-snapshot?symbol=${encodeURIComponent(symbol)}&apikey=${apiKey}`;
+
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error(`FMP API error: ${response.status} ${response.statusText}`);
+  }
+
+  const data = await response.json();
+  return Array.isArray(data) && data.length > 0 ? data[0] : null;
 }
 
 function formatMarketCap(mktCap: number): string {
@@ -267,6 +292,48 @@ async function runValidate(): Promise<void> {
   console.log('Run individual lookups with: npx tsx scripts/fmp-lookup.ts profile <TICKER>');
 }
 
+async function runRatings(symbol: string): Promise<void> {
+  console.log(`\nFetching ratings snapshot for: ${symbol}\n`);
+
+  const ratings = await getRatingsSnapshot(symbol);
+
+  if (!ratings) {
+    console.log('Ratings not found for this symbol.');
+    console.log('Note: FMP ratings may not be available for ADRs or non-US exchanges.');
+    return;
+  }
+
+  // Display header with overall rating
+  console.log('Ratings Snapshot:');
+  console.log('─'.repeat(50));
+  console.log(`  Overall Rating:  ${ratings.rating} (Score: ${ratings.overallScore}/5)`);
+  console.log('');
+
+  // Display individual scores
+  console.log('  Metric                    Score');
+  console.log('  ' + '─'.repeat(35));
+  console.log(`  Discounted Cash Flow      ${ratings.discountedCashFlowScore}/5`);
+  console.log(`  Return on Equity          ${ratings.returnOnEquityScore}/5`);
+  console.log(`  Return on Assets          ${ratings.returnOnAssetsScore}/5`);
+  console.log(`  Debt to Equity            ${ratings.debtToEquityScore}/5`);
+  console.log(`  Price to Earnings         ${ratings.priceToEarningsScore}/5`);
+  console.log(`  Price to Book             ${ratings.priceToBookScore}/5`);
+
+  // Output in format suitable for Company type (using our shorter field names)
+  console.log('\nFor companies.ts:');
+  console.log('─'.repeat(50));
+  console.log(`  financial_ratings: {`);
+  console.log(`    rating: '${ratings.rating}',`);
+  console.log(`    ratingScore: ${ratings.overallScore},`);
+  console.log(`    dcfScore: ${ratings.discountedCashFlowScore},`);
+  console.log(`    roeScore: ${ratings.returnOnEquityScore},`);
+  console.log(`    roaScore: ${ratings.returnOnAssetsScore},`);
+  console.log(`    deScore: ${ratings.debtToEquityScore},`);
+  console.log(`    peScore: ${ratings.priceToEarningsScore},`);
+  console.log(`    pbScore: ${ratings.priceToBookScore},`);
+  console.log(`  },`);
+}
+
 // Main CLI handler
 async function main(): Promise<void> {
   const args = process.argv.slice(2);
@@ -278,12 +345,13 @@ FMP Company Data Lookup
 Usage:
   npx tsx scripts/fmp-lookup.ts search <query>    Search for companies by name
   npx tsx scripts/fmp-lookup.ts profile <ticker>  Get company profile
+  npx tsx scripts/fmp-lookup.ts ratings <ticker>  Get financial ratings snapshot
   npx tsx scripts/fmp-lookup.ts validate          Validate companies against FMP
 
 Examples:
   npx tsx scripts/fmp-lookup.ts search "Hitachi"
   npx tsx scripts/fmp-lookup.ts profile HTHIY
-  npx tsx scripts/fmp-lookup.ts profile 6501.T
+  npx tsx scripts/fmp-lookup.ts ratings AAPL
 
 Requires FMP_API_KEY environment variable.
 Get your API key at: https://site.financialmodelingprep.com/developer/docs
@@ -314,9 +382,17 @@ Get your API key at: https://site.financialmodelingprep.com/developer/docs
       await runValidate();
       break;
 
+    case 'ratings':
+      if (rest.length === 0) {
+        console.error('Usage: ratings <ticker>');
+        process.exit(1);
+      }
+      await runRatings(rest[0]);
+      break;
+
     default:
       console.error(`Unknown command: ${command}`);
-      console.error('Use: search, profile, or validate');
+      console.error('Use: search, profile, ratings, or validate');
       process.exit(1);
   }
 }

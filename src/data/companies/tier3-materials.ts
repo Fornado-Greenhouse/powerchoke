@@ -42,7 +42,17 @@ export const tier3Materials: Company[] = [
     primary_exchange: 'NYSE',
     data_updated: '2025-12-09',
     data_sources: ['Company Annual Report 2024', 'Bloomberg', 'FMP API'],
-    data_confidence: 'high'
+    data_confidence: 'high',
+    financial_ratings: {
+      rating: 'A-',
+      ratingScore: 4,
+      dcfScore: 4,
+      roeScore: 3,
+      roaScore: 4,
+      deScore: 2,
+      peScore: 3,
+      pbScore: 4
+    }
   },
   {
     id: 'co_posco',
@@ -71,12 +81,23 @@ export const tier3Materials: Company[] = [
     primary_exchange: 'KRX',
     data_updated: '2024-12-01',
     data_sources: ['Company Annual Report 2024'],
-    data_confidence: 'medium'
+    data_confidence: 'medium',
+    financial_ratings: {
+      rating: 'B+',
+      ratingScore: 3,
+      dcfScore: 3,
+      roeScore: 3,
+      roaScore: 4,
+      deScore: 2,
+      peScore: 1,
+      pbScore: 5
+    }
   },
   {
     id: 'co_nippon',
     name: 'Nippon Steel',
     ticker: '5401.T',
+    adr_tickers: ['NPSCY'],
     region: 'JP',
     type: 'TIER_3_MATERIAL',
     universe: 'INVESTABLE',
@@ -100,12 +121,23 @@ export const tier3Materials: Company[] = [
     primary_exchange: 'TSE',
     data_updated: '2025-12-09',
     data_sources: ['Company FY2024 Report', 'FMP API'],
-    data_confidence: 'medium'
+    data_confidence: 'medium',
+    financial_ratings: {
+      rating: 'C+',
+      ratingScore: 2,
+      dcfScore: 5,
+      roeScore: 1,
+      roaScore: 1,
+      deScore: 1,
+      peScore: 1,
+      pbScore: 4
+    }
   },
   {
     id: 'co_thyssen',
     name: 'thyssenkrupp',
     ticker: 'TKA.DE',
+    adr_tickers: ['TKAMY'],
     region: 'EU',
     type: 'TIER_3_MATERIAL',
     universe: 'INVESTABLE',
@@ -129,7 +161,17 @@ export const tier3Materials: Company[] = [
     primary_exchange: 'XETRA',
     data_updated: '2025-12-09',
     data_sources: ['Company Annual Report 2024', 'FMP API'],
-    data_confidence: 'medium'
+    data_confidence: 'medium',
+    financial_ratings: {
+      rating: 'C+',
+      ratingScore: 2,
+      dcfScore: 1,
+      roeScore: 1,
+      roaScore: 1,
+      deScore: 3,
+      peScore: 1,
+      pbScore: 5
+    }
   },
 
   // ═══════════════════════════════════════════════════════════════════════════
@@ -172,7 +214,17 @@ export const tier3Materials: Company[] = [
     primary_exchange: 'NYSE',
     data_updated: '2024-12-01',
     data_sources: ['FCX 10-K 2024', 'Q3 2024 Earnings', 'Industry estimates'],
-    data_confidence: 'medium'
+    data_confidence: 'medium',
+    financial_ratings: {
+      rating: 'B+',
+      ratingScore: 3,
+      dcfScore: 4,
+      roeScore: 4,
+      roaScore: 5,
+      deScore: 2,
+      peScore: 2,
+      pbScore: 2
+    }
   },
   {
     id: 'co_scco',
@@ -211,7 +263,17 @@ export const tier3Materials: Company[] = [
     primary_exchange: 'NYSE',
     data_updated: '2025-12-09',
     data_sources: ['SCCO 10-K 2024', 'Q3 2024 Earnings', 'Industry estimates', 'FMP API'],
-    data_confidence: 'medium'
+    data_confidence: 'medium',
+    financial_ratings: {
+      rating: 'B+',
+      ratingScore: 3,
+      dcfScore: 4,
+      roeScore: 5,
+      roaScore: 5,
+      deScore: 1,
+      peScore: 2,
+      pbScore: 1
+    }
   },
   {
     id: 'co_aurubis',
@@ -250,7 +312,17 @@ export const tier3Materials: Company[] = [
     primary_exchange: 'XETRA',
     data_updated: '2024-12-01',
     data_sources: ['Aurubis Annual Report 2024', 'Industry reports'],
-    data_confidence: 'medium'
+    data_confidence: 'medium',
+    financial_ratings: {
+      rating: 'A-',
+      ratingScore: 4,
+      dcfScore: 3,
+      roeScore: 4,
+      roaScore: 5,
+      deScore: 2,
+      peScore: 3,
+      pbScore: 4
+    }
   },
 
   // ═══════════════════════════════════════════════════════════════════════════
@@ -260,6 +332,7 @@ export const tier3Materials: Company[] = [
     id: 'co_prysmian',
     name: 'Prysmian Group',
     ticker: 'PRY.MI',
+    adr_tickers: ['PRYMY'],
     region: 'EU',
     type: 'TIER_3_MATERIAL',
     universe: 'INVESTABLE',
@@ -293,12 +366,23 @@ export const tier3Materials: Company[] = [
     primary_exchange: 'Borsa Italiana',
     data_updated: '2025-12-09',
     data_sources: ['Prysmian Annual Report 2024', 'Industry reports', 'T&D World', 'FMP API'],
-    data_confidence: 'medium'
+    data_confidence: 'medium',
+    financial_ratings: {
+      rating: 'A-',
+      ratingScore: 4,
+      dcfScore: 4,
+      roeScore: 5,
+      roaScore: 4,
+      deScore: 2,
+      peScore: 3,
+      pbScore: 2
+    }
   },
   {
     id: 'co_nexans',
     name: 'Nexans',
     ticker: 'NEX.PA',
+    adr_tickers: ['NEXNY'],
     region: 'EU',
     type: 'TIER_3_MATERIAL',
     universe: 'INVESTABLE',
@@ -332,12 +416,23 @@ export const tier3Materials: Company[] = [
     primary_exchange: 'Euronext Paris',
     data_updated: '2025-12-09',
     data_sources: ['Nexans Annual Report 2024', 'Industry reports', 'FMP API'],
-    data_confidence: 'medium'
+    data_confidence: 'medium',
+    financial_ratings: {
+      rating: 'A-',
+      ratingScore: 4,
+      dcfScore: 4,
+      roeScore: 5,
+      roaScore: 4,
+      deScore: 1,
+      peScore: 4,
+      pbScore: 3
+    }
   },
   {
     id: 'co_nkt',
     name: 'NKT A/S',
     ticker: 'NKT.CO',
+    adr_tickers: ['NRKBF'],
     region: 'EU',
     type: 'TIER_3_MATERIAL',
     universe: 'INVESTABLE',
@@ -371,7 +466,17 @@ export const tier3Materials: Company[] = [
     primary_exchange: 'Nasdaq Copenhagen',
     data_updated: '2025-12-09',
     data_sources: ['NKT Annual Report 2024', 'Industry reports', 'FMP API'],
-    data_confidence: 'medium'
+    data_confidence: 'medium',
+    financial_ratings: {
+      rating: 'A-',
+      ratingScore: 4,
+      dcfScore: 5,
+      roeScore: 4,
+      roaScore: 4,
+      deScore: 1,
+      peScore: 3,
+      pbScore: 3
+    }
   },
   {
     id: 'co_southwire',
@@ -413,6 +518,7 @@ export const tier3Materials: Company[] = [
     id: 'co_toray',
     name: 'Toray Industries',
     ticker: '3402.T',
+    adr_tickers: ['TRYIY'],
     region: 'JP',
     type: 'TIER_3_MATERIAL',
     universe: 'INVESTABLE',
@@ -718,6 +824,7 @@ export const tier3Materials: Company[] = [
     id: 'co_ssab',
     name: 'SSAB AB',
     ticker: 'SSAB-A.ST',
+    adr_tickers: ['SSAAY', 'SSABF'],
     region: 'EU',
     type: 'TIER_3_MATERIAL',
     universe: 'INVESTABLE',
@@ -746,7 +853,17 @@ export const tier3Materials: Company[] = [
     primary_exchange: 'Nasdaq Stockholm',
     data_updated: '2025-12-09',
     data_sources: ['SSAB Annual Report', 'Industry analysis'],
-    data_confidence: 'medium'
+    data_confidence: 'medium',
+    financial_ratings: {
+      rating: 'A',
+      ratingScore: 4,
+      dcfScore: 5,
+      roeScore: 4,
+      roaScore: 5,
+      deScore: 2,
+      peScore: 3,
+      pbScore: 4
+    }
   },
   {
     id: 'co_nucor',
@@ -780,7 +897,17 @@ export const tier3Materials: Company[] = [
     primary_exchange: 'NYSE',
     data_updated: '2025-12-09',
     data_sources: ['Nucor 10-K', 'Industry analysis'],
-    data_confidence: 'high'
+    data_confidence: 'high',
+    financial_ratings: {
+      rating: 'A-',
+      ratingScore: 4,
+      dcfScore: 4,
+      roeScore: 4,
+      roaScore: 5,
+      deScore: 2,
+      peScore: 2,
+      pbScore: 3
+    }
   },
   {
     id: 'co_hexcel',
@@ -809,7 +936,17 @@ export const tier3Materials: Company[] = [
     primary_exchange: 'NYSE',
     data_updated: '2025-12-09',
     data_sources: ['Hexcel 10-K', 'Industry analysis'],
-    data_confidence: 'medium'
+    data_confidence: 'medium',
+    financial_ratings: {
+      rating: 'C+',
+      ratingScore: 2,
+      dcfScore: 3,
+      roeScore: 2,
+      roaScore: 3,
+      deScore: 2,
+      peScore: 1,
+      pbScore: 2
+    }
   },
 
   // ═══════════════════════════════════════════════════════════════════════════
