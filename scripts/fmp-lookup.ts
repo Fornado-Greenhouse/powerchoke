@@ -45,6 +45,38 @@ interface FMPSearchResult {
   stockExchange: string;
 }
 
+interface FMPRatingsSnapshot {
+  symbol: string;
+  rating: string;
+  overallScore: number;
+  discountedCashFlowScore: number;
+  returnOnEquityScore: number;
+  returnOnAssetsScore: number;
+  debtToEquityScore: number;
+  priceToEarningsScore: number;
+  priceToBookScore: number;
+}
+
+interface FMPKeyMetricsTTM {
+  symbol: string;
+  returnOnAssetsTTM: number;
+  returnOnEquityTTM: number;
+}
+
+interface FMPRatiosTTM {
+  symbol: string;
+  priceToEarningsRatioTTM: number;
+  priceToBookRatioTTM: number;
+  debtToEquityRatioTTM: number;
+}
+
+interface FMPDiscountedCashFlow {
+  symbol: string;
+  date: string;
+  dcf: number;           // Intrinsic value per share
+  stockPrice: number;    // Current stock price
+}
+
 function getApiKey(): string {
   const apiKey = process.env.FMP_API_KEY;
   if (!apiKey) {
@@ -91,6 +123,58 @@ async function getIncomeStatement(symbol: string, period: 'annual' | 'quarter' =
   }
 
   return response.json();
+}
+
+async function getRatingsSnapshot(symbol: string): Promise<FMPRatingsSnapshot | null> {
+  const apiKey = getApiKey();
+  const url = `${FMP_BASE_URL}/ratings-snapshot?symbol=${encodeURIComponent(symbol)}&apikey=${apiKey}`;
+
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error(`FMP API error: ${response.status} ${response.statusText}`);
+  }
+
+  const data = await response.json();
+  return Array.isArray(data) && data.length > 0 ? data[0] : null;
+}
+
+async function getKeyMetricsTTM(symbol: string): Promise<FMPKeyMetricsTTM | null> {
+  const apiKey = getApiKey();
+  const url = `${FMP_BASE_URL}/key-metrics-ttm?symbol=${encodeURIComponent(symbol)}&apikey=${apiKey}`;
+
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error(`FMP API error: ${response.status} ${response.statusText}`);
+  }
+
+  const data = await response.json();
+  return Array.isArray(data) && data.length > 0 ? data[0] : null;
+}
+
+async function getRatiosTTM(symbol: string): Promise<FMPRatiosTTM | null> {
+  const apiKey = getApiKey();
+  const url = `${FMP_BASE_URL}/ratios-ttm?symbol=${encodeURIComponent(symbol)}&apikey=${apiKey}`;
+
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error(`FMP API error: ${response.status} ${response.statusText}`);
+  }
+
+  const data = await response.json();
+  return Array.isArray(data) && data.length > 0 ? data[0] : null;
+}
+
+async function getDiscountedCashFlow(symbol: string): Promise<FMPDiscountedCashFlow | null> {
+  const apiKey = getApiKey();
+  const url = `${FMP_BASE_URL}/discounted-cash-flow?symbol=${encodeURIComponent(symbol)}&apikey=${apiKey}`;
+
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error(`FMP API error: ${response.status} ${response.statusText}`);
+  }
+
+  const data = await response.json();
+  return Array.isArray(data) && data.length > 0 ? data[0] : null;
 }
 
 function formatMarketCap(mktCap: number): string {
@@ -267,6 +351,102 @@ async function runValidate(): Promise<void> {
   console.log('Run individual lookups with: npx tsx scripts/fmp-lookup.ts profile <TICKER>');
 }
 
+async function runRatings(symbol: string): Promise<void> {
+  console.log(`\nFetching financial data for: ${symbol}\n`);
+
+  // Fetch all data in parallel
+  const [ratings, keyMetrics, ratios, dcf] = await Promise.all([
+    getRatingsSnapshot(symbol).catch(() => null),
+    getKeyMetricsTTM(symbol).catch(() => null),
+    getRatiosTTM(symbol).catch(() => null),
+    getDiscountedCashFlow(symbol).catch(() => null),
+  ]);
+
+  if (!ratings) {
+    console.log('Ratings not found for this symbol.');
+    console.log('Note: FMP ratings may not be available for ADRs or non-US exchanges.');
+    return;
+  }
+
+  // Calculate DCF value as % difference from intrinsic value
+  // Negative = undervalued, Positive = overvalued
+  let dcfValue: number | null = null;
+  if (dcf && dcf.dcf > 0 && dcf.stockPrice > 0) {
+    dcfValue = ((dcf.stockPrice - dcf.dcf) / dcf.dcf) * 100;
+  }
+
+  // Display header with overall rating
+  console.log('Ratings Snapshot:');
+  console.log('─'.repeat(60));
+  console.log(`  Overall Rating:  ${ratings.rating} (Score: ${ratings.overallScore}/5)`);
+  console.log('');
+
+  // Display scores with raw values
+  console.log('  Metric                    Score    Raw Value');
+  console.log('  ' + '─'.repeat(50));
+
+  // DCF
+  const dcfRaw = dcfValue !== null ? `${dcfValue >= 0 ? '+' : ''}${dcfValue.toFixed(1)}%` : 'N/A';
+  console.log(`  Discounted Cash Flow      ${ratings.discountedCashFlowScore}/5      ${dcfRaw.padStart(10)}`);
+
+  // ROE (from key-metrics-ttm)
+  const roeRaw = keyMetrics?.returnOnEquityTTM !== undefined ? `${(keyMetrics.returnOnEquityTTM * 100).toFixed(1)}%` : 'N/A';
+  console.log(`  Return on Equity          ${ratings.returnOnEquityScore}/5      ${roeRaw.padStart(10)}`);
+
+  // ROA (from key-metrics-ttm)
+  const roaRaw = keyMetrics?.returnOnAssetsTTM !== undefined ? `${(keyMetrics.returnOnAssetsTTM * 100).toFixed(1)}%` : 'N/A';
+  console.log(`  Return on Assets          ${ratings.returnOnAssetsScore}/5      ${roaRaw.padStart(10)}`);
+
+  // D/E (from ratios-ttm)
+  const deRaw = ratios?.debtToEquityRatioTTM !== undefined ? ratios.debtToEquityRatioTTM.toFixed(2) : 'N/A';
+  console.log(`  Debt to Equity            ${ratings.debtToEquityScore}/5      ${deRaw.padStart(10)}`);
+
+  // P/E (from ratios-ttm)
+  const peRaw = ratios?.priceToEarningsRatioTTM !== undefined ? `${ratios.priceToEarningsRatioTTM.toFixed(1)}x` : 'N/A';
+  console.log(`  Price to Earnings         ${ratings.priceToEarningsScore}/5      ${peRaw.padStart(10)}`);
+
+  // P/B (from ratios-ttm)
+  const pbRaw = ratios?.priceToBookRatioTTM !== undefined ? `${ratios.priceToBookRatioTTM.toFixed(1)}x` : 'N/A';
+  console.log(`  Price to Book             ${ratings.priceToBookScore}/5      ${pbRaw.padStart(10)}`);
+
+  // Output in format suitable for Company type (using our shorter field names)
+  console.log('\nFor companies.ts:');
+  console.log('─'.repeat(60));
+  console.log(`  financial_ratings: {`);
+  console.log(`    rating: '${ratings.rating}',`);
+  console.log(`    ratingScore: ${ratings.overallScore},`);
+  console.log(`    dcfScore: ${ratings.discountedCashFlowScore},`);
+  console.log(`    roeScore: ${ratings.returnOnEquityScore},`);
+  console.log(`    roaScore: ${ratings.returnOnAssetsScore},`);
+  console.log(`    deScore: ${ratings.debtToEquityScore},`);
+  console.log(`    peScore: ${ratings.priceToEarningsScore},`);
+  console.log(`    pbScore: ${ratings.priceToBookScore},`);
+
+  // Add raw values if available
+  if (dcfValue !== null) {
+    console.log(`    dcfValue: ${dcfValue.toFixed(1)},`);
+  }
+  if (keyMetrics?.returnOnEquityTTM !== undefined) {
+    console.log(`    roeValue: ${(keyMetrics.returnOnEquityTTM * 100).toFixed(1)},`);
+  }
+  if (keyMetrics?.returnOnAssetsTTM !== undefined) {
+    console.log(`    roaValue: ${(keyMetrics.returnOnAssetsTTM * 100).toFixed(1)},`);
+  }
+  if (ratios?.debtToEquityRatioTTM !== undefined) {
+    console.log(`    deValue: ${ratios.debtToEquityRatioTTM.toFixed(2)},`);
+  }
+  if (ratios?.priceToEarningsRatioTTM !== undefined) {
+    console.log(`    peValue: ${ratios.priceToEarningsRatioTTM.toFixed(1)},`);
+  }
+  if (ratios?.priceToBookRatioTTM !== undefined) {
+    console.log(`    pbValue: ${ratios.priceToBookRatioTTM.toFixed(1)},`);
+  }
+
+  console.log(`    source: 'FMP API',`);
+  console.log(`    updated: '${new Date().toISOString().split('T')[0]}',`);
+  console.log(`  },`);
+}
+
 // Main CLI handler
 async function main(): Promise<void> {
   const args = process.argv.slice(2);
@@ -278,12 +458,13 @@ FMP Company Data Lookup
 Usage:
   npx tsx scripts/fmp-lookup.ts search <query>    Search for companies by name
   npx tsx scripts/fmp-lookup.ts profile <ticker>  Get company profile
+  npx tsx scripts/fmp-lookup.ts ratings <ticker>  Get financial ratings snapshot
   npx tsx scripts/fmp-lookup.ts validate          Validate companies against FMP
 
 Examples:
   npx tsx scripts/fmp-lookup.ts search "Hitachi"
   npx tsx scripts/fmp-lookup.ts profile HTHIY
-  npx tsx scripts/fmp-lookup.ts profile 6501.T
+  npx tsx scripts/fmp-lookup.ts ratings AAPL
 
 Requires FMP_API_KEY environment variable.
 Get your API key at: https://site.financialmodelingprep.com/developer/docs
@@ -314,9 +495,17 @@ Get your API key at: https://site.financialmodelingprep.com/developer/docs
       await runValidate();
       break;
 
+    case 'ratings':
+      if (rest.length === 0) {
+        console.error('Usage: ratings <ticker>');
+        process.exit(1);
+      }
+      await runRatings(rest[0]);
+      break;
+
     default:
       console.error(`Unknown command: ${command}`);
-      console.error('Use: search, profile, or validate');
+      console.error('Use: search, profile, ratings, or validate');
       process.exit(1);
   }
 }
