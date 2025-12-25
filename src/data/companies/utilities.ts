@@ -85,11 +85,11 @@ export const utilities: Company[] = [
     data_sources: ['Duke Energy 10-K 2023', 'Investor presentation 2024'],
     data_confidence: 'high',
     financial_ratings: {
-      rating: 'B',
+      rating: 'B-',
       ratingScore: 3,
       dcfScore: 1,
       roeScore: 3,
-      roaScore: 4,
+      roaScore: 3,
       deScore: 4,
       peScore: 2,
       pbScore: 2,
@@ -99,7 +99,7 @@ export const utilities: Company[] = [
       peValue: 18.3,
       pbValue: 1.8,
       source: 'FMP API',
-      updated: '2025-12-17'
+      updated: '2025-12-25'
     }
   },
   {
@@ -131,12 +131,12 @@ export const utilities: Company[] = [
     data_sources: ['Southern Company 10-K 2023', 'Q3 2024 results'],
     data_confidence: 'high',
     financial_ratings: {
-      rating: 'B-',
+      rating: 'B',
       ratingScore: 3,
       dcfScore: 3,
       roeScore: 4,
       roaScore: 4,
-      deScore: 1,
+      deScore: 2,
       peScore: 2,
       pbScore: 1,
       roeValue: 13.1,
@@ -145,7 +145,7 @@ export const utilities: Company[] = [
       peValue: 21.5,
       pbValue: 2.7,
       source: 'FMP API',
-      updated: '2025-12-17'
+      updated: '2025-12-25'
     }
   },
   {
@@ -273,21 +273,21 @@ export const utilities: Company[] = [
     data_sources: ['National Grid Annual Report 2024', 'Bloomberg', 'FMP API'],
     data_confidence: 'high',
     financial_ratings: {
-      rating: 'B-',
+      rating: 'B',
       ratingScore: 3,
       dcfScore: 1,
       roeScore: 3,
       roaScore: 4,
-      deScore: 2,
+      deScore: 3,
       peScore: 2,
       pbScore: 3,
       roeValue: 7.7,
       roaValue: 2.8,
       deValue: 1.23,
-      peValue: 19.6,
+      peValue: 19.5,
       pbValue: 1.5,
       source: 'FMP API',
-      updated: '2025-12-17'
+      updated: '2025-12-25'
     }
   },
   {
@@ -362,19 +362,14 @@ export const utilities: Company[] = [
     financial_ratings: {
       rating: 'B+',
       ratingScore: 3,
-      dcfScore: 3,
+      dcfScore: 4,
       roeScore: 4,
       roaScore: 4,
       deScore: 3,
       peScore: 2,
       pbScore: 2,
-      roeValue: 11.0,
-      roaValue: 3.4,
-      deValue: 1.17,
-      peValue: 21.4,
-      pbValue: 2.3,
       source: 'FMP API',
-      updated: '2025-12-17'
+      updated: '2025-12-25'
     }
   },
   {
@@ -407,21 +402,16 @@ export const utilities: Company[] = [
     data_sources: ['E.ON Annual Report 2023', 'Investor materials', 'FMP API'],
     data_confidence: 'high',
     financial_ratings: {
-      rating: 'B+',
+      rating: 'B',
       ratingScore: 3,
-      dcfScore: 4,
+      dcfScore: 1,
       roeScore: 5,
       roaScore: 4,
       deScore: 1,
       peScore: 3,
       pbScore: 2,
-      roeValue: 16.7,
-      roaValue: 2.8,
-      deValue: 2.18,
-      peValue: 13.7,
-      pbValue: 2.3,
       source: 'FMP API',
-      updated: '2025-12-17'
+      updated: '2025-12-25'
     }
   },
 

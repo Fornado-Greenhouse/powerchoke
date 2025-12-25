@@ -43,21 +43,16 @@ export const tier1Oems: Company[] = [
     data_sources: ['Company 10-K FY2024', 'Bloomberg', 'FMP API'],
     data_confidence: 'high',
     financial_ratings: {
-      rating: 'C+',
-      ratingScore: 2,
-      dcfScore: 5,
-      roeScore: 1,
-      roaScore: 1,
+      rating: 'B+',
+      ratingScore: 3,
+      dcfScore: 3,
+      roeScore: 4,
+      roaScore: 4,
       deScore: 3,
-      peScore: 1,
-      pbScore: 1,
-      roeValue: 11.0,
-      roaValue: 4.7,
-      deValue: 0.24,
-      peValue: 35.9,
-      pbValue: 3.9,
+      peScore: 2,
+      pbScore: 2,
       source: 'FMP API',
-      updated: '2025-12-17'
+      updated: '2025-12-25'
     }
   },
   {
@@ -101,10 +96,10 @@ export const tier1Oems: Company[] = [
       roeValue: 19.1,
       roaValue: 3.1,
       deValue: 0.00,
-      peValue: 101.1,
-      pbValue: 19.9,
+      peValue: 106.5,
+      pbValue: 21.0,
       source: 'FMP API',
-      updated: '2025-12-17'
+      updated: '2025-12-25'
     }
   },
   {
@@ -141,21 +136,16 @@ export const tier1Oems: Company[] = [
     data_sources: ['Siemens Energy Annual Report 2024', 'Bloomberg', 'FMP API'],
     data_confidence: 'high',
     financial_ratings: {
-      rating: 'C+',
-      ratingScore: 2,
+      rating: 'B-',
+      ratingScore: 3,
       dcfScore: 3,
-      roeScore: 3,
+      roeScore: 4,
       roaScore: 3,
-      deScore: 2,
+      deScore: 3,
       peScore: 1,
       pbScore: 1,
-      roeValue: 14.1,
-      roaValue: 2.5,
-      deValue: 0.39,
-      peValue: 71.3,
-      pbValue: 9.8,
       source: 'FMP API',
-      updated: '2025-12-17'
+      updated: '2025-12-25'
     }
   },
   {
@@ -199,13 +189,8 @@ export const tier1Oems: Company[] = [
       deScore: 2,
       peScore: 2,
       pbScore: 1,
-      roeValue: 31.2,
-      roaValue: 10.2,
-      deValue: 0.63,
-      peValue: 29.6,
-      pbValue: 8.8,
       source: 'FMP API',
-      updated: '2025-12-17'
+      updated: '2025-12-25'
     }
   },
   {
@@ -421,10 +406,12 @@ export const tier1Oems: Company[] = [
       ratingScore: 4,
       dcfScore: 3,
       roeScore: 4,
-      roaScore: 5,
+      roaScore: 4,
       deScore: 3,
       peScore: 3,
-      pbScore: 3
+      pbScore: 3,
+      source: 'FMP API',
+      updated: '2025-12-25'
     }
   },
   {
@@ -666,14 +653,16 @@ export const tier1Oems: Company[] = [
     data_sources: ['Schneider Electric Universal Registration Document 2024', 'Industry analysis', 'FMP API'],
     data_confidence: 'high',
     financial_ratings: {
-      rating: 'B+',
+      rating: 'B',
       ratingScore: 3,
       dcfScore: 3,
       roeScore: 4,
       roaScore: 5,
       deScore: 2,
       peScore: 2,
-      pbScore: 2
+      pbScore: 1,
+      source: 'FMP API',
+      updated: '2025-12-25'
     }
   },
   {

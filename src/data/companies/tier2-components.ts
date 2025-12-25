@@ -205,7 +205,19 @@ export const tier2Components: Company[] = [
     primary_exchange: 'TSE',
     data_updated: '2025-12-09',
     data_sources: ['TDK Annual Report FY2024', 'EPCOS Technical Catalog', 'FMP API'],
-    data_confidence: 'high'
+    data_confidence: 'high',
+    financial_ratings: {
+      rating: 'A-',
+      ratingScore: 4,
+      dcfScore: 4,
+      roeScore: 3,
+      roaScore: 4,
+      deScore: 2,
+      peScore: 3,
+      pbScore: 4,
+      source: 'FMP API',
+      updated: '2025-12-25'
+    }
   },
   {
     id: 'co_hubbell',
@@ -262,10 +274,10 @@ export const tier2Components: Company[] = [
       roeValue: 25.3,
       roaValue: 11.5,
       deValue: 0.58,
-      peValue: 26.2,
-      pbValue: 6.2,
+      peValue: 28.0,
+      pbValue: 6.6,
       source: 'FMP API',
-      updated: '2025-12-17'
+      updated: '2025-12-25'
     }
   },
   {
@@ -313,10 +325,10 @@ export const tier2Components: Company[] = [
       roeValue: 8.4,
       roaValue: 5.8,
       deValue: 0.01,
-      peValue: 28.0,
-      pbValue: 2.2,
+      peValue: 28.5,
+      pbValue: 2.3,
       source: 'FMP API',
-      updated: '2025-12-17'
+      updated: '2025-12-25'
     }
   },
 
@@ -362,21 +374,21 @@ export const tier2Components: Company[] = [
     data_sources: ['Valmont 10-K 2024', 'Industry reports', 'Company website'],
     data_confidence: 'high',
     financial_ratings: {
-      rating: 'B+',
+      rating: 'B',
       ratingScore: 3,
       dcfScore: 3,
       roeScore: 4,
       roaScore: 5,
       deScore: 2,
       peScore: 2,
-      pbScore: 2,
+      pbScore: 1,
       roeValue: 14.8,
       roaValue: 6.9,
       deValue: 0.54,
-      peValue: 34.3,
-      pbValue: 5.0,
+      peValue: 35.3,
+      pbValue: 5.2,
       source: 'FMP API',
-      updated: '2025-12-17'
+      updated: '2025-12-25'
     }
   },
   {
@@ -418,21 +430,21 @@ export const tier2Components: Company[] = [
     data_sources: ['AZZ 10-K 2024', 'Industry reports', 'Company website'],
     data_confidence: 'high',
     financial_ratings: {
-      rating: 'A+',
+      rating: 'A',
       ratingScore: 4,
       dcfScore: 5,
       roeScore: 5,
       roaScore: 5,
       deScore: 2,
       peScore: 4,
-      pbScore: 3,
+      pbScore: 2,
       roeValue: 27.4,
       roaValue: 14.1,
       deValue: 0.46,
-      peValue: 10.4,
-      pbValue: 2.5,
+      peValue: 10.6,
+      pbValue: 2.6,
       source: 'FMP API',
-      updated: '2025-12-17'
+      updated: '2025-12-25'
     }
   },
   {
@@ -870,21 +882,21 @@ export const tier2Components: Company[] = [
     data_sources: ['ESCO Technologies 10-K 2024', 'Investor presentation', 'T&D World'],
     data_confidence: 'high',
     financial_ratings: {
-      rating: 'A',
+      rating: 'A-',
       ratingScore: 4,
       dcfScore: 3,
       roeScore: 5,
       roaScore: 5,
       deScore: 3,
       peScore: 3,
-      pbScore: 3,
+      pbScore: 2,
       roeValue: 22.1,
       roaValue: 12.5,
       deValue: 0.13,
       peValue: 17.5,
       pbValue: 3.3,
       source: 'FMP API',
-      updated: '2025-12-17'
+      updated: '2025-12-25'
     }
   },
   {
@@ -919,7 +931,19 @@ export const tier2Components: Company[] = [
     primary_exchange: 'NASDAQ Helsinki',
     data_updated: '2025-12-09',
     data_sources: ['Vaisala Annual Report 2024', 'Industry analysis'],
-    data_confidence: 'medium'
+    data_confidence: 'medium',
+    financial_ratings: {
+      rating: 'A-',
+      ratingScore: 4,
+      dcfScore: 4,
+      roeScore: 5,
+      roaScore: 5,
+      deScore: 2,
+      peScore: 2,
+      pbScore: 2,
+      source: 'FMP API',
+      updated: '2025-12-25'
+    }
   },
 
   // ═══════════════════════════════════════════════════════════════════════════
@@ -1025,16 +1049,16 @@ export const tier2Components: Company[] = [
       dcfScore: 4,
       roeScore: 3,
       roaScore: 4,
-      deScore: 2,
+      deScore: 3,
       peScore: 1,
-      pbScore: 3,
+      pbScore: 2,
       roeValue: 6.6,
       roaValue: 4.7,
       deValue: 0.25,
-      peValue: 59.0,
+      peValue: 60.1,
       pbValue: 4.0,
       source: 'FMP API',
-      updated: '2025-12-17'
+      updated: '2025-12-25'
     }
   },
   {
@@ -1362,14 +1386,14 @@ export const tier2Components: Company[] = [
       roaScore: 5,
       deScore: 4,
       peScore: 2,
-      pbScore: 3,
+      pbScore: 2,
       roeValue: 13.8,
       roaValue: 11.6,
       deValue: 0.01,
-      peValue: 53.4,
-      pbValue: 7.0,
+      peValue: 59.0,
+      pbValue: 7.7,
       source: 'FMP API',
-      updated: '2025-12-17'
+      updated: '2025-12-25'
     }
   },
   {
@@ -1417,10 +1441,10 @@ export const tier2Components: Company[] = [
       roeValue: 5.6,
       roaValue: 4.3,
       deValue: 0.06,
-      peValue: 98.6,
-      pbValue: 5.4,
+      peValue: 105.8,
+      pbValue: 5.8,
       source: 'FMP API',
-      updated: '2025-12-17'
+      updated: '2025-12-25'
     }
   },
   {
