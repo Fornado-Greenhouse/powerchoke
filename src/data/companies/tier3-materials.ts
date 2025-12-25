@@ -58,7 +58,7 @@ export const tier3Materials: Company[] = [
       peValue: 13.9,
       pbValue: 0.6,
       source: 'FMP API',
-      updated: '2025-12-17'
+      updated: '2025-12-25'
     }
   },
   {
@@ -101,10 +101,10 @@ export const tier3Materials: Company[] = [
       roeValue: 0.9,
       roaValue: 0.5,
       deValue: 0.53,
-      peValue: 49.1,
+      peValue: 49.2,
       pbValue: 0.5,
       source: 'FMP API',
-      updated: '2025-12-17'
+      updated: '2025-12-25'
     }
   },
   {
@@ -177,14 +177,16 @@ export const tier3Materials: Company[] = [
     data_sources: ['Company Annual Report 2024', 'FMP API'],
     data_confidence: 'medium',
     financial_ratings: {
-      rating: 'C+',
-      ratingScore: 2,
-      dcfScore: 1,
-      roeScore: 1,
-      roaScore: 1,
+      rating: 'A-',
+      ratingScore: 4,
+      dcfScore: 3,
+      roeScore: 2,
+      roaScore: 3,
       deScore: 3,
-      peScore: 1,
-      pbScore: 5
+      peScore: 4,
+      pbScore: 5,
+      source: 'FMP API',
+      updated: '2025-12-25'
     }
   },
 
@@ -241,10 +243,10 @@ export const tier3Materials: Company[] = [
       roeValue: 11.5,
       roaValue: 3.6,
       deValue: 0.50,
-      peValue: 33.5,
-      pbValue: 3.7,
+      peValue: 36.3,
+      pbValue: 4.0,
       source: 'FMP API',
-      updated: '2025-12-17'
+      updated: '2025-12-25'
     }
   },
   {
@@ -453,7 +455,9 @@ export const tier3Materials: Company[] = [
       roaScore: 4,
       deScore: 1,
       peScore: 4,
-      pbScore: 3
+      pbScore: 2,
+      source: 'FMP API',
+      updated: '2025-12-25'
     }
   },
   {
@@ -496,14 +500,16 @@ export const tier3Materials: Company[] = [
     data_sources: ['NKT Annual Report 2024', 'Industry reports', 'FMP API'],
     data_confidence: 'medium',
     financial_ratings: {
-      rating: 'A-',
+      rating: 'A',
       ratingScore: 4,
       dcfScore: 5,
-      roeScore: 4,
+      roeScore: 2,
       roaScore: 4,
-      deScore: 1,
+      deScore: 3,
       peScore: 3,
-      pbScore: 3
+      pbScore: 5,
+      source: 'FMP API',
+      updated: '2025-12-25'
     }
   },
   {
@@ -570,7 +576,19 @@ export const tier3Materials: Company[] = [
     primary_exchange: 'TSE',
     data_updated: '2025-12-09',
     data_sources: ['Toray Annual Report FY2024', 'Industry estimates', 'FMP API'],
-    data_confidence: 'low'
+    data_confidence: 'low',
+    financial_ratings: {
+      rating: 'B',
+      ratingScore: 3,
+      dcfScore: 4,
+      roeScore: 2,
+      roaScore: 3,
+      deScore: 2,
+      peScore: 2,
+      pbScore: 4,
+      source: 'FMP API',
+      updated: '2025-12-25'
+    }
   },
 
   // ═══════════════════════════════════════════════════════════════════════════
@@ -623,7 +641,24 @@ export const tier3Materials: Company[] = [
     primary_exchange: 'NYSE',
     data_updated: '2025-12-09',
     data_sources: ['Industry reports', 'Company materials'],
-    data_confidence: 'medium'
+    data_confidence: 'medium',
+    financial_ratings: {
+      rating: 'B-',
+      ratingScore: 3,
+      dcfScore: 5,
+      roeScore: 1,
+      roaScore: 1,
+      deScore: 2,
+      peScore: 1,
+      pbScore: 5,
+      roeValue: -8.1,
+      roaValue: -4.4,
+      deValue: 0.29,
+      peValue: -5.5,
+      pbValue: 0.3,
+      source: 'FMP API',
+      updated: '2025-12-25'
+    }
   },
   {
     id: 'co_elantas',
@@ -770,7 +805,24 @@ export const tier3Materials: Company[] = [
     primary_exchange: 'NYSE',
     data_updated: '2025-12-09',
     data_sources: ['Dow Annual Report', 'Industry reports'],
-    data_confidence: 'high'
+    data_confidence: 'high',
+    financial_ratings: {
+      rating: 'C+',
+      ratingScore: 2,
+      dcfScore: 5,
+      roeScore: 1,
+      roaScore: 1,
+      deScore: 1,
+      peScore: 1,
+      pbScore: 4,
+      roeValue: -7.2,
+      roaValue: -2.0,
+      deValue: 1.12,
+      peValue: -13.0,
+      pbValue: 0.9,
+      source: 'FMP API',
+      updated: '2025-12-25'
+    }
   },
   {
     id: 'co_cargill_fluids',
@@ -889,8 +941,10 @@ export const tier3Materials: Company[] = [
       roeScore: 4,
       roaScore: 5,
       deScore: 2,
-      peScore: 3,
-      pbScore: 4
+      peScore: 2,
+      pbScore: 4,
+      source: 'FMP API',
+      updated: '2025-12-25'
     }
   },
   {
@@ -984,10 +1038,10 @@ export const tier3Materials: Company[] = [
       roeValue: 4.5,
       roaValue: 2.5,
       deValue: 0.48,
-      peValue: 85.1,
-      pbValue: 3.7,
+      peValue: 88.6,
+      pbValue: 3.9,
       source: 'FMP API',
-      updated: '2025-12-17'
+      updated: '2025-12-25'
     }
   },
 

@@ -159,7 +159,7 @@ export const software: Company[] = [
       roeScore: 4,
       roaScore: 4,
       deScore: 2,
-      peScore: 3,
+      peScore: 2,
       pbScore: 3,
       roeValue: 16.7,
       roaValue: 6.9,
@@ -167,7 +167,7 @@ export const software: Company[] = [
       peValue: 17.0,
       pbValue: 2.6,
       source: 'FMP API',
-      updated: '2025-12-17'
+      updated: '2025-12-25'
     }
   },
   {
@@ -197,14 +197,16 @@ export const software: Company[] = [
     data_sources: ['Landis+Gyr Annual Report 2024', 'Industry reports', 'FMP API'],
     data_confidence: 'high',
     financial_ratings: {
-      rating: 'C+',
+      rating: 'C',
       ratingScore: 2,
       dcfScore: 3,
       roeScore: 1,
       roaScore: 1,
-      deScore: 3,
+      deScore: 2,
       peScore: 1,
-      pbScore: 3
+      pbScore: 3,
+      source: 'FMP API',
+      updated: '2025-12-25'
     }
   },
 

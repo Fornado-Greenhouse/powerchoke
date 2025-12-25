@@ -35,7 +35,24 @@ export const serviceEpcs: Company[] = [
     primary_exchange: 'NYSE',
     data_updated: '2025-12-09',
     data_sources: ['Quanta 10-K 2024', 'Earnings Q3 2024', 'FMP API'],
-    data_confidence: 'high'
+    data_confidence: 'high',
+    financial_ratings: {
+      rating: 'B-',
+      ratingScore: 3,
+      dcfScore: 3,
+      roeScore: 4,
+      roaScore: 4,
+      deScore: 2,
+      peScore: 1,
+      pbScore: 1,
+      roeValue: 13.1,
+      roaValue: 4.5,
+      deValue: 0.72,
+      peValue: 63.5,
+      pbValue: 7.7,
+      source: 'FMP API',
+      updated: '2025-12-25'
+    }
   },
   {
     id: 'co_myr',
@@ -61,7 +78,24 @@ export const serviceEpcs: Company[] = [
     primary_exchange: 'NASDAQ',
     data_updated: '2025-12-09',
     data_sources: ['MYR Group 10-K 2024', 'FMP API'],
-    data_confidence: 'high'
+    data_confidence: 'high',
+    financial_ratings: {
+      rating: 'B',
+      ratingScore: 3,
+      dcfScore: 3,
+      roeScore: 4,
+      roaScore: 4,
+      deScore: 3,
+      peScore: 2,
+      pbScore: 1,
+      roeValue: 16.7,
+      roaValue: 5.9,
+      deValue: 0.19,
+      peValue: 36.0,
+      pbValue: 5.7,
+      source: 'FMP API',
+      updated: '2025-12-25'
+    }
   },
   {
     id: 'co_mastec',
@@ -88,7 +122,24 @@ export const serviceEpcs: Company[] = [
     primary_exchange: 'NYSE',
     data_updated: '2025-12-09',
     data_sources: ['MasTec 10-K 2024', 'Q3 2024 Earnings', 'FMP API'],
-    data_confidence: 'high'
+    data_confidence: 'high',
+    financial_ratings: {
+      rating: 'B-',
+      ratingScore: 3,
+      dcfScore: 3,
+      roeScore: 4,
+      roaScore: 4,
+      deScore: 2,
+      peScore: 1,
+      pbScore: 1,
+      roeValue: 11.2,
+      roaValue: 3.4,
+      deValue: 0.89,
+      peValue: 52.5,
+      pbValue: 5.6,
+      source: 'FMP API',
+      updated: '2025-12-25'
+    }
   },
   {
     id: 'co_primoris',
@@ -115,7 +166,24 @@ export const serviceEpcs: Company[] = [
     primary_exchange: 'NASDAQ',
     data_updated: '2025-12-09',
     data_sources: ['Primoris 10-K 2024', 'Industry analysis', 'FMP API'],
-    data_confidence: 'high'
+    data_confidence: 'high',
+    financial_ratings: {
+      rating: 'B+',
+      ratingScore: 3,
+      dcfScore: 3,
+      roeScore: 4,
+      roaScore: 4,
+      deScore: 3,
+      peScore: 2,
+      pbScore: 2,
+      roeValue: 18.4,
+      roaValue: 6.0,
+      deValue: 0.24,
+      peValue: 25.2,
+      pbValue: 4.3,
+      source: 'FMP API',
+      updated: '2025-12-25'
+    }
   },
   {
     id: 'co_dycom',
@@ -141,7 +209,24 @@ export const serviceEpcs: Company[] = [
     primary_exchange: 'NYSE',
     data_updated: '2025-12-09',
     data_sources: ['Dycom 10-K 2024', 'FMP API'],
-    data_confidence: 'high'
+    data_confidence: 'high',
+    financial_ratings: {
+      rating: 'B+',
+      ratingScore: 3,
+      dcfScore: 3,
+      roeScore: 5,
+      roaScore: 5,
+      deScore: 2,
+      peScore: 2,
+      pbScore: 1,
+      roeValue: 22.2,
+      roaValue: 8.9,
+      deValue: 0.72,
+      peValue: 33.9,
+      pbValue: 6.8,
+      source: 'FMP API',
+      updated: '2025-12-25'
+    }
   },
 
   // ═══════════════════════════════════════════════════════════════════════════
@@ -172,7 +257,19 @@ export const serviceEpcs: Company[] = [
     primary_exchange: 'Euronext Paris',
     data_updated: '2024-12-01',
     data_sources: ['Vinci Annual Report 2024', 'Bloomberg'],
-    data_confidence: 'high'
+    data_confidence: 'high',
+    financial_ratings: {
+      rating: 'A-',
+      ratingScore: 4,
+      dcfScore: 5,
+      roeScore: 4,
+      roaScore: 4,
+      deScore: 1,
+      peScore: 3,
+      pbScore: 3,
+      source: 'FMP API',
+      updated: '2025-12-25'
+    }
   },
   {
     id: 'co_bouygues',
@@ -199,7 +296,19 @@ export const serviceEpcs: Company[] = [
     primary_exchange: 'Euronext Paris',
     data_updated: '2025-12-09',
     data_sources: ['Bouygues Annual Report 2024', 'FMP API'],
-    data_confidence: 'medium'
+    data_confidence: 'medium',
+    financial_ratings: {
+      rating: 'B+',
+      ratingScore: 3,
+      dcfScore: 4,
+      roeScore: 3,
+      roaScore: 3,
+      deScore: 1,
+      peScore: 3,
+      pbScore: 4,
+      source: 'FMP API',
+      updated: '2025-12-25'
+    }
   },
   {
     id: 'co_lt',
@@ -227,7 +336,19 @@ export const serviceEpcs: Company[] = [
     primary_exchange: 'NSE',
     data_updated: '2024-12-01',
     data_sources: ['L&T Annual Report FY2024', 'Industry analysis'],
-    data_confidence: 'high'
+    data_confidence: 'high',
+    financial_ratings: {
+      rating: 'B',
+      ratingScore: 3,
+      dcfScore: 4,
+      roeScore: 4,
+      roaScore: 4,
+      deScore: 1,
+      peScore: 2,
+      pbScore: 2,
+      source: 'FMP API',
+      updated: '2025-12-25'
+    }
   },
   {
     id: 'co_powerchina',
@@ -255,7 +376,19 @@ export const serviceEpcs: Company[] = [
     primary_exchange: 'SSE',
     data_updated: '2024-12-01',
     data_sources: ['Company Annual Report 2024', 'Industry analysis'],
-    data_confidence: 'medium'
+    data_confidence: 'medium',
+    financial_ratings: {
+      rating: 'B',
+      ratingScore: 3,
+      dcfScore: 1,
+      roeScore: 3,
+      roaScore: 3,
+      deScore: 1,
+      peScore: 4,
+      pbScore: 5,
+      source: 'FMP API',
+      updated: '2025-12-25'
+    }
   },
   {
     id: 'co_samsung_ct',
@@ -282,7 +415,19 @@ export const serviceEpcs: Company[] = [
     primary_exchange: 'KRX',
     data_updated: '2025-12-09',
     data_sources: ['Samsung C&T Annual Report 2024', 'Industry analysis', 'FMP API'],
-    data_confidence: 'medium'
+    data_confidence: 'medium',
+    financial_ratings: {
+      rating: 'A-',
+      ratingScore: 4,
+      dcfScore: 3,
+      roeScore: 3,
+      roaScore: 3,
+      deScore: 3,
+      peScore: 3,
+      pbScore: 5,
+      source: 'FMP API',
+      updated: '2025-12-25'
+    }
   },
 
   // ═══════════════════════════════════════════════════════════════════════════
@@ -388,7 +533,24 @@ export const serviceEpcs: Company[] = [
     primary_exchange: 'NYSE',
     data_updated: '2025-12-09',
     data_sources: ['Textron 10-K', 'Industry analysis'],
-    data_confidence: 'medium'
+    data_confidence: 'medium',
+    financial_ratings: {
+      rating: 'A-',
+      ratingScore: 4,
+      dcfScore: 4,
+      roeScore: 4,
+      roaScore: 4,
+      deScore: 2,
+      peScore: 3,
+      pbScore: 3,
+      roeValue: 12.1,
+      roaValue: 5.1,
+      deValue: 0.55,
+      peValue: 19.0,
+      pbValue: 2.3,
+      source: 'FMP API',
+      updated: '2025-12-25'
+    }
   },
   {
     id: 'co_condux',
@@ -442,7 +604,24 @@ export const serviceEpcs: Company[] = [
     primary_exchange: 'NYSE',
     data_updated: '2025-12-09',
     data_sources: ['Vertiv 10-K', 'Q3 2024 Earnings', 'Industry analysis'],
-    data_confidence: 'high'
+    data_confidence: 'high',
+    financial_ratings: {
+      rating: 'B',
+      ratingScore: 3,
+      dcfScore: 3,
+      roeScore: 5,
+      roaScore: 5,
+      deScore: 2,
+      peScore: 1,
+      pbScore: 1,
+      roeValue: 35.3,
+      roaValue: 9.6,
+      deValue: 0.92,
+      peValue: 61.5,
+      pbValue: 18.1,
+      source: 'FMP API',
+      updated: '2025-12-25'
+    }
   },
   {
     id: 'co_enersys',
@@ -469,7 +648,24 @@ export const serviceEpcs: Company[] = [
     primary_exchange: 'NYSE',
     data_updated: '2025-12-09',
     data_sources: ['EnerSys 10-K', 'Q3 2024 Earnings', 'Industry analysis'],
-    data_confidence: 'high'
+    data_confidence: 'high',
+    financial_ratings: {
+      rating: 'A-',
+      ratingScore: 4,
+      dcfScore: 3,
+      roeScore: 5,
+      roaScore: 5,
+      deScore: 2,
+      peScore: 3,
+      pbScore: 3,
+      roeValue: 18.0,
+      roaValue: 8.3,
+      deValue: 0.65,
+      peValue: 16.6,
+      pbValue: 3.0,
+      source: 'FMP API',
+      updated: '2025-12-25'
+    }
   },
   {
     id: 'co_delta_electronics',
@@ -496,6 +692,18 @@ export const serviceEpcs: Company[] = [
     primary_exchange: 'TWSE',
     data_updated: '2025-12-09',
     data_sources: ['Delta Annual Report', 'Industry analysis'],
-    data_confidence: 'medium'
+    data_confidence: 'medium',
+    financial_ratings: {
+      rating: 'B+',
+      ratingScore: 3,
+      dcfScore: 3,
+      roeScore: 5,
+      roaScore: 5,
+      deScore: 2,
+      peScore: 2,
+      pbScore: 1,
+      source: 'FMP API',
+      updated: '2025-12-25'
+    }
   },
 ];
