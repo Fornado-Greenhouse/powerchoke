@@ -489,13 +489,7 @@ function CompanyModal({
                   {/* FMP Rating Scores - numerical breakdown */}
                   {company.financial_ratings && (
                     <div>
-                      <div className="flex items-center justify-between mb-1.5">
-                        <div className="text-[9px] md:text-[10px] text-slate-500 font-medium">Rating Scores</div>
-                        <div className="text-[8px] md:text-[9px] text-slate-600">
-                          {company.financial_ratings.source || 'FMP API'}
-                          {company.financial_ratings.updated && ` • ${company.financial_ratings.updated}`}
-                        </div>
-                      </div>
+                      <div className="text-[9px] md:text-[10px] text-slate-500 font-medium mb-1.5">Rating Scores</div>
                       <div className="grid grid-cols-3 md:grid-cols-6 gap-1.5">
                         <RatingScoreCard label="DCF" value={company.financial_ratings.dcfScore} rawValue={company.financial_ratings.dcfValue} format="dcf" />
                         <RatingScoreCard label="ROE" value={company.financial_ratings.roeScore} rawValue={company.financial_ratings.roeValue} format="percent" />
@@ -507,13 +501,14 @@ function CompanyModal({
                     </div>
                   )}
 
-                  {/* Data Provenance */}
-                  {(company.data_updated || company.data_confidence) && (
+                  {/* Consolidated Data Provenance */}
+                  {(company.data_updated || company.data_confidence || company.financial_ratings?.updated) && (
                     <div className="flex items-center gap-2 md:gap-3 text-[9px] md:text-[10px] text-slate-500 flex-wrap">
+                      {/* Company data provenance */}
                       {company.data_updated && (
                         <div className="flex items-center gap-1">
                           <Calendar className="w-2.5 h-2.5" />
-                          {company.data_updated}
+                          <span className="text-slate-600">Company:</span> {company.data_updated}
                         </div>
                       )}
                       {company.data_confidence && (
@@ -533,6 +528,15 @@ function CompanyModal({
                           </span>
                         </div>
                       )}
+                      {/* FMP financial metrics provenance */}
+                      {company.financial_ratings?.updated && (
+                        <div className="flex items-center gap-1">
+                          <span className="text-slate-600">•</span>
+                          <span className="text-slate-600">Financials:</span>
+                          <span>{company.financial_ratings.source || 'FMP API'} {company.financial_ratings.updated}</span>
+                        </div>
+                      )}
+                      {/* Sources on desktop */}
                       {company.data_sources && company.data_sources.length > 0 && (
                         <div className="hidden md:block text-slate-600">
                           Sources: {company.data_sources.join(', ')}
