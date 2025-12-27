@@ -58,6 +58,26 @@ Single-page app with tab-based navigation:
 - Import from `@/data` for types and seed data, `@/lib/scoring` for calculations
 - **React Compiler rule**: Define helper components outside parent components (not inline during render) to avoid state resets
 
+## User Personas
+
+Five primary personas drive product decisions. When building features, consider which persona(s) you're serving:
+
+| Persona | Role | Key Need | Quote |
+|---------|------|----------|-------|
+| **Sarah** | PM at $500M fund | Portfolio monitoring, comparison | "I compare GEV vs ETN weekly" |
+| **Marcus** | Sell-side analyst | Excel export, defensible research | "If I can't export it, it doesn't exist" |
+| **Chen** | Fintwit investor | Mobile, shareable links | "If I can't share it, followers won't see it" |
+| **Elena** | Supply chain consultant | Filters, sub-component data | "Sub-components are where monopolies hide" |
+| **David** | Family office CIO | Watchlist, what's changed | "I just need to know when something changes" |
+
+**Full documentation**: `docs/PERSONAS.md`
+**Typed data**: `src/data/personas.ts`
+
+When evaluating a feature:
+1. Which persona(s) does this serve?
+2. Is it critical for at least 1 persona OR needed by 2+ personas?
+3. Does it address a stated job-to-be-done?
+
 ## Linear + Git Workflow
 
 This project uses Linear for issue tracking. Issues are in the **Friends&Family** team with prefix `FNF-`.
