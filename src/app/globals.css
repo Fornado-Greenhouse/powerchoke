@@ -35,3 +35,182 @@
 .zoom-in-95 {
   animation-name: zoom-in-95;
 }
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   PRINT STYLES - Company Profile Export (FNF-273)
+   ───────────────────────────────────────────────────────────────────────────── */
+@media print {
+  /* Hide page elements except the modal */
+  body > * {
+    visibility: hidden;
+  }
+
+  /* Make the modal visible and full-width */
+  .fixed.inset-0.z-50 {
+    visibility: visible;
+    position: absolute !important;
+    inset: 0 !important;
+    background: white !important;
+    padding: 0 !important;
+  }
+
+  .fixed.inset-0.z-50 * {
+    visibility: visible;
+  }
+
+  /* Modal container adjustments */
+  .fixed.inset-0.z-50 > div {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background: white !important;
+  }
+
+  /* Override dark theme colors for print */
+  .bg-slate-900,
+  .bg-slate-800,
+  .bg-slate-800\/50,
+  .bg-slate-800\/60,
+  .bg-slate-950,
+  .bg-slate-950\/80 {
+    background-color: white !important;
+  }
+
+  .text-white,
+  .text-slate-100,
+  .text-slate-200 {
+    color: #1e293b !important; /* slate-800 */
+  }
+
+  .text-slate-300,
+  .text-slate-400,
+  .text-slate-500 {
+    color: #475569 !important; /* slate-600 */
+  }
+
+  .text-blue-300,
+  .text-blue-400 {
+    color: #2563eb !important; /* blue-600 */
+  }
+
+  .text-amber-100,
+  .text-amber-300,
+  .text-amber-400 {
+    color: #d97706 !important; /* amber-600 */
+  }
+
+  .text-emerald-300,
+  .text-emerald-400 {
+    color: #059669 !important; /* emerald-600 */
+  }
+
+  .text-red-200,
+  .text-red-300,
+  .text-red-400 {
+    color: #dc2626 !important; /* red-600 */
+  }
+
+  /* Border adjustments */
+  .border-slate-700,
+  .border-slate-800,
+  .border-slate-600 {
+    border-color: #e2e8f0 !important; /* slate-200 */
+  }
+
+  .border-blue-500\/30 {
+    border-color: #93c5fd !important; /* blue-300 */
+  }
+
+  /* Badge and pill backgrounds */
+  .bg-blue-500\/20,
+  .bg-blue-500\/30,
+  .bg-blue-600\/20 {
+    background-color: #dbeafe !important; /* blue-100 */
+  }
+
+  .bg-emerald-500\/20 {
+    background-color: #d1fae5 !important; /* emerald-100 */
+  }
+
+  .bg-amber-500\/20 {
+    background-color: #fef3c7 !important; /* amber-100 */
+  }
+
+  .bg-red-900\/10 {
+    background-color: #fee2e2 !important; /* red-100 */
+  }
+
+  .border-red-900\/30 {
+    border-color: #fca5a5 !important; /* red-300 */
+  }
+
+  /* Score bar adjustments */
+  .bg-blue-500 {
+    background-color: #3b82f6 !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .bg-slate-700 {
+    background-color: #e2e8f0 !important; /* slate-200 */
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  /* Gradient backgrounds for TBI card */
+  .bg-gradient-to-br {
+    background: #eff6ff !important; /* blue-50 */
+  }
+
+  /* Header section */
+  .md\:rounded-t-2xl {
+    border-radius: 0 !important;
+    border-bottom: 2px solid #e2e8f0 !important;
+  }
+
+  /* Page setup */
+  @page {
+    size: A4;
+    margin: 0.5in;
+  }
+
+  /* Prevent page breaks inside cards */
+  .rounded-xl,
+  .rounded-lg {
+    break-inside: avoid;
+  }
+
+  /* Radar chart - ensure it prints with colors */
+  svg {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  /* Hide backdrop blur and dark overlay */
+  .backdrop-blur-sm {
+    backdrop-filter: none !important;
+  }
+
+  /* Make buttons look like static cards in print */
+  button {
+    cursor: default !important;
+  }
+
+  /* Hide hover states */
+  .hover\:border-blue-500\/50,
+  .hover\:border-slate-600,
+  .hover\:bg-slate-700 {
+    border-color: #e2e8f0 !important;
+    background-color: inherit !important;
+  }
+
+  /* Ensure group-hover styles don't apply */
+  .group-hover\:text-blue-400,
+  .group-hover\:text-amber-400 {
+    color: inherit !important;
+  }
+}
