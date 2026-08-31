@@ -43,16 +43,16 @@ export const tier1Oems: Company[] = [
     data_sources: ['Company 10-K FY2024', 'Bloomberg', 'FMP API'],
     data_confidence: 'high',
     financial_ratings: {
-      rating: 'B+',
-      ratingScore: 3,
-      dcfScore: 3,
+      rating: 'A-',
+      ratingScore: 4,
+      dcfScore: 5,
       roeScore: 4,
       roaScore: 4,
-      deScore: 3,
+      deScore: 4,
       peScore: 2,
       pbScore: 2,
       source: 'FMP API',
-      updated: '2025-12-25'
+      updated: '2026-08-31'
     }
   },
   {
@@ -85,21 +85,21 @@ export const tier1Oems: Company[] = [
     data_sources: ['GE Vernova 10-K 2024', 'Earnings Q3 2024', 'FMP API'],
     data_confidence: 'high',
     financial_ratings: {
-      rating: 'B-',
+      rating: 'B+',
       ratingScore: 3,
       dcfScore: 3,
       roeScore: 5,
-      roaScore: 4,
-      deScore: 1,
-      peScore: 1,
+      roaScore: 5,
+      deScore: 3,
+      peScore: 2,
       pbScore: 1,
-      roeValue: 19.1,
-      roaValue: 3.1,
-      deValue: 0.00,
-      peValue: 106.5,
-      pbValue: 21.0,
+      roeValue: 83.4,
+      roaValue: 11.8,
+      deValue: 0.33,
+      peValue: 25.9,
+      pbValue: 20.4,
       source: 'FMP API',
-      updated: '2025-12-25'
+      updated: '2026-08-31'
     }
   },
   {
@@ -136,16 +136,16 @@ export const tier1Oems: Company[] = [
     data_sources: ['Siemens Energy Annual Report 2024', 'Bloomberg', 'FMP API'],
     data_confidence: 'high',
     financial_ratings: {
-      rating: 'B-',
+      rating: 'B',
       ratingScore: 3,
       dcfScore: 3,
-      roeScore: 4,
+      roeScore: 5,
       roaScore: 3,
       deScore: 3,
       peScore: 1,
       pbScore: 1,
       source: 'FMP API',
-      updated: '2025-12-25'
+      updated: '2026-08-31'
     }
   },
   {
@@ -181,16 +181,16 @@ export const tier1Oems: Company[] = [
     data_sources: ['ABB Annual Report 2024', 'Bloomberg', 'FMP API'],
     data_confidence: 'high',
     financial_ratings: {
-      rating: 'B+',
+      rating: 'B',
       ratingScore: 3,
       dcfScore: 3,
       roeScore: 5,
       roaScore: 5,
       deScore: 2,
-      peScore: 2,
+      peScore: 1,
       pbScore: 1,
       source: 'FMP API',
-      updated: '2025-12-25'
+      updated: '2026-08-31'
     }
   },
   {
@@ -222,14 +222,16 @@ export const tier1Oems: Company[] = [
     data_sources: ['Company FY2024 Report', 'Bloomberg', 'FMP API'],
     data_confidence: 'high',
     financial_ratings: {
-      rating: 'A-',
-      ratingScore: 4,
+      rating: 'B+',
+      ratingScore: 3,
       dcfScore: 4,
       roeScore: 3,
       roaScore: 4,
-      deScore: 3,
-      peScore: 3,
-      pbScore: 3
+      deScore: 4,
+      peScore: 2,
+      pbScore: 2,
+      source: 'FMP API',
+      updated: '2026-08-31'
     }
   },
 
@@ -293,9 +295,11 @@ export const tier1Oems: Company[] = [
       dcfScore: 3,
       roeScore: 5,
       roaScore: 5,
-      deScore: 3,
-      peScore: 2,
-      pbScore: 1
+      deScore: 4,
+      peScore: 1,
+      pbScore: 1,
+      source: 'FMP API',
+      updated: '2026-08-31'
     }
   },
   {
@@ -325,14 +329,16 @@ export const tier1Oems: Company[] = [
     data_sources: ['Company Annual Report FY2024'],
     data_confidence: 'medium',
     financial_ratings: {
-      rating: 'A-',
-      ratingScore: 4,
-      dcfScore: 5,
+      rating: 'C',
+      ratingScore: 2,
+      dcfScore: 3,
       roeScore: 4,
-      roaScore: 5,
-      deScore: 4,
+      roaScore: 1,
+      deScore: 1,
       peScore: 1,
-      pbScore: 1
+      pbScore: 1,
+      source: 'FMP API',
+      updated: '2026-08-31'
     }
   },
   {
@@ -364,12 +370,14 @@ export const tier1Oems: Company[] = [
     financial_ratings: {
       rating: 'A-',
       ratingScore: 4,
-      dcfScore: 5,
+      dcfScore: 4,
       roeScore: 5,
       roaScore: 5,
       deScore: 3,
       peScore: 2,
-      pbScore: 1
+      pbScore: 1,
+      source: 'FMP API',
+      updated: '2026-08-31'
     }
   },
   {
@@ -406,12 +414,12 @@ export const tier1Oems: Company[] = [
       ratingScore: 4,
       dcfScore: 3,
       roeScore: 4,
-      roaScore: 4,
-      deScore: 3,
+      roaScore: 5,
+      deScore: 4,
       peScore: 3,
-      pbScore: 3,
+      pbScore: 2,
       source: 'FMP API',
-      updated: '2025-12-25'
+      updated: '2026-08-31'
     }
   },
   {
@@ -444,12 +452,14 @@ export const tier1Oems: Company[] = [
     financial_ratings: {
       rating: 'A-',
       ratingScore: 4,
-      dcfScore: 4,
+      dcfScore: 3,
       roeScore: 4,
-      roaScore: 4,
-      deScore: 3,
+      roaScore: 5,
+      deScore: 4,
       peScore: 3,
-      pbScore: 3
+      pbScore: 2,
+      source: 'FMP API',
+      updated: '2026-08-31'
     }
   },
 
@@ -572,10 +582,12 @@ export const tier1Oems: Company[] = [
       ratingScore: 2,
       dcfScore: 4,
       roeScore: 2,
-      roaScore: 3,
+      roaScore: 2,
       deScore: 1,
       peScore: 1,
-      pbScore: 2
+      pbScore: 3,
+      source: 'FMP API',
+      updated: '2026-08-31'
     }
   },
   {
@@ -606,14 +618,16 @@ export const tier1Oems: Company[] = [
     data_sources: ['Company Annual Report 2024', 'State Grid procurement data', 'FMP API'],
     data_confidence: 'medium',
     financial_ratings: {
-      rating: 'A-',
+      rating: 'A',
       ratingScore: 4,
-      dcfScore: 4,
+      dcfScore: 5,
       roeScore: 4,
       roaScore: 5,
-      deScore: 4,
+      deScore: 5,
       peScore: 2,
-      pbScore: 2
+      pbScore: 2,
+      source: 'FMP API',
+      updated: '2026-08-31'
     }
   },
 
@@ -656,13 +670,13 @@ export const tier1Oems: Company[] = [
       rating: 'B',
       ratingScore: 3,
       dcfScore: 3,
-      roeScore: 4,
-      roaScore: 5,
+      roeScore: 5,
+      roaScore: 4,
       deScore: 2,
       peScore: 2,
       pbScore: 1,
       source: 'FMP API',
-      updated: '2025-12-25'
+      updated: '2026-08-31'
     }
   },
   {
@@ -694,21 +708,21 @@ export const tier1Oems: Company[] = [
     data_sources: ['Eaton 10-K FY2024', 'Power Systems segment disclosure'],
     data_confidence: 'high',
     financial_ratings: {
-      rating: 'B+',
+      rating: 'B',
       ratingScore: 3,
       dcfScore: 3,
       roeScore: 5,
-      roaScore: 5,
+      roaScore: 4,
       deScore: 2,
-      peScore: 2,
+      peScore: 1,
       pbScore: 1,
-      roeValue: 21.1,
-      roaValue: 9.7,
-      deValue: 0.59,
-      peValue: 31.1,
-      pbValue: 6.5,
+      roeValue: 19.6,
+      roaValue: 6.8,
+      deValue: 1.05,
+      peValue: 40.8,
+      pbValue: 7.7,
       source: 'FMP API',
-      updated: '2025-12-17'
+      updated: '2026-08-31'
     }
   },
 ];

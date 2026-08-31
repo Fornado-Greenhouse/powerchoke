@@ -43,15 +43,15 @@ export const software: Company[] = [
       roeScore: 5,
       roaScore: 4,
       deScore: 1,
-      peScore: 1,
+      peScore: 2,
       pbScore: 1,
-      roeValue: 24.0,
-      roaValue: 7.8,
-      deValue: 1.07,
-      peValue: 47.1,
-      pbValue: 10.6,
+      roeValue: 24.1,
+      roaValue: 8.1,
+      deValue: 1.05,
+      peValue: 40.5,
+      pbValue: 9.7,
       source: 'FMP API',
-      updated: '2025-12-17'
+      updated: '2026-08-31'
     }
   },
   // NOTE: AVEVA Group (PI System) exposure is on parent company Schneider Electric (co_schneider) in tier1-oems.ts - acquired 2023
@@ -153,21 +153,21 @@ export const software: Company[] = [
     data_sources: ['Itron 10-K 2024', 'Q3 2024 Earnings'],
     data_confidence: 'high',
     financial_ratings: {
-      rating: 'B+',
-      ratingScore: 3,
-      dcfScore: 3,
+      rating: 'A-',
+      ratingScore: 4,
+      dcfScore: 4,
       roeScore: 4,
       roaScore: 4,
-      deScore: 2,
-      peScore: 2,
+      deScore: 3,
+      peScore: 3,
       pbScore: 3,
-      roeValue: 16.7,
+      roeValue: 16.5,
       roaValue: 6.9,
-      deValue: 0.36,
-      peValue: 17.0,
-      pbValue: 2.6,
+      deValue: 0.09,
+      peValue: 16.0,
+      pbValue: 2.7,
       source: 'FMP API',
-      updated: '2025-12-25'
+      updated: '2026-08-31'
     }
   },
   {
@@ -197,16 +197,16 @@ export const software: Company[] = [
     data_sources: ['Landis+Gyr Annual Report 2024', 'Industry reports', 'FMP API'],
     data_confidence: 'high',
     financial_ratings: {
-      rating: 'C',
+      rating: 'C+',
       ratingScore: 2,
       dcfScore: 3,
       roeScore: 1,
       roaScore: 1,
-      deScore: 2,
+      deScore: 3,
       peScore: 1,
       pbScore: 3,
       source: 'FMP API',
-      updated: '2025-12-25'
+      updated: '2026-08-31'
     }
   },
 
@@ -304,21 +304,21 @@ export const software: Company[] = [
     data_sources: ['Fortinet 10-K 2024', 'Q3 2024 Earnings', 'FMP API'],
     data_confidence: 'high',
     financial_ratings: {
-      rating: 'B+',
+      rating: 'B',
       ratingScore: 3,
-      dcfScore: 4,
+      dcfScore: 3,
       roeScore: 5,
       roaScore: 5,
-      deScore: 1,
-      peScore: 2,
+      deScore: 2,
+      peScore: 1,
       pbScore: 1,
-      roeValue: 119.9,
-      roaValue: 20.0,
-      deValue: 1.35,
-      peValue: 32.6,
-      pbValue: 83.1,
+      roeValue: 187.9,
+      roaValue: 19.5,
+      deValue: 0.32,
+      peValue: 58.0,
+      pbValue: 78.8,
       source: 'FMP API',
-      updated: '2025-12-17'
+      updated: '2026-08-31'
     }
   },
   {
@@ -346,21 +346,21 @@ export const software: Company[] = [
     data_sources: ['Tenable 10-K 2024', 'Industry analysis', 'FMP API'],
     data_confidence: 'medium',
     financial_ratings: {
-      rating: 'C+',
+      rating: 'C',
       ratingScore: 2,
-      dcfScore: 5,
-      roeScore: 1,
-      roaScore: 1,
-      deScore: 3,
+      dcfScore: 4,
+      roeScore: 2,
+      roaScore: 2,
+      deScore: 1,
       peScore: 1,
       pbScore: 1,
-      roeValue: -9.1,
-      roaValue: -2.0,
-      deValue: 0.18,
-      peValue: -89.3,
-      pbValue: 8.7,
+      roeValue: 2.4,
+      roaValue: 0.4,
+      deValue: 2.12,
+      peValue: 601.8,
+      pbValue: 21.5,
       source: 'FMP API',
-      updated: '2025-12-17'
+      updated: '2026-08-31'
     }
   },
 
@@ -392,21 +392,21 @@ export const software: Company[] = [
     data_sources: ['Fortive 10-K 2024', 'Q3 2024 Earnings', 'FMP API'],
     data_confidence: 'medium',
     financial_ratings: {
-      rating: 'A-',
-      ratingScore: 4,
-      dcfScore: 5,
-      roeScore: 4,
-      roaScore: 4,
+      rating: 'B',
+      ratingScore: 3,
+      dcfScore: 4,
+      roeScore: 3,
+      roaScore: 3,
       deScore: 2,
       peScore: 2,
       pbScore: 3,
-      roeValue: 6.5,
-      roaValue: 5.1,
-      deValue: 0.51,
-      peValue: 30.4,
-      pbValue: 2.8,
+      roeValue: 8.5,
+      roaValue: 4.6,
+      deValue: 0.58,
+      peValue: 34.7,
+      pbValue: 3.0,
       source: 'FMP API',
-      updated: '2025-12-17'
+      updated: '2026-08-31'
     }
   },
 ];

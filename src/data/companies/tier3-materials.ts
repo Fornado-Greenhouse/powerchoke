@@ -44,21 +44,21 @@ export const tier3Materials: Company[] = [
     data_sources: ['Company Annual Report 2024', 'Bloomberg', 'FMP API'],
     data_confidence: 'high',
     financial_ratings: {
-      rating: 'A-',
-      ratingScore: 4,
+      rating: 'B',
+      ratingScore: 3,
       dcfScore: 4,
       roeScore: 3,
-      roaScore: 4,
+      roaScore: 3,
       deScore: 2,
-      peScore: 3,
+      peScore: 1,
       pbScore: 4,
-      roeValue: 4.8,
-      roaValue: 2.5,
-      deValue: 0.25,
-      peValue: 13.9,
-      pbValue: 0.6,
+      roeValue: 3.3,
+      roaValue: 1.8,
+      deValue: 0.26,
+      peValue: 31.4,
+      pbValue: 1.0,
       source: 'FMP API',
-      updated: '2025-12-25'
+      updated: '2026-08-31'
     }
   },
   {
@@ -90,21 +90,21 @@ export const tier3Materials: Company[] = [
     data_sources: ['Company Annual Report 2024'],
     data_confidence: 'medium',
     financial_ratings: {
-      rating: 'B+',
+      rating: 'B',
       ratingScore: 3,
-      dcfScore: 3,
+      dcfScore: 1,
       roeScore: 3,
-      roaScore: 4,
+      roaScore: 3,
       deScore: 2,
-      peScore: 1,
+      peScore: 2,
       pbScore: 5,
-      roeValue: 0.9,
-      roaValue: 0.5,
-      deValue: 0.53,
-      peValue: 49.2,
+      roeValue: 2.3,
+      roaValue: 1.2,
+      deValue: 0.55,
+      peValue: 20.5,
       pbValue: 0.5,
       source: 'FMP API',
-      updated: '2025-12-25'
+      updated: '2026-08-31'
     }
   },
   {
@@ -137,14 +137,16 @@ export const tier3Materials: Company[] = [
     data_sources: ['Company FY2024 Report', 'FMP API'],
     data_confidence: 'medium',
     financial_ratings: {
-      rating: 'C+',
-      ratingScore: 2,
+      rating: 'A-',
+      ratingScore: 4,
       dcfScore: 5,
-      roeScore: 1,
-      roaScore: 1,
+      roeScore: 3,
+      roaScore: 3,
       deScore: 1,
-      peScore: 1,
-      pbScore: 4
+      peScore: 3,
+      pbScore: 5,
+      source: 'FMP API',
+      updated: '2026-08-31'
     }
   },
   {
@@ -177,16 +179,16 @@ export const tier3Materials: Company[] = [
     data_sources: ['Company Annual Report 2024', 'FMP API'],
     data_confidence: 'medium',
     financial_ratings: {
-      rating: 'A-',
-      ratingScore: 4,
+      rating: 'B+',
+      ratingScore: 3,
       dcfScore: 3,
       roeScore: 2,
-      roaScore: 3,
-      deScore: 3,
-      peScore: 4,
+      roaScore: 2,
+      deScore: 4,
+      peScore: 2,
       pbScore: 5,
       source: 'FMP API',
-      updated: '2025-12-25'
+      updated: '2026-08-31'
     }
   },
 
@@ -232,21 +234,21 @@ export const tier3Materials: Company[] = [
     data_sources: ['FCX 10-K 2024', 'Q3 2024 Earnings', 'Industry estimates'],
     data_confidence: 'medium',
     financial_ratings: {
-      rating: 'B+',
+      rating: 'B',
       ratingScore: 3,
-      dcfScore: 4,
-      roeScore: 4,
-      roaScore: 5,
+      dcfScore: 3,
+      roeScore: 5,
+      roaScore: 4,
       deScore: 2,
-      peScore: 2,
-      pbScore: 2,
-      roeValue: 11.5,
-      roaValue: 3.6,
-      deValue: 0.50,
-      peValue: 36.3,
-      pbValue: 4.0,
+      peScore: 1,
+      pbScore: 1,
+      roeValue: 15.3,
+      roaValue: 4.9,
+      deValue: 0.52,
+      peValue: 37.7,
+      pbValue: 5.5,
       source: 'FMP API',
-      updated: '2025-12-25'
+      updated: '2026-08-31'
     }
   },
   {
@@ -288,21 +290,21 @@ export const tier3Materials: Company[] = [
     data_sources: ['SCCO 10-K 2024', 'Q3 2024 Earnings', 'Industry estimates', 'FMP API'],
     data_confidence: 'medium',
     financial_ratings: {
-      rating: 'B+',
+      rating: 'B',
       ratingScore: 3,
       dcfScore: 4,
       roeScore: 5,
       roaScore: 5,
       deScore: 1,
-      peScore: 2,
+      peScore: 1,
       pbScore: 1,
-      roeValue: 39.0,
-      roaValue: 18.8,
-      deValue: 0.71,
-      peValue: 30.5,
-      pbValue: 11.2,
+      roeValue: 49.4,
+      roaValue: 23.5,
+      deValue: 0.68,
+      peValue: 30.7,
+      pbValue: 13.8,
       source: 'FMP API',
-      updated: '2025-12-17'
+      updated: '2026-08-31'
     }
   },
   {
@@ -346,12 +348,14 @@ export const tier3Materials: Company[] = [
     financial_ratings: {
       rating: 'A-',
       ratingScore: 4,
-      dcfScore: 3,
-      roeScore: 4,
+      dcfScore: 1,
+      roeScore: 5,
       roaScore: 5,
-      deScore: 2,
+      deScore: 3,
       peScore: 3,
-      pbScore: 4
+      pbScore: 3,
+      source: 'FMP API',
+      updated: '2026-08-31'
     }
   },
 
@@ -398,14 +402,16 @@ export const tier3Materials: Company[] = [
     data_sources: ['Prysmian Annual Report 2024', 'Industry reports', 'T&D World', 'FMP API'],
     data_confidence: 'medium',
     financial_ratings: {
-      rating: 'A-',
-      ratingScore: 4,
-      dcfScore: 4,
+      rating: 'B',
+      ratingScore: 3,
+      dcfScore: 3,
       roeScore: 5,
       roaScore: 4,
       deScore: 2,
-      peScore: 3,
-      pbScore: 2
+      peScore: 2,
+      pbScore: 1,
+      source: 'FMP API',
+      updated: '2026-08-31'
     }
   },
   {
@@ -448,16 +454,16 @@ export const tier3Materials: Company[] = [
     data_sources: ['Nexans Annual Report 2024', 'Industry reports', 'FMP API'],
     data_confidence: 'medium',
     financial_ratings: {
-      rating: 'A-',
-      ratingScore: 4,
-      dcfScore: 4,
-      roeScore: 5,
-      roaScore: 4,
+      rating: 'C',
+      ratingScore: 2,
+      dcfScore: 5,
+      roeScore: 1,
+      roaScore: 1,
       deScore: 1,
-      peScore: 4,
+      peScore: 1,
       pbScore: 2,
       source: 'FMP API',
-      updated: '2025-12-25'
+      updated: '2026-08-31'
     }
   },
   {
@@ -500,16 +506,16 @@ export const tier3Materials: Company[] = [
     data_sources: ['NKT Annual Report 2024', 'Industry reports', 'FMP API'],
     data_confidence: 'medium',
     financial_ratings: {
-      rating: 'A',
+      rating: 'A-',
       ratingScore: 4,
-      dcfScore: 5,
-      roeScore: 2,
+      dcfScore: 4,
+      roeScore: 4,
       roaScore: 4,
-      deScore: 3,
-      peScore: 3,
-      pbScore: 5,
+      deScore: 4,
+      peScore: 2,
+      pbScore: 2,
       source: 'FMP API',
-      updated: '2025-12-25'
+      updated: '2026-08-31'
     }
   },
   {
@@ -578,16 +584,16 @@ export const tier3Materials: Company[] = [
     data_sources: ['Toray Annual Report FY2024', 'Industry estimates', 'FMP API'],
     data_confidence: 'low',
     financial_ratings: {
-      rating: 'B',
-      ratingScore: 3,
-      dcfScore: 4,
+      rating: 'A-',
+      ratingScore: 4,
+      dcfScore: 5,
       roeScore: 2,
       roaScore: 3,
-      deScore: 2,
-      peScore: 2,
+      deScore: 3,
+      peScore: 3,
       pbScore: 4,
       source: 'FMP API',
-      updated: '2025-12-25'
+      updated: '2026-08-31'
     }
   },
 
@@ -643,21 +649,21 @@ export const tier3Materials: Company[] = [
     data_sources: ['Industry reports', 'Company materials'],
     data_confidence: 'medium',
     financial_ratings: {
-      rating: 'B-',
-      ratingScore: 3,
+      rating: 'C+',
+      ratingScore: 2,
       dcfScore: 5,
       roeScore: 1,
       roaScore: 1,
-      deScore: 2,
+      deScore: 1,
       peScore: 1,
-      pbScore: 5,
-      roeValue: -8.1,
-      roaValue: -4.4,
-      deValue: 0.29,
-      peValue: -5.5,
-      pbValue: 0.3,
+      pbScore: 4,
+      roeValue: -6.3,
+      roaValue: -2.4,
+      deValue: 0.93,
+      peValue: -9.5,
+      pbValue: 0.6,
       source: 'FMP API',
-      updated: '2025-12-25'
+      updated: '2026-08-31'
     }
   },
   {
@@ -809,19 +815,19 @@ export const tier3Materials: Company[] = [
     financial_ratings: {
       rating: 'C+',
       ratingScore: 2,
-      dcfScore: 5,
+      dcfScore: 4,
       roeScore: 1,
       roaScore: 1,
       deScore: 1,
       peScore: 1,
       pbScore: 4,
-      roeValue: -7.2,
+      roeValue: -6.6,
       roaValue: -2.0,
-      deValue: 1.12,
-      peValue: -13.0,
+      deValue: 0.85,
+      peValue: -16.9,
       pbValue: 0.9,
       source: 'FMP API',
-      updated: '2025-12-25'
+      updated: '2026-08-31'
     }
   },
   {
@@ -935,16 +941,16 @@ export const tier3Materials: Company[] = [
     data_sources: ['SSAB Annual Report', 'Industry analysis'],
     data_confidence: 'medium',
     financial_ratings: {
-      rating: 'A',
+      rating: 'A-',
       ratingScore: 4,
-      dcfScore: 5,
+      dcfScore: 4,
       roeScore: 4,
-      roaScore: 5,
-      deScore: 2,
+      roaScore: 4,
+      deScore: 3,
       peScore: 2,
-      pbScore: 4,
+      pbScore: 3,
       source: 'FMP API',
-      updated: '2025-12-25'
+      updated: '2026-08-31'
     }
   },
   {
@@ -981,21 +987,21 @@ export const tier3Materials: Company[] = [
     data_sources: ['Nucor 10-K', 'Industry analysis'],
     data_confidence: 'high',
     financial_ratings: {
-      rating: 'A-',
-      ratingScore: 4,
-      dcfScore: 5,
+      rating: 'B+',
+      ratingScore: 3,
+      dcfScore: 4,
       roeScore: 4,
       roaScore: 5,
       deScore: 2,
       peScore: 2,
-      pbScore: 3,
-      roeValue: 8.1,
-      roaValue: 4.8,
-      deValue: 0.33,
-      peValue: 22.4,
-      pbValue: 1.8,
+      pbScore: 2,
+      roeValue: 13.5,
+      roaValue: 7.8,
+      deValue: 0.32,
+      peValue: 20.0,
+      pbValue: 2.6,
       source: 'FMP API',
-      updated: '2025-12-17'
+      updated: '2026-08-31'
     }
   },
   {
@@ -1027,21 +1033,21 @@ export const tier3Materials: Company[] = [
     data_sources: ['Hexcel 10-K', 'Industry analysis'],
     data_confidence: 'medium',
     financial_ratings: {
-      rating: 'C+',
-      ratingScore: 2,
+      rating: 'B-',
+      ratingScore: 3,
       dcfScore: 3,
-      roeScore: 2,
-      roaScore: 3,
+      roeScore: 4,
+      roaScore: 4,
       deScore: 2,
       peScore: 1,
-      pbScore: 2,
-      roeValue: 4.5,
-      roaValue: 2.5,
-      deValue: 0.48,
-      peValue: 88.6,
-      pbValue: 3.9,
+      pbScore: 1,
+      roeValue: 11.4,
+      roaValue: 5.6,
+      deValue: 0.74,
+      peValue: 47.4,
+      pbValue: 5.5,
       source: 'FMP API',
-      updated: '2025-12-25'
+      updated: '2026-08-31'
     }
   },
 
