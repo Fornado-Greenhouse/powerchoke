@@ -39,21 +39,21 @@ export const utilities: Company[] = [
     data_sources: ['NextEra Energy 10-K 2023', 'Q3 2024 Earnings Call', 'Industry analysis'],
     data_confidence: 'high',
     financial_ratings: {
-      rating: 'B-',
-      ratingScore: 2,
-      dcfScore: 1,
-      roeScore: 4,
-      roaScore: 4,
-      deScore: 2,
+      rating: 'B',
+      ratingScore: 3,
+      dcfScore: 3,
+      roeScore: 5,
+      roaScore: 5,
+      deScore: 1,
       peScore: 2,
       pbScore: 1,
-      roeValue: 12.7,
-      roaValue: 3.2,
-      deValue: 1.78,
-      peValue: 25.3,
-      pbValue: 3.0,
+      roeValue: 16.8,
+      roaValue: 4.0,
+      deValue: 1.93,
+      peValue: 17.2,
+      pbValue: 2.8,
       source: 'FMP API',
-      updated: '2025-12-17'
+      updated: '2026-10-05'
     }
   },
   {
@@ -87,19 +87,19 @@ export const utilities: Company[] = [
     financial_ratings: {
       rating: 'B-',
       ratingScore: 3,
-      dcfScore: 1,
+      dcfScore: 3,
       roeScore: 3,
-      roaScore: 3,
-      deScore: 4,
+      roaScore: 4,
+      deScore: 1,
       peScore: 2,
       pbScore: 2,
-      roeValue: 9.8,
+      roeValue: 9.9,
       roaValue: 2.6,
-      deValue: 0.20,
-      peValue: 18.3,
-      pbValue: 1.8,
+      deValue: 1.67,
+      peValue: 17.1,
+      pbValue: 1.6,
       source: 'FMP API',
-      updated: '2025-12-25'
+      updated: '2026-10-05'
     }
   },
   {
@@ -131,21 +131,21 @@ export const utilities: Company[] = [
     data_sources: ['Southern Company 10-K 2023', 'Q3 2024 results'],
     data_confidence: 'high',
     financial_ratings: {
-      rating: 'B',
+      rating: 'B+',
       ratingScore: 3,
-      dcfScore: 3,
+      dcfScore: 5,
       roeScore: 4,
       roaScore: 4,
-      deScore: 2,
+      deScore: 1,
       peScore: 2,
-      pbScore: 1,
-      roeValue: 13.1,
+      pbScore: 2,
+      roeValue: 12.6,
       roaValue: 2.9,
-      deValue: 1.89,
-      peValue: 21.5,
-      pbValue: 2.7,
+      deValue: 1.95,
+      peValue: 20.1,
+      pbValue: 2.4,
       source: 'FMP API',
-      updated: '2025-12-25'
+      updated: '2026-10-05'
     }
   },
   {
@@ -177,21 +177,21 @@ export const utilities: Company[] = [
     data_sources: ['Dominion Energy 10-K 2023', 'Investor materials'],
     data_confidence: 'high',
     financial_ratings: {
-      rating: 'C+',
-      ratingScore: 2,
+      rating: 'B',
+      ratingScore: 3,
       dcfScore: 4,
       roeScore: 3,
-      roaScore: 1,
-      deScore: 3,
-      peScore: 1,
-      pbScore: 1,
-      roeValue: 8.3,
-      roaValue: 0.0,
-      deValue: 0.67,
-      peValue: 21.8,
-      pbValue: 1.6,
+      roaScore: 4,
+      deScore: 1,
+      peScore: 2,
+      pbScore: 2,
+      roeValue: 8.9,
+      roaValue: 2.1,
+      deValue: 1.85,
+      peValue: 21.2,
+      pbValue: 1.9,
       source: 'FMP API',
-      updated: '2025-12-17'
+      updated: '2026-10-05'
     }
   },
   {
@@ -223,21 +223,21 @@ export const utilities: Company[] = [
     data_sources: ['AEP 10-K 2023', 'Q3 2024 earnings', 'FMP API'],
     data_confidence: 'high',
     financial_ratings: {
-      rating: 'B+',
-      ratingScore: 3,
-      dcfScore: 4,
-      roeScore: 4,
+      rating: 'C+',
+      ratingScore: 2,
+      dcfScore: 1,
+      roeScore: 3,
       roaScore: 4,
-      deScore: 2,
+      deScore: 1,
       peScore: 2,
       pbScore: 2,
-      roeValue: 12.8,
-      roaValue: 3.3,
-      deValue: 1.58,
-      peValue: 16.8,
+      roeValue: 10.0,
+      roaValue: 2.6,
+      deValue: 1.66,
+      peValue: 20.5,
       pbValue: 2.0,
       source: 'FMP API',
-      updated: '2025-12-17'
+      updated: '2026-10-05'
     }
   },
 
@@ -273,21 +273,21 @@ export const utilities: Company[] = [
     data_sources: ['National Grid Annual Report 2024', 'Bloomberg', 'FMP API'],
     data_confidence: 'high',
     financial_ratings: {
-      rating: 'B',
-      ratingScore: 3,
+      rating: 'B-',
+      ratingScore: 2,
       dcfScore: 1,
       roeScore: 3,
       roaScore: 4,
-      deScore: 3,
+      deScore: 2,
       peScore: 2,
-      pbScore: 3,
-      roeValue: 7.7,
-      roaValue: 2.8,
-      deValue: 1.23,
-      peValue: 19.5,
+      pbScore: 2,
+      roeValue: 8.5,
+      roaValue: 3.0,
+      deValue: 1.19,
+      peValue: 17.4,
       pbValue: 1.5,
       source: 'FMP API',
-      updated: '2025-12-25'
+      updated: '2026-10-05'
     }
   },
   {
@@ -320,14 +320,16 @@ export const utilities: Company[] = [
     data_sources: ['Enel Annual Report 2023', 'Strategic Plan 2024-2026', 'FMP API'],
     data_confidence: 'high',
     financial_ratings: {
-      rating: 'B',
-      ratingScore: 3,
+      rating: 'C+',
+      ratingScore: 2,
       dcfScore: 1,
-      roeScore: 5,
+      roeScore: 4,
       roaScore: 4,
       deScore: 1,
-      peScore: 3,
-      pbScore: 2
+      peScore: 2,
+      pbScore: 1,
+      source: 'FMP API',
+      updated: '2026-10-05'
     }
   },
   {
@@ -360,16 +362,16 @@ export const utilities: Company[] = [
     data_sources: ['Iberdrola Integrated Report 2023', 'FY2024 results', 'FMP API'],
     data_confidence: 'high',
     financial_ratings: {
-      rating: 'B+',
+      rating: 'B',
       ratingScore: 3,
-      dcfScore: 4,
+      dcfScore: 1,
       roeScore: 4,
-      roaScore: 4,
-      deScore: 3,
+      roaScore: 5,
+      deScore: 2,
       peScore: 2,
       pbScore: 2,
       source: 'FMP API',
-      updated: '2025-12-25'
+      updated: '2026-10-05'
     }
   },
   {
@@ -447,14 +449,16 @@ export const utilities: Company[] = [
     data_sources: ['KEPCO Annual Report 2023', 'Industry sources', 'FMP API'],
     data_confidence: 'medium',
     financial_ratings: {
-      rating: 'B',
-      ratingScore: 3,
+      rating: 'A-',
+      ratingScore: 4,
       dcfScore: 1,
-      roeScore: 4,
-      roaScore: 3,
+      roeScore: 5,
+      roaScore: 4,
       deScore: 1,
-      peScore: 4,
-      pbScore: 4
+      peScore: 5,
+      pbScore: 5,
+      source: 'FMP API',
+      updated: '2026-10-05'
     }
   },
   {
@@ -486,14 +490,16 @@ export const utilities: Company[] = [
     data_sources: ['TEPCO Annual Report 2023', 'Financial statements', 'FMP API'],
     data_confidence: 'medium',
     financial_ratings: {
-      rating: 'C',
-      ratingScore: 2,
+      rating: 'A-',
+      ratingScore: 4,
       dcfScore: 1,
-      roeScore: 1,
-      roaScore: 1,
+      roeScore: 4,
+      roaScore: 4,
       deScore: 1,
-      peScore: 1,
-      pbScore: 5
+      peScore: 5,
+      pbScore: 5,
+      source: 'FMP API',
+      updated: '2026-10-05'
     }
   },
 ];
