@@ -157,14 +157,16 @@ export const tier2Components: Company[] = [
     data_sources: ['Infineon Annual Report 2024', 'IHS Markit Power Semiconductor Report', 'FMP API'],
     data_confidence: 'high',
     financial_ratings: {
-      rating: 'B',
-      ratingScore: 3,
-      dcfScore: 3,
+      rating: 'C+',
+      ratingScore: 2,
+      dcfScore: 2,
       roeScore: 3,
       roaScore: 3,
-      deScore: 2,
-      peScore: 2,
-      pbScore: 3
+      deScore: 1,
+      peScore: 1,
+      pbScore: 2,
+      source: 'FMP API',
+      updated: '2026-10-05'
     }
   },
   {
@@ -207,16 +209,16 @@ export const tier2Components: Company[] = [
     data_sources: ['TDK Annual Report FY2024', 'EPCOS Technical Catalog', 'FMP API'],
     data_confidence: 'high',
     financial_ratings: {
-      rating: 'A-',
-      ratingScore: 4,
-      dcfScore: 4,
+      rating: 'B',
+      ratingScore: 3,
+      dcfScore: 3,
       roeScore: 3,
       roaScore: 4,
       deScore: 2,
-      peScore: 3,
-      pbScore: 4,
+      peScore: 2,
+      pbScore: 3,
       source: 'FMP API',
-      updated: '2025-12-25'
+      updated: '2026-10-05'
     }
   },
   {
@@ -268,16 +270,16 @@ export const tier2Components: Company[] = [
       dcfScore: 4,
       roeScore: 5,
       roaScore: 5,
-      deScore: 2,
+      deScore: 1,
       peScore: 2,
       pbScore: 1,
-      roeValue: 25.3,
-      roaValue: 11.5,
-      deValue: 0.58,
-      peValue: 28.0,
-      pbValue: 6.6,
+      roeValue: 23.7,
+      roaValue: 7.6,
+      deValue: 1.37,
+      peValue: 28.1,
+      pbValue: 6.4,
       source: 'FMP API',
-      updated: '2025-12-25'
+      updated: '2026-10-05'
     }
   },
   {
@@ -314,21 +316,21 @@ export const tier2Components: Company[] = [
     data_sources: ['PLPC 10-K 2024', 'Company investor presentation', 'FMP API'],
     data_confidence: 'high',
     financial_ratings: {
-      rating: 'B+',
+      rating: 'B',
       ratingScore: 3,
       dcfScore: 3,
       roeScore: 3,
-      roaScore: 4,
-      deScore: 4,
-      peScore: 2,
-      pbScore: 3,
-      roeValue: 8.4,
-      roaValue: 5.8,
-      deValue: 0.01,
-      peValue: 28.5,
-      pbValue: 2.3,
+      roaScore: 5,
+      deScore: 2,
+      peScore: 1,
+      pbScore: 2,
+      roeValue: 9.0,
+      roaValue: 6.2,
+      deValue: 0.10,
+      peValue: 47.1,
+      pbValue: 4.0,
       source: 'FMP API',
-      updated: '2025-12-25'
+      updated: '2026-10-05'
     }
   },
 
@@ -374,21 +376,21 @@ export const tier2Components: Company[] = [
     data_sources: ['Valmont 10-K 2024', 'Industry reports', 'Company website'],
     data_confidence: 'high',
     financial_ratings: {
-      rating: 'B',
+      rating: 'B+',
       ratingScore: 3,
-      dcfScore: 3,
-      roeScore: 4,
+      dcfScore: 4,
+      roeScore: 5,
       roaScore: 5,
-      deScore: 2,
+      deScore: 1,
       peScore: 2,
       pbScore: 1,
-      roeValue: 14.8,
-      roaValue: 6.9,
-      deValue: 0.54,
-      peValue: 35.3,
-      pbValue: 5.2,
+      roeValue: 29.8,
+      roaValue: 14.3,
+      deValue: 0.50,
+      peValue: 18.9,
+      pbValue: 5.4,
       source: 'FMP API',
-      updated: '2025-12-25'
+      updated: '2026-10-05'
     }
   },
   {
@@ -430,21 +432,21 @@ export const tier2Components: Company[] = [
     data_sources: ['AZZ 10-K 2024', 'Industry reports', 'Company website'],
     data_confidence: 'high',
     financial_ratings: {
-      rating: 'A',
+      rating: 'A-',
       ratingScore: 4,
       dcfScore: 5,
-      roeScore: 5,
+      roeScore: 4,
       roaScore: 5,
-      deScore: 2,
-      peScore: 4,
+      deScore: 1,
+      peScore: 3,
       pbScore: 2,
-      roeValue: 27.4,
-      roaValue: 14.1,
-      deValue: 0.46,
-      peValue: 10.6,
-      pbValue: 2.6,
+      roeValue: 14.9,
+      roaValue: 8.8,
+      deValue: 0.39,
+      peValue: 21.1,
+      pbValue: 3.0,
       source: 'FMP API',
-      updated: '2025-12-25'
+      updated: '2026-10-05'
     }
   },
   {
@@ -587,21 +589,21 @@ export const tier2Components: Company[] = [
     data_sources: ['SPXC 10-K 2024', 'Industry reports', 'Company website'],
     data_confidence: 'high',
     financial_ratings: {
-      rating: 'B+',
+      rating: 'B',
       ratingScore: 3,
-      dcfScore: 3,
+      dcfScore: 5,
       roeScore: 4,
       roaScore: 5,
-      deScore: 3,
-      peScore: 2,
-      pbScore: 2,
-      roeValue: 13.7,
-      roaValue: 6.5,
-      deValue: 0.23,
-      peValue: 46.6,
-      pbValue: 4.8,
+      deScore: 1,
+      peScore: 1,
+      pbScore: 1,
+      roeValue: 12.4,
+      roaValue: 7.1,
+      deValue: 0.26,
+      peValue: 30.7,
+      pbValue: 3.7,
       source: 'FMP API',
-      updated: '2025-12-17'
+      updated: '2026-10-05'
     }
   },
   {
@@ -644,14 +646,16 @@ export const tier2Components: Company[] = [
     data_sources: ['Alfa Laval Annual Report 2024', 'Industry reports', 'Company website'],
     data_confidence: 'high',
     financial_ratings: {
-      rating: 'A-',
-      ratingScore: 4,
+      rating: 'B+',
+      ratingScore: 3,
       dcfScore: 4,
       roeScore: 5,
       roaScore: 5,
-      deScore: 2,
-      peScore: 3,
-      pbScore: 2
+      deScore: 1,
+      peScore: 2,
+      pbScore: 1,
+      source: 'FMP API',
+      updated: '2026-10-05'
     }
   },
   {
@@ -882,21 +886,21 @@ export const tier2Components: Company[] = [
     data_sources: ['ESCO Technologies 10-K 2024', 'Investor presentation', 'T&D World'],
     data_confidence: 'high',
     financial_ratings: {
-      rating: 'A-',
-      ratingScore: 4,
+      rating: 'B+',
+      ratingScore: 3,
       dcfScore: 3,
-      roeScore: 5,
+      roeScore: 4,
       roaScore: 5,
       deScore: 3,
-      peScore: 3,
+      peScore: 2,
       pbScore: 2,
-      roeValue: 22.1,
-      roaValue: 12.5,
-      deValue: 0.13,
-      peValue: 17.5,
-      pbValue: 3.3,
+      roeValue: 20.0,
+      roaValue: 13.0,
+      deValue: 0.08,
+      peValue: 22.6,
+      pbValue: 4.4,
       source: 'FMP API',
-      updated: '2025-12-25'
+      updated: '2026-10-05'
     }
   },
   {
@@ -933,16 +937,16 @@ export const tier2Components: Company[] = [
     data_sources: ['Vaisala Annual Report 2024', 'Industry analysis'],
     data_confidence: 'medium',
     financial_ratings: {
-      rating: 'A-',
-      ratingScore: 4,
-      dcfScore: 4,
-      roeScore: 5,
+      rating: 'B+',
+      ratingScore: 3,
+      dcfScore: 3,
+      roeScore: 4,
       roaScore: 5,
       deScore: 2,
       peScore: 2,
       pbScore: 2,
       source: 'FMP API',
-      updated: '2025-12-25'
+      updated: '2026-10-05'
     }
   },
 
@@ -988,21 +992,21 @@ export const tier2Components: Company[] = [
     data_sources: ['TI Annual Report', 'Industry analysis'],
     data_confidence: 'high',
     financial_ratings: {
-      rating: 'B',
+      rating: 'B-',
       ratingScore: 3,
-      dcfScore: 3,
+      dcfScore: 2,
       roeScore: 5,
       roaScore: 5,
       deScore: 1,
-      peScore: 2,
+      peScore: 1,
       pbScore: 1,
-      roeValue: 30.4,
-      roaValue: 14.4,
-      deValue: 0.84,
-      peValue: 31.6,
-      pbValue: 9.6,
+      roeValue: 35.8,
+      roaValue: 16.9,
+      deValue: 0.78,
+      peValue: 44.4,
+      pbValue: 14.9,
       source: 'FMP API',
-      updated: '2025-12-17'
+      updated: '2026-10-05'
     }
   },
   {
@@ -1044,21 +1048,21 @@ export const tier2Components: Company[] = [
     data_sources: ['ADI Annual Report', 'Industry analysis'],
     data_confidence: 'high',
     financial_ratings: {
-      rating: 'B',
+      rating: 'B-',
       ratingScore: 3,
-      dcfScore: 4,
+      dcfScore: 3,
       roeScore: 3,
       roaScore: 4,
-      deScore: 3,
+      deScore: 2,
       peScore: 1,
       pbScore: 2,
-      roeValue: 6.6,
-      roaValue: 4.7,
-      deValue: 0.25,
-      peValue: 60.1,
-      pbValue: 4.0,
+      roeValue: 12.3,
+      roaValue: 8.5,
+      deValue: 0.27,
+      peValue: 49.3,
+      pbValue: 6.1,
       source: 'FMP API',
-      updated: '2025-12-25'
+      updated: '2026-10-05'
     }
   },
   {
@@ -1102,19 +1106,19 @@ export const tier2Components: Company[] = [
     financial_ratings: {
       rating: 'C+',
       ratingScore: 2,
-      dcfScore: 3,
-      roeScore: 1,
-      roaScore: 1,
+      dcfScore: 1,
+      roeScore: 2,
+      roaScore: 3,
       deScore: 2,
       peScore: 1,
-      pbScore: 5,
-      roeValue: -3.7,
-      roaValue: -1.8,
-      deValue: 0.50,
-      peValue: -26.1,
-      pbValue: 1.0,
+      pbScore: 3,
+      roeValue: 1.6,
+      roaValue: 0.7,
+      deValue: 0.38,
+      peValue: 147.2,
+      pbValue: 1.8,
       source: 'FMP API',
-      updated: '2025-12-17'
+      updated: '2026-10-05'
     }
   },
   {
@@ -1151,21 +1155,21 @@ export const tier2Components: Company[] = [
     data_sources: ['Microchip 10-K', 'Industry analysis'],
     data_confidence: 'high',
     financial_ratings: {
-      rating: 'C-',
-      ratingScore: 1,
-      dcfScore: 3,
-      roeScore: 1,
-      roaScore: 1,
+      rating: 'C',
+      ratingScore: 2,
+      dcfScore: 2,
+      roeScore: 3,
+      roaScore: 3,
       deScore: 1,
       peScore: 1,
       pbScore: 1,
-      roeValue: -2.8,
-      roaValue: -1.3,
-      deValue: 0.80,
-      peValue: -186.1,
-      pbValue: 5.1,
+      roeValue: 6.9,
+      roaValue: 3.1,
+      deValue: 0.84,
+      peValue: 112.7,
+      pbValue: 6.8,
       source: 'FMP API',
-      updated: '2025-12-17'
+      updated: '2026-10-05'
     }
   },
   {
@@ -1202,21 +1206,21 @@ export const tier2Components: Company[] = [
     data_sources: ['Marvell Annual Report', 'Industry analysis'],
     data_confidence: 'medium',
     financial_ratings: {
-      rating: 'B+',
-      ratingScore: 3,
-      dcfScore: 3,
+      rating: 'B-',
+      ratingScore: 2,
+      dcfScore: 2,
       roeScore: 4,
-      roaScore: 5,
+      roaScore: 4,
       deScore: 2,
-      peScore: 2,
-      pbScore: 2,
-      roeValue: 18.3,
-      roaValue: 11.5,
-      deValue: 0.32,
-      peValue: 29.0,
-      pbValue: 5.1,
+      peScore: 1,
+      pbScore: 1,
+      roeValue: 16.2,
+      roaValue: 9.6,
+      deValue: 0.29,
+      peValue: 89.3,
+      pbValue: 13.2,
       source: 'FMP API',
-      updated: '2025-12-17'
+      updated: '2026-10-05'
     }
   },
   {
@@ -1258,21 +1262,21 @@ export const tier2Components: Company[] = [
     data_sources: ['Power Integrations 10-K', 'Industry analysis'],
     data_confidence: 'medium',
     financial_ratings: {
-      rating: 'B-',
+      rating: 'C+',
       ratingScore: 2,
       dcfScore: 3,
-      roeScore: 3,
-      roaScore: 4,
+      roeScore: 2,
+      roaScore: 3,
       deScore: 1,
       peScore: 1,
       pbScore: 2,
-      roeValue: 4.6,
-      roaValue: 4.2,
+      roeValue: 3.7,
+      roaValue: 3.2,
       deValue: 0.00,
-      peValue: 60.2,
-      pbValue: 2.9,
+      peValue: 119.7,
+      pbValue: 4.4,
       source: 'FMP API',
-      updated: '2025-12-17'
+      updated: '2026-10-05'
     }
   },
   {
@@ -1379,21 +1383,21 @@ export const tier2Components: Company[] = [
     data_sources: ['Vicor 10-K', 'Industry analysis'],
     data_confidence: 'medium',
     financial_ratings: {
-      rating: 'A-',
-      ratingScore: 4,
-      dcfScore: 3,
+      rating: 'B',
+      ratingScore: 3,
+      dcfScore: 2,
       roeScore: 4,
       roaScore: 5,
-      deScore: 4,
-      peScore: 2,
-      pbScore: 2,
-      roeValue: 13.8,
-      roaValue: 11.6,
+      deScore: 3,
+      peScore: 1,
+      pbScore: 1,
+      roeValue: 19.8,
+      roaValue: 16.2,
       deValue: 0.01,
-      peValue: 59.0,
-      pbValue: 7.7,
+      peValue: 96.8,
+      pbValue: 17.0,
       source: 'FMP API',
-      updated: '2025-12-25'
+      updated: '2026-10-05'
     }
   },
   {
@@ -1430,21 +1434,21 @@ export const tier2Components: Company[] = [
     data_sources: ['AMD 10-K', 'Industry analysis'],
     data_confidence: 'medium',
     financial_ratings: {
-      rating: 'B',
-      ratingScore: 3,
-      dcfScore: 3,
+      rating: 'B-',
+      ratingScore: 2,
+      dcfScore: 2,
       roeScore: 3,
       roaScore: 4,
-      deScore: 4,
+      deScore: 3,
       peScore: 1,
-      pbScore: 2,
-      roeValue: 5.6,
-      roaValue: 4.3,
+      pbScore: 1,
+      roeValue: 10.1,
+      roaValue: 7.6,
       deValue: 0.06,
-      peValue: 105.8,
-      pbValue: 5.8,
+      peValue: 160.9,
+      pbValue: 15.4,
       source: 'FMP API',
-      updated: '2025-12-25'
+      updated: '2026-10-05'
     }
   },
   {
@@ -1489,13 +1493,13 @@ export const tier2Components: Company[] = [
       deScore: 1,
       peScore: 2,
       pbScore: 1,
-      roeValue: 79.0,
-      roaValue: 9.0,
-      deValue: 2.92,
-      peValue: 25.6,
-      pbValue: 18.8,
+      roeValue: 77.1,
+      roaValue: 8.6,
+      deValue: 4.25,
+      peValue: 28.6,
+      pbValue: 28.8,
       source: 'FMP API',
-      updated: '2025-12-17'
+      updated: '2026-10-05'
     }
   },
   {
