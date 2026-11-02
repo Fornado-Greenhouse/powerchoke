@@ -43,15 +43,15 @@ export const software: Company[] = [
       roeScore: 5,
       roaScore: 4,
       deScore: 1,
-      peScore: 1,
+      peScore: 2,
       pbScore: 1,
-      roeValue: 24.0,
-      roaValue: 7.8,
-      deValue: 1.07,
-      peValue: 47.1,
+      roeValue: 24.1,
+      roaValue: 8.1,
+      deValue: 1.05,
+      peValue: 44.5,
       pbValue: 10.6,
       source: 'FMP API',
-      updated: '2025-12-17'
+      updated: '2026-11-02'
     }
   },
   // NOTE: AVEVA Group (PI System) exposure is on parent company Schneider Electric (co_schneider) in tier1-oems.ts - acquired 2023
@@ -153,21 +153,21 @@ export const software: Company[] = [
     data_sources: ['Itron 10-K 2024', 'Q3 2024 Earnings'],
     data_confidence: 'high',
     financial_ratings: {
-      rating: 'B+',
-      ratingScore: 3,
+      rating: 'A-',
+      ratingScore: 4,
       dcfScore: 3,
       roeScore: 4,
       roaScore: 4,
-      deScore: 2,
-      peScore: 2,
-      pbScore: 3,
-      roeValue: 16.7,
-      roaValue: 6.9,
-      deValue: 0.36,
-      peValue: 17.0,
-      pbValue: 2.6,
+      deScore: 1,
+      peScore: 4,
+      pbScore: 4,
+      roeValue: 16.9,
+      roaValue: 6.8,
+      deValue: 0.95,
+      peValue: 15.3,
+      pbValue: 2.5,
       source: 'FMP API',
-      updated: '2025-12-25'
+      updated: '2026-11-02'
     }
   },
   {
@@ -199,14 +199,14 @@ export const software: Company[] = [
     financial_ratings: {
       rating: 'C',
       ratingScore: 2,
-      dcfScore: 3,
+      dcfScore: 2,
       roeScore: 1,
       roaScore: 1,
-      deScore: 2,
+      deScore: 3,
       peScore: 1,
       pbScore: 3,
       source: 'FMP API',
-      updated: '2025-12-25'
+      updated: '2026-11-02'
     }
   },
 
@@ -306,19 +306,19 @@ export const software: Company[] = [
     financial_ratings: {
       rating: 'B+',
       ratingScore: 3,
-      dcfScore: 4,
+      dcfScore: 3,
       roeScore: 5,
       roaScore: 5,
-      deScore: 1,
-      peScore: 2,
+      deScore: 3,
+      peScore: 1,
       pbScore: 1,
-      roeValue: 119.9,
-      roaValue: 20.0,
-      deValue: 1.35,
-      peValue: 32.6,
-      pbValue: 83.1,
+      roeValue: 151.5,
+      roaValue: 19.1,
+      deValue: 0.22,
+      peValue: 43.9,
+      pbValue: 44.5,
       source: 'FMP API',
-      updated: '2025-12-17'
+      updated: '2026-11-02'
     }
   },
   {
@@ -346,21 +346,21 @@ export const software: Company[] = [
     data_sources: ['Tenable 10-K 2024', 'Industry analysis', 'FMP API'],
     data_confidence: 'medium',
     financial_ratings: {
-      rating: 'C+',
+      rating: 'C',
       ratingScore: 2,
-      dcfScore: 5,
+      dcfScore: 4,
       roeScore: 1,
-      roaScore: 1,
-      deScore: 3,
+      roaScore: 2,
+      deScore: 1,
       peScore: 1,
       pbScore: 1,
-      roeValue: -9.1,
-      roaValue: -2.0,
-      deValue: 0.18,
-      peValue: -89.3,
-      pbValue: 8.7,
+      roeValue: 8.5,
+      roaValue: 0.9,
+      deValue: -31.77,
+      peValue: 352.9,
+      pbValue: -208.9,
       source: 'FMP API',
-      updated: '2025-12-17'
+      updated: '2026-11-02'
     }
   },
 
@@ -392,21 +392,21 @@ export const software: Company[] = [
     data_sources: ['Fortive 10-K 2024', 'Q3 2024 Earnings', 'FMP API'],
     data_confidence: 'medium',
     financial_ratings: {
-      rating: 'A-',
-      ratingScore: 4,
-      dcfScore: 5,
-      roeScore: 4,
-      roaScore: 4,
+      rating: 'B+',
+      ratingScore: 3,
+      dcfScore: 4,
+      roeScore: 3,
+      roaScore: 3,
       deScore: 2,
-      peScore: 2,
+      peScore: 3,
       pbScore: 3,
-      roeValue: 6.5,
-      roaValue: 5.1,
-      deValue: 0.51,
-      peValue: 30.4,
-      pbValue: 2.8,
+      roeValue: 10.6,
+      roaValue: 5.7,
+      deValue: 0.59,
+      peValue: 30.8,
+      pbValue: 3.3,
       source: 'FMP API',
-      updated: '2025-12-17'
+      updated: '2026-11-02'
     }
   },
 ];
