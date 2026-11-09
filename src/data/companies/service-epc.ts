@@ -37,21 +37,21 @@ export const serviceEpcs: Company[] = [
     data_sources: ['Quanta 10-K 2024', 'Earnings Q3 2024', 'FMP API'],
     data_confidence: 'high',
     financial_ratings: {
-      rating: 'B-',
+      rating: 'B',
       ratingScore: 3,
       dcfScore: 3,
-      roeScore: 4,
+      roeScore: 5,
       roaScore: 4,
       deScore: 2,
       peScore: 1,
       pbScore: 1,
-      roeValue: 13.1,
-      roaValue: 4.5,
-      deValue: 0.72,
-      peValue: 63.5,
+      roeValue: 17.7,
+      roaValue: 5.2,
+      deValue: 0.71,
+      peValue: 48.4,
       pbValue: 7.7,
       source: 'FMP API',
-      updated: '2025-12-25'
+      updated: '2026-11-09'
     }
   },
   {
@@ -80,21 +80,21 @@ export const serviceEpcs: Company[] = [
     data_sources: ['MYR Group 10-K 2024', 'FMP API'],
     data_confidence: 'high',
     financial_ratings: {
-      rating: 'B',
-      ratingScore: 3,
-      dcfScore: 3,
-      roeScore: 4,
-      roaScore: 4,
+      rating: 'A-',
+      ratingScore: 4,
+      dcfScore: 4,
+      roeScore: 5,
+      roaScore: 5,
       deScore: 3,
       peScore: 2,
       pbScore: 1,
-      roeValue: 16.7,
-      roaValue: 5.9,
-      deValue: 0.19,
-      peValue: 36.0,
-      pbValue: 5.7,
+      roeValue: 26.3,
+      roaValue: 9.2,
+      deValue: 0.34,
+      peValue: 21.2,
+      pbValue: 5.0,
       source: 'FMP API',
-      updated: '2025-12-25'
+      updated: '2026-11-09'
     }
   },
   {
@@ -128,17 +128,17 @@ export const serviceEpcs: Company[] = [
       ratingScore: 3,
       dcfScore: 3,
       roeScore: 4,
-      roaScore: 4,
-      deScore: 2,
-      peScore: 1,
-      pbScore: 1,
-      roeValue: 11.2,
-      roaValue: 3.4,
-      deValue: 0.89,
-      peValue: 52.5,
-      pbValue: 5.6,
+      roaScore: 3,
+      deScore: 1,
+      peScore: 2,
+      pbScore: 2,
+      roeValue: 14.0,
+      roaValue: 3.5,
+      deValue: 1.16,
+      peValue: 28.2,
+      pbValue: 3.4,
       source: 'FMP API',
-      updated: '2025-12-25'
+      updated: '2026-11-09'
     }
   },
   {
@@ -168,21 +168,21 @@ export const serviceEpcs: Company[] = [
     data_sources: ['Primoris 10-K 2024', 'Industry analysis', 'FMP API'],
     data_confidence: 'high',
     financial_ratings: {
-      rating: 'B+',
+      rating: 'B',
       ratingScore: 3,
-      dcfScore: 3,
-      roeScore: 4,
-      roaScore: 4,
-      deScore: 3,
-      peScore: 2,
-      pbScore: 2,
-      roeValue: 18.4,
-      roaValue: 6.0,
-      deValue: 0.24,
-      peValue: 25.2,
-      pbValue: 4.3,
+      dcfScore: 5,
+      roeScore: 3,
+      roaScore: 3,
+      deScore: 2,
+      peScore: 1,
+      pbScore: 3,
+      roeValue: 5.9,
+      roaValue: 2.1,
+      deValue: 0.70,
+      peValue: 36.5,
+      pbValue: 2.2,
       source: 'FMP API',
-      updated: '2025-12-25'
+      updated: '2026-11-09'
     }
   },
   {
@@ -213,19 +213,19 @@ export const serviceEpcs: Company[] = [
     financial_ratings: {
       rating: 'B+',
       ratingScore: 3,
-      dcfScore: 3,
+      dcfScore: 5,
       roeScore: 5,
-      roaScore: 5,
-      deScore: 2,
+      roaScore: 4,
+      deScore: 1,
       peScore: 2,
       pbScore: 1,
-      roeValue: 22.2,
-      roaValue: 8.9,
-      deValue: 0.72,
-      peValue: 33.9,
-      pbValue: 6.8,
+      roeValue: 18.1,
+      roaValue: 5.0,
+      deValue: 1.48,
+      peValue: 18.7,
+      pbValue: 3.0,
       source: 'FMP API',
-      updated: '2025-12-25'
+      updated: '2026-11-09'
     }
   },
 
@@ -262,13 +262,13 @@ export const serviceEpcs: Company[] = [
       rating: 'A-',
       ratingScore: 4,
       dcfScore: 5,
-      roeScore: 4,
-      roaScore: 4,
+      roeScore: 5,
+      roaScore: 3,
       deScore: 1,
       peScore: 3,
       pbScore: 3,
       source: 'FMP API',
-      updated: '2025-12-25'
+      updated: '2026-11-09'
     }
   },
   {
@@ -301,13 +301,13 @@ export const serviceEpcs: Company[] = [
       rating: 'B+',
       ratingScore: 3,
       dcfScore: 4,
-      roeScore: 3,
+      roeScore: 4,
       roaScore: 3,
       deScore: 1,
       peScore: 3,
       pbScore: 4,
       source: 'FMP API',
-      updated: '2025-12-25'
+      updated: '2026-11-09'
     }
   },
   {
@@ -341,13 +341,13 @@ export const serviceEpcs: Company[] = [
       rating: 'B',
       ratingScore: 3,
       dcfScore: 4,
-      roeScore: 4,
-      roaScore: 4,
+      roeScore: 5,
+      roaScore: 3,
       deScore: 1,
       peScore: 2,
       pbScore: 2,
       source: 'FMP API',
-      updated: '2025-12-25'
+      updated: '2026-11-09'
     }
   },
   {
@@ -378,16 +378,16 @@ export const serviceEpcs: Company[] = [
     data_sources: ['Company Annual Report 2024', 'Industry analysis'],
     data_confidence: 'medium',
     financial_ratings: {
-      rating: 'B',
+      rating: 'B-',
       ratingScore: 3,
       dcfScore: 1,
-      roeScore: 3,
-      roaScore: 3,
+      roeScore: 2,
+      roaScore: 2,
       deScore: 1,
       peScore: 4,
       pbScore: 5,
       source: 'FMP API',
-      updated: '2025-12-25'
+      updated: '2026-11-09'
     }
   },
   {
@@ -417,16 +417,16 @@ export const serviceEpcs: Company[] = [
     data_sources: ['Samsung C&T Annual Report 2024', 'Industry analysis', 'FMP API'],
     data_confidence: 'medium',
     financial_ratings: {
-      rating: 'A-',
-      ratingScore: 4,
+      rating: 'C',
+      ratingScore: 2,
       dcfScore: 3,
-      roeScore: 3,
-      roaScore: 3,
-      deScore: 3,
+      roeScore: 1,
+      roaScore: 1,
+      deScore: 1,
       peScore: 3,
-      pbScore: 5,
+      pbScore: 1,
       source: 'FMP API',
-      updated: '2025-12-25'
+      updated: '2026-11-09'
     }
   },
 
@@ -540,16 +540,16 @@ export const serviceEpcs: Company[] = [
       dcfScore: 4,
       roeScore: 4,
       roaScore: 4,
-      deScore: 2,
+      deScore: 3,
       peScore: 3,
       pbScore: 3,
       roeValue: 12.1,
-      roaValue: 5.1,
-      deValue: 0.55,
-      peValue: 19.0,
-      pbValue: 2.3,
+      roaValue: 5.3,
+      deValue: 0.43,
+      peValue: 15.0,
+      pbValue: 1.8,
       source: 'FMP API',
-      updated: '2025-12-25'
+      updated: '2026-11-09'
     }
   },
   {
@@ -608,19 +608,19 @@ export const serviceEpcs: Company[] = [
     financial_ratings: {
       rating: 'B',
       ratingScore: 3,
-      dcfScore: 3,
+      dcfScore: 2,
       roeScore: 5,
       roaScore: 5,
       deScore: 2,
       peScore: 1,
       pbScore: 1,
-      roeValue: 35.3,
-      roaValue: 9.6,
-      deValue: 0.92,
-      peValue: 61.5,
-      pbValue: 18.1,
+      roeValue: 45.5,
+      roaValue: 11.5,
+      deValue: 0.59,
+      peValue: 33.4,
+      pbValue: 12.8,
       source: 'FMP API',
-      updated: '2025-12-25'
+      updated: '2026-11-09'
     }
   },
   {
@@ -650,21 +650,21 @@ export const serviceEpcs: Company[] = [
     data_sources: ['EnerSys 10-K', 'Q3 2024 Earnings', 'Industry analysis'],
     data_confidence: 'high',
     financial_ratings: {
-      rating: 'A-',
+      rating: 'A',
       ratingScore: 4,
-      dcfScore: 3,
+      dcfScore: 5,
       roeScore: 5,
       roaScore: 5,
-      deScore: 2,
-      peScore: 3,
-      pbScore: 3,
-      roeValue: 18.0,
-      roaValue: 8.3,
-      deValue: 0.65,
-      peValue: 16.6,
-      pbValue: 3.0,
+      deScore: 3,
+      peScore: 2,
+      pbScore: 2,
+      roeValue: 18.5,
+      roaValue: 8.9,
+      deValue: 0.53,
+      peValue: 15.4,
+      pbValue: 2.7,
       source: 'FMP API',
-      updated: '2025-12-25'
+      updated: '2026-11-09'
     }
   },
   {
@@ -694,16 +694,16 @@ export const serviceEpcs: Company[] = [
     data_sources: ['Delta Annual Report', 'Industry analysis'],
     data_confidence: 'medium',
     financial_ratings: {
-      rating: 'B+',
+      rating: 'B',
       ratingScore: 3,
       dcfScore: 3,
       roeScore: 5,
       roaScore: 5,
       deScore: 2,
-      peScore: 2,
+      peScore: 1,
       pbScore: 1,
       source: 'FMP API',
-      updated: '2025-12-25'
+      updated: '2026-11-09'
     }
   },
 ];
